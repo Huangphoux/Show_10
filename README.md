@@ -19,7 +19,7 @@ A collaborative effort to create a bookstore management desktop software
 	- Back-end (C#): Phúc
 - Showcasing
 	- Report making: Khang + Thành + Hào
-                                - Chapter 1: Thành
-                                - Chapter 2: Khang + Hào
+		- Chapter 1: Thành
+		- Chapter 2: Khang + Hào
 	- Presentation slides: Hào
                 - App showcasing: Khang
