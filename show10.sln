@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "show10", "show10\show10.csproj", "{8495210B-97AE-4971-B8ED-35CCFFC7A76B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Show10", "show10\Show10.csproj", "{8495210B-97AE-4971-B8ED-35CCFFC7A76B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
