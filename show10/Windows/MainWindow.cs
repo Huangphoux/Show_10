@@ -8,5 +8,10 @@ namespace show10
 
             //Hello WOrld
         }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
