@@ -28,34 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            panel1 = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             SuspendLayout();
             // 
-            // button1
+            // panel1
             // 
-            button1.Location = new Point(276, 183);
-            button1.Name = "button1";
-            button1.Size = new Size(174, 109);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            panel1.BackColor = Color.White;
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1182, 36);
+            panel1.TabIndex = 0;
+            // 
+            // iconButton1
+            // 
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.Location = new Point(839, 391);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(191, 77);
+            iconButton1.TabIndex = 1;
+            iconButton1.Text = "Menu";
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 673);
-            Controls.Add(button1);
+            Controls.Add(iconButton1);
+            Controls.Add(panel1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Show 10!";
+            Load += MainWindow_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
+        private Panel panel1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
