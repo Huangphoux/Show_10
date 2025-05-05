@@ -8,4 +8,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.4" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Child Forms\" />
+    <Folder Include="Data Access\" />
+  </ItemGroup>
+
 </Project>

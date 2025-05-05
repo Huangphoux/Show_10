@@ -28,34 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            components = new System.ComponentModel.Container();
+            timer_Clock = new System.Windows.Forms.Timer(components);
+            label_Clock = new Label();
+            icon_Fullscreen = new FontAwesome.Sharp.IconPictureBox();
+            ((System.ComponentModel.ISupportInitialize)icon_Fullscreen).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // timer_Clock
             // 
-            button1.Location = new Point(276, 183);
-            button1.Name = "button1";
-            button1.Size = new Size(174, 109);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            timer_Clock.Enabled = true;
+            timer_Clock.Interval = 1000;
+            timer_Clock.Tick += Timer_Tick;
+            // 
+            // label_Clock
+            // 
+            label_Clock.Location = new Point(80, 200);
+            label_Clock.Name = "label_Clock";
+            label_Clock.Size = new Size(200, 80);
+            label_Clock.TabIndex = 0;
+            label_Clock.Text = "(Số giờ sử dụng)";
+            label_Clock.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // icon_Fullscreen
+            // 
+            icon_Fullscreen.Anchor = AnchorStyles.Right;
+            icon_Fullscreen.BackColor = SystemColors.Control;
+            icon_Fullscreen.ForeColor = SystemColors.ControlText;
+            icon_Fullscreen.IconChar = FontAwesome.Sharp.IconChar.Expand;
+            icon_Fullscreen.IconColor = SystemColors.ControlText;
+            icon_Fullscreen.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_Fullscreen.IconSize = 40;
+            icon_Fullscreen.Location = new Point(1080, 40);
+            icon_Fullscreen.Name = "icon_Fullscreen";
+            icon_Fullscreen.Size = new Size(40, 40);
+            icon_Fullscreen.TabIndex = 1;
+            icon_Fullscreen.TabStop = false;
+            icon_Fullscreen.Click += Icon_Fullscreen_Click;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 673);
-            Controls.Add(button1);
+            Controls.Add(icon_Fullscreen);
+            Controls.Add(label_Clock);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Show 10!";
+            Text = "Show 10 !";
+            Resize += MainWindow_Resize;
+            ((System.ComponentModel.ISupportInitialize)icon_Fullscreen).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
+        private System.Windows.Forms.Timer timer_Clock;
+        private Label label_Clock;
+        private FontAwesome.Sharp.IconPictureBox icon_Fullscreen;
     }
 }
