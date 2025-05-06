@@ -22,6 +22,12 @@ namespace show10
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 80);
             panel_Menu.Controls.Add(leftBorderBtn);
+
+            //icon_User.Enabled = false;
+            //icon_Book.Enabled = false;
+
+            //icon_Brand.IconChar = IconChar.SignOut;
+            icon_Brand.IconSize = 100;
         }
 
         private TimeSpan elapsedTime;
@@ -118,7 +124,7 @@ namespace show10
         private void Icon_User_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Form_User());
+            OpenChildForm(new Form_Account());
         }
 
         private void Icon_Book_Click(object sender, EventArgs e)
@@ -126,5 +132,6 @@ namespace show10
             ActivateButton(sender, RGBColors.color2);
 
         }
+
     }
 }

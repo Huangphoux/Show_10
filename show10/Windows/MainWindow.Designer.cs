@@ -31,20 +31,27 @@
             components = new System.ComponentModel.Container();
             timer_Clock = new System.Windows.Forms.Timer(components);
             label_Clock = new Label();
-            icon_Fullscreen = new FontAwesome.Sharp.IconPictureBox();
             panel_Menu = new Panel();
+            icon_FullScreen = new FontAwesome.Sharp.IconButton();
             icon_Book = new FontAwesome.Sharp.IconButton();
             icon_User = new FontAwesome.Sharp.IconButton();
             panel_Brand = new Panel();
-            label_Brand = new Label();
             icon_Brand = new FontAwesome.Sharp.IconPictureBox();
             panel_TopBar = new Panel();
             panel_ChildForm = new Panel();
-            ((System.ComponentModel.ISupportInitialize)icon_Fullscreen).BeginInit();
+            label3 = new Label();
+            checkBox1 = new CheckBox();
+            label2 = new Label();
+            label1 = new Label();
+            maskedTextBox1 = new MaskedTextBox();
+            textBox1 = new TextBox();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
             panel_TopBar.SuspendLayout();
+            panel_ChildForm.SuspendLayout();
             SuspendLayout();
             // 
             // timer_Clock
@@ -59,31 +66,15 @@
             label_Clock.FlatStyle = FlatStyle.Flat;
             label_Clock.Location = new Point(0, 0);
             label_Clock.Name = "label_Clock";
-            label_Clock.Size = new Size(860, 38);
+            label_Clock.Size = new Size(900, 38);
             label_Clock.TabIndex = 0;
             label_Clock.Text = "(Số giờ sử dụng)";
             label_Clock.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // icon_Fullscreen
-            // 
-            icon_Fullscreen.BackColor = SystemColors.Control;
-            icon_Fullscreen.Dock = DockStyle.Right;
-            icon_Fullscreen.ForeColor = SystemColors.ControlText;
-            icon_Fullscreen.IconChar = FontAwesome.Sharp.IconChar.Expand;
-            icon_Fullscreen.IconColor = SystemColors.ControlText;
-            icon_Fullscreen.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Fullscreen.IconSize = 38;
-            icon_Fullscreen.Location = new Point(860, 0);
-            icon_Fullscreen.Name = "icon_Fullscreen";
-            icon_Fullscreen.Size = new Size(40, 38);
-            icon_Fullscreen.SizeMode = PictureBoxSizeMode.CenterImage;
-            icon_Fullscreen.TabIndex = 1;
-            icon_Fullscreen.TabStop = false;
-            icon_Fullscreen.Click += Icon_Fullscreen_Click;
-            // 
             // panel_Menu
             // 
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
+            panel_Menu.Controls.Add(icon_FullScreen);
             panel_Menu.Controls.Add(icon_Book);
             panel_Menu.Controls.Add(icon_User);
             panel_Menu.Controls.Add(panel_Brand);
@@ -92,6 +83,25 @@
             panel_Menu.Name = "panel_Menu";
             panel_Menu.Size = new Size(280, 673);
             panel_Menu.TabIndex = 2;
+            // 
+            // icon_FullScreen
+            // 
+            icon_FullScreen.Dock = DockStyle.Bottom;
+            icon_FullScreen.FlatAppearance.BorderSize = 0;
+            icon_FullScreen.FlatStyle = FlatStyle.Flat;
+            icon_FullScreen.IconChar = FontAwesome.Sharp.IconChar.Expand;
+            icon_FullScreen.IconColor = Color.Black;
+            icon_FullScreen.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_FullScreen.IconSize = 30;
+            icon_FullScreen.Location = new Point(0, 591);
+            icon_FullScreen.Name = "icon_FullScreen";
+            icon_FullScreen.Size = new Size(278, 80);
+            icon_FullScreen.TabIndex = 3;
+            icon_FullScreen.Text = "Toàn màn hình";
+            icon_FullScreen.TextAlign = ContentAlignment.MiddleRight;
+            icon_FullScreen.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_FullScreen.UseVisualStyleBackColor = true;
+            icon_FullScreen.Click += Icon_Fullscreen_Click;
             // 
             // icon_Book
             // 
@@ -133,7 +143,6 @@
             // 
             // panel_Brand
             // 
-            panel_Brand.Controls.Add(label_Brand);
             panel_Brand.Controls.Add(icon_Brand);
             panel_Brand.Dock = DockStyle.Top;
             panel_Brand.Location = new Point(0, 0);
@@ -141,29 +150,19 @@
             panel_Brand.Size = new Size(278, 200);
             panel_Brand.TabIndex = 0;
             // 
-            // label_Brand
-            // 
-            label_Brand.Dock = DockStyle.Bottom;
-            label_Brand.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Brand.Location = new Point(0, 120);
-            label_Brand.Name = "label_Brand";
-            label_Brand.Size = new Size(278, 80);
-            label_Brand.TabIndex = 2;
-            label_Brand.Text = "Show 10 !";
-            label_Brand.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // icon_Brand
             // 
             icon_Brand.BackColor = SystemColors.Control;
-            icon_Brand.Dock = DockStyle.Top;
+            icon_Brand.BorderStyle = BorderStyle.FixedSingle;
+            icon_Brand.Dock = DockStyle.Fill;
             icon_Brand.ForeColor = SystemColors.ControlText;
             icon_Brand.IconChar = FontAwesome.Sharp.IconChar.Store;
             icon_Brand.IconColor = SystemColors.ControlText;
-            icon_Brand.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            icon_Brand.IconSize = 120;
+            icon_Brand.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_Brand.IconSize = 200;
             icon_Brand.Location = new Point(0, 0);
             icon_Brand.Name = "icon_Brand";
-            icon_Brand.Size = new Size(278, 120);
+            icon_Brand.Size = new Size(278, 200);
             icon_Brand.SizeMode = PictureBoxSizeMode.CenterImage;
             icon_Brand.TabIndex = 1;
             icon_Brand.TabStop = false;
@@ -172,7 +171,6 @@
             // 
             panel_TopBar.BorderStyle = BorderStyle.FixedSingle;
             panel_TopBar.Controls.Add(label_Clock);
-            panel_TopBar.Controls.Add(icon_Fullscreen);
             panel_TopBar.Dock = DockStyle.Top;
             panel_TopBar.Location = new Point(280, 0);
             panel_TopBar.Name = "panel_TopBar";
@@ -181,11 +179,119 @@
             // 
             // panel_ChildForm
             // 
+            panel_ChildForm.Controls.Add(iconButton2);
+            panel_ChildForm.Controls.Add(iconButton1);
+            panel_ChildForm.Controls.Add(label3);
+            panel_ChildForm.Controls.Add(checkBox1);
+            panel_ChildForm.Controls.Add(label2);
+            panel_ChildForm.Controls.Add(label1);
+            panel_ChildForm.Controls.Add(maskedTextBox1);
+            panel_ChildForm.Controls.Add(textBox1);
             panel_ChildForm.Dock = DockStyle.Fill;
             panel_ChildForm.Location = new Point(280, 40);
             panel_ChildForm.Name = "panel_ChildForm";
             panel_ChildForm.Size = new Size(902, 633);
             panel_ChildForm.TabIndex = 4;
+            // 
+            // label3
+            // 
+            label3.AccessibleRole = AccessibleRole.None;
+            label3.BorderStyle = BorderStyle.FixedSingle;
+            label3.Dock = DockStyle.Top;
+            label3.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(0, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(902, 80);
+            label3.TabIndex = 5;
+            label3.Text = "Đăng nhập";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // checkBox1
+            // 
+            checkBox1.Anchor = AnchorStyles.None;
+            checkBox1.FlatStyle = FlatStyle.Flat;
+            checkBox1.Location = new Point(291, 280);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(320, 40);
+            checkBox1.TabIndex = 4;
+            checkBox1.Text = "Tôi là quản trị viên";
+            checkBox1.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.Location = new Point(151, 200);
+            label2.Margin = new Padding(3, 0, 20, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(200, 40);
+            label2.TabIndex = 3;
+            label2.Text = "Mật khẩu";
+            label2.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.Location = new Point(151, 120);
+            label1.Margin = new Padding(3, 0, 20, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(200, 40);
+            label1.TabIndex = 2;
+            label1.Text = "Tên người dùng";
+            label1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Anchor = AnchorStyles.None;
+            maskedTextBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox1.Location = new Point(391, 200);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.PasswordChar = '•';
+            maskedTextBox1.Size = new Size(360, 43);
+            maskedTextBox1.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.None;
+            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(391, 120);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(360, 43);
+            textBox1.TabIndex = 0;
+            // 
+            // iconButton1
+            // 
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignIn;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            iconButton1.IconSize = 30;
+            iconButton1.Location = new Point(360, 360);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(200, 80);
+            iconButton1.TabIndex = 6;
+            iconButton1.Text = "Đăng nhập";
+            iconButton1.TextAlign = ContentAlignment.MiddleRight;
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // iconButton2
+            // 
+            iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            iconButton2.IconColor = Color.Black;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            iconButton2.IconSize = 30;
+            iconButton2.Location = new Point(360, 440);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(200, 80);
+            iconButton2.TabIndex = 7;
+            iconButton2.Text = "Đăng ký";
+            iconButton2.TextAlign = ContentAlignment.MiddleRight;
+            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton2.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -200,11 +306,12 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Show 10 !";
-            ((System.ComponentModel.ISupportInitialize)icon_Fullscreen).EndInit();
             panel_Menu.ResumeLayout(false);
             panel_Brand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)icon_Brand).EndInit();
             panel_TopBar.ResumeLayout(false);
+            panel_ChildForm.ResumeLayout(false);
+            panel_ChildForm.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -212,14 +319,21 @@
 
         private System.Windows.Forms.Timer timer_Clock;
         private Label label_Clock;
-        private FontAwesome.Sharp.IconPictureBox icon_Fullscreen;
         private Panel panel_Menu;
         private Panel panel_Brand;
         private FontAwesome.Sharp.IconButton icon_User;
         private Panel panel_TopBar;
-        private Label label_Brand;
         private FontAwesome.Sharp.IconPictureBox icon_Brand;
         private FontAwesome.Sharp.IconButton icon_Book;
         private Panel panel_ChildForm;
+        private FontAwesome.Sharp.IconButton icon_FullScreen;
+        private CheckBox checkBox1;
+        private Label label2;
+        private Label label1;
+        private MaskedTextBox maskedTextBox1;
+        private TextBox textBox1;
+        private Label label3;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }
