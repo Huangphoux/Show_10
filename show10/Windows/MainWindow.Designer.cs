@@ -30,27 +30,24 @@
         {
             components = new System.ComponentModel.Container();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            label_Clock = new Label();
             panel_Menu = new Panel();
             icon_FullScreen = new FontAwesome.Sharp.IconButton();
             icon_Book = new FontAwesome.Sharp.IconButton();
             icon_User = new FontAwesome.Sharp.IconButton();
             panel_Brand = new Panel();
             icon_Brand = new FontAwesome.Sharp.IconPictureBox();
-            panel_TopBar = new Panel();
             panel_ChildForm = new Panel();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             label3 = new Label();
             checkBox1 = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             maskedTextBox1 = new MaskedTextBox();
             textBox1 = new TextBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
-            panel_TopBar.SuspendLayout();
             panel_ChildForm.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,17 +56,6 @@
             timer_Clock.Enabled = true;
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += Timer_Tick;
-            // 
-            // label_Clock
-            // 
-            label_Clock.Dock = DockStyle.Fill;
-            label_Clock.FlatStyle = FlatStyle.Flat;
-            label_Clock.Location = new Point(0, 0);
-            label_Clock.Name = "label_Clock";
-            label_Clock.Size = new Size(900, 38);
-            label_Clock.TabIndex = 0;
-            label_Clock.Text = "(Số giờ sử dụng)";
-            label_Clock.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel_Menu
             // 
@@ -167,16 +153,6 @@
             icon_Brand.TabIndex = 1;
             icon_Brand.TabStop = false;
             // 
-            // panel_TopBar
-            // 
-            panel_TopBar.BorderStyle = BorderStyle.FixedSingle;
-            panel_TopBar.Controls.Add(label_Clock);
-            panel_TopBar.Dock = DockStyle.Top;
-            panel_TopBar.Location = new Point(280, 0);
-            panel_TopBar.Name = "panel_TopBar";
-            panel_TopBar.Size = new Size(902, 40);
-            panel_TopBar.TabIndex = 3;
-            // 
             // panel_ChildForm
             // 
             panel_ChildForm.Controls.Add(iconButton2);
@@ -188,93 +164,10 @@
             panel_ChildForm.Controls.Add(maskedTextBox1);
             panel_ChildForm.Controls.Add(textBox1);
             panel_ChildForm.Dock = DockStyle.Fill;
-            panel_ChildForm.Location = new Point(280, 40);
+            panel_ChildForm.Location = new Point(280, 0);
             panel_ChildForm.Name = "panel_ChildForm";
-            panel_ChildForm.Size = new Size(902, 633);
+            panel_ChildForm.Size = new Size(902, 673);
             panel_ChildForm.TabIndex = 4;
-            // 
-            // label3
-            // 
-            label3.AccessibleRole = AccessibleRole.None;
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Dock = DockStyle.Top;
-            label3.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(902, 80);
-            label3.TabIndex = 5;
-            label3.Text = "Đăng nhập";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // checkBox1
-            // 
-            checkBox1.Anchor = AnchorStyles.None;
-            checkBox1.FlatStyle = FlatStyle.Flat;
-            checkBox1.Location = new Point(291, 280);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(320, 40);
-            checkBox1.TabIndex = 4;
-            checkBox1.Text = "Tôi là quản trị viên";
-            checkBox1.TextAlign = ContentAlignment.MiddleCenter;
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.None;
-            label2.Location = new Point(151, 200);
-            label2.Margin = new Padding(3, 0, 20, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(200, 40);
-            label2.TabIndex = 3;
-            label2.Text = "Mật khẩu";
-            label2.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.Location = new Point(151, 120);
-            label1.Margin = new Padding(3, 0, 20, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(200, 40);
-            label1.TabIndex = 2;
-            label1.Text = "Tên người dùng";
-            label1.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Anchor = AnchorStyles.None;
-            maskedTextBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(391, 200);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.PasswordChar = '•';
-            maskedTextBox1.Size = new Size(360, 43);
-            maskedTextBox1.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(391, 120);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(360, 43);
-            textBox1.TabIndex = 0;
-            // 
-            // iconButton1
-            // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignIn;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconButton1.IconSize = 30;
-            iconButton1.Location = new Point(360, 360);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(200, 80);
-            iconButton1.TabIndex = 6;
-            iconButton1.Text = "Đăng nhập";
-            iconButton1.TextAlign = ContentAlignment.MiddleRight;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = true;
             // 
             // iconButton2
             // 
@@ -293,13 +186,95 @@
             iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton2.UseVisualStyleBackColor = true;
             // 
+            // iconButton1
+            // 
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignIn;
+            iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            iconButton1.IconSize = 30;
+            iconButton1.Location = new Point(360, 360);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(200, 80);
+            iconButton1.TabIndex = 6;
+            iconButton1.Text = "Đăng nhập";
+            iconButton1.TextAlign = ContentAlignment.MiddleRight;
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AccessibleRole = AccessibleRole.None;
+            label3.BorderStyle = BorderStyle.FixedSingle;
+            label3.Dock = DockStyle.Top;
+            label3.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(0, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(902, 80);
+            label3.TabIndex = 5;
+            label3.Text = "Đăng nhập";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // checkBox1
+            // 
+            checkBox1.Anchor = AnchorStyles.None;
+            checkBox1.FlatStyle = FlatStyle.Flat;
+            checkBox1.Location = new Point(291, 300);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(320, 40);
+            checkBox1.TabIndex = 4;
+            checkBox1.Text = "Tôi là quản trị viên";
+            checkBox1.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.Location = new Point(151, 220);
+            label2.Margin = new Padding(3, 0, 20, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(200, 40);
+            label2.TabIndex = 3;
+            label2.Text = "Mật khẩu";
+            label2.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.Location = new Point(151, 140);
+            label1.Margin = new Padding(3, 0, 20, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(200, 40);
+            label1.TabIndex = 2;
+            label1.Text = "Tên người dùng";
+            label1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Anchor = AnchorStyles.None;
+            maskedTextBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox1.Location = new Point(391, 220);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.PasswordChar = '•';
+            maskedTextBox1.Size = new Size(360, 43);
+            maskedTextBox1.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.None;
+            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(391, 140);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(360, 43);
+            textBox1.TabIndex = 0;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 673);
             Controls.Add(panel_ChildForm);
-            Controls.Add(panel_TopBar);
             Controls.Add(panel_Menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
@@ -309,7 +284,6 @@
             panel_Menu.ResumeLayout(false);
             panel_Brand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)icon_Brand).EndInit();
-            panel_TopBar.ResumeLayout(false);
             panel_ChildForm.ResumeLayout(false);
             panel_ChildForm.PerformLayout();
             ResumeLayout(false);
@@ -318,11 +292,9 @@
         #endregion
 
         private System.Windows.Forms.Timer timer_Clock;
-        private Label label_Clock;
         private Panel panel_Menu;
         private Panel panel_Brand;
         private FontAwesome.Sharp.IconButton icon_User;
-        private Panel panel_TopBar;
         private FontAwesome.Sharp.IconPictureBox icon_Brand;
         private FontAwesome.Sharp.IconButton icon_Book;
         private Panel panel_ChildForm;

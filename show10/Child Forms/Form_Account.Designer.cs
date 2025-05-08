@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             groupBox_User_Input = new GroupBox();
             checkBox_TK_LaQTV = new CheckBox();
             label3 = new Label();
@@ -40,17 +39,8 @@
             iconButton2 = new FontAwesome.Sharp.IconButton();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             dataGridView1 = new DataGridView();
-            accountBindingSource = new BindingSource(components);
-            accountBindingSource1 = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            tenTKDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            matKhauDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            hoTenDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vaiTroDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             groupBox_User_Input.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)accountBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)accountBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // groupBox_User_Input
@@ -187,11 +177,8 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, tenTKDataGridViewTextBoxColumn, matKhauDataGridViewTextBoxColumn, hoTenDataGridViewTextBoxColumn, vaiTroDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = accountBindingSource1;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 240);
             dataGridView1.Name = "dataGridView1";
@@ -199,54 +186,6 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(782, 313);
             dataGridView1.TabIndex = 1;
-            // 
-            // accountBindingSource
-            // 
-            accountBindingSource.DataSource = typeof(Data_Access.KhachHangContext);
-            // 
-            // accountBindingSource1
-            // 
-            accountBindingSource1.DataSource = typeof(Data_Access.KhachHang);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tenTKDataGridViewTextBoxColumn
-            // 
-            tenTKDataGridViewTextBoxColumn.DataPropertyName = "TenTK";
-            tenTKDataGridViewTextBoxColumn.HeaderText = "TenTK";
-            tenTKDataGridViewTextBoxColumn.MinimumWidth = 6;
-            tenTKDataGridViewTextBoxColumn.Name = "tenTKDataGridViewTextBoxColumn";
-            tenTKDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // matKhauDataGridViewTextBoxColumn
-            // 
-            matKhauDataGridViewTextBoxColumn.DataPropertyName = "MatKhau";
-            matKhauDataGridViewTextBoxColumn.HeaderText = "MatKhau";
-            matKhauDataGridViewTextBoxColumn.MinimumWidth = 6;
-            matKhauDataGridViewTextBoxColumn.Name = "matKhauDataGridViewTextBoxColumn";
-            matKhauDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // hoTenDataGridViewTextBoxColumn
-            // 
-            hoTenDataGridViewTextBoxColumn.DataPropertyName = "HoTen";
-            hoTenDataGridViewTextBoxColumn.HeaderText = "HoTen";
-            hoTenDataGridViewTextBoxColumn.MinimumWidth = 6;
-            hoTenDataGridViewTextBoxColumn.Name = "hoTenDataGridViewTextBoxColumn";
-            hoTenDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vaiTroDataGridViewTextBoxColumn
-            // 
-            vaiTroDataGridViewTextBoxColumn.DataPropertyName = "VaiTro";
-            vaiTroDataGridViewTextBoxColumn.HeaderText = "VaiTro";
-            vaiTroDataGridViewTextBoxColumn.MinimumWidth = 6;
-            vaiTroDataGridViewTextBoxColumn.Name = "vaiTroDataGridViewTextBoxColumn";
-            vaiTroDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form_Account
             // 
@@ -263,8 +202,6 @@
             groupBox_User_Input.ResumeLayout(false);
             groupBox_User_Input.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)accountBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)accountBindingSource1).EndInit();
             ResumeLayout(false);
         }
 
@@ -277,7 +214,6 @@
         private DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hoTenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn vaiTroDataGridViewTextBoxColumn;
-        private BindingSource accountBindingSource;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
         private Label label3;
@@ -287,6 +223,5 @@
         private MaskedTextBox maskedTextBox_TK_MatKhau;
         private TextBox textBox_TK_TenTK;
         private CheckBox checkBox_TK_LaQTV;
-        private BindingSource accountBindingSource1;
     }
 }

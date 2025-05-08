@@ -33,8 +33,6 @@ namespace show10
         private TimeSpan elapsedTime;
         private void Timer_Tick(object sender, EventArgs e)
         {
-            elapsedTime = elapsedTime.Add(TimeSpan.FromSeconds(1));
-            label_Clock.Text = elapsedTime.ToString(@"hh\:mm\:ss");
         }
 
 

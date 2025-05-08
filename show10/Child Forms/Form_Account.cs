@@ -31,9 +31,9 @@ namespace Show10.Child_Forms
             this.db.Database.EnsureDeleted();
             this.db.Database.EnsureCreated();
 
-            this.db.Accounts.Load();
+            this.db.TaiKhoans.Load();
 
-            this.accountBindingSource.DataSource = db.Accounts.Local.ToBindingList();
+            //this.accountBindingSource.DataSource = db.TaiKhoans.Local.ToBindingList();
         }
 
         protected override void OnClosing(CancelEventArgs e)
