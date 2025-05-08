@@ -18,4 +18,8 @@
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+
 </Project>

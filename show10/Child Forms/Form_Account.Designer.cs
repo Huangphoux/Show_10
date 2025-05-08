@@ -202,11 +202,11 @@
             // 
             // accountBindingSource
             // 
-            accountBindingSource.DataSource = typeof(Data_Access.AccountContext);
+            accountBindingSource.DataSource = typeof(Data_Access.KhachHangContext);
             // 
             // accountBindingSource1
             // 
-            accountBindingSource1.DataSource = typeof(Data_Access.Account);
+            accountBindingSource1.DataSource = typeof(Data_Access.KhachHang);
             // 
             // idDataGridViewTextBoxColumn
             // 

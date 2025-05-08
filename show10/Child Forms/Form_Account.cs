@@ -14,7 +14,7 @@ namespace Show10.Child_Forms
 {
     public partial class Form_Account : Form
     {
-        private AccountContext? db;
+        private TaiKhoanContext? db;
 
         public Form_Account()
         {
@@ -25,7 +25,7 @@ namespace Show10.Child_Forms
         {
             base.OnLoad(e);
 
-            this.db = new AccountContext();
+            this.db = new TaiKhoanContext();
 
             // Uncomment the line below to start fresh with a new database.
             this.db.Database.EnsureDeleted();
