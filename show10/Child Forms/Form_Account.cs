@@ -21,27 +21,38 @@ namespace Show10.Child_Forms
             InitializeComponent();
         }
 
-        protected override void OnLoad(EventArgs e)
+        private void Form_Account_FormClosing(object sender, FormClosingEventArgs e)
         {
-            base.OnLoad(e);
-
-            this.db = new TaiKhoanContext();
-
-            // Uncomment the line below to start fresh with a new database.
-            this.db.Database.EnsureDeleted();
-            this.db.Database.EnsureCreated();
-
-            this.db.TaiKhoans.Load();
-
-            //this.accountBindingSource.DataSource = db.TaiKhoans.Local.ToBindingList();
+            db?.Dispose();
+            db = null;
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        private void Form_Account_Load(object sender, EventArgs e)
         {
-            base.OnClosing(e);
+            db = new TaiKhoanContext();
 
-            this.db?.Dispose();
-            this.db = null;
+            // Uncomment the line below to start fresh with a new database.
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+
+            db.TaiKhoans.Load();
+
+            //accountBindingSource.DataSource = db.TaiKhoans.Local.ToBindingList();
+        }
+
+        private void CheckBox_TK_TimKiem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_TK_TimKiem.Checked)
+            {
+                icon_TK_Them.Enabled = false;
+                icon_TK_Xoa.Enabled = false;
+            }
+            else
+            {
+                icon_TK_Them.Enabled = true;
+                icon_TK_Xoa.Enabled = true;
+            }
+
         }
     }
 }

@@ -30,6 +30,8 @@ namespace show10
             icon_Brand.IconSize = 100;
         }
 
+        
+
         private TimeSpan elapsedTime;
         private void Timer_Tick(object sender, EventArgs e)
         {
