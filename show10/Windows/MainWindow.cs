@@ -30,7 +30,7 @@ namespace show10
             icon_Brand.IconSize = 100;
         }
 
-        
+
 
         private TimeSpan elapsedTime;
         private void Timer_Tick(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace show10
         private void Icon_User_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Form_Account());
+            OpenChildForm(new Form_TaiKhoan());
         }
 
         private void Icon_Book_Click(object sender, EventArgs e)

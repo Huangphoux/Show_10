@@ -1,6 +1,6 @@
 ﻿namespace Show10.Child_Forms
 {
-    partial class Form_Account
+    partial class Form_TaiKhoan
     {
         /// <summary>
         /// Required designer variable.

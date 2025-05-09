@@ -12,11 +12,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Show10.Child_Forms
 {
-    public partial class Form_Account : Form
+    public partial class Form_TaiKhoan : Form
     {
         private TaiKhoanContext? db;
 
-        public Form_Account()
+        public Form_TaiKhoan()
         {
             InitializeComponent();
         }

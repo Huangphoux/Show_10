@@ -32,23 +32,26 @@
             timer_Clock = new System.Windows.Forms.Timer(components);
             panel_Menu = new Panel();
             icon_FullScreen = new FontAwesome.Sharp.IconButton();
-            icon_Book = new FontAwesome.Sharp.IconButton();
-            icon_User = new FontAwesome.Sharp.IconButton();
+            icon_Sach = new FontAwesome.Sharp.IconButton();
+            icon_TaiKhoan = new FontAwesome.Sharp.IconButton();
             panel_Brand = new Panel();
             icon_Brand = new FontAwesome.Sharp.IconPictureBox();
             panel_ChildForm = new Panel();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
-            label3 = new Label();
-            checkBox1 = new CheckBox();
-            label2 = new Label();
-            label1 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
-            textBox1 = new TextBox();
+            icon_ShowPassword = new FontAwesome.Sharp.IconPictureBox();
+            icon_DangKy = new FontAwesome.Sharp.IconButton();
+            icon_DangNhap = new FontAwesome.Sharp.IconButton();
+            label_Welcome = new Label();
+            label_MatKhau = new Label();
+            label_TenTK = new Label();
+            maskedTextBox_MatKhau = new MaskedTextBox();
+            textBox_TenTK = new TextBox();
+            icon_KhachHang = new FontAwesome.Sharp.IconButton();
+            icon_BaoCao = new FontAwesome.Sharp.IconButton();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
             panel_ChildForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)icon_ShowPassword).BeginInit();
             SuspendLayout();
             // 
             // timer_Clock
@@ -60,9 +63,11 @@
             // panel_Menu
             // 
             panel_Menu.BorderStyle = BorderStyle.FixedSingle;
+            panel_Menu.Controls.Add(icon_BaoCao);
+            panel_Menu.Controls.Add(icon_KhachHang);
             panel_Menu.Controls.Add(icon_FullScreen);
-            panel_Menu.Controls.Add(icon_Book);
-            panel_Menu.Controls.Add(icon_User);
+            panel_Menu.Controls.Add(icon_Sach);
+            panel_Menu.Controls.Add(icon_TaiKhoan);
             panel_Menu.Controls.Add(panel_Brand);
             panel_Menu.Dock = DockStyle.Left;
             panel_Menu.Location = new Point(0, 0);
@@ -73,7 +78,7 @@
             // icon_FullScreen
             // 
             icon_FullScreen.Dock = DockStyle.Bottom;
-            icon_FullScreen.FlatAppearance.BorderSize = 0;
+            icon_FullScreen.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
             icon_FullScreen.FlatStyle = FlatStyle.Flat;
             icon_FullScreen.IconChar = FontAwesome.Sharp.IconChar.Expand;
             icon_FullScreen.IconColor = Color.Black;
@@ -89,43 +94,43 @@
             icon_FullScreen.UseVisualStyleBackColor = true;
             icon_FullScreen.Click += Icon_Fullscreen_Click;
             // 
-            // icon_Book
+            // icon_Sach
             // 
-            icon_Book.Dock = DockStyle.Top;
-            icon_Book.FlatAppearance.BorderSize = 0;
-            icon_Book.FlatStyle = FlatStyle.Flat;
-            icon_Book.IconChar = FontAwesome.Sharp.IconChar.Book;
-            icon_Book.IconColor = Color.Black;
-            icon_Book.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_Book.IconSize = 30;
-            icon_Book.Location = new Point(0, 280);
-            icon_Book.Name = "icon_Book";
-            icon_Book.Size = new Size(278, 80);
-            icon_Book.TabIndex = 2;
-            icon_Book.Text = "Sách";
-            icon_Book.TextAlign = ContentAlignment.MiddleRight;
-            icon_Book.TextImageRelation = TextImageRelation.ImageBeforeText;
-            icon_Book.UseVisualStyleBackColor = true;
-            icon_Book.Click += Icon_Book_Click;
+            icon_Sach.Dock = DockStyle.Top;
+            icon_Sach.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
+            icon_Sach.FlatStyle = FlatStyle.Flat;
+            icon_Sach.IconChar = FontAwesome.Sharp.IconChar.Book;
+            icon_Sach.IconColor = Color.Black;
+            icon_Sach.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_Sach.IconSize = 30;
+            icon_Sach.Location = new Point(0, 280);
+            icon_Sach.Name = "icon_Sach";
+            icon_Sach.Size = new Size(278, 80);
+            icon_Sach.TabIndex = 2;
+            icon_Sach.Text = "Sách";
+            icon_Sach.TextAlign = ContentAlignment.MiddleRight;
+            icon_Sach.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_Sach.UseVisualStyleBackColor = true;
+            icon_Sach.Click += Icon_Book_Click;
             // 
-            // icon_User
+            // icon_TaiKhoan
             // 
-            icon_User.Dock = DockStyle.Top;
-            icon_User.FlatAppearance.BorderSize = 0;
-            icon_User.FlatStyle = FlatStyle.Flat;
-            icon_User.IconChar = FontAwesome.Sharp.IconChar.User;
-            icon_User.IconColor = Color.Black;
-            icon_User.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_User.IconSize = 30;
-            icon_User.Location = new Point(0, 200);
-            icon_User.Name = "icon_User";
-            icon_User.Size = new Size(278, 80);
-            icon_User.TabIndex = 1;
-            icon_User.Text = "Tài khoản";
-            icon_User.TextAlign = ContentAlignment.MiddleRight;
-            icon_User.TextImageRelation = TextImageRelation.ImageBeforeText;
-            icon_User.UseVisualStyleBackColor = true;
-            icon_User.Click += Icon_User_Click;
+            icon_TaiKhoan.Dock = DockStyle.Top;
+            icon_TaiKhoan.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
+            icon_TaiKhoan.FlatStyle = FlatStyle.Flat;
+            icon_TaiKhoan.IconChar = FontAwesome.Sharp.IconChar.UserGear;
+            icon_TaiKhoan.IconColor = Color.Black;
+            icon_TaiKhoan.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_TaiKhoan.IconSize = 30;
+            icon_TaiKhoan.Location = new Point(0, 200);
+            icon_TaiKhoan.Name = "icon_TaiKhoan";
+            icon_TaiKhoan.Size = new Size(278, 80);
+            icon_TaiKhoan.TabIndex = 1;
+            icon_TaiKhoan.Text = "Tài khoản";
+            icon_TaiKhoan.TextAlign = ContentAlignment.MiddleRight;
+            icon_TaiKhoan.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_TaiKhoan.UseVisualStyleBackColor = true;
+            icon_TaiKhoan.Click += Icon_User_Click;
             // 
             // panel_Brand
             // 
@@ -155,119 +160,155 @@
             // 
             // panel_ChildForm
             // 
-            panel_ChildForm.Controls.Add(iconButton2);
-            panel_ChildForm.Controls.Add(iconButton1);
-            panel_ChildForm.Controls.Add(label3);
-            panel_ChildForm.Controls.Add(checkBox1);
-            panel_ChildForm.Controls.Add(label2);
-            panel_ChildForm.Controls.Add(label1);
-            panel_ChildForm.Controls.Add(maskedTextBox1);
-            panel_ChildForm.Controls.Add(textBox1);
+            panel_ChildForm.Controls.Add(icon_ShowPassword);
+            panel_ChildForm.Controls.Add(icon_DangKy);
+            panel_ChildForm.Controls.Add(icon_DangNhap);
+            panel_ChildForm.Controls.Add(label_Welcome);
+            panel_ChildForm.Controls.Add(label_MatKhau);
+            panel_ChildForm.Controls.Add(label_TenTK);
+            panel_ChildForm.Controls.Add(maskedTextBox_MatKhau);
+            panel_ChildForm.Controls.Add(textBox_TenTK);
             panel_ChildForm.Dock = DockStyle.Fill;
             panel_ChildForm.Location = new Point(280, 0);
             panel_ChildForm.Name = "panel_ChildForm";
             panel_ChildForm.Size = new Size(902, 673);
             panel_ChildForm.TabIndex = 4;
             // 
-            // iconButton2
+            // icon_ShowPassword
             // 
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            iconButton2.IconColor = Color.Black;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconButton2.IconSize = 30;
-            iconButton2.Location = new Point(360, 440);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(200, 80);
-            iconButton2.TabIndex = 7;
-            iconButton2.Text = "Đăng ký";
-            iconButton2.TextAlign = ContentAlignment.MiddleRight;
-            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton2.UseVisualStyleBackColor = true;
+            icon_ShowPassword.BackColor = SystemColors.Control;
+            icon_ShowPassword.ForeColor = SystemColors.ControlText;
+            icon_ShowPassword.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            icon_ShowPassword.IconColor = SystemColors.ControlText;
+            icon_ShowPassword.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_ShowPassword.IconSize = 40;
+            icon_ShowPassword.Location = new Point(650, 189);
+            icon_ShowPassword.Name = "icon_ShowPassword";
+            icon_ShowPassword.Size = new Size(40, 40);
+            icon_ShowPassword.SizeMode = PictureBoxSizeMode.CenterImage;
+            icon_ShowPassword.TabIndex = 8;
+            icon_ShowPassword.TabStop = false;
             // 
-            // iconButton1
+            // icon_DangKy
             // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.SignIn;
-            iconButton1.IconColor = Color.Black;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            iconButton1.IconSize = 30;
-            iconButton1.Location = new Point(360, 360);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(200, 80);
-            iconButton1.TabIndex = 6;
-            iconButton1.Text = "Đăng nhập";
-            iconButton1.TextAlign = ContentAlignment.MiddleRight;
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = true;
+            icon_DangKy.FlatAppearance.BorderSize = 0;
+            icon_DangKy.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            icon_DangKy.IconColor = Color.Black;
+            icon_DangKy.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_DangKy.IconSize = 30;
+            icon_DangKy.Location = new Point(428, 281);
+            icon_DangKy.Name = "icon_DangKy";
+            icon_DangKy.Size = new Size(200, 80);
+            icon_DangKy.TabIndex = 7;
+            icon_DangKy.Text = "Đăng ký";
+            icon_DangKy.TextAlign = ContentAlignment.MiddleRight;
+            icon_DangKy.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_DangKy.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // icon_DangNhap
             // 
-            label3.AccessibleRole = AccessibleRole.None;
-            label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Dock = DockStyle.Top;
-            label3.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(902, 80);
-            label3.TabIndex = 5;
-            label3.Text = "Đăng nhập";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            icon_DangNhap.FlatAppearance.BorderSize = 0;
+            icon_DangNhap.IconChar = FontAwesome.Sharp.IconChar.SignIn;
+            icon_DangNhap.IconColor = Color.Black;
+            icon_DangNhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_DangNhap.IconSize = 30;
+            icon_DangNhap.Location = new Point(222, 281);
+            icon_DangNhap.Name = "icon_DangNhap";
+            icon_DangNhap.Size = new Size(200, 80);
+            icon_DangNhap.TabIndex = 6;
+            icon_DangNhap.Text = "Đăng nhập";
+            icon_DangNhap.TextAlign = ContentAlignment.MiddleRight;
+            icon_DangNhap.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_DangNhap.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // label_Welcome
             // 
-            checkBox1.Anchor = AnchorStyles.None;
-            checkBox1.FlatStyle = FlatStyle.Flat;
-            checkBox1.Location = new Point(291, 300);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(320, 40);
-            checkBox1.TabIndex = 4;
-            checkBox1.Text = "Tôi là quản trị viên";
-            checkBox1.TextAlign = ContentAlignment.MiddleCenter;
-            checkBox1.UseVisualStyleBackColor = true;
+            label_Welcome.AccessibleRole = AccessibleRole.None;
+            label_Welcome.Dock = DockStyle.Top;
+            label_Welcome.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Welcome.Location = new Point(0, 0);
+            label_Welcome.Name = "label_Welcome";
+            label_Welcome.Size = new Size(902, 80);
+            label_Welcome.TabIndex = 5;
+            label_Welcome.Text = "Đăng nhập";
+            label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // label_MatKhau
             // 
-            label2.Anchor = AnchorStyles.None;
-            label2.Location = new Point(151, 220);
-            label2.Margin = new Padding(3, 0, 20, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(200, 40);
-            label2.TabIndex = 3;
-            label2.Text = "Mật khẩu";
-            label2.TextAlign = ContentAlignment.MiddleRight;
+            label_MatKhau.Anchor = AnchorStyles.None;
+            label_MatKhau.Location = new Point(222, 189);
+            label_MatKhau.Margin = new Padding(3, 0, 20, 0);
+            label_MatKhau.Name = "label_MatKhau";
+            label_MatKhau.Size = new Size(142, 40);
+            label_MatKhau.TabIndex = 3;
+            label_MatKhau.Text = "Mật khẩu";
+            label_MatKhau.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // label_TenTK
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.Location = new Point(151, 140);
-            label1.Margin = new Padding(3, 0, 20, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(200, 40);
-            label1.TabIndex = 2;
-            label1.Text = "Tên người dùng";
-            label1.TextAlign = ContentAlignment.MiddleRight;
+            label_TenTK.Anchor = AnchorStyles.None;
+            label_TenTK.Location = new Point(222, 128);
+            label_TenTK.Margin = new Padding(3, 0, 20, 0);
+            label_TenTK.Name = "label_TenTK";
+            label_TenTK.Size = new Size(142, 40);
+            label_TenTK.TabIndex = 2;
+            label_TenTK.Text = "Tên tài khoản";
+            label_TenTK.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // maskedTextBox1
+            // maskedTextBox_MatKhau
             // 
-            maskedTextBox1.Anchor = AnchorStyles.None;
-            maskedTextBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox1.Location = new Point(391, 220);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.PasswordChar = '•';
-            maskedTextBox1.Size = new Size(360, 43);
-            maskedTextBox1.TabIndex = 1;
+            maskedTextBox_MatKhau.Anchor = AnchorStyles.None;
+            maskedTextBox_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox_MatKhau.Location = new Point(374, 189);
+            maskedTextBox_MatKhau.Name = "maskedTextBox_MatKhau";
+            maskedTextBox_MatKhau.PasswordChar = '•';
+            maskedTextBox_MatKhau.Size = new Size(254, 43);
+            maskedTextBox_MatKhau.TabIndex = 1;
             // 
-            // textBox1
+            // textBox_TenTK
             // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(391, 140);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(360, 43);
-            textBox1.TabIndex = 0;
+            textBox_TenTK.Anchor = AnchorStyles.None;
+            textBox_TenTK.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_TenTK.Location = new Point(374, 128);
+            textBox_TenTK.Name = "textBox_TenTK";
+            textBox_TenTK.Size = new Size(254, 43);
+            textBox_TenTK.TabIndex = 0;
+            // 
+            // icon_KhachHang
+            // 
+            icon_KhachHang.Dock = DockStyle.Top;
+            icon_KhachHang.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
+            icon_KhachHang.FlatStyle = FlatStyle.Flat;
+            icon_KhachHang.IconChar = FontAwesome.Sharp.IconChar.UserTie;
+            icon_KhachHang.IconColor = Color.Black;
+            icon_KhachHang.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_KhachHang.IconSize = 30;
+            icon_KhachHang.Location = new Point(0, 360);
+            icon_KhachHang.Name = "icon_KhachHang";
+            icon_KhachHang.Size = new Size(278, 80);
+            icon_KhachHang.TabIndex = 4;
+            icon_KhachHang.Text = "Khách hàng";
+            icon_KhachHang.TextAlign = ContentAlignment.MiddleRight;
+            icon_KhachHang.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_KhachHang.UseVisualStyleBackColor = true;
+            // 
+            // icon_BaoCao
+            // 
+            icon_BaoCao.Dock = DockStyle.Top;
+            icon_BaoCao.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
+            icon_BaoCao.FlatStyle = FlatStyle.Flat;
+            icon_BaoCao.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            icon_BaoCao.IconColor = Color.Black;
+            icon_BaoCao.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_BaoCao.IconSize = 30;
+            icon_BaoCao.Location = new Point(0, 440);
+            icon_BaoCao.Name = "icon_BaoCao";
+            icon_BaoCao.Size = new Size(278, 80);
+            icon_BaoCao.TabIndex = 5;
+            icon_BaoCao.Text = "Báo cáo";
+            icon_BaoCao.TextAlign = ContentAlignment.MiddleRight;
+            icon_BaoCao.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_BaoCao.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -286,6 +327,7 @@
             ((System.ComponentModel.ISupportInitialize)icon_Brand).EndInit();
             panel_ChildForm.ResumeLayout(false);
             panel_ChildForm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)icon_ShowPassword).EndInit();
             ResumeLayout(false);
         }
 
@@ -294,18 +336,20 @@
         private System.Windows.Forms.Timer timer_Clock;
         private Panel panel_Menu;
         private Panel panel_Brand;
-        private FontAwesome.Sharp.IconButton icon_User;
+        private FontAwesome.Sharp.IconButton icon_TaiKhoan;
         private FontAwesome.Sharp.IconPictureBox icon_Brand;
-        private FontAwesome.Sharp.IconButton icon_Book;
+        private FontAwesome.Sharp.IconButton icon_Sach;
         private Panel panel_ChildForm;
         private FontAwesome.Sharp.IconButton icon_FullScreen;
-        private CheckBox checkBox1;
-        private Label label2;
-        private Label label1;
-        private MaskedTextBox maskedTextBox1;
-        private TextBox textBox1;
-        private Label label3;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private Label label_MatKhau;
+        private Label label_TenTK;
+        private MaskedTextBox maskedTextBox_MatKhau;
+        private TextBox textBox_TenTK;
+        private Label label_Welcome;
+        private FontAwesome.Sharp.IconButton icon_DangNhap;
+        private FontAwesome.Sharp.IconButton icon_DangKy;
+        private FontAwesome.Sharp.IconPictureBox icon_ShowPassword;
+        private FontAwesome.Sharp.IconButton icon_BaoCao;
+        private FontAwesome.Sharp.IconButton icon_KhachHang;
     }
 }
