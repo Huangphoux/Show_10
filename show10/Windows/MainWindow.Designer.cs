@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             timer_Clock = new System.Windows.Forms.Timer(components);
             panel_Menu = new Panel();
+            icon_BaoCao = new FontAwesome.Sharp.IconButton();
+            icon_KhachHang = new FontAwesome.Sharp.IconButton();
             icon_FullScreen = new FontAwesome.Sharp.IconButton();
             icon_Sach = new FontAwesome.Sharp.IconButton();
             icon_TaiKhoan = new FontAwesome.Sharp.IconButton();
@@ -45,8 +47,6 @@
             label_TenTK = new Label();
             maskedTextBox_MatKhau = new MaskedTextBox();
             textBox_TenTK = new TextBox();
-            icon_KhachHang = new FontAwesome.Sharp.IconButton();
-            icon_BaoCao = new FontAwesome.Sharp.IconButton();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
@@ -74,6 +74,42 @@
             panel_Menu.Name = "panel_Menu";
             panel_Menu.Size = new Size(280, 673);
             panel_Menu.TabIndex = 2;
+            // 
+            // icon_BaoCao
+            // 
+            icon_BaoCao.Dock = DockStyle.Top;
+            icon_BaoCao.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
+            icon_BaoCao.FlatStyle = FlatStyle.Flat;
+            icon_BaoCao.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            icon_BaoCao.IconColor = Color.Black;
+            icon_BaoCao.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_BaoCao.IconSize = 30;
+            icon_BaoCao.Location = new Point(0, 440);
+            icon_BaoCao.Name = "icon_BaoCao";
+            icon_BaoCao.Size = new Size(278, 80);
+            icon_BaoCao.TabIndex = 5;
+            icon_BaoCao.Text = "Báo cáo";
+            icon_BaoCao.TextAlign = ContentAlignment.MiddleRight;
+            icon_BaoCao.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_BaoCao.UseVisualStyleBackColor = true;
+            // 
+            // icon_KhachHang
+            // 
+            icon_KhachHang.Dock = DockStyle.Top;
+            icon_KhachHang.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
+            icon_KhachHang.FlatStyle = FlatStyle.Flat;
+            icon_KhachHang.IconChar = FontAwesome.Sharp.IconChar.UserTie;
+            icon_KhachHang.IconColor = Color.Black;
+            icon_KhachHang.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_KhachHang.IconSize = 30;
+            icon_KhachHang.Location = new Point(0, 360);
+            icon_KhachHang.Name = "icon_KhachHang";
+            icon_KhachHang.Size = new Size(278, 80);
+            icon_KhachHang.TabIndex = 4;
+            icon_KhachHang.Text = "Khách hàng";
+            icon_KhachHang.TextAlign = ContentAlignment.MiddleRight;
+            icon_KhachHang.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_KhachHang.UseVisualStyleBackColor = true;
             // 
             // icon_FullScreen
             // 
@@ -224,7 +260,6 @@
             // label_Welcome
             // 
             label_Welcome.AccessibleRole = AccessibleRole.None;
-            label_Welcome.Dock = DockStyle.Top;
             label_Welcome.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_Welcome.Location = new Point(0, 0);
             label_Welcome.Name = "label_Welcome";
@@ -273,42 +308,6 @@
             textBox_TenTK.Name = "textBox_TenTK";
             textBox_TenTK.Size = new Size(254, 43);
             textBox_TenTK.TabIndex = 0;
-            // 
-            // icon_KhachHang
-            // 
-            icon_KhachHang.Dock = DockStyle.Top;
-            icon_KhachHang.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
-            icon_KhachHang.FlatStyle = FlatStyle.Flat;
-            icon_KhachHang.IconChar = FontAwesome.Sharp.IconChar.UserTie;
-            icon_KhachHang.IconColor = Color.Black;
-            icon_KhachHang.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_KhachHang.IconSize = 30;
-            icon_KhachHang.Location = new Point(0, 360);
-            icon_KhachHang.Name = "icon_KhachHang";
-            icon_KhachHang.Size = new Size(278, 80);
-            icon_KhachHang.TabIndex = 4;
-            icon_KhachHang.Text = "Khách hàng";
-            icon_KhachHang.TextAlign = ContentAlignment.MiddleRight;
-            icon_KhachHang.TextImageRelation = TextImageRelation.ImageBeforeText;
-            icon_KhachHang.UseVisualStyleBackColor = true;
-            // 
-            // icon_BaoCao
-            // 
-            icon_BaoCao.Dock = DockStyle.Top;
-            icon_BaoCao.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
-            icon_BaoCao.FlatStyle = FlatStyle.Flat;
-            icon_BaoCao.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
-            icon_BaoCao.IconColor = Color.Black;
-            icon_BaoCao.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_BaoCao.IconSize = 30;
-            icon_BaoCao.Location = new Point(0, 440);
-            icon_BaoCao.Name = "icon_BaoCao";
-            icon_BaoCao.Size = new Size(278, 80);
-            icon_BaoCao.TabIndex = 5;
-            icon_BaoCao.Text = "Báo cáo";
-            icon_BaoCao.TextAlign = ContentAlignment.MiddleRight;
-            icon_BaoCao.TextImageRelation = TextImageRelation.ImageBeforeText;
-            icon_BaoCao.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
