@@ -45,7 +45,7 @@
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewCheckBoxColumn();
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -216,30 +216,34 @@
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.DataPropertyName = "TenTK";
-            dataGridViewTextBoxColumn1.HeaderText = "TenTK";
+            dataGridViewTextBoxColumn1.HeaderText = "Tên TK";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.DataPropertyName = "MatKhau";
-            dataGridViewTextBoxColumn2.HeaderText = "MatKhau";
+            dataGridViewTextBoxColumn2.HeaderText = "Mật khẩu";
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.DataPropertyName = "HoTen";
-            dataGridViewTextBoxColumn3.HeaderText = "HoTen";
+            dataGridViewTextBoxColumn3.HeaderText = "Họ tên";
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.DataPropertyName = "VaiTro";
-            dataGridViewTextBoxColumn4.HeaderText = "VaiTro";
+            dataGridViewTextBoxColumn4.FalseValue = "user";
+            dataGridViewTextBoxColumn4.HeaderText = "Vai trò";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.Resizable = DataGridViewTriState.True;
+            dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.Automatic;
+            dataGridViewTextBoxColumn4.TrueValue = "admin";
             // 
             // Form_TaiKhoan
             // 
@@ -281,10 +285,10 @@
         private TextBox textBox_TK_TenTK;
         private CheckBox checkBox_TK_QTV;
         private CheckBox checkBox_TK_TimKiem;
+        private BindingSource taiKhoanBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private BindingSource taiKhoanBindingSource;
+        private DataGridViewCheckBoxColumn dataGridViewTextBoxColumn4;
     }
 }
