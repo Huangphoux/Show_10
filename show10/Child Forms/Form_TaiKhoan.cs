@@ -37,7 +37,7 @@ namespace Show10.Child_Forms
 
             db.TaiKhoans.Load();
 
-            //accountBindingSource.DataSource = db.TaiKhoans.Local.ToBindingList();
+            taiKhoanBindingSource.DataSource = db.TaiKhoans.Local.ToBindingList();
         }
 
         private void CheckBox_TK_TimKiem_CheckedChanged(object sender, EventArgs e)

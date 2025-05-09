@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox_TaiKhoan = new GroupBox();
             checkBox_TK_TimKiem = new CheckBox();
             checkBox_TK_QTV = new CheckBox();
@@ -40,8 +41,14 @@
             icon_TK_Xoa = new FontAwesome.Sharp.IconButton();
             icon_TK_Them = new FontAwesome.Sharp.IconButton();
             dataGridView_TaiKhoan = new DataGridView();
+            taiKhoanBindingSource = new BindingSource(components);
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
             SuspendLayout();
             // 
             // groupBox_TaiKhoan
@@ -187,20 +194,54 @@
             // 
             // dataGridView_TaiKhoan
             // 
-            dataGridView_TaiKhoan.AllowUserToAddRows = false;
-            dataGridView_TaiKhoan.AllowUserToDeleteRows = false;
+            dataGridView_TaiKhoan.AllowUserToOrderColumns = true;
             dataGridView_TaiKhoan.AllowUserToResizeColumns = false;
             dataGridView_TaiKhoan.AllowUserToResizeRows = false;
+            dataGridView_TaiKhoan.AutoGenerateColumns = false;
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_TaiKhoan.Location = new Point(0, 369);
+            dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
+            dataGridView_TaiKhoan.Dock = DockStyle.Fill;
+            dataGridView_TaiKhoan.Location = new Point(0, 325);
             dataGridView_TaiKhoan.Name = "dataGridView_TaiKhoan";
-            dataGridView_TaiKhoan.ReadOnly = true;
             dataGridView_TaiKhoan.RowHeadersWidth = 51;
-            dataGridView_TaiKhoan.Size = new Size(782, 184);
+            dataGridView_TaiKhoan.Size = new Size(782, 228);
             dataGridView_TaiKhoan.TabIndex = 1;
             // 
-            // Form_Account
+            // taiKhoanBindingSource
+            // 
+            taiKhoanBindingSource.DataSource = typeof(Data_Access.TaiKhoan);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "TenTK";
+            dataGridViewTextBoxColumn1.HeaderText = "TenTK";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "MatKhau";
+            dataGridViewTextBoxColumn2.HeaderText = "MatKhau";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "HoTen";
+            dataGridViewTextBoxColumn3.HeaderText = "HoTen";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "VaiTro";
+            dataGridViewTextBoxColumn4.HeaderText = "VaiTro";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // Form_TaiKhoan
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -209,7 +250,7 @@
             Controls.Add(groupBox_TaiKhoan);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
-            Name = "Form_Account";
+            Name = "Form_TaiKhoan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tài khoản";
             FormClosing += Form_Account_FormClosing;
@@ -217,6 +258,7 @@
             groupBox_TaiKhoan.ResumeLayout(false);
             groupBox_TaiKhoan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).EndInit();
+            ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -239,5 +281,10 @@
         private TextBox textBox_TK_TenTK;
         private CheckBox checkBox_TK_QTV;
         private CheckBox checkBox_TK_TimKiem;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private BindingSource taiKhoanBindingSource;
     }
 }

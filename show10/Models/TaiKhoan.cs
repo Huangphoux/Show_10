@@ -34,7 +34,7 @@ namespace Show10.Data_Access
         // The following configures EF to create a Sqlite database file in the
         // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+            => options.UseSqlite("Data Source=show10.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
