@@ -1,6 +1,8 @@
 ﻿using FontAwesome.Sharp;
+using Microsoft.EntityFrameworkCore;
 using Show10;
 using Show10.Child_Forms;
+using Show10.Data_Access;
 using System.Drawing.Text;
 
 namespace show10
@@ -11,38 +13,35 @@ namespace show10
         private readonly Panel leftBorderBtn;
         private Form currentChildForm;
 
+        List<Button> icon_Tab;
+
         public MainWindow()
         {
             InitializeComponent();
             DoubleBuffered = true;
 
-            elapsedTime = TimeSpan.Zero;
-            timer_Clock.Start();
-
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 80);
             panel_Menu.Controls.Add(leftBorderBtn);
 
-            //icon_User.Enabled = false;
-            //icon_Book.Enabled = false;
+            icon_Tab = new List<Button> { icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao };
+
+            icon_Tab.ForEach(tab => tab.Enabled = false);
+            panel_Welcome.Visible = false;
 
             //icon_Brand.IconChar = IconChar.SignOut;
             icon_Brand.IconSize = 100;
         }
 
-
-
-        private TimeSpan elapsedTime;
         private void Timer_Tick(object sender, EventArgs e)
         {
+            label_Clock.Text = "Bây giờ là " + DateTime.Now.ToString("t");
         }
-
 
         private bool isFullScreen = false;
 
         private void Icon_Fullscreen_Click(object sender, EventArgs e)
         {
-
             FullScreen fullScreen = new FullScreen();
 
             if (!isFullScreen)
@@ -77,12 +76,11 @@ namespace show10
                 currentBtn = (IconButton)senderBtn;
 
                 currentBtn.ForeColor = color;
-                //currentBtn.BackColor = Color.Red;
+                currentBtn.BackColor = Color.Gainsboro;
                 currentBtn.IconColor = color;
 
                 //Left border button
                 leftBorderBtn.BackColor = color;
-
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
@@ -93,9 +91,9 @@ namespace show10
         {
             if (currentBtn != null)
             {
-                currentBtn.ForeColor = Control.DefaultForeColor;
-                currentBtn.BackColor = Control.DefaultBackColor;
-                currentBtn.IconColor = Control.DefaultForeColor;
+                currentBtn.ForeColor = DefaultForeColor;
+                currentBtn.BackColor = DefaultBackColor;
+                currentBtn.IconColor = DefaultForeColor;
             }
         }
 
@@ -117,25 +115,37 @@ namespace show10
             panel_ChildForm.Controls.Add(childForm);
             panel_ChildForm.Tag = childForm;
 
+            panel_Welcome.SendToBack();
             childForm.BringToFront();
             childForm.Show();
         }
 
+        #region icon Tab Click
         private void Icon_User_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Form_TaiKhoan());
         }
-
         private void Icon_Book_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
 
         }
+        private void Icon_KhachHang_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+
+        }
+        private void Icon_BaoCao_Click(object sender, EventArgs e)
+        {
+
+            ActivateButton(sender, RGBColors.color4);
+        }
+        #endregion
 
         private void Icon_ShowPassword_Click(object sender, EventArgs e)
         {
-            if(icon_ShowPassword.IconChar == IconChar.Eye)
+            if (icon_ShowPassword.IconChar == IconChar.Eye)
             {
                 icon_ShowPassword.IconChar = IconChar.EyeSlash;
                 maskedTextBox_MatKhau.PasswordChar = '\0';
@@ -146,5 +156,77 @@ namespace show10
                 maskedTextBox_MatKhau.PasswordChar = '•';
             }
         }
+
+        private TaiKhoanContext? db;
+        private void Icon_DangNhap_Click(object sender, EventArgs e)
+        {
+            string tenTK = textBox_TenTK.Text;
+            string matKhau = maskedTextBox_MatKhau.Text;
+
+            if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau))
+            {
+                MessageBox.Show("Không tìm thấy tài khoản.", "Không tìm thấy tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                var found = db.TaiKhoans.First(tk => tk.TenTK == tenTK);
+
+                if (found.VaiTro == "admin")
+                {
+                    icon_Tab.ForEach(tab => tab.Enabled = true);
+                }
+                else
+                {
+                    icon_Sach.Enabled = true;
+                    icon_BaoCao.Enabled = true;
+                }
+
+                panel_Welcome.Visible = true;
+                panel_Welcome.BringToFront();
+                label_Welcome.Text = $"Xin chào\n{found.HoTen}";
+                icon_Brand.IconChar = IconChar.SignOut;
+            }
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            db = new TaiKhoanContext();
+
+            db.Database.EnsureDeleted();
+            db.Database.EnsureCreated();
+
+            db.TaiKhoans.Load();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db?.Dispose();
+            db = null;
+        }
+
+        private void Icon_Brand_Click(object sender, EventArgs e)
+        {
+            if (icon_Brand.IconChar == IconChar.SignOut)
+            {
+                var result = MessageBox.Show("Bạn có thực sự muốn đăng xuất?", "Trước khi đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.Yes)
+                {
+                    DisableButton();
+                    icon_Brand.IconChar = IconChar.Store;
+
+                    icon_Tab.ForEach(tab => tab.Enabled = false);
+                    panel_Welcome.Visible = false;
+                    leftBorderBtn.Visible = false;
+                    panel_ChildForm.BringToFront();
+
+                    if (currentChildForm != null)
+                    {
+                        currentChildForm.Close();
+                    }
+                }
+            }
+        }
+
     }
 }

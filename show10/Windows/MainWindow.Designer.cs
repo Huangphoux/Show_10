@@ -42,16 +42,20 @@
             icon_ShowPassword = new FontAwesome.Sharp.IconPictureBox();
             icon_DangKy = new FontAwesome.Sharp.IconButton();
             icon_DangNhap = new FontAwesome.Sharp.IconButton();
-            label_Welcome = new Label();
+            label_DangNhap = new Label();
             label_MatKhau = new Label();
             label_TenTK = new Label();
             maskedTextBox_MatKhau = new MaskedTextBox();
             textBox_TenTK = new TextBox();
+            panel_Welcome = new Panel();
+            label_Welcome = new Label();
+            label_Clock = new Label();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
             panel_ChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPassword).BeginInit();
+            panel_Welcome.SuspendLayout();
             SuspendLayout();
             // 
             // timer_Clock
@@ -92,6 +96,7 @@
             icon_BaoCao.TextAlign = ContentAlignment.MiddleRight;
             icon_BaoCao.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_BaoCao.UseVisualStyleBackColor = true;
+            icon_BaoCao.Click += Icon_BaoCao_Click;
             // 
             // icon_KhachHang
             // 
@@ -110,6 +115,7 @@
             icon_KhachHang.TextAlign = ContentAlignment.MiddleRight;
             icon_KhachHang.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_KhachHang.UseVisualStyleBackColor = true;
+            icon_KhachHang.Click += Icon_KhachHang_Click;
             // 
             // icon_FullScreen
             // 
@@ -193,13 +199,14 @@
             icon_Brand.SizeMode = PictureBoxSizeMode.CenterImage;
             icon_Brand.TabIndex = 1;
             icon_Brand.TabStop = false;
+            icon_Brand.Click += Icon_Brand_Click;
             // 
             // panel_ChildForm
             // 
             panel_ChildForm.Controls.Add(icon_ShowPassword);
             panel_ChildForm.Controls.Add(icon_DangKy);
             panel_ChildForm.Controls.Add(icon_DangNhap);
-            panel_ChildForm.Controls.Add(label_Welcome);
+            panel_ChildForm.Controls.Add(label_DangNhap);
             panel_ChildForm.Controls.Add(label_MatKhau);
             panel_ChildForm.Controls.Add(label_TenTK);
             panel_ChildForm.Controls.Add(maskedTextBox_MatKhau);
@@ -232,7 +239,7 @@
             icon_DangKy.IconColor = Color.Black;
             icon_DangKy.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangKy.IconSize = 30;
-            icon_DangKy.Location = new Point(428, 281);
+            icon_DangKy.Location = new Point(428, 255);
             icon_DangKy.Name = "icon_DangKy";
             icon_DangKy.Size = new Size(200, 80);
             icon_DangKy.TabIndex = 7;
@@ -248,7 +255,7 @@
             icon_DangNhap.IconColor = Color.Black;
             icon_DangNhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangNhap.IconSize = 30;
-            icon_DangNhap.Location = new Point(222, 281);
+            icon_DangNhap.Location = new Point(222, 255);
             icon_DangNhap.Name = "icon_DangNhap";
             icon_DangNhap.Size = new Size(200, 80);
             icon_DangNhap.TabIndex = 6;
@@ -256,17 +263,18 @@
             icon_DangNhap.TextAlign = ContentAlignment.MiddleRight;
             icon_DangNhap.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_DangNhap.UseVisualStyleBackColor = true;
+            icon_DangNhap.Click += Icon_DangNhap_Click;
             // 
-            // label_Welcome
+            // label_DangNhap
             // 
-            label_Welcome.AccessibleRole = AccessibleRole.None;
-            label_Welcome.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Welcome.Location = new Point(0, 0);
-            label_Welcome.Name = "label_Welcome";
-            label_Welcome.Size = new Size(902, 80);
-            label_Welcome.TabIndex = 5;
-            label_Welcome.Text = "Đăng nhập";
-            label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
+            label_DangNhap.AccessibleRole = AccessibleRole.None;
+            label_DangNhap.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_DangNhap.Location = new Point(0, 0);
+            label_DangNhap.Name = "label_DangNhap";
+            label_DangNhap.Size = new Size(902, 128);
+            label_DangNhap.TabIndex = 5;
+            label_DangNhap.Text = "Đăng nhập";
+            label_DangNhap.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_MatKhau
             // 
@@ -305,15 +313,48 @@
             textBox_TenTK.Anchor = AnchorStyles.None;
             textBox_TenTK.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TenTK.Location = new Point(374, 128);
+            textBox_TenTK.MaxLength = 500;
             textBox_TenTK.Name = "textBox_TenTK";
             textBox_TenTK.Size = new Size(254, 43);
             textBox_TenTK.TabIndex = 0;
+            textBox_TenTK.WordWrap = false;
+            // 
+            // panel_Welcome
+            // 
+            panel_Welcome.Controls.Add(label_Clock);
+            panel_Welcome.Controls.Add(label_Welcome);
+            panel_Welcome.Dock = DockStyle.Fill;
+            panel_Welcome.Location = new Point(280, 0);
+            panel_Welcome.Name = "panel_Welcome";
+            panel_Welcome.Size = new Size(902, 673);
+            panel_Welcome.TabIndex = 9;
+            // 
+            // label_Welcome
+            // 
+            label_Welcome.Dock = DockStyle.Top;
+            label_Welcome.Font = new Font("Segoe UI Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Welcome.Location = new Point(0, 0);
+            label_Welcome.Name = "label_Welcome";
+            label_Welcome.Size = new Size(902, 259);
+            label_Welcome.TabIndex = 0;
+            label_Welcome.Text = "Xin chào!";
+            label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label_Clock
+            // 
+            label_Clock.Location = new Point(288, 255);
+            label_Clock.Name = "label_Clock";
+            label_Clock.Size = new Size(327, 160);
+            label_Clock.TabIndex = 1;
+            label_Clock.Text = "Bây giờ là bao giờ?";
+            label_Clock.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 673);
+            Controls.Add(panel_Welcome);
             Controls.Add(panel_ChildForm);
             Controls.Add(panel_Menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -321,12 +362,15 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Show 10 !";
+            FormClosing += MainWindow_FormClosing;
+            Load += MainWindow_Load;
             panel_Menu.ResumeLayout(false);
             panel_Brand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)icon_Brand).EndInit();
             panel_ChildForm.ResumeLayout(false);
             panel_ChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPassword).EndInit();
+            panel_Welcome.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -344,11 +388,14 @@
         private Label label_TenTK;
         private MaskedTextBox maskedTextBox_MatKhau;
         private TextBox textBox_TenTK;
-        private Label label_Welcome;
+        private Label label_DangNhap;
         private FontAwesome.Sharp.IconButton icon_DangNhap;
         private FontAwesome.Sharp.IconButton icon_DangKy;
         private FontAwesome.Sharp.IconPictureBox icon_ShowPassword;
         private FontAwesome.Sharp.IconButton icon_BaoCao;
         private FontAwesome.Sharp.IconButton icon_KhachHang;
+        private Panel panel_Welcome;
+        private Label label_Welcome;
+        private Label label_Clock;
     }
 }
