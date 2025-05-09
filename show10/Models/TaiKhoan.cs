@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
-namespace Show10.Data_Access
-{
-    public class TaiKhoan
-    {
+namespace Show10.Data_Access {
+    public class TaiKhoan {
         [Key]
         public required string TenTK { get; set; }
         public required string MatKhau { get; set; }
@@ -18,14 +10,12 @@ namespace Show10.Data_Access
         public required string VaiTro { get; set; }
     }
 
-    internal class TaiKhoanContext : DbContext
-    {
+    internal class TaiKhoanContext : DbContext {
         public DbSet<TaiKhoan> TaiKhoans { get; set; }
 
         public string DbPath { get; }
 
-        public TaiKhoanContext()
-        {
+        public TaiKhoanContext() {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
             DbPath = System.IO.Path.Join(path, "show10.db");
@@ -36,8 +26,7 @@ namespace Show10.Data_Access
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=show10.db");
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<TaiKhoan>().HasData(
                 new TaiKhoan { TenTK = "admin", MatKhau = "123", HoTen = "Trương Hoàng Phúc", VaiTro = "admin" },
                 new TaiKhoan { TenTK = "user", MatKhau = "123", HoTen = "Phúc Hoàng Trương", VaiTro = "user" }
@@ -45,5 +34,5 @@ namespace Show10.Data_Access
         }
     }
 
-    
+
 }

@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
-namespace Show10.Models
-{
-    internal class Sach
-    {
+namespace Show10.Models {
+    internal class Sach {
         [Key]
         public required int MaSach { get; set; }
         public required string TenSach { get; set; }
@@ -19,14 +11,12 @@ namespace Show10.Models
         public required string TheLoai { get; set; }
     }
 
-    internal class SachContext : DbContext
-    {
+    internal class SachContext : DbContext {
         public DbSet<Sach> Sachs { get; set; }
 
         public string DbPath { get; }
 
-        public SachContext()
-        {
+        public SachContext() {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
             DbPath = System.IO.Path.Join(path, "show10.db");
@@ -37,10 +27,9 @@ namespace Show10.Models
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite("Data Source=show10.db");
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Sach>().HasData(
-                new Sach { MaSach=1, TenSach="Minna", SoLuong=123, TacGia="Minna", TheLoai="SGK"}
+                new Sach { MaSach = 1, TenSach = "Minna", SoLuong = 123, TacGia = "Minna", TheLoai = "SGK" }
             );
         }
 
