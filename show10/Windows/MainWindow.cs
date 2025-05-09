@@ -206,6 +206,7 @@ namespace show10
 
         private void Icon_Brand_Click(object sender, EventArgs e)
         {
+            
             if (icon_Brand.IconChar == IconChar.SignOut)
             {
                 var result = MessageBox.Show("Bạn có thực sự muốn đăng xuất?", "Trước khi đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
@@ -220,13 +221,35 @@ namespace show10
                     leftBorderBtn.Visible = false;
                     panel_ChildForm.BringToFront();
 
-                    if (currentChildForm != null)
-                    {
-                        currentChildForm.Close();
-                    }
+                    currentChildForm?.Close();
                 }
             }
         }
 
+        private void Icon_DangKy_Click(object sender, EventArgs e)
+        {
+            string tenTK = textBox_TenTK.Text;
+            string matKhau = maskedTextBox_MatKhau.Text;
+
+            if (db.TaiKhoans.Any(tk => tk.TenTK == tenTK))
+            {
+                MessageBox.Show("Đã có tài khoản sử dụng tên tài khoản này.\n" +
+                    "Vui lòng sử dụng tên tài khoản khác",
+                    "Trùng lặp tên tài khoản",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+            } else
+            {
+                // trường HoTen giải quyết sao ?!
+                db.Add(new TaiKhoan { TenTK = tenTK, MatKhau = matKhau, VaiTro = "user", HoTen = "" });
+                db.SaveChanges();
+
+                MessageBox.Show("Đăng ký hoàn tất.\nVui lòng đăng nhập lại.", "Đăng ký hoàn tất",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                maskedTextBox_MatKhau.Text = "";
+            }
+
+            textBox_TenTK.Text = "";
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Show10.Child_Forms
         {
             db = new TaiKhoanContext();
 
-            // Uncomment the line below to start fresh with a new database.
+            // Dòng dưới sẽ luôn xoá DB mỗi khi chạy chương trình
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 

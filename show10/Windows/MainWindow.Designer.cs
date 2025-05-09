@@ -48,8 +48,8 @@
             maskedTextBox_MatKhau = new MaskedTextBox();
             textBox_TenTK = new TextBox();
             panel_Welcome = new Panel();
-            label_Welcome = new Label();
             label_Clock = new Label();
+            label_Welcome = new Label();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
@@ -247,6 +247,7 @@
             icon_DangKy.TextAlign = ContentAlignment.MiddleRight;
             icon_DangKy.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_DangKy.UseVisualStyleBackColor = true;
+            icon_DangKy.Click += Icon_DangKy_Click;
             // 
             // icon_DangNhap
             // 
@@ -329,6 +330,15 @@
             panel_Welcome.Size = new Size(902, 673);
             panel_Welcome.TabIndex = 9;
             // 
+            // label_Clock
+            // 
+            label_Clock.Location = new Point(288, 255);
+            label_Clock.Name = "label_Clock";
+            label_Clock.Size = new Size(327, 160);
+            label_Clock.TabIndex = 1;
+            label_Clock.Text = "Bây giờ là mấy giờ?";
+            label_Clock.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // label_Welcome
             // 
             label_Welcome.Dock = DockStyle.Top;
@@ -340,22 +350,13 @@
             label_Welcome.Text = "Xin chào!";
             label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label_Clock
-            // 
-            label_Clock.Location = new Point(288, 255);
-            label_Clock.Name = "label_Clock";
-            label_Clock.Size = new Size(327, 160);
-            label_Clock.TabIndex = 1;
-            label_Clock.Text = "Bây giờ là bao giờ?";
-            label_Clock.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 673);
-            Controls.Add(panel_Welcome);
             Controls.Add(panel_ChildForm);
+            Controls.Add(panel_Welcome);
             Controls.Add(panel_Menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
