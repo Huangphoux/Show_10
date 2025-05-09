@@ -218,12 +218,12 @@
             icon_ShowPassword.IconColor = SystemColors.ControlText;
             icon_ShowPassword.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_ShowPassword.IconSize = 40;
-            icon_ShowPassword.Location = new Point(650, 189);
+            icon_ShowPassword.Location = new Point(634, 189);
             icon_ShowPassword.Name = "icon_ShowPassword";
-            icon_ShowPassword.Size = new Size(40, 40);
-            icon_ShowPassword.SizeMode = PictureBoxSizeMode.CenterImage;
+            icon_ShowPassword.Size = new Size(59, 40);
             icon_ShowPassword.TabIndex = 8;
             icon_ShowPassword.TabStop = false;
+            icon_ShowPassword.Click += Icon_ShowPassword_Click;
             // 
             // icon_DangKy
             // 

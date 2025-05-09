@@ -1,4 +1,4 @@
-using FontAwesome.Sharp;
+﻿using FontAwesome.Sharp;
 using Show10;
 using Show10.Child_Forms;
 using System.Drawing.Text;
@@ -133,5 +133,18 @@ namespace show10
 
         }
 
+        private void Icon_ShowPassword_Click(object sender, EventArgs e)
+        {
+            if(icon_ShowPassword.IconChar == IconChar.Eye)
+            {
+                icon_ShowPassword.IconChar = IconChar.EyeSlash;
+                maskedTextBox_MatKhau.PasswordChar = '\0';
+            }
+            else
+            {
+                icon_ShowPassword.IconChar = IconChar.Eye;
+                maskedTextBox_MatKhau.PasswordChar = '•';
+            }
+        }
     }
 }
