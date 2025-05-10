@@ -24,7 +24,7 @@ namespace show10 {
 
             icon_Tab = [icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao];
 
-            //icon_Tab.ForEach(tab => tab.Enabled = false);
+            icon_Tab.ForEach(tab => tab.Enabled = false);
             panel_Welcome.Visible = false;
 
             //icon_Brand.IconChar = IconChar.SignOut;
@@ -238,6 +238,10 @@ namespace show10 {
                 textBox_MatKhau.Text = "";
             }
 
+        }
+
+        private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
+            icon_Tab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
         }
     }
 }

@@ -107,11 +107,11 @@
             // checkBox_TK_QTV
             // 
             checkBox_TK_QTV.Anchor = AnchorStyles.None;
-            checkBox_TK_QTV.Location = new Point(281, 186);
+            checkBox_TK_QTV.Location = new Point(200, 186);
             checkBox_TK_QTV.Name = "checkBox_TK_QTV";
-            checkBox_TK_QTV.Size = new Size(220, 60);
+            checkBox_TK_QTV.Size = new Size(364, 60);
             checkBox_TK_QTV.TabIndex = 15;
-            checkBox_TK_QTV.Text = "Là quản trị viên";
+            checkBox_TK_QTV.Text = "Tài khoản này là quản trị viên";
             checkBox_TK_QTV.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_TK_QTV.UseVisualStyleBackColor = true;
             checkBox_TK_QTV.CheckStateChanged += CheckBox_TK_QTV_CheckStateChanged;

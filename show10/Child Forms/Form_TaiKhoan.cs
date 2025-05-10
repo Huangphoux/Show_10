@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Show10.Data_Access;
-using System.Buffers;
-using System.Windows.Forms;
-using System.Windows.Media;
-using static System.Net.Mime.MediaTypeNames;
-using Color = System.Drawing.Color;
 
 namespace Show10.Child_Forms {
     public partial class Form_TaiKhoan : Form {
@@ -43,6 +38,7 @@ namespace Show10.Child_Forms {
                 dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
             } else {
                 checkBox_TK_QTV.ThreeState = true;
+                checkBox_TK_QTV.CheckState = CheckState.Indeterminate;
                 ApplyFilters();
             }
         }

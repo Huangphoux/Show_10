@@ -38,6 +38,8 @@
             panel_Brand = new Panel();
             icon_Brand = new FontAwesome.Sharp.IconButton();
             panel_ChildForm = new Panel();
+            checkBox_enableTab = new CheckBox();
+            textBox_MatKhau = new TextBox();
             icon_ShowPassword = new FontAwesome.Sharp.IconPictureBox();
             icon_DangKy = new FontAwesome.Sharp.IconButton();
             icon_DangNhap = new FontAwesome.Sharp.IconButton();
@@ -48,7 +50,6 @@
             panel_Welcome = new Panel();
             label_Clock = new Label();
             label_Welcome = new Label();
-            textBox_MatKhau = new TextBox();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             panel_ChildForm.SuspendLayout();
@@ -203,6 +204,7 @@
             // 
             // panel_ChildForm
             // 
+            panel_ChildForm.Controls.Add(checkBox_enableTab);
             panel_ChildForm.Controls.Add(textBox_MatKhau);
             panel_ChildForm.Controls.Add(icon_ShowPassword);
             panel_ChildForm.Controls.Add(icon_DangKy);
@@ -216,6 +218,28 @@
             panel_ChildForm.Name = "panel_ChildForm";
             panel_ChildForm.Size = new Size(902, 673);
             panel_ChildForm.TabIndex = 4;
+            // 
+            // checkBox_enableTab
+            // 
+            checkBox_enableTab.Location = new Point(340, 361);
+            checkBox_enableTab.Name = "checkBox_enableTab";
+            checkBox_enableTab.Size = new Size(223, 54);
+            checkBox_enableTab.TabIndex = 10;
+            checkBox_enableTab.Text = "Bật các tab";
+            checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox_enableTab.UseVisualStyleBackColor = true;
+            checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
+            // 
+            // textBox_MatKhau
+            // 
+            textBox_MatKhau.Anchor = AnchorStyles.None;
+            textBox_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_MatKhau.Location = new Point(374, 186);
+            textBox_MatKhau.MaxLength = 500;
+            textBox_MatKhau.Name = "textBox_MatKhau";
+            textBox_MatKhau.Size = new Size(254, 43);
+            textBox_MatKhau.TabIndex = 9;
+            textBox_MatKhau.WordWrap = false;
             // 
             // icon_ShowPassword
             // 
@@ -340,17 +364,6 @@
             label_Welcome.Text = "Xin chào!";
             label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox_MatKhau
-            // 
-            textBox_MatKhau.Anchor = AnchorStyles.None;
-            textBox_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_MatKhau.Location = new Point(374, 186);
-            textBox_MatKhau.MaxLength = 500;
-            textBox_MatKhau.Name = "textBox_MatKhau";
-            textBox_MatKhau.Size = new Size(254, 43);
-            textBox_MatKhau.TabIndex = 9;
-            textBox_MatKhau.WordWrap = false;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -398,5 +411,6 @@
         private Label label_Clock;
         private FontAwesome.Sharp.IconButton icon_Brand;
         private TextBox textBox_MatKhau;
+        private CheckBox checkBox_enableTab;
     }
 }
