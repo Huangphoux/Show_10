@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Show10.Data_Access;
+using System.Buffers;
+using System.Windows.Forms;
 using System.Windows.Media;
 using static System.Net.Mime.MediaTypeNames;
 using Color = System.Drawing.Color;
@@ -34,6 +36,13 @@ namespace Show10.Child_Forms {
         private void CheckBox_TK_TimKiem_CheckedChanged(object sender, EventArgs e) {
             icon_TK_Them.Enabled = !checkBox_TK_TimKiem.Checked;
             icon_TK_Xoa.Enabled = !checkBox_TK_TimKiem.Checked;
+
+            if (!checkBox_TK_TimKiem.Checked) {
+                dataGridView_TaiKhoan.SelectionMode = DataGridViewSelectionMode.CellSelect;
+                dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
+            } else {
+                TextBox_TK_TenTK_TextChanged(textBox_TK_TenTK, e);
+            }
         }
 
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
@@ -57,6 +66,16 @@ namespace Show10.Child_Forms {
                 _ = db.Add(new TaiKhoan { TenTK = tenTK, MatKhau = matKhau, VaiTro = vaiTro, HoTen = hoTen });
                 _ = db.SaveChanges();
                 dataGridView_TaiKhoan.Refresh();
+            }
+        }
+
+        private void TextBox_TK_TenTK_TextChanged(object sender, EventArgs e) {
+            if (checkBox_TK_TimKiem.Checked && dataGridView_TaiKhoan != null) {
+                var filter = db.TaiKhoans.Local
+                    .Where(tk => tk.TenTK.Contains(textBox_TK_TenTK.Text))
+                    .ToList();
+
+                dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = filter };
             }
         }
     }

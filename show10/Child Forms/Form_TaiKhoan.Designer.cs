@@ -29,6 +29,8 @@
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             groupBox_TaiKhoan = new GroupBox();
+            textBox_TK_HoTen = new TextBox();
+            textBox_TK_MatKhau = new TextBox();
             checkBox_TK_TimKiem = new CheckBox();
             checkBox_TK_QTV = new CheckBox();
             label_TK_HoTen = new Label();
@@ -43,8 +45,6 @@
             dataGridViewTextBoxColumn_HoTen = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_VaiTro = new DataGridViewCheckBoxColumn();
             taiKhoanBindingSource = new BindingSource(components);
-            textBox_TK_MatKhau = new TextBox();
-            textBox_TK_HoTen = new TextBox();
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -71,6 +71,24 @@
             groupBox_TaiKhoan.TabIndex = 0;
             groupBox_TaiKhoan.TabStop = false;
             groupBox_TaiKhoan.Text = "Nhập liệu";
+            // 
+            // textBox_TK_HoTen
+            // 
+            textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_TK_HoTen.Location = new Point(200, 139);
+            textBox_TK_HoTen.Name = "textBox_TK_HoTen";
+            textBox_TK_HoTen.Size = new Size(364, 43);
+            textBox_TK_HoTen.TabIndex = 18;
+            // 
+            // textBox_TK_MatKhau
+            // 
+            textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_TK_MatKhau.Location = new Point(200, 90);
+            textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
+            textBox_TK_MatKhau.Size = new Size(364, 43);
+            textBox_TK_MatKhau.TabIndex = 17;
             // 
             // checkBox_TK_TimKiem
             // 
@@ -133,6 +151,7 @@
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
             textBox_TK_TenTK.Size = new Size(364, 43);
             textBox_TK_TenTK.TabIndex = 9;
+            textBox_TK_TenTK.TextChanged += TextBox_TK_TenTK_TextChanged;
             // 
             // icon_TK_Xoa
             // 
@@ -191,6 +210,7 @@
             dataGridView_TaiKhoan.ReadOnly = true;
             dataGridView_TaiKhoan.RightToLeft = RightToLeft.No;
             dataGridView_TaiKhoan.RowHeadersWidth = 51;
+            dataGridView_TaiKhoan.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView_TaiKhoan.Size = new Size(782, 198);
             dataGridView_TaiKhoan.TabIndex = 1;
             // 
@@ -233,24 +253,6 @@
             // taiKhoanBindingSource
             // 
             taiKhoanBindingSource.DataSource = typeof(Data_Access.TaiKhoan);
-            // 
-            // textBox_TK_MatKhau
-            // 
-            textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_TK_MatKhau.Location = new Point(200, 90);
-            textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
-            textBox_TK_MatKhau.Size = new Size(364, 43);
-            textBox_TK_MatKhau.TabIndex = 17;
-            // 
-            // textBox_TK_HoTen
-            // 
-            textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            textBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_TK_HoTen.Location = new Point(200, 139);
-            textBox_TK_HoTen.Name = "textBox_TK_HoTen";
-            textBox_TK_HoTen.Size = new Size(364, 43);
-            textBox_TK_HoTen.TabIndex = 18;
             // 
             // Form_TaiKhoan
             // 
