@@ -24,7 +24,7 @@ namespace show10 {
 
             icon_Tab = [icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao];
 
-            icon_Tab.ForEach(tab => tab.Enabled = false);
+            //icon_Tab.ForEach(tab => tab.Enabled = false);
             panel_Welcome.Visible = false;
 
             //icon_Brand.IconChar = IconChar.SignOut;
@@ -154,7 +154,10 @@ namespace show10 {
             string tenTK = textBox_TenTK.Text;
             string matKhau = maskedTextBox_MatKhau.Text;
 
-            if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
+            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
+                MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
+                    "Chưa điền tên tài khoản hoặc mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
                 _ = MessageBox.Show("Không tìm thấy tài khoản.", "Không tìm thấy tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             } else {
                 var found = db.TaiKhoans.First(tk => tk.TenTK == tenTK);
@@ -170,13 +173,27 @@ namespace show10 {
                 panel_Welcome.BringToFront();
                 label_Welcome.Text = $"Xin chào\n{found.HoTen}";
                 icon_Brand.IconChar = IconChar.SignOut;
+                icon_Brand.Text = "Đăng xuất";
             }
         }
 
         private void Icon_Brand_Click(object sender, EventArgs e) {
 
+            if (icon_Brand.IconChar == IconChar.Store) {
+                List<string> show10 = ["!", "?", ":)", ":D", "XD"];
+
+                Random rnd = new Random();
+                int r = rnd.Next(show10.Count);
+
+                icon_Brand.Text = "Show 10 " + show10[r];
+            }
+
             if (icon_Brand.IconChar == IconChar.SignOut) {
-                var result = MessageBox.Show("Bạn có thực sự muốn đăng xuất?", "Trước khi đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                var result = MessageBox.Show(
+                    "Bạn có thực sự muốn đăng xuất?",
+                    "Trước khi đăng xuất",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning
+                );
 
                 if (result == DialogResult.Yes) {
                     DisableButton();
@@ -188,6 +205,9 @@ namespace show10 {
                     panel_ChildForm.BringToFront();
 
                     currentChildForm?.Close();
+
+                    icon_Brand.Text = "Show 10 !";
+
                 }
             }
         }
@@ -196,11 +216,16 @@ namespace show10 {
             string tenTK = textBox_TenTK.Text;
             string matKhau = maskedTextBox_MatKhau.Text;
 
-            if (db.TaiKhoans.Any(tk => tk.TenTK == tenTK)) {
-                _ = MessageBox.Show("Đã có tài khoản sử dụng tên tài khoản này.\n" +
-                    "Vui lòng sử dụng tên tài khoản khác",
+            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
+                MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng ký.",
+                    "Chưa điền tên tài khoản hoặc mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (db.TaiKhoans.Any(tk => tk.TenTK == tenTK)) {
+                _ = MessageBox.Show("Tên tài khoản này đã được sử dụng.\n" +
+                    "Vui lòng sử dụng tên tài khoản khác.",
                     "Trùng lặp tên tài khoản",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                textBox_TenTK.Text = "";
+
 
             } else {
                 // trường HoTen giải quyết sao ?!
@@ -209,10 +234,10 @@ namespace show10 {
 
                 _ = MessageBox.Show("Đăng ký hoàn tất.\nVui lòng đăng nhập lại.", "Đăng ký hoàn tất",
                     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                textBox_TenTK.Text = "";
                 maskedTextBox_MatKhau.Text = "";
             }
 
-            textBox_TenTK.Text = "";
         }
     }
 }

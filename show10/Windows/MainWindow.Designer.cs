@@ -26,8 +26,7 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             timer_Clock = new System.Windows.Forms.Timer(components);
             panel_Menu = new Panel();
@@ -37,7 +36,7 @@
             icon_Sach = new FontAwesome.Sharp.IconButton();
             icon_TaiKhoan = new FontAwesome.Sharp.IconButton();
             panel_Brand = new Panel();
-            icon_Brand = new FontAwesome.Sharp.IconPictureBox();
+            icon_Brand = new FontAwesome.Sharp.IconButton();
             panel_ChildForm = new Panel();
             icon_ShowPassword = new FontAwesome.Sharp.IconPictureBox();
             icon_DangKy = new FontAwesome.Sharp.IconButton();
@@ -52,7 +51,6 @@
             label_Welcome = new Label();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)icon_Brand).BeginInit();
             panel_ChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPassword).BeginInit();
             panel_Welcome.SuspendLayout();
@@ -185,20 +183,22 @@
             // 
             // icon_Brand
             // 
-            icon_Brand.BackColor = SystemColors.Control;
-            icon_Brand.BorderStyle = BorderStyle.FixedSingle;
             icon_Brand.Dock = DockStyle.Fill;
-            icon_Brand.ForeColor = SystemColors.ControlText;
+            icon_Brand.FlatAppearance.BorderSize = 0;
+            icon_Brand.FlatStyle = FlatStyle.Flat;
+            icon_Brand.Font = new Font("Segoe UI Black", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             icon_Brand.IconChar = FontAwesome.Sharp.IconChar.Store;
-            icon_Brand.IconColor = SystemColors.ControlText;
+            icon_Brand.IconColor = Color.Black;
             icon_Brand.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_Brand.IconSize = 200;
+            icon_Brand.IconSize = 120;
             icon_Brand.Location = new Point(0, 0);
             icon_Brand.Name = "icon_Brand";
             icon_Brand.Size = new Size(278, 200);
-            icon_Brand.SizeMode = PictureBoxSizeMode.CenterImage;
-            icon_Brand.TabIndex = 1;
-            icon_Brand.TabStop = false;
+            icon_Brand.TabIndex = 9;
+            icon_Brand.Text = "Show 10 !";
+            icon_Brand.TextAlign = ContentAlignment.BottomCenter;
+            icon_Brand.TextImageRelation = TextImageRelation.ImageAboveText;
+            icon_Brand.UseVisualStyleBackColor = true;
             icon_Brand.Click += Icon_Brand_Click;
             // 
             // panel_ChildForm
@@ -367,7 +367,6 @@
             Load += MainWindow_Load;
             panel_Menu.ResumeLayout(false);
             panel_Brand.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)icon_Brand).EndInit();
             panel_ChildForm.ResumeLayout(false);
             panel_ChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPassword).EndInit();
@@ -381,7 +380,6 @@
         private Panel panel_Menu;
         private Panel panel_Brand;
         private FontAwesome.Sharp.IconButton icon_TaiKhoan;
-        private FontAwesome.Sharp.IconPictureBox icon_Brand;
         private FontAwesome.Sharp.IconButton icon_Sach;
         private Panel panel_ChildForm;
         private FontAwesome.Sharp.IconButton icon_FullScreen;
@@ -398,5 +396,6 @@
         private Panel panel_Welcome;
         private Label label_Welcome;
         private Label label_Clock;
+        private FontAwesome.Sharp.IconButton icon_Brand;
     }
 }

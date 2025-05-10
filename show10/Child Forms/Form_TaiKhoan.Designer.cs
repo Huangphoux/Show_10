@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             groupBox_TaiKhoan = new GroupBox();
             checkBox_TK_TimKiem = new CheckBox();
@@ -41,11 +40,11 @@
             icon_TK_Xoa = new FontAwesome.Sharp.IconButton();
             icon_TK_Them = new FontAwesome.Sharp.IconButton();
             dataGridView_TaiKhoan = new DataGridView();
-            taiKhoanBindingSource = new BindingSource(components);
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewCheckBoxColumn();
+            taiKhoanBindingSource = new BindingSource(components);
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -68,7 +67,7 @@
             groupBox_TaiKhoan.Margin = new Padding(0);
             groupBox_TaiKhoan.Name = "groupBox_TaiKhoan";
             groupBox_TaiKhoan.Padding = new Padding(0);
-            groupBox_TaiKhoan.Size = new Size(782, 325);
+            groupBox_TaiKhoan.Size = new Size(782, 355);
             groupBox_TaiKhoan.TabIndex = 0;
             groupBox_TaiKhoan.TabStop = false;
             groupBox_TaiKhoan.Text = "Nhập liệu";
@@ -76,7 +75,7 @@
             // checkBox_TK_TimKiem
             // 
             checkBox_TK_TimKiem.Anchor = AnchorStyles.Right;
-            checkBox_TK_TimKiem.Location = new Point(591, 85);
+            checkBox_TK_TimKiem.Location = new Point(591, 100);
             checkBox_TK_TimKiem.Name = "checkBox_TK_TimKiem";
             checkBox_TK_TimKiem.Size = new Size(179, 30);
             checkBox_TK_TimKiem.TabIndex = 16;
@@ -87,10 +86,10 @@
             // 
             // checkBox_TK_QTV
             // 
-            checkBox_TK_QTV.Anchor = AnchorStyles.Bottom;
-            checkBox_TK_QTV.Location = new Point(200, 179);
+            checkBox_TK_QTV.Anchor = AnchorStyles.None;
+            checkBox_TK_QTV.Location = new Point(200, 186);
             checkBox_TK_QTV.Name = "checkBox_TK_QTV";
-            checkBox_TK_QTV.Size = new Size(200, 40);
+            checkBox_TK_QTV.Size = new Size(364, 60);
             checkBox_TK_QTV.TabIndex = 15;
             checkBox_TK_QTV.Text = "Là quản trị viên";
             checkBox_TK_QTV.TextAlign = ContentAlignment.MiddleCenter;
@@ -98,7 +97,7 @@
             // 
             // label_TK_HoTen
             // 
-            label_TK_HoTen.Location = new Point(42, 119);
+            label_TK_HoTen.Location = new Point(42, 137);
             label_TK_HoTen.Margin = new Padding(3, 0, 20, 0);
             label_TK_HoTen.Name = "label_TK_HoTen";
             label_TK_HoTen.Size = new Size(135, 40);
@@ -108,9 +107,9 @@
             // 
             // maskedTextBox_TK_HoTen
             // 
-            maskedTextBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            maskedTextBox_TK_HoTen.Anchor = AnchorStyles.Top;
             maskedTextBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox_TK_HoTen.Location = new Point(200, 119);
+            maskedTextBox_TK_HoTen.Location = new Point(200, 137);
             maskedTextBox_TK_HoTen.Name = "maskedTextBox_TK_HoTen";
             maskedTextBox_TK_HoTen.PasswordChar = '•';
             maskedTextBox_TK_HoTen.Size = new Size(364, 43);
@@ -118,7 +117,7 @@
             // 
             // label_TK_MatKhau
             // 
-            label_TK_MatKhau.Location = new Point(42, 79);
+            label_TK_MatKhau.Location = new Point(42, 88);
             label_TK_MatKhau.Margin = new Padding(3, 0, 20, 0);
             label_TK_MatKhau.Name = "label_TK_MatKhau";
             label_TK_MatKhau.Size = new Size(135, 40);
@@ -140,7 +139,7 @@
             // 
             maskedTextBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             maskedTextBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox_TK_MatKhau.Location = new Point(200, 79);
+            maskedTextBox_TK_MatKhau.Location = new Point(200, 88);
             maskedTextBox_TK_MatKhau.Name = "maskedTextBox_TK_MatKhau";
             maskedTextBox_TK_MatKhau.Size = new Size(364, 43);
             maskedTextBox_TK_MatKhau.TabIndex = 10;
@@ -156,7 +155,7 @@
             // 
             // icon_TK_Xoa
             // 
-            icon_TK_Xoa.Anchor = AnchorStyles.Bottom;
+            icon_TK_Xoa.Anchor = AnchorStyles.None;
             icon_TK_Xoa.BackColor = Color.FromArgb(255, 128, 128);
             icon_TK_Xoa.FlatAppearance.BorderSize = 0;
             icon_TK_Xoa.FlatStyle = FlatStyle.Flat;
@@ -164,7 +163,7 @@
             icon_TK_Xoa.IconColor = Color.Black;
             icon_TK_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Xoa.IconSize = 30;
-            icon_TK_Xoa.Location = new Point(385, 225);
+            icon_TK_Xoa.Location = new Point(385, 252);
             icon_TK_Xoa.Name = "icon_TK_Xoa";
             icon_TK_Xoa.Size = new Size(179, 80);
             icon_TK_Xoa.TabIndex = 8;
@@ -175,7 +174,7 @@
             // 
             // icon_TK_Them
             // 
-            icon_TK_Them.Anchor = AnchorStyles.Bottom;
+            icon_TK_Them.Anchor = AnchorStyles.None;
             icon_TK_Them.BackColor = Color.FromArgb(128, 255, 128);
             icon_TK_Them.FlatAppearance.BorderSize = 0;
             icon_TK_Them.FlatStyle = FlatStyle.Flat;
@@ -183,7 +182,7 @@
             icon_TK_Them.IconColor = Color.Black;
             icon_TK_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Them.IconSize = 30;
-            icon_TK_Them.Location = new Point(200, 225);
+            icon_TK_Them.Location = new Point(200, 252);
             icon_TK_Them.Name = "icon_TK_Them";
             icon_TK_Them.Size = new Size(179, 80);
             icon_TK_Them.TabIndex = 7;
@@ -191,10 +190,12 @@
             icon_TK_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Them.UseVisualStyleBackColor = false;
+            icon_TK_Them.Click += Icon_TK_Them_Click;
             // 
             // dataGridView_TaiKhoan
             // 
-            dataGridView_TaiKhoan.AllowUserToOrderColumns = true;
+            dataGridView_TaiKhoan.AllowUserToAddRows = false;
+            dataGridView_TaiKhoan.AllowUserToDeleteRows = false;
             dataGridView_TaiKhoan.AllowUserToResizeColumns = false;
             dataGridView_TaiKhoan.AllowUserToResizeRows = false;
             dataGridView_TaiKhoan.AutoGenerateColumns = false;
@@ -203,15 +204,14 @@
             dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
             dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
             dataGridView_TaiKhoan.Dock = DockStyle.Fill;
-            dataGridView_TaiKhoan.Location = new Point(0, 325);
+            dataGridView_TaiKhoan.GridColor = SystemColors.ScrollBar;
+            dataGridView_TaiKhoan.Location = new Point(0, 355);
             dataGridView_TaiKhoan.Name = "dataGridView_TaiKhoan";
+            dataGridView_TaiKhoan.ReadOnly = true;
+            dataGridView_TaiKhoan.RightToLeft = RightToLeft.No;
             dataGridView_TaiKhoan.RowHeadersWidth = 51;
-            dataGridView_TaiKhoan.Size = new Size(782, 228);
+            dataGridView_TaiKhoan.Size = new Size(782, 198);
             dataGridView_TaiKhoan.TabIndex = 1;
-            // 
-            // taiKhoanBindingSource
-            // 
-            taiKhoanBindingSource.DataSource = typeof(Data_Access.TaiKhoan);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -219,6 +219,7 @@
             dataGridViewTextBoxColumn1.HeaderText = "Tên TK";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -226,6 +227,7 @@
             dataGridViewTextBoxColumn2.HeaderText = "Mật khẩu";
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -233,6 +235,7 @@
             dataGridViewTextBoxColumn3.HeaderText = "Họ tên";
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -241,9 +244,14 @@
             dataGridViewTextBoxColumn4.HeaderText = "Vai trò";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             dataGridViewTextBoxColumn4.Resizable = DataGridViewTriState.True;
             dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.Automatic;
             dataGridViewTextBoxColumn4.TrueValue = "admin";
+            // 
+            // taiKhoanBindingSource
+            // 
+            taiKhoanBindingSource.DataSource = typeof(Data_Access.TaiKhoan);
             // 
             // Form_TaiKhoan
             // 
