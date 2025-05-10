@@ -114,5 +114,38 @@ namespace Show10.Child_Forms {
             }
         }
 
+
+        // không select khi bấm vào checkbox
+        private void DataGridView_TaiKhoan_SelectionChanged(object sender, EventArgs e) {
+            if (dataGridView_TaiKhoan.Columns[dataGridView_TaiKhoan.CurrentCell.ColumnIndex].Index == 3)
+                dataGridView_TaiKhoan.CurrentCell.Selected = false;
+        }
+
+        private void Icon_TK_Xoa_Click(object sender, EventArgs e) {
+            var result = MessageBox.Show(
+                "Bạn có thực sự muốn xoá những tài khoản này?",
+                "Trước khi xoá tài khoản",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+
+            if (result == DialogResult.Yes) {
+
+                // Use a HashSet to avoid duplicate row indices
+                var rowsToDelete = new HashSet<int>();
+
+                foreach (DataGridViewCell cell in dataGridView_TaiKhoan.SelectedCells) {
+                    rowsToDelete.Add(cell.RowIndex);
+                }
+
+                foreach (int rowIndex in rowsToDelete.OrderByDescending(index => index)) {
+                    if (dataGridView_TaiKhoan.Rows[rowIndex].DataBoundItem is TaiKhoan taiKhoan) {
+                        db.TaiKhoans.Remove(taiKhoan);
+                    }
+                }
+
+                db.SaveChanges();
+                dataGridView_TaiKhoan.Refresh();
+            }
+        }
     }
 }

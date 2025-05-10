@@ -107,9 +107,9 @@
             // checkBox_TK_QTV
             // 
             checkBox_TK_QTV.Anchor = AnchorStyles.None;
-            checkBox_TK_QTV.Location = new Point(200, 186);
+            checkBox_TK_QTV.Location = new Point(281, 186);
             checkBox_TK_QTV.Name = "checkBox_TK_QTV";
-            checkBox_TK_QTV.Size = new Size(364, 60);
+            checkBox_TK_QTV.Size = new Size(220, 60);
             checkBox_TK_QTV.TabIndex = 15;
             checkBox_TK_QTV.Text = "Là quản trị viên";
             checkBox_TK_QTV.TextAlign = ContentAlignment.MiddleCenter;
@@ -166,14 +166,16 @@
             icon_TK_Xoa.IconColor = Color.Black;
             icon_TK_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Xoa.IconSize = 30;
-            icon_TK_Xoa.Location = new Point(385, 252);
+            icon_TK_Xoa.Location = new Point(375, 259);
+            icon_TK_Xoa.Margin = new Padding(10);
             icon_TK_Xoa.Name = "icon_TK_Xoa";
-            icon_TK_Xoa.Size = new Size(179, 80);
+            icon_TK_Xoa.Size = new Size(220, 80);
             icon_TK_Xoa.TabIndex = 8;
-            icon_TK_Xoa.Text = "Xoá";
+            icon_TK_Xoa.Text = "Xoá tài khoản";
             icon_TK_Xoa.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Xoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Xoa.UseVisualStyleBackColor = false;
+            icon_TK_Xoa.Click += Icon_TK_Xoa_Click;
             // 
             // icon_TK_Them
             // 
@@ -185,11 +187,12 @@
             icon_TK_Them.IconColor = Color.Black;
             icon_TK_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Them.IconSize = 30;
-            icon_TK_Them.Location = new Point(200, 252);
+            icon_TK_Them.Location = new Point(135, 259);
+            icon_TK_Them.Margin = new Padding(10);
             icon_TK_Them.Name = "icon_TK_Them";
-            icon_TK_Them.Size = new Size(179, 80);
+            icon_TK_Them.Size = new Size(220, 80);
             icon_TK_Them.TabIndex = 7;
-            icon_TK_Them.Text = "Thêm";
+            icon_TK_Them.Text = "Thêm tài khoản";
             icon_TK_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Them.UseVisualStyleBackColor = false;
@@ -210,12 +213,12 @@
             dataGridView_TaiKhoan.GridColor = SystemColors.ScrollBar;
             dataGridView_TaiKhoan.Location = new Point(0, 355);
             dataGridView_TaiKhoan.Name = "dataGridView_TaiKhoan";
-            dataGridView_TaiKhoan.ReadOnly = true;
             dataGridView_TaiKhoan.RightToLeft = RightToLeft.No;
             dataGridView_TaiKhoan.RowHeadersWidth = 51;
             dataGridView_TaiKhoan.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView_TaiKhoan.Size = new Size(782, 198);
             dataGridView_TaiKhoan.TabIndex = 1;
+            dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;
             // 
             // dataGridViewTextBoxColumn_TenTK
             // 
@@ -223,7 +226,6 @@
             dataGridViewTextBoxColumn_TenTK.HeaderText = "Tên TK";
             dataGridViewTextBoxColumn_TenTK.MinimumWidth = 6;
             dataGridViewTextBoxColumn_TenTK.Name = "dataGridViewTextBoxColumn_TenTK";
-            dataGridViewTextBoxColumn_TenTK.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn_MatKhau
             // 
@@ -231,7 +233,6 @@
             dataGridViewTextBoxColumn_MatKhau.HeaderText = "Mật khẩu";
             dataGridViewTextBoxColumn_MatKhau.MinimumWidth = 6;
             dataGridViewTextBoxColumn_MatKhau.Name = "dataGridViewTextBoxColumn_MatKhau";
-            dataGridViewTextBoxColumn_MatKhau.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn_HoTen
             // 
@@ -239,7 +240,6 @@
             dataGridViewTextBoxColumn_HoTen.HeaderText = "Họ tên";
             dataGridViewTextBoxColumn_HoTen.MinimumWidth = 6;
             dataGridViewTextBoxColumn_HoTen.Name = "dataGridViewTextBoxColumn_HoTen";
-            dataGridViewTextBoxColumn_HoTen.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn_VaiTro
             // 
@@ -248,7 +248,6 @@
             dataGridViewTextBoxColumn_VaiTro.HeaderText = "Vai trò";
             dataGridViewTextBoxColumn_VaiTro.MinimumWidth = 6;
             dataGridViewTextBoxColumn_VaiTro.Name = "dataGridViewTextBoxColumn_VaiTro";
-            dataGridViewTextBoxColumn_VaiTro.ReadOnly = true;
             dataGridViewTextBoxColumn_VaiTro.Resizable = DataGridViewTriState.True;
             dataGridViewTextBoxColumn_VaiTro.SortMode = DataGridViewColumnSortMode.Automatic;
             dataGridViewTextBoxColumn_VaiTro.TrueValue = "admin";
@@ -296,11 +295,11 @@
         private CheckBox checkBox_TK_QTV;
         private CheckBox checkBox_TK_TimKiem;
         private BindingSource taiKhoanBindingSource;
+        private TextBox textBox_TK_HoTen;
+        private TextBox textBox_TK_MatKhau;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenTK;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MatKhau;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_HoTen;
         private DataGridViewCheckBoxColumn dataGridViewTextBoxColumn_VaiTro;
-        private TextBox textBox_TK_HoTen;
-        private TextBox textBox_TK_MatKhau;
     }
 }
