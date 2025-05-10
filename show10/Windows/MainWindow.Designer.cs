@@ -44,11 +44,11 @@
             label_DangNhap = new Label();
             label_MatKhau = new Label();
             label_TenTK = new Label();
-            maskedTextBox_MatKhau = new MaskedTextBox();
             textBox_TenTK = new TextBox();
             panel_Welcome = new Panel();
             label_Clock = new Label();
             label_Welcome = new Label();
+            textBox_MatKhau = new TextBox();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             panel_ChildForm.SuspendLayout();
@@ -203,13 +203,13 @@
             // 
             // panel_ChildForm
             // 
+            panel_ChildForm.Controls.Add(textBox_MatKhau);
             panel_ChildForm.Controls.Add(icon_ShowPassword);
             panel_ChildForm.Controls.Add(icon_DangKy);
             panel_ChildForm.Controls.Add(icon_DangNhap);
             panel_ChildForm.Controls.Add(label_DangNhap);
             panel_ChildForm.Controls.Add(label_MatKhau);
             panel_ChildForm.Controls.Add(label_TenTK);
-            panel_ChildForm.Controls.Add(maskedTextBox_MatKhau);
             panel_ChildForm.Controls.Add(textBox_TenTK);
             panel_ChildForm.Dock = DockStyle.Fill;
             panel_ChildForm.Location = new Point(280, 0);
@@ -299,16 +299,6 @@
             label_TenTK.Text = "Tên tài khoản";
             label_TenTK.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // maskedTextBox_MatKhau
-            // 
-            maskedTextBox_MatKhau.Anchor = AnchorStyles.None;
-            maskedTextBox_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox_MatKhau.Location = new Point(374, 189);
-            maskedTextBox_MatKhau.Name = "maskedTextBox_MatKhau";
-            maskedTextBox_MatKhau.PasswordChar = '•';
-            maskedTextBox_MatKhau.Size = new Size(254, 43);
-            maskedTextBox_MatKhau.TabIndex = 1;
-            // 
             // textBox_TenTK
             // 
             textBox_TenTK.Anchor = AnchorStyles.None;
@@ -350,6 +340,17 @@
             label_Welcome.Text = "Xin chào!";
             label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // textBox_MatKhau
+            // 
+            textBox_MatKhau.Anchor = AnchorStyles.None;
+            textBox_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_MatKhau.Location = new Point(374, 186);
+            textBox_MatKhau.MaxLength = 500;
+            textBox_MatKhau.Name = "textBox_MatKhau";
+            textBox_MatKhau.Size = new Size(254, 43);
+            textBox_MatKhau.TabIndex = 9;
+            textBox_MatKhau.WordWrap = false;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -385,7 +386,6 @@
         private FontAwesome.Sharp.IconButton icon_FullScreen;
         private Label label_MatKhau;
         private Label label_TenTK;
-        private MaskedTextBox maskedTextBox_MatKhau;
         private TextBox textBox_TenTK;
         private Label label_DangNhap;
         private FontAwesome.Sharp.IconButton icon_DangNhap;
@@ -397,5 +397,6 @@
         private Label label_Welcome;
         private Label label_Clock;
         private FontAwesome.Sharp.IconButton icon_Brand;
+        private TextBox textBox_MatKhau;
     }
 }

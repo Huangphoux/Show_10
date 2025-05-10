@@ -38,8 +38,8 @@ namespace Show10.Child_Forms {
 
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
             string tenTK = textBox_TK_TenTK.Text;
-            string matKhau = maskedTextBox_TK_MatKhau.Text;
-            string hoTen = maskedTextBox_TK_HoTen.Text;
+            string matKhau = textBox_TK_MatKhau.Text;
+            string hoTen = textBox_TK_HoTen.Text;
             string vaiTro = checkBox_TK_QTV.Checked ? "admin" : "user";
 
             if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau) || string.IsNullOrEmpty(hoTen)) {

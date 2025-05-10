@@ -32,19 +32,19 @@
             checkBox_TK_TimKiem = new CheckBox();
             checkBox_TK_QTV = new CheckBox();
             label_TK_HoTen = new Label();
-            maskedTextBox_TK_HoTen = new MaskedTextBox();
             label_TK_MatKhau = new Label();
             label_TK_TenTK = new Label();
-            maskedTextBox_TK_MatKhau = new MaskedTextBox();
             textBox_TK_TenTK = new TextBox();
             icon_TK_Xoa = new FontAwesome.Sharp.IconButton();
             icon_TK_Them = new FontAwesome.Sharp.IconButton();
             dataGridView_TaiKhoan = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewCheckBoxColumn();
+            dataGridViewTextBoxColumn_TenTK = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_MatKhau = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_HoTen = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_VaiTro = new DataGridViewCheckBoxColumn();
             taiKhoanBindingSource = new BindingSource(components);
+            textBox_TK_MatKhau = new TextBox();
+            textBox_TK_HoTen = new TextBox();
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -52,13 +52,13 @@
             // 
             // groupBox_TaiKhoan
             // 
+            groupBox_TaiKhoan.Controls.Add(textBox_TK_HoTen);
+            groupBox_TaiKhoan.Controls.Add(textBox_TK_MatKhau);
             groupBox_TaiKhoan.Controls.Add(checkBox_TK_TimKiem);
             groupBox_TaiKhoan.Controls.Add(checkBox_TK_QTV);
             groupBox_TaiKhoan.Controls.Add(label_TK_HoTen);
-            groupBox_TaiKhoan.Controls.Add(maskedTextBox_TK_HoTen);
             groupBox_TaiKhoan.Controls.Add(label_TK_MatKhau);
             groupBox_TaiKhoan.Controls.Add(label_TK_TenTK);
-            groupBox_TaiKhoan.Controls.Add(maskedTextBox_TK_MatKhau);
             groupBox_TaiKhoan.Controls.Add(textBox_TK_TenTK);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Xoa);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Them);
@@ -105,16 +105,6 @@
             label_TK_HoTen.Text = "Họ tên";
             label_TK_HoTen.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // maskedTextBox_TK_HoTen
-            // 
-            maskedTextBox_TK_HoTen.Anchor = AnchorStyles.Top;
-            maskedTextBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox_TK_HoTen.Location = new Point(200, 137);
-            maskedTextBox_TK_HoTen.Name = "maskedTextBox_TK_HoTen";
-            maskedTextBox_TK_HoTen.PasswordChar = '•';
-            maskedTextBox_TK_HoTen.Size = new Size(364, 43);
-            maskedTextBox_TK_HoTen.TabIndex = 13;
-            // 
             // label_TK_MatKhau
             // 
             label_TK_MatKhau.Location = new Point(42, 88);
@@ -134,15 +124,6 @@
             label_TK_TenTK.TabIndex = 11;
             label_TK_TenTK.Text = "Tên tài khoản";
             label_TK_TenTK.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // maskedTextBox_TK_MatKhau
-            // 
-            maskedTextBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
-            maskedTextBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            maskedTextBox_TK_MatKhau.Location = new Point(200, 88);
-            maskedTextBox_TK_MatKhau.Name = "maskedTextBox_TK_MatKhau";
-            maskedTextBox_TK_MatKhau.Size = new Size(364, 43);
-            maskedTextBox_TK_MatKhau.TabIndex = 10;
             // 
             // textBox_TK_TenTK
             // 
@@ -201,7 +182,7 @@
             dataGridView_TaiKhoan.AutoGenerateColumns = false;
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_TenTK, dataGridViewTextBoxColumn_MatKhau, dataGridViewTextBoxColumn_HoTen, dataGridViewTextBoxColumn_VaiTro });
             dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
             dataGridView_TaiKhoan.Dock = DockStyle.Fill;
             dataGridView_TaiKhoan.GridColor = SystemColors.ScrollBar;
@@ -213,45 +194,63 @@
             dataGridView_TaiKhoan.Size = new Size(782, 198);
             dataGridView_TaiKhoan.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn_TenTK
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "TenTK";
-            dataGridViewTextBoxColumn1.HeaderText = "Tên TK";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn_TenTK.DataPropertyName = "TenTK";
+            dataGridViewTextBoxColumn_TenTK.HeaderText = "Tên TK";
+            dataGridViewTextBoxColumn_TenTK.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_TenTK.Name = "dataGridViewTextBoxColumn_TenTK";
+            dataGridViewTextBoxColumn_TenTK.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // dataGridViewTextBoxColumn_MatKhau
             // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "MatKhau";
-            dataGridViewTextBoxColumn2.HeaderText = "Mật khẩu";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn_MatKhau.DataPropertyName = "MatKhau";
+            dataGridViewTextBoxColumn_MatKhau.HeaderText = "Mật khẩu";
+            dataGridViewTextBoxColumn_MatKhau.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_MatKhau.Name = "dataGridViewTextBoxColumn_MatKhau";
+            dataGridViewTextBoxColumn_MatKhau.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn_HoTen
             // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "HoTen";
-            dataGridViewTextBoxColumn3.HeaderText = "Họ tên";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn_HoTen.DataPropertyName = "HoTen";
+            dataGridViewTextBoxColumn_HoTen.HeaderText = "Họ tên";
+            dataGridViewTextBoxColumn_HoTen.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_HoTen.Name = "dataGridViewTextBoxColumn_HoTen";
+            dataGridViewTextBoxColumn_HoTen.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn_VaiTro
             // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "VaiTro";
-            dataGridViewTextBoxColumn4.FalseValue = "user";
-            dataGridViewTextBoxColumn4.HeaderText = "Vai trò";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            dataGridViewTextBoxColumn4.Resizable = DataGridViewTriState.True;
-            dataGridViewTextBoxColumn4.SortMode = DataGridViewColumnSortMode.Automatic;
-            dataGridViewTextBoxColumn4.TrueValue = "admin";
+            dataGridViewTextBoxColumn_VaiTro.DataPropertyName = "VaiTro";
+            dataGridViewTextBoxColumn_VaiTro.FalseValue = "user";
+            dataGridViewTextBoxColumn_VaiTro.HeaderText = "Vai trò";
+            dataGridViewTextBoxColumn_VaiTro.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_VaiTro.Name = "dataGridViewTextBoxColumn_VaiTro";
+            dataGridViewTextBoxColumn_VaiTro.ReadOnly = true;
+            dataGridViewTextBoxColumn_VaiTro.Resizable = DataGridViewTriState.True;
+            dataGridViewTextBoxColumn_VaiTro.SortMode = DataGridViewColumnSortMode.Automatic;
+            dataGridViewTextBoxColumn_VaiTro.TrueValue = "admin";
             // 
             // taiKhoanBindingSource
             // 
             taiKhoanBindingSource.DataSource = typeof(Data_Access.TaiKhoan);
+            // 
+            // textBox_TK_MatKhau
+            // 
+            textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_TK_MatKhau.Location = new Point(200, 90);
+            textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
+            textBox_TK_MatKhau.Size = new Size(364, 43);
+            textBox_TK_MatKhau.TabIndex = 17;
+            // 
+            // textBox_TK_HoTen
+            // 
+            textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox_TK_HoTen.Location = new Point(200, 139);
+            textBox_TK_HoTen.Name = "textBox_TK_HoTen";
+            textBox_TK_HoTen.Size = new Size(364, 43);
+            textBox_TK_HoTen.TabIndex = 18;
             // 
             // Form_TaiKhoan
             // 
@@ -286,17 +285,17 @@
         private FontAwesome.Sharp.IconButton icon_TK_Xoa;
         private FontAwesome.Sharp.IconButton icon_TK_Them;
         private Label label_TK_HoTen;
-        private MaskedTextBox maskedTextBox_TK_HoTen;
         private Label label_TK_MatKhau;
         private Label label_TK_TenTK;
-        private MaskedTextBox maskedTextBox_TK_MatKhau;
         private TextBox textBox_TK_TenTK;
         private CheckBox checkBox_TK_QTV;
         private CheckBox checkBox_TK_TimKiem;
         private BindingSource taiKhoanBindingSource;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewCheckBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenTK;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MatKhau;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_HoTen;
+        private DataGridViewCheckBoxColumn dataGridViewTextBoxColumn_VaiTro;
+        private TextBox textBox_TK_HoTen;
+        private TextBox textBox_TK_MatKhau;
     }
 }

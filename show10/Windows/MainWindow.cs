@@ -143,16 +143,16 @@ namespace show10 {
         private void Icon_ShowPassword_Click(object sender, EventArgs e) {
             if (icon_ShowPassword.IconChar == IconChar.Eye) {
                 icon_ShowPassword.IconChar = IconChar.EyeSlash;
-                maskedTextBox_MatKhau.PasswordChar = '\0';
+                textBox_MatKhau.PasswordChar = '\0';
             } else {
                 icon_ShowPassword.IconChar = IconChar.Eye;
-                maskedTextBox_MatKhau.PasswordChar = '•';
+                textBox_MatKhau.PasswordChar = '•';
             }
         }
 
         private void Icon_DangNhap_Click(object sender, EventArgs e) {
             string tenTK = textBox_TenTK.Text;
-            string matKhau = maskedTextBox_MatKhau.Text;
+            string matKhau = textBox_MatKhau.Text;
 
             if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
                 MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
@@ -214,7 +214,7 @@ namespace show10 {
 
         private void Icon_DangKy_Click(object sender, EventArgs e) {
             string tenTK = textBox_TenTK.Text;
-            string matKhau = maskedTextBox_MatKhau.Text;
+            string matKhau = textBox_MatKhau.Text;
 
             if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
                 MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng ký.",
@@ -235,7 +235,7 @@ namespace show10 {
                 _ = MessageBox.Show("Đăng ký hoàn tất.\nVui lòng đăng nhập lại.", "Đăng ký hoàn tất",
                     MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 textBox_TenTK.Text = "";
-                maskedTextBox_MatKhau.Text = "";
+                textBox_MatKhau.Text = "";
             }
 
         }
