@@ -74,21 +74,23 @@
             // 
             // textBox_TK_HoTen
             // 
-            textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TK_HoTen.Location = new Point(200, 139);
             textBox_TK_HoTen.Name = "textBox_TK_HoTen";
             textBox_TK_HoTen.Size = new Size(364, 43);
             textBox_TK_HoTen.TabIndex = 18;
+            textBox_TK_HoTen.TextChanged += TextBox_TK_HoTen_TextChanged;
             // 
             // textBox_TK_MatKhau
             // 
-            textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TK_MatKhau.Location = new Point(200, 90);
             textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
             textBox_TK_MatKhau.Size = new Size(364, 43);
             textBox_TK_MatKhau.TabIndex = 17;
+            textBox_TK_MatKhau.TextChanged += TextBox_TK_MatKhau_TextChanged;
             // 
             // checkBox_TK_TimKiem
             // 
@@ -112,6 +114,7 @@
             checkBox_TK_QTV.Text = "Là quản trị viên";
             checkBox_TK_QTV.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_TK_QTV.UseVisualStyleBackColor = true;
+            checkBox_TK_QTV.CheckStateChanged += CheckBox_TK_QTV_CheckStateChanged;
             // 
             // label_TK_HoTen
             // 
@@ -145,7 +148,7 @@
             // 
             // textBox_TK_TenTK
             // 
-            textBox_TK_TenTK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            textBox_TK_TenTK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_TK_TenTK.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TK_TenTK.Location = new Point(200, 39);
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
