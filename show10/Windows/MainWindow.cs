@@ -1,5 +1,4 @@
-﻿using DarkModeForms;
-using FontAwesome.Sharp;
+﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10;
 using Show10.Child_Forms;
@@ -31,7 +30,6 @@ namespace show10 {
             //icon_Brand.IconChar = IconChar.SignOut;
             icon_Brand.IconSize = 100;
 
-            //DarkModeCS dm = new(this) { ColorMode = DarkModeCS.DisplayMode.SystemDefault };
         }
 
         private void MainWindow_Load(object sender, EventArgs e) {
@@ -125,12 +123,14 @@ namespace show10 {
         }
 
         #region icon Tab Click
-        private void Icon_User_Click(object sender, EventArgs e) {
+        private void Icon_TaiKhoan_Click(object sender, EventArgs e) {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Form_TaiKhoan());
         }
-        private void Icon_Book_Click(object sender, EventArgs e) {
+        private void Icon_Sach_Click(object sender, EventArgs e) {
             ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new Form_Sach());
+
 
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e) {

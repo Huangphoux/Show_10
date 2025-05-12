@@ -18,9 +18,4 @@
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dark Mode\" />
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
 </Project>

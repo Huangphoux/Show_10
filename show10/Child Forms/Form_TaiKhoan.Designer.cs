@@ -40,11 +40,11 @@
             icon_TK_Xoa = new FontAwesome.Sharp.IconButton();
             icon_TK_Them = new FontAwesome.Sharp.IconButton();
             dataGridView_TaiKhoan = new DataGridView();
+            taiKhoanBindingSource = new BindingSource(components);
             dataGridViewTextBoxColumn_TenTK = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_MatKhau = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_HoTen = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_VaiTro = new DataGridViewCheckBoxColumn();
-            taiKhoanBindingSource = new BindingSource(components);
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -206,6 +206,7 @@
             dataGridView_TaiKhoan.AllowUserToResizeRows = false;
             dataGridView_TaiKhoan.AutoGenerateColumns = false;
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView_TaiKhoan.BackgroundColor = Color.White;
             dataGridView_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_TenTK, dataGridViewTextBoxColumn_MatKhau, dataGridViewTextBoxColumn_HoTen, dataGridViewTextBoxColumn_VaiTro });
             dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
@@ -223,10 +224,14 @@
             dataGridView_TaiKhoan.CurrentCellDirtyStateChanged += DataGridView_TaiKhoan_CurrentCellDirtyStateChanged;
             dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;
             // 
+            // taiKhoanBindingSource
+            // 
+            taiKhoanBindingSource.DataSource = typeof(Models.TaiKhoan);
+            // 
             // dataGridViewTextBoxColumn_TenTK
             // 
             dataGridViewTextBoxColumn_TenTK.DataPropertyName = "TenTK";
-            dataGridViewTextBoxColumn_TenTK.HeaderText = "Tên TK";
+            dataGridViewTextBoxColumn_TenTK.HeaderText = "Tên tài khoản";
             dataGridViewTextBoxColumn_TenTK.MinimumWidth = 6;
             dataGridViewTextBoxColumn_TenTK.Name = "dataGridViewTextBoxColumn_TenTK";
             // 
@@ -254,10 +259,6 @@
             dataGridViewTextBoxColumn_VaiTro.Resizable = DataGridViewTriState.True;
             dataGridViewTextBoxColumn_VaiTro.SortMode = DataGridViewColumnSortMode.Automatic;
             dataGridViewTextBoxColumn_VaiTro.TrueValue = "admin";
-            // 
-            // taiKhoanBindingSource
-            // 
-            taiKhoanBindingSource.DataSource = typeof(Models.TaiKhoan);
             // 
             // Form_TaiKhoan
             // 

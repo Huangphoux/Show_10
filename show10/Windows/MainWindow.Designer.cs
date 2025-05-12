@@ -152,7 +152,7 @@
             icon_Sach.TextAlign = ContentAlignment.MiddleRight;
             icon_Sach.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_Sach.UseVisualStyleBackColor = true;
-            icon_Sach.Click += Icon_Book_Click;
+            icon_Sach.Click += Icon_Sach_Click;
             // 
             // icon_TaiKhoan
             // 
@@ -171,7 +171,7 @@
             icon_TaiKhoan.TextAlign = ContentAlignment.MiddleRight;
             icon_TaiKhoan.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TaiKhoan.UseVisualStyleBackColor = true;
-            icon_TaiKhoan.Click += Icon_User_Click;
+            icon_TaiKhoan.Click += Icon_TaiKhoan_Click;
             // 
             // panel_Brand
             // 
