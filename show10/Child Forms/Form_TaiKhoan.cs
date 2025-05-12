@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Show10.Data_Access;
+using DarkModeForms;
+
 
 namespace Show10.Child_Forms {
     public partial class Form_TaiKhoan : Form {

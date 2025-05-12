@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using DarkModeForms;
+using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10;
 using Show10.Child_Forms;
@@ -29,12 +30,14 @@ namespace show10 {
 
             //icon_Brand.IconChar = IconChar.SignOut;
             icon_Brand.IconSize = 100;
+
+            //DarkModeCS dm = new(this) { ColorMode = DarkModeCS.DisplayMode.SystemDefault };
         }
 
         private void MainWindow_Load(object sender, EventArgs e) {
             db = new TaiKhoanContext();
 
-            //_ = db.Database.EnsureDeleted();
+            _ = db.Database.EnsureDeleted();
             _ = db.Database.EnsureCreated();
 
             db.TaiKhoans.Load();
@@ -81,7 +84,7 @@ namespace show10 {
                 currentBtn = (IconButton)senderBtn;
 
                 currentBtn.ForeColor = color;
-                currentBtn.BackColor = Color.Gainsboro;
+                currentBtn.BackColor = ControlPaint.Light(DefaultBackColor);
                 currentBtn.IconColor = color;
 
                 //Left border button
@@ -158,7 +161,9 @@ namespace show10 {
                 MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
                     "Chưa điền tên tài khoản hoặc mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
-                _ = MessageBox.Show("Không tìm thấy tài khoản.", "Không tìm thấy tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                _ = MessageBox.Show("Không tìm thấy tài khoản.\nKiểm tra tên tài khoản và mật khẩu đúng như đã đăng ký.",
+                    "Không tìm thấy tài khoản",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             } else {
                 var found = db.TaiKhoans.First(tk => tk.TenTK == tenTK);
 
