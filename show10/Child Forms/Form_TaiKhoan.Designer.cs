@@ -99,7 +99,7 @@
             checkBox_TK_TimKiem.Name = "checkBox_TK_TimKiem";
             checkBox_TK_TimKiem.Size = new Size(179, 30);
             checkBox_TK_TimKiem.TabIndex = 16;
-            checkBox_TK_TimKiem.Text = "Chế độ tìm kiếm";
+            checkBox_TK_TimKiem.Text = "Chế độ lọc";
             checkBox_TK_TimKiem.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_TK_TimKiem.UseVisualStyleBackColor = true;
             checkBox_TK_TimKiem.CheckedChanged += CheckBox_TK_TimKiem_CheckedChanged;
@@ -270,7 +270,7 @@
             Margin = new Padding(4);
             Name = "Form_TaiKhoan";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Tài khoản";
+            Text = "Quản lý tài khoản";
             FormClosing += Form_Account_FormClosing;
             Load += Form_Account_Load;
             groupBox_TaiKhoan.ResumeLayout(false);
