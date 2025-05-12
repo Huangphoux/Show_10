@@ -3,14 +3,14 @@ using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10;
 using Show10.Child_Forms;
-using Show10.Data_Access;
+using Show10.Models;
 
 namespace show10 {
     public partial class MainWindow : Form {
         private IconButton currentBtn;
         private readonly Panel leftBorderBtn;
         private Form currentChildForm;
-        private TaiKhoanContext? db;
+        private NhaSachContext? db;
 
         private readonly List<Button> icon_Tab;
 
@@ -35,7 +35,7 @@ namespace show10 {
         }
 
         private void MainWindow_Load(object sender, EventArgs e) {
-            db = new TaiKhoanContext();
+            db = new NhaSachContext();
 
             _ = db.Database.EnsureDeleted();
             _ = db.Database.EnsureCreated();

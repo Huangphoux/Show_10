@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Show10.Data_Access;
+using Show10.Models;
 using DarkModeForms;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Show10.Child_Forms {
     public partial class Form_TaiKhoan : Form {
-        private TaiKhoanContext? db;
+        private NhaSachContext? db;
 
         public Form_TaiKhoan() {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace Show10.Child_Forms {
         }
 
         private void Form_Account_Load(object sender, EventArgs e) {
-            db = new TaiKhoanContext();
+            db = new NhaSachContext();
 
             // Dòng dưới sẽ luôn xoá DB mỗi khi load form
             //db.Database.EnsureDeleted();

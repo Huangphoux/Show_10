@@ -257,7 +257,7 @@
             // 
             // taiKhoanBindingSource
             // 
-            taiKhoanBindingSource.DataSource = typeof(Data_Access.TaiKhoan);
+            taiKhoanBindingSource.DataSource = typeof(Models.TaiKhoan);
             // 
             // Form_TaiKhoan
             // 
