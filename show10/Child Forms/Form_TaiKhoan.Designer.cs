@@ -214,10 +214,13 @@
             dataGridView_TaiKhoan.Location = new Point(0, 355);
             dataGridView_TaiKhoan.Name = "dataGridView_TaiKhoan";
             dataGridView_TaiKhoan.RightToLeft = RightToLeft.No;
+            dataGridView_TaiKhoan.RowHeadersVisible = false;
             dataGridView_TaiKhoan.RowHeadersWidth = 51;
             dataGridView_TaiKhoan.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView_TaiKhoan.Size = new Size(782, 198);
             dataGridView_TaiKhoan.TabIndex = 1;
+            dataGridView_TaiKhoan.CellValueChanged += DataGridView_TaiKhoan_CellValueChanged;
+            dataGridView_TaiKhoan.CurrentCellDirtyStateChanged += DataGridView_TaiKhoan_CurrentCellDirtyStateChanged;
             dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;
             // 
             // dataGridViewTextBoxColumn_TenTK
