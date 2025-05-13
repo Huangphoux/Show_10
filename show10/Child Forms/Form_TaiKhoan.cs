@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Show10.Models;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 
 namespace Show10.Child_Forms {
@@ -122,8 +120,8 @@ namespace Show10.Child_Forms {
 
                 // Update DataGridView
                 dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = filteredData.ToList() };
-            } 
-            
+            }
+
 
 
         }

@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Show10.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Show10 {
     internal class NhaSachContext : DbContext {

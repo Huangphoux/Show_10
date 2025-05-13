@@ -135,6 +135,7 @@ namespace show10 {
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e) {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new Form_KhachHang());
 
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e) {
