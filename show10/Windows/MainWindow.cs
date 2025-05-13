@@ -20,6 +20,7 @@ namespace show10 {
             leftBorderBtn = new Panel {
                 Size = new Size(7, 80)
             };
+
             panel_Menu.Controls.Add(leftBorderBtn);
 
             icon_Tab = [icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao];
@@ -30,6 +31,7 @@ namespace show10 {
             //icon_Brand.IconChar = IconChar.SignOut;
             icon_Brand.IconSize = 100;
 
+            panel_DangNhap.BringToFront();
         }
 
         private void MainWindow_Load(object sender, EventArgs e) {
@@ -78,11 +80,12 @@ namespace show10 {
             if (senderBtn != null) {
                 DisableButton();
 
+
                 //Button
                 currentBtn = (IconButton)senderBtn;
 
                 currentBtn.ForeColor = color;
-                currentBtn.BackColor = ControlPaint.Light(DefaultBackColor);
+                currentBtn.BackColor = Color.Gainsboro;
                 currentBtn.IconColor = color;
 
                 //Left border button
@@ -117,6 +120,7 @@ namespace show10 {
             panel_ChildForm.Controls.Add(childForm);
             panel_ChildForm.Tag = childForm;
 
+            panel_DangNhap.SendToBack();
             panel_Welcome.SendToBack();
             childForm.BringToFront();
             childForm.Show();
@@ -144,15 +148,6 @@ namespace show10 {
         }
         #endregion
 
-        private void Icon_ShowPassword_Click(object sender, EventArgs e) {
-            if (icon_ShowPassword.IconChar == IconChar.Eye) {
-                icon_ShowPassword.IconChar = IconChar.EyeSlash;
-                textBox_MatKhau.PasswordChar = '\0';
-            } else {
-                icon_ShowPassword.IconChar = IconChar.Eye;
-                textBox_MatKhau.PasswordChar = '•';
-            }
-        }
 
         private void Icon_DangNhap_Click(object sender, EventArgs e) {
             string tenTK = textBox_TenTK.Text;
@@ -175,6 +170,7 @@ namespace show10 {
                     icon_BaoCao.Enabled = true;
                 }
 
+                panel_DangNhap.SendToBack();
                 panel_Welcome.Visible = true;
                 panel_Welcome.BringToFront();
                 label_Welcome.Text = $"Xin chào\n{found.HoTen}";
@@ -208,7 +204,7 @@ namespace show10 {
                     icon_Tab.ForEach(tab => tab.Enabled = false);
                     panel_Welcome.Visible = false;
                     leftBorderBtn.Visible = false;
-                    panel_ChildForm.BringToFront();
+                    panel_DangNhap.BringToFront();
 
                     currentChildForm?.Close();
 
@@ -249,5 +245,14 @@ namespace show10 {
         private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
             icon_Tab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
         }
+
+        private void CheckBox_HienMK_CheckedChanged(object sender, EventArgs e) {
+            if (checkBox_HienMK.Checked) {
+                textBox_MatKhau.PasswordChar = '\0';
+            } else {
+                textBox_MatKhau.PasswordChar = '•';
+            }
+        }
+
     }
 }
