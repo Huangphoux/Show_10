@@ -29,6 +29,7 @@
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             groupBox_TaiKhoan = new GroupBox();
+            icon_TK_Clear = new FontAwesome.Sharp.IconButton();
             icon_TK_Loc = new FontAwesome.Sharp.IconButton();
             icon_TK_Tim = new FontAwesome.Sharp.IconButton();
             icon_TK_Xoa = new FontAwesome.Sharp.IconButton();
@@ -53,6 +54,7 @@
             // 
             // groupBox_TaiKhoan
             // 
+            groupBox_TaiKhoan.Controls.Add(icon_TK_Clear);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Loc);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Tim);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Xoa);
@@ -74,6 +76,27 @@
             groupBox_TaiKhoan.TabStop = false;
             groupBox_TaiKhoan.Text = "Nhập liệu";
             // 
+            // icon_TK_Clear
+            // 
+            icon_TK_Clear.Anchor = AnchorStyles.None;
+            icon_TK_Clear.BackColor = Color.FromArgb(255, 128, 255);
+            icon_TK_Clear.FlatAppearance.BorderSize = 0;
+            icon_TK_Clear.FlatStyle = FlatStyle.Flat;
+            icon_TK_Clear.Font = new Font("Segoe UI", 12F);
+            icon_TK_Clear.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_TK_Clear.IconColor = Color.Black;
+            icon_TK_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_TK_Clear.IconSize = 30;
+            icon_TK_Clear.Location = new Point(600, 259);
+            icon_TK_Clear.Margin = new Padding(10);
+            icon_TK_Clear.Name = "icon_TK_Clear";
+            icon_TK_Clear.Size = new Size(80, 80);
+            icon_TK_Clear.TabIndex = 11;
+            icon_TK_Clear.TextAlign = ContentAlignment.MiddleRight;
+            icon_TK_Clear.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_TK_Clear.UseVisualStyleBackColor = false;
+            icon_TK_Clear.Click += icon_TK_Clear_Click;
+            // 
             // icon_TK_Loc
             // 
             icon_TK_Loc.Anchor = AnchorStyles.None;
@@ -89,7 +112,7 @@
             icon_TK_Loc.Margin = new Padding(10);
             icon_TK_Loc.Name = "icon_TK_Loc";
             icon_TK_Loc.Size = new Size(80, 80);
-            icon_TK_Loc.TabIndex = 34;
+            icon_TK_Loc.TabIndex = 10;
             icon_TK_Loc.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Loc.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Loc.UseVisualStyleBackColor = false;
@@ -110,10 +133,11 @@
             icon_TK_Tim.Margin = new Padding(10);
             icon_TK_Tim.Name = "icon_TK_Tim";
             icon_TK_Tim.Size = new Size(80, 80);
-            icon_TK_Tim.TabIndex = 33;
+            icon_TK_Tim.TabIndex = 9;
             icon_TK_Tim.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Tim.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Tim.UseVisualStyleBackColor = false;
+            icon_TK_Tim.Click += Icon_TK_Tim_Click;
             // 
             // icon_TK_Xoa
             // 
@@ -130,7 +154,7 @@
             icon_TK_Xoa.Margin = new Padding(10);
             icon_TK_Xoa.Name = "icon_TK_Xoa";
             icon_TK_Xoa.Size = new Size(80, 80);
-            icon_TK_Xoa.TabIndex = 32;
+            icon_TK_Xoa.TabIndex = 8;
             icon_TK_Xoa.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Xoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Xoa.UseVisualStyleBackColor = false;
@@ -151,7 +175,7 @@
             icon_TK_Them.Margin = new Padding(10);
             icon_TK_Them.Name = "icon_TK_Them";
             icon_TK_Them.Size = new Size(80, 80);
-            icon_TK_Them.TabIndex = 31;
+            icon_TK_Them.TabIndex = 7;
             icon_TK_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Them.UseVisualStyleBackColor = false;
@@ -163,8 +187,8 @@
             textBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TK_HoTen.Location = new Point(200, 139);
             textBox_TK_HoTen.Name = "textBox_TK_HoTen";
-            textBox_TK_HoTen.Size = new Size(522, 43);
-            textBox_TK_HoTen.TabIndex = 18;
+            textBox_TK_HoTen.Size = new Size(480, 43);
+            textBox_TK_HoTen.TabIndex = 5;
             textBox_TK_HoTen.TextChanged += TextBox_TK_HoTen_TextChanged;
             // 
             // textBox_TK_MatKhau
@@ -173,8 +197,8 @@
             textBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TK_MatKhau.Location = new Point(200, 90);
             textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
-            textBox_TK_MatKhau.Size = new Size(522, 43);
-            textBox_TK_MatKhau.TabIndex = 17;
+            textBox_TK_MatKhau.Size = new Size(480, 43);
+            textBox_TK_MatKhau.TabIndex = 4;
             textBox_TK_MatKhau.TextChanged += TextBox_TK_MatKhau_TextChanged;
             // 
             // checkBox_TK_QTV
@@ -182,8 +206,8 @@
             checkBox_TK_QTV.Anchor = AnchorStyles.None;
             checkBox_TK_QTV.Location = new Point(200, 186);
             checkBox_TK_QTV.Name = "checkBox_TK_QTV";
-            checkBox_TK_QTV.Size = new Size(380, 60);
-            checkBox_TK_QTV.TabIndex = 15;
+            checkBox_TK_QTV.Size = new Size(480, 60);
+            checkBox_TK_QTV.TabIndex = 6;
             checkBox_TK_QTV.Text = "Tài khoản là quản trị viên";
             checkBox_TK_QTV.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_TK_QTV.UseVisualStyleBackColor = true;
@@ -195,7 +219,7 @@
             label_TK_HoTen.Margin = new Padding(3, 0, 20, 0);
             label_TK_HoTen.Name = "label_TK_HoTen";
             label_TK_HoTen.Size = new Size(135, 40);
-            label_TK_HoTen.TabIndex = 14;
+            label_TK_HoTen.TabIndex = 2;
             label_TK_HoTen.Text = "Họ tên";
             label_TK_HoTen.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -205,7 +229,7 @@
             label_TK_MatKhau.Margin = new Padding(3, 0, 20, 0);
             label_TK_MatKhau.Name = "label_TK_MatKhau";
             label_TK_MatKhau.Size = new Size(135, 40);
-            label_TK_MatKhau.TabIndex = 12;
+            label_TK_MatKhau.TabIndex = 1;
             label_TK_MatKhau.Text = "Mật khẩu";
             label_TK_MatKhau.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -215,7 +239,7 @@
             label_TK_TenTK.Margin = new Padding(3, 0, 20, 0);
             label_TK_TenTK.Name = "label_TK_TenTK";
             label_TK_TenTK.Size = new Size(135, 40);
-            label_TK_TenTK.TabIndex = 11;
+            label_TK_TenTK.TabIndex = 0;
             label_TK_TenTK.Text = "Tên tài khoản";
             label_TK_TenTK.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -225,8 +249,8 @@
             textBox_TK_TenTK.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_TK_TenTK.Location = new Point(200, 39);
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
-            textBox_TK_TenTK.Size = new Size(522, 43);
-            textBox_TK_TenTK.TabIndex = 9;
+            textBox_TK_TenTK.Size = new Size(480, 43);
+            textBox_TK_TenTK.TabIndex = 3;
             textBox_TK_TenTK.TextChanged += TextBox_TK_TenTK_TextChanged;
             // 
             // dataGridView_TaiKhoan
@@ -252,7 +276,6 @@
             dataGridView_TaiKhoan.Size = new Size(782, 198);
             dataGridView_TaiKhoan.TabIndex = 1;
             dataGridView_TaiKhoan.CellValueChanged += DataGridView_TaiKhoan_CellValueChanged;
-            dataGridView_TaiKhoan.CurrentCellDirtyStateChanged += DataGridView_TaiKhoan_CurrentCellDirtyStateChanged;
             dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;
             // 
             // dataGridViewTextBoxColumn_TenTK
@@ -337,5 +360,6 @@
         private FontAwesome.Sharp.IconButton icon_TK_Tim;
         private FontAwesome.Sharp.IconButton icon_TK_Xoa;
         private FontAwesome.Sharp.IconButton icon_TK_Them;
+        private FontAwesome.Sharp.IconButton icon_TK_Clear;
     }
 }

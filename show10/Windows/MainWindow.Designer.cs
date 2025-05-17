@@ -365,9 +365,10 @@
             // 
             // label_Clock
             // 
-            label_Clock.Location = new Point(288, 255);
+            label_Clock.Dock = DockStyle.Fill;
+            label_Clock.Location = new Point(0, 259);
             label_Clock.Name = "label_Clock";
-            label_Clock.Size = new Size(327, 160);
+            label_Clock.Size = new Size(1302, 594);
             label_Clock.TabIndex = 1;
             label_Clock.Text = "Bây giờ là mấy giờ?";
             label_Clock.TextAlign = ContentAlignment.MiddleCenter;
