@@ -93,7 +93,7 @@
             icon_Sach_Ban.IconSize = 30;
             icon_Sach_Ban.ImageAlign = ContentAlignment.BottomCenter;
             icon_Sach_Ban.Location = new Point(595, 133);
-            icon_Sach_Ban.Margin = new Padding(10);
+            icon_Sach_Ban.Margin = new Padding(10, 10, 10, 10);
             icon_Sach_Ban.Name = "icon_Sach_Ban";
             icon_Sach_Ban.Size = new Size(168, 84);
             icon_Sach_Ban.TabIndex = 36;
@@ -114,7 +114,7 @@
             icon_Sach_Nhap.IconSize = 30;
             icon_Sach_Nhap.ImageAlign = ContentAlignment.BottomCenter;
             icon_Sach_Nhap.Location = new Point(595, 33);
-            icon_Sach_Nhap.Margin = new Padding(10);
+            icon_Sach_Nhap.Margin = new Padding(10, 10, 10, 10);
             icon_Sach_Nhap.Name = "icon_Sach_Nhap";
             icon_Sach_Nhap.Size = new Size(168, 84);
             icon_Sach_Nhap.TabIndex = 35;
@@ -174,7 +174,7 @@
             icon_Sach_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Loc.IconSize = 30;
             icon_Sach_Loc.Location = new Point(484, 291);
-            icon_Sach_Loc.Margin = new Padding(10);
+            icon_Sach_Loc.Margin = new Padding(10, 10, 10, 10);
             icon_Sach_Loc.Name = "icon_Sach_Loc";
             icon_Sach_Loc.Size = new Size(80, 80);
             icon_Sach_Loc.TabIndex = 30;
@@ -195,7 +195,7 @@
             icon_Sach_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Tim.IconSize = 30;
             icon_Sach_Tim.Location = new Point(384, 291);
-            icon_Sach_Tim.Margin = new Padding(10);
+            icon_Sach_Tim.Margin = new Padding(10, 10, 10, 10);
             icon_Sach_Tim.Name = "icon_Sach_Tim";
             icon_Sach_Tim.Size = new Size(80, 80);
             icon_Sach_Tim.TabIndex = 29;
@@ -275,7 +275,7 @@
             icon_Sach_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Xoa.IconSize = 30;
             icon_Sach_Xoa.Location = new Point(284, 291);
-            icon_Sach_Xoa.Margin = new Padding(10);
+            icon_Sach_Xoa.Margin = new Padding(10, 10, 10, 10);
             icon_Sach_Xoa.Name = "icon_Sach_Xoa";
             icon_Sach_Xoa.Size = new Size(80, 80);
             icon_Sach_Xoa.TabIndex = 20;
@@ -295,7 +295,7 @@
             icon_Sach_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Them.IconSize = 30;
             icon_Sach_Them.Location = new Point(184, 291);
-            icon_Sach_Them.Margin = new Padding(10);
+            icon_Sach_Them.Margin = new Padding(10, 10, 10, 10);
             icon_Sach_Them.Name = "icon_Sach_Them";
             icon_Sach_Them.Size = new Size(80, 80);
             icon_Sach_Them.TabIndex = 19;

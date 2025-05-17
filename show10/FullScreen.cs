@@ -11,9 +11,10 @@
             targetForm.WindowState = FormWindowState.Normal;
 
 
-            targetForm.Width = 1280;
-            targetForm.Height = 720;
+            targetForm.Width = 1600;
+            targetForm.Height = 900;
             targetForm.StartPosition = FormStartPosition.Manual;
+
             targetForm.Left = (Screen.PrimaryScreen.WorkingArea.Width - 1280) / 2;
             targetForm.Top = (Screen.PrimaryScreen.WorkingArea.Height - 720) / 2;
 

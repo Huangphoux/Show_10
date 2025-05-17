@@ -18,7 +18,7 @@ namespace show10 {
             DoubleBuffered = true;
 
             leftBorderBtn = new Panel {
-                Size = new Size(7, 80)
+                Size = new Size(10, 80)
             };
 
             panel_Menu.Controls.Add(leftBorderBtn);
@@ -28,7 +28,6 @@ namespace show10 {
             icon_Tab.ForEach(tab => tab.Enabled = false);
             panel_Welcome.Visible = false;
 
-            //icon_Brand.IconChar = IconChar.SignOut;
             icon_Brand.IconSize = 100;
 
             panel_DangNhap.BringToFront();
@@ -134,30 +133,29 @@ namespace show10 {
         private void Icon_Sach_Click(object sender, EventArgs e) {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Form_Sach());
-
-
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e) {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new Form_KhachHang());
-
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e) {
-
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new Form_BaoCao());
         }
         #endregion
-
 
         private void Icon_DangNhap_Click(object sender, EventArgs e) {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
 
             if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
-                MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
-                    "Chưa điền tên tài khoản hoặc mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Nhập đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
+                    "Chưa điền tên tài khoản hoặc mật khẩu",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
-                _ = MessageBox.Show("Không tìm thấy tài khoản.\nKiểm tra tên tài khoản và mật khẩu đúng như đã đăng ký.",
+                _ = MessageBox.Show(
+                    "Không tìm thấy tài khoản.\nKiểm tra tên tài khoản và mật khẩu đúng như đã đăng ký.",
                     "Không tìm thấy tài khoản",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             } else {
@@ -167,10 +165,12 @@ namespace show10 {
                     icon_Tab.ForEach(tab => tab.Enabled = true);
                 } else {
                     icon_Sach.Enabled = true;
+                    icon_KhachHang.Enabled = true;
                     icon_BaoCao.Enabled = true;
                 }
 
                 panel_DangNhap.SendToBack();
+
                 panel_Welcome.Visible = true;
                 panel_Welcome.BringToFront();
                 label_Welcome.Text = $"Xin chào\n{found.HoTen}";
