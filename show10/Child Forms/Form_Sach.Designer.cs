@@ -208,6 +208,7 @@
             icon_Sach_Nhap.Text = "Nhập sách";
             icon_Sach_Nhap.TextImageRelation = TextImageRelation.ImageAboveText;
             icon_Sach_Nhap.UseVisualStyleBackColor = false;
+            icon_Sach_Nhap.Click += Icon_Sach_Nhap_Click;
             // 
             // textBox_Sach_TheLoai
             // 

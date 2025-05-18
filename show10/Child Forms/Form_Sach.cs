@@ -223,7 +223,19 @@ namespace Show10.Child_Forms {
         private void DataGridView_Sach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             db?.SaveChanges();
         }
+        private void Icon_Sach_Nhap_Click(object sender, EventArgs e) {
+            tabControl_Sach.SelectedTab = tabPage_PhieuNhapSach;
+            Icon_PNS_Clear_Click(sender, e);
 
+            int lastMaPhieu = db.PhieuNhapSachs
+                .OrderByDescending(p => p.MaPN)
+                .FirstOrDefault()?.MaPN ?? 0;
+            textBox_PNS_MaPhieu.Text = (lastMaPhieu + 1).ToString();
+            
+            if(dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach){
+                textBox_PNS_MaSach.Text = sach.MaSach.ToString();
+            }
+        }
         #endregion
         #region Quản lý phiếu nhập sách
         private PhieuNhapSach GetPhieuNhapSach() {
@@ -479,5 +491,6 @@ namespace Show10.Child_Forms {
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
         #endregion
+
     }
 }
