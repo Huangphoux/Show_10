@@ -10,10 +10,7 @@ namespace Show10.Child_Forms {
             InitializeComponent();
         }
 
-        private void Icon_Sach_Loc_Click(object sender, EventArgs e) {
-            icon_Sach_Loc.IconChar = (icon_Sach_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
-        }
-
+        #region Quản lý sách
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
 
@@ -30,6 +27,20 @@ namespace Show10.Child_Forms {
             db?.Dispose();
             db = null;
         }
+        private void Icon_Sach_Loc_Click(object sender, EventArgs e) {
+            icon_Sach_Loc.IconChar = (icon_Sach_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
+        }
+        private void Icon_Sach_Clear_Click(object sender, EventArgs e) {
+
+        }
+
+        #endregion
+        #region Quản lý phiếu nhập sách
+
+        #endregion
+        #region Quản lý hoá đơn bán sách
+
+        #endregion
 
     }
 }

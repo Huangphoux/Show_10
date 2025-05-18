@@ -203,6 +203,9 @@ namespace Show10.Child_Forms {
             }
         }
         // Set textbox khi select cell
+        private void icon_TK_Clear_Click(object sender, EventArgs e) {
+            SetTaiKhoan(new TaiKhoan { TenTK = "", MatKhau = "", HoTen = "", VaiTro = "user" });
+        }
         private void DataGridView_TaiKhoan_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
@@ -217,8 +220,5 @@ namespace Show10.Child_Forms {
             }
         }
 
-        private void icon_TK_Clear_Click(object sender, EventArgs e) {
-            SetTaiKhoan(new TaiKhoan { TenTK = "", MatKhau = "", HoTen = "", VaiTro = "user" });
-        }
     }
 }
