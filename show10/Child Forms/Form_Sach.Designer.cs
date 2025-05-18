@@ -499,11 +499,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 29);
+            tabPage_PhieuNhapSach.Location = new Point(4, 37);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(774, 520);
+            tabPage_PhieuNhapSach.Size = new Size(774, 512);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -529,8 +529,10 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(766, 114);
+            dataGridView_PhieuNhapSach.Size = new Size(766, 106);
             dataGridView_PhieuNhapSach.TabIndex = 3;
+            dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
+            dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
             // 
             // maPNDataGridViewTextBoxColumn
             // 
@@ -606,6 +608,7 @@
             date_PNS_NgayNhap.Name = "date_PNS_NgayNhap";
             date_PNS_NgayNhap.Size = new Size(512, 34);
             date_PNS_NgayNhap.TabIndex = 38;
+            date_PNS_NgayNhap.ValueChanged += Date_PNS_NgayNhap_ValueChanged;
             // 
             // icon_PNS_Clear
             // 
@@ -626,6 +629,7 @@
             icon_PNS_Clear.TextAlign = ContentAlignment.MiddleRight;
             icon_PNS_Clear.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PNS_Clear.UseVisualStyleBackColor = false;
+            icon_PNS_Clear.Click += Icon_PNS_Clear_Click;
             // 
             // label_PNS_NgayNhap
             // 
@@ -647,6 +651,7 @@
             textBox_PNS_GiaNhap.Name = "textBox_PNS_GiaNhap";
             textBox_PNS_GiaNhap.Size = new Size(512, 34);
             textBox_PNS_GiaNhap.TabIndex = 32;
+            textBox_PNS_GiaNhap.TextChanged += TextBox_PNS_GiaNhap_TextChanged;
             // 
             // label_PNS_GiaNhap
             // 
@@ -678,6 +683,7 @@
             icon_PNS_Loc.TextAlign = ContentAlignment.MiddleRight;
             icon_PNS_Loc.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PNS_Loc.UseVisualStyleBackColor = false;
+            icon_PNS_Loc.Click += Icon_PNS_Loc_Click;
             // 
             // icon_PNS_Tim
             // 
@@ -698,6 +704,7 @@
             icon_PNS_Tim.TextAlign = ContentAlignment.MiddleRight;
             icon_PNS_Tim.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PNS_Tim.UseVisualStyleBackColor = false;
+            icon_PNS_Tim.Click += Icon_PNS_Tim_Click;
             // 
             // textBox_PNS_SoLuong
             // 
@@ -708,6 +715,7 @@
             textBox_PNS_SoLuong.Name = "textBox_PNS_SoLuong";
             textBox_PNS_SoLuong.Size = new Size(512, 34);
             textBox_PNS_SoLuong.TabIndex = 28;
+            textBox_PNS_SoLuong.TextChanged += TextBox_PNS_SoLuong_TextChanged;
             // 
             // textBox_PNS_MaSach
             // 
@@ -718,6 +726,7 @@
             textBox_PNS_MaSach.Name = "textBox_PNS_MaSach";
             textBox_PNS_MaSach.Size = new Size(512, 34);
             textBox_PNS_MaSach.TabIndex = 27;
+            textBox_PNS_MaSach.TextChanged += TextBox_PNS_MaSach_TextChanged;
             // 
             // label_PNS_SoLuong
             // 
@@ -761,6 +770,7 @@
             textBox_PNS_MaPhieu.Name = "textBox_PNS_MaPhieu";
             textBox_PNS_MaPhieu.Size = new Size(512, 34);
             textBox_PNS_MaPhieu.TabIndex = 21;
+            textBox_PNS_MaPhieu.TextChanged += TextBox_PNS_MaPhieu_TextChanged;
             // 
             // icon_PNS_Xoa
             // 
@@ -781,6 +791,7 @@
             icon_PNS_Xoa.TextAlign = ContentAlignment.MiddleRight;
             icon_PNS_Xoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PNS_Xoa.UseVisualStyleBackColor = false;
+            icon_PNS_Xoa.Click += Icon_PNS_Xoa_Click;
             // 
             // icon_PNS_Them
             // 
@@ -801,6 +812,7 @@
             icon_PNS_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_PNS_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PNS_Them.UseVisualStyleBackColor = false;
+            icon_PNS_Them.Click += Icon_PNS_Them_Click;
             // 
             // tabPage_HoaDonBanSach
             // 
