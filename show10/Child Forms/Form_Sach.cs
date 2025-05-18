@@ -92,7 +92,6 @@ namespace Show10.Child_Forms {
                 KiemTraMaSachTonTai();
             }
         }
-
         #region Quản lý sách
         private Sach GetSach() {
             string maSach = textBox_Sach_MaSach.Text;
@@ -598,7 +597,7 @@ namespace Show10.Child_Forms {
             var sach = db!.Sachs.First(s => s.MaSach == hoaDon.MaSach);
             if (sach.SoLuong - hoaDon.SoLuong < minSLSach) {
                 MessageBox.Show(
-                    $"Không thể bán sách này do số lượng tồn kho sẽ chỉ còn" +
+                    $"Không thể bán sách này do số lượng tồn kho sẽ chỉ còn\n" +
                     $"{sach.SoLuong} (số lượng tồn) - {hoaDon.SoLuong} (số lượng bán) = {sach.SoLuong - hoaDon.SoLuong} quyển,\n" +
                     $"dưới mức quy định của cửa hàng là {minSLSach}.",
                     null, MessageBoxButtons.OK, MessageBoxIcon.Warning
@@ -842,6 +841,5 @@ namespace Show10.Child_Forms {
         }
 
         #endregion
-
     }
 }

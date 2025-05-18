@@ -105,7 +105,7 @@
             // icon_BCTon
             // 
             icon_BCTon.Anchor = AnchorStyles.Right;
-            icon_BCTon.BackColor = Color.FromArgb(0, 192, 192);
+            icon_BCTon.BackColor = Color.FromArgb(128, 255, 128);
             icon_BCTon.FlatAppearance.BorderSize = 0;
             icon_BCTon.FlatStyle = FlatStyle.Flat;
             icon_BCTon.Font = new Font("Segoe UI", 12F);
@@ -233,7 +233,7 @@
             // icon_BCNo
             // 
             icon_BCNo.Anchor = AnchorStyles.Right;
-            icon_BCNo.BackColor = Color.FromArgb(0, 192, 192);
+            icon_BCNo.BackColor = Color.FromArgb(128, 255, 128);
             icon_BCNo.FlatAppearance.BorderSize = 0;
             icon_BCNo.FlatStyle = FlatStyle.Flat;
             icon_BCNo.Font = new Font("Segoe UI", 12F);
