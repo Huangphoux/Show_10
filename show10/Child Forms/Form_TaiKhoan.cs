@@ -85,7 +85,7 @@ namespace Show10.Child_Forms {
                 dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = filteredData.ToList() };
             }
         }
-        
+
         // Thêm / Sửa bằng thêm
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
             TaiKhoan taiKhoan = GetTaiKhoan();

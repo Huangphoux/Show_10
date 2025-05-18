@@ -1,7 +1,6 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
-using System.Runtime.CompilerServices;
 
 namespace Show10.Child_Forms {
     public partial class Form_Sach : Form {
@@ -21,10 +20,12 @@ namespace Show10.Child_Forms {
             //db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
+            KiemTraSLSach();
             db.Sachs.Load();
             sachBindingSource.DataSource = db.Sachs.Local.ToBindingList();
             dataGridView_Sach.Refresh();
 
+            KiemTraMaSachTonTai();
             db.PhieuNhapSachs.Load();
             phieuNhapSachBindingSource.DataSource = db.PhieuNhapSachs.Local.ToBindingList();
             dataGridView_PhieuNhapSach.Refresh();
@@ -44,8 +45,11 @@ namespace Show10.Child_Forms {
                 int soLuongNhap = db.PhieuNhapSachs
                     .Where(p => p.MaSach == sach.MaSach)
                     .Sum(p => p.SoLuong);
+                int soLuongBan = db.HoaDonBanSachs
+                    .Where(p => p.MaSach == sach.MaSach)
+                    .Sum(p => p.SoLuong);
 
-                sach.SoLuong = soLuongNhap;
+                sach.SoLuong = soLuongNhap - soLuongBan;
             }
             db.SaveChanges();
             dataGridView_Sach.Refresh();
@@ -72,7 +76,7 @@ namespace Show10.Child_Forms {
                 if (result == DialogResult.Yes) {
                     foreach (int rowIndex in rowsToDelete) {
                         // nếu là rowIndex thì sẽ xoá dòng dưới dòng cần xoá
-                        if (dataGridView_PhieuNhapSach.Rows[rowIndex -1 ].DataBoundItem is PhieuNhapSach phieu) {
+                        if (dataGridView_PhieuNhapSach.Rows[rowIndex - 1].DataBoundItem is PhieuNhapSach phieu) {
                             db.PhieuNhapSachs.Remove(phieu);
                         }
                     }
@@ -80,7 +84,6 @@ namespace Show10.Child_Forms {
                 }
             }
         }
-
         private void TabControl_Sach_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_Sach.SelectedTab == tabPage_Sach) {
                 KiemTraSLSach();
@@ -289,6 +292,19 @@ namespace Show10.Child_Forms {
 
             if (dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
                 textBox_PNS_MaSach.Text = sach.MaSach.ToString();
+            }
+        }
+        private void Icon_Sach_Ban_Click(object sender, EventArgs e) {
+            tabControl_Sach.SelectedTab = tabPage_HoaDonBanSach;
+            Icon_HD_Clear_Click(sender, e);
+
+            int lastMaHD = db.HoaDonBanSachs
+                .OrderByDescending(hd => hd.MaHD)
+                .FirstOrDefault()?.MaHD ?? 0;
+            textBox_HD_MaHD.Text = (lastMaHD + 1).ToString();
+
+            if (dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
+                textBox_HD_MaSach.Text = sach.MaSach.ToString();
             }
         }
 
@@ -532,7 +548,7 @@ namespace Show10.Child_Forms {
             string ngayBan = date_HD_NgayBan.Text;
 
             return new HoaDonBanSach {
-                SoHD = int.Parse(maHD),
+                MaHD = int.Parse(maHD),
                 MaKH = int.Parse(maKH),
                 MaSach = int.Parse(maSach),
                 SoLuong = int.Parse(soLuong),
@@ -541,15 +557,291 @@ namespace Show10.Child_Forms {
             };
         }
         private void SetHoaDonBanSach(HoaDonBanSach hoaDon) {
-            textBox_HD_MaHD.Text = hoaDon.SoHD.ToString();
+            textBox_HD_MaHD.Text = hoaDon.MaHD.ToString();
             textBox_HD_MaKH.Text = hoaDon.MaKH.ToString();
             textBox_HD_MaSach.Text = hoaDon.MaSach.ToString();
             textBox_HD_SoLuong.Text = hoaDon.SoLuong.ToString();
             textBox_HD_GiaBan.Text = hoaDon.GiaBan.ToString();
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
+        private void Icon_HD_Them_Click(object sender, EventArgs e) {
+            HoaDonBanSach hoaDon = GetHoaDonBanSach();
+
+            if (!db!.Sachs.Any(sach => sach.MaSach == hoaDon.MaSach)) {
+                MessageBox.Show(
+                    $"Không tồn tại sách với mã số {hoaDon.MaSach}.",
+                    null, MessageBoxButtons.OK, MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            if (!db!.KhachHangs.Any(kh => kh.MaKH == hoaDon.MaKH)) {
+                MessageBox.Show(
+                    $"Không tồn tại khách hàng với mã số {hoaDon.MaKH}.",
+                    null, MessageBoxButtons.OK, MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            int maxNo = int.Parse(Properties.Settings.Default.maxNo);
+            var khachHang = db.KhachHangs.First(p => p.MaKH == hoaDon.MaKH);
+            if (khachHang.TienNo > maxNo) {
+                MessageBox.Show(
+                    $"Không thể bán sách cho khách hàng mã số {hoaDon.MaKH}\n" +
+                    $"vì khách hàng đang nợ {khachHang.TienNo}, quá mức tối đa của cửa hàng là {maxNo}.",
+                    null, MessageBoxButtons.OK, MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            int minSLSach = int.Parse(Properties.Settings.Default.minSLSach);
+            var sach = db!.Sachs.First(s => s.MaSach == hoaDon.MaSach);
+            if (sach.SoLuong - hoaDon.SoLuong < minSLSach) {
+                MessageBox.Show(
+                    $"Không thể bán sách này do số lượng tồn kho sẽ chỉ còn" +
+                    $"{sach.SoLuong} (số lượng tồn) - {hoaDon.SoLuong} (số lượng bán) = {sach.SoLuong - hoaDon.SoLuong} quyển,\n" +
+                    $"dưới mức quy định của cửa hàng là {minSLSach}.",
+                    null, MessageBoxButtons.OK, MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox_HD_MaHD.Text) ||
+                string.IsNullOrWhiteSpace(textBox_HD_MaKH.Text) ||
+                string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text) ||
+                string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
+                string.IsNullOrWhiteSpace(textBox_HD_GiaBan.Text) ||
+                string.IsNullOrWhiteSpace(date_HD_NgayBan.Text)) {
+                MessageBox.Show(
+                    "Nhập đủ mã hoá đơn, mã khách hàng, mã sách, số lượng, giá bán và ngày bán\ntrước khi thêm vào cơ sở dữ liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
+                var result = MessageBox.Show(
+                    "Tồn tại hoá đơn với mã hoá đơn này.\n" +
+                    "Ghi đè thông tin của hoá đơn?",
+                    "Ghi đè thông tin của hoá đơn",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes) {
+                    var existingHD = db.HoaDonBanSachs.First(hd => hd.MaHD == hoaDon.MaHD);
+
+                    // Cộng lại số lượng sách cũ trước khi trừ số mới
+                    var sachCu = db.Sachs.First(s => s.MaSach == existingHD.MaSach);
+                    sachCu.SoLuong += existingHD.SoLuong;
+
+                    existingHD.MaKH = hoaDon.MaKH;
+                    existingHD.MaSach = hoaDon.MaSach;
+                    existingHD.SoLuong = hoaDon.SoLuong;
+                    existingHD.GiaBan = hoaDon.GiaBan;
+                    existingHD.NgayHD = hoaDon.NgayHD;
+
+                    // Trừ số lượng sách mới
+                    sach.SoLuong -= hoaDon.SoLuong;
+
+                    db.SaveChanges();
+                    dataGridView_HoaDonBanSach.Refresh();
+                }
+            } else {
+                // Trừ số lượng sách khi bán
+                sach.SoLuong -= hoaDon.SoLuong;
+                _ = db.Add(hoaDon);
+                _ = db.SaveChanges();
+                dataGridView_HoaDonBanSach.Refresh();
+
+                textBox_HD_MaHD.Text = "";
+                textBox_HD_MaKH.Text = "";
+                textBox_HD_MaSach.Text = "";
+                textBox_HD_SoLuong.Text = "";
+                textBox_HD_GiaBan.Text = "";
+                date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
+            }
+        }
+        private void Icon_HD_Xoa_Click(object sender, EventArgs e) {
+            var result = MessageBox.Show(
+                "Xoá hoá đơn bán sách?",
+                "Trước khi xoá hoá đơn",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes) {
+                // Use a HashSet to avoid duplicate row indices
+                var rowsToDelete = new HashSet<int>();
+
+                foreach (DataGridViewCell cell in dataGridView_HoaDonBanSach.SelectedCells) {
+                    rowsToDelete.Add(cell.RowIndex);
+                }
+
+                foreach (int rowIndex in rowsToDelete) {
+                    if (dataGridView_HoaDonBanSach.Rows[rowIndex].DataBoundItem is HoaDonBanSach hoaDon) {
+                        db!.HoaDonBanSachs.Remove(hoaDon);
+                    }
+                }
+
+                db!.SaveChanges();
+                dataGridView_HoaDonBanSach.Refresh();
+            }
+        }
+        private void Icon_HD_Clear_Click(object sender, EventArgs e) {
+            textBox_HD_MaHD.Text = "";
+            textBox_HD_MaKH.Text = "";
+            textBox_HD_MaSach.Text = "";
+            textBox_HD_SoLuong.Text = "";
+            textBox_HD_GiaBan.Text = "";
+            date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
+        }
+        private void Icon_HD_Loc_Click(object sender, EventArgs e) {
+            icon_HD_Loc.IconChar = (icon_HD_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
+            isLoc_HD = !isLoc_HD;
+
+            List<Button> icon_HD = [icon_HD_Them, icon_HD_Xoa, icon_HD_Tim];
+
+            icon_HD.ForEach(icon => icon.Enabled = !isLoc_HD);
+
+            if (!isLoc_HD) {
+                dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
+                dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
+            } else {
+                ApplyFilter_HoaDonBanSach();
+            }
+        }
+
+        private void ApplyFilter_HoaDonBanSach() {
+            if (isLoc_HD && dataGridView_HoaDonBanSach != null) {
+                var filteredData = db!.HoaDonBanSachs.Local.AsQueryable();
+
+                if (!string.IsNullOrEmpty(textBox_HD_MaHD.Text)) {
+                    if (int.TryParse(textBox_HD_MaHD.Text, out int soHD)) {
+                        filteredData = filteredData.Where(hd => hd.MaHD == soHD);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(textBox_HD_MaKH.Text)) {
+                    if (int.TryParse(textBox_HD_MaKH.Text, out int maKH)) {
+                        filteredData = filteredData.Where(hd => hd.MaKH == maKH);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(textBox_HD_MaSach.Text)) {
+                    if (int.TryParse(textBox_HD_MaSach.Text, out int maSach)) {
+                        filteredData = filteredData.Where(hd => hd.MaSach == maSach);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(textBox_HD_SoLuong.Text)) {
+                    if (int.TryParse(textBox_HD_SoLuong.Text, out int soLuong)) {
+                        filteredData = filteredData.Where(hd => hd.SoLuong == soLuong);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(textBox_HD_GiaBan.Text)) {
+                    if (double.TryParse(textBox_HD_GiaBan.Text, out double giaBan)) {
+                        filteredData = filteredData.Where(hd => hd.GiaBan == giaBan);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(date_HD_NgayBan.Text)) {
+                    if (DateTime.TryParse(date_HD_NgayBan.Text, out DateTime ngayBan)) {
+                        filteredData = filteredData.Where(hd => hd.NgayHD.Date == ngayBan.Date);
+                    }
+                }
+
+                dataGridView_HoaDonBanSach.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+            }
+        }
+        #region Detect changes in hoaDonBanSach
+        private void TextBox_HD_MaHD_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+
+        private void TextBox_HD_MaKH_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+
+        private void TextBox_HD_MaSach_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+
+        private void TextBox_HD_SoLuong_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+
+        private void TextBox_HD_GiaBan_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+
+        private void Date_HD_NgayBan_ValueChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
         #endregion
 
-        
+        private void Icon_HD_Tim_Click(object sender, EventArgs e) {
+            var filteredData = db!.HoaDonBanSachs.Local.AsQueryable();
+
+            if (!string.IsNullOrEmpty(textBox_HD_MaHD.Text)) {
+                if (int.TryParse(textBox_HD_MaHD.Text, out int soHD)) {
+                    filteredData = filteredData.Where(hd => hd.MaHD == soHD);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(textBox_HD_MaKH.Text)) {
+                if (int.TryParse(textBox_HD_MaKH.Text, out int maKH)) {
+                    filteredData = filteredData.Where(hd => hd.MaKH == maKH);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(textBox_HD_MaSach.Text)) {
+                if (int.TryParse(textBox_HD_MaSach.Text, out int maSach)) {
+                    filteredData = filteredData.Where(hd => hd.MaSach == maSach);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(textBox_HD_SoLuong.Text)) {
+                if (int.TryParse(textBox_HD_SoLuong.Text, out int soLuong)) {
+                    filteredData = filteredData.Where(hd => hd.SoLuong == soLuong);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(textBox_HD_GiaBan.Text)) {
+                if (double.TryParse(textBox_HD_GiaBan.Text, out double giaBan)) {
+                    filteredData = filteredData.Where(hd => hd.GiaBan == giaBan);
+                }
+            }
+
+            if (!string.IsNullOrEmpty(date_HD_NgayBan.Text)) {
+                if (DateTime.TryParse(date_HD_NgayBan.Text, out DateTime ngayBan)) {
+                    filteredData = filteredData.Where(hd => hd.NgayHD.Date == ngayBan.Date);
+                }
+            }
+
+            var filteredList = filteredData.ToList();
+            if (filteredList.Count == 0)
+                return;
+
+            var firstHD = filteredList[0];
+
+            foreach (DataGridViewRow row in dataGridView_HoaDonBanSach.Rows) {
+                if (row.DataBoundItem is HoaDonBanSach rowHD &&
+                    rowHD.MaHD == firstHD.MaHD) // Compare by unique key
+                {
+                    row.Selected = true;
+                    dataGridView_HoaDonBanSach.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+        }
+        private void DataGridView_HoaDonBanSach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+            db?.SaveChanges();
+
+        }
+        private void DataGridView_HoaDonBanSach_SelectionChanged(object sender, EventArgs e) {
+            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+                return;
+            if (dataGridView_HoaDonBanSach.CurrentRow?.DataBoundItem is HoaDonBanSach hoaDonBanSach) {
+                SetHoaDonBanSach(hoaDonBanSach);
+            }
+        }
+
+        #endregion
+
     }
 }

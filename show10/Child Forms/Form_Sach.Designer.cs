@@ -77,7 +77,7 @@
             icon_PNS_Them = new FontAwesome.Sharp.IconButton();
             tabPage_HoaDonBanSach = new TabPage();
             dataGridView_HoaDonBanSach = new DataGridView();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            MaHD = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             MaSach = new DataGridViewTextBoxColumn();
             SoLuong = new DataGridViewTextBoxColumn();
@@ -170,7 +170,7 @@
             // icon_Sach_Ban
             // 
             icon_Sach_Ban.Anchor = AnchorStyles.Right;
-            icon_Sach_Ban.BackColor = Color.FromArgb(255, 128, 128);
+            icon_Sach_Ban.BackColor = Color.FromArgb(0, 192, 192);
             icon_Sach_Ban.FlatAppearance.BorderSize = 0;
             icon_Sach_Ban.FlatStyle = FlatStyle.Flat;
             icon_Sach_Ban.Font = new Font("Segoe UI", 12F);
@@ -187,11 +187,12 @@
             icon_Sach_Ban.Text = "Bán sách";
             icon_Sach_Ban.TextImageRelation = TextImageRelation.ImageAboveText;
             icon_Sach_Ban.UseVisualStyleBackColor = false;
+            icon_Sach_Ban.Click += Icon_Sach_Ban_Click;
             // 
             // icon_Sach_Nhap
             // 
             icon_Sach_Nhap.Anchor = AnchorStyles.Right;
-            icon_Sach_Nhap.BackColor = Color.FromArgb(128, 255, 128);
+            icon_Sach_Nhap.BackColor = Color.Fuchsia;
             icon_Sach_Nhap.FlatAppearance.BorderSize = 0;
             icon_Sach_Nhap.FlatStyle = FlatStyle.Flat;
             icon_Sach_Nhap.Font = new Font("Segoe UI", 12F);
@@ -820,11 +821,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 29);
+            tabPage_HoaDonBanSach.Location = new Point(4, 37);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(774, 520);
+            tabPage_HoaDonBanSach.Size = new Size(774, 512);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -839,7 +840,7 @@
             dataGridView_HoaDonBanSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
             dataGridView_HoaDonBanSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, NgayHD });
+            dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, NgayHD });
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
             dataGridView_HoaDonBanSach.Dock = DockStyle.Fill;
             dataGridView_HoaDonBanSach.GridColor = SystemColors.ScrollBar;
@@ -850,15 +851,17 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(766, 99);
+            dataGridView_HoaDonBanSach.Size = new Size(766, 91);
             dataGridView_HoaDonBanSach.TabIndex = 4;
+            dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
+            dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;
             // 
-            // dataGridViewTextBoxColumn2
+            // MaHD
             // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "SoHD";
-            dataGridViewTextBoxColumn2.HeaderText = "Mã hoá đơn";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            MaHD.DataPropertyName = "MaHD";
+            MaHD.HeaderText = "Mã hoá đơn";
+            MaHD.MinimumWidth = 6;
+            MaHD.Name = "MaHD";
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -937,6 +940,7 @@
             textBox_HD_GiaBan.Name = "textBox_HD_GiaBan";
             textBox_HD_GiaBan.Size = new Size(500, 34);
             textBox_HD_GiaBan.TabIndex = 40;
+            textBox_HD_GiaBan.TextChanged += TextBox_HD_GiaBan_TextChanged;
             // 
             // label_HD_GiaBan
             // 
@@ -957,6 +961,7 @@
             date_HD_NgayBan.Name = "date_HD_NgayBan";
             date_HD_NgayBan.Size = new Size(500, 34);
             date_HD_NgayBan.TabIndex = 38;
+            date_HD_NgayBan.ValueChanged += Date_HD_NgayBan_ValueChanged;
             // 
             // icon_HD_Clear
             // 
@@ -977,6 +982,7 @@
             icon_HD_Clear.TextAlign = ContentAlignment.MiddleRight;
             icon_HD_Clear.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_HD_Clear.UseVisualStyleBackColor = false;
+            icon_HD_Clear.Click += Icon_HD_Clear_Click;
             // 
             // label_HD_NgayBan
             // 
@@ -998,6 +1004,7 @@
             textBox_HD_SoLuong.Name = "textBox_HD_SoLuong";
             textBox_HD_SoLuong.Size = new Size(500, 34);
             textBox_HD_SoLuong.TabIndex = 32;
+            textBox_HD_SoLuong.TextChanged += TextBox_HD_SoLuong_TextChanged;
             // 
             // label_HD_SoLuong
             // 
@@ -1029,6 +1036,7 @@
             icon_HD_Loc.TextAlign = ContentAlignment.MiddleRight;
             icon_HD_Loc.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_HD_Loc.UseVisualStyleBackColor = false;
+            icon_HD_Loc.Click += Icon_HD_Loc_Click;
             // 
             // icon_HD_Tim
             // 
@@ -1049,6 +1057,7 @@
             icon_HD_Tim.TextAlign = ContentAlignment.MiddleRight;
             icon_HD_Tim.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_HD_Tim.UseVisualStyleBackColor = false;
+            icon_HD_Tim.Click += Icon_HD_Tim_Click;
             // 
             // textBox_HD_MaSach
             // 
@@ -1059,6 +1068,7 @@
             textBox_HD_MaSach.Name = "textBox_HD_MaSach";
             textBox_HD_MaSach.Size = new Size(500, 34);
             textBox_HD_MaSach.TabIndex = 28;
+            textBox_HD_MaSach.TextChanged += TextBox_HD_MaSach_TextChanged;
             // 
             // textBox_HD_MaKH
             // 
@@ -1069,6 +1079,7 @@
             textBox_HD_MaKH.Name = "textBox_HD_MaKH";
             textBox_HD_MaKH.Size = new Size(500, 34);
             textBox_HD_MaKH.TabIndex = 27;
+            textBox_HD_MaKH.TextChanged += TextBox_HD_MaKH_TextChanged;
             // 
             // label_HD_MaSach
             // 
@@ -1112,6 +1123,7 @@
             textBox_HD_MaHD.Name = "textBox_HD_MaHD";
             textBox_HD_MaHD.Size = new Size(500, 34);
             textBox_HD_MaHD.TabIndex = 21;
+            textBox_HD_MaHD.TextChanged += TextBox_HD_MaHD_TextChanged;
             // 
             // icon_HD_Xoa
             // 
@@ -1132,6 +1144,7 @@
             icon_HD_Xoa.TextAlign = ContentAlignment.MiddleRight;
             icon_HD_Xoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_HD_Xoa.UseVisualStyleBackColor = false;
+            icon_HD_Xoa.Click += Icon_HD_Xoa_Click;
             // 
             // icon_HD_Them
             // 
@@ -1152,6 +1165,7 @@
             icon_HD_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_HD_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_HD_Them.UseVisualStyleBackColor = false;
+            icon_HD_Them.Click += Icon_HD_Them_Click;
             // 
             // Form_Sach
             // 
@@ -1259,15 +1273,16 @@
         private Label label_HD_GiaBan;
         private BindingSource hoaDonBanSachBindingSource;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn MaSach;
-        private DataGridViewTextBoxColumn SoLuong;
-        private DataGridViewTextBoxColumn GiaBan;
-        private DataGridViewTextBoxColumn NgayHD;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MaSach;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenSach;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TacGia;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_SoLuong;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TheLoai;
+        private DataGridViewTextBoxColumn MaHD;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn MaSach;
+        private DataGridViewTextBoxColumn SoLuong;
+        private DataGridViewTextBoxColumn GiaBan;
+        private DataGridViewTextBoxColumn NgayHD;
     }
 }
