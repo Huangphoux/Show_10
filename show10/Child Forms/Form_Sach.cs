@@ -20,6 +20,7 @@ namespace Show10.Child_Forms {
             //db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
+            KiemTraSLSach();
             db.Sachs.Load();
             sachBindingSource.DataSource = db.Sachs.Local.ToBindingList();
             dataGridView_Sach.Refresh();
@@ -35,6 +36,18 @@ namespace Show10.Child_Forms {
         private void Form_Sach_FormClosing(object sender, FormClosingEventArgs e) {
             db?.Dispose();
             db = null;
+        }
+
+        private void KiemTraSLSach() {
+            if (db == null) return;
+            foreach (var sach in db.Sachs) {
+                int soLuongNhap = db.PhieuNhapSachs
+                    .Where(p => p.MaSach == sach.MaSach)
+                    .Sum(p => p.SoLuong);
+
+                sach.SoLuong = soLuongNhap;
+            }
+            db.SaveChanges();
         }
 
         #region Quản lý sách
