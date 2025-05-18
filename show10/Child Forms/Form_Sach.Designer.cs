@@ -28,10 +28,10 @@
             icon_Sach_Clear = new FontAwesome.Sharp.IconButton();
             icon_Sach_Ban = new FontAwesome.Sharp.IconButton();
             icon_Sach_Nhap = new FontAwesome.Sharp.IconButton();
-            textBox_TheLoai = new TextBox();
-            label_TheLoai = new Label();
-            textBox_SoLuong = new TextBox();
-            label_SoLuong = new Label();
+            textBox_Sach_TheLoai = new TextBox();
+            label_Sach_TheLoai = new Label();
+            textBox_Sach_SoLuong = new TextBox();
+            label_Sach_SoLuong = new Label();
             icon_Sach_Loc = new FontAwesome.Sharp.IconButton();
             icon_Sach_Tim = new FontAwesome.Sharp.IconButton();
             textBox_Sach_TacGia = new TextBox();
@@ -45,12 +45,12 @@
             sachBindingSource = new BindingSource(components);
             dataGridView_Sach = new DataGridView();
             dataGridViewTextBoxColumn_MaSach = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn_SoLuong = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_TenSach = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_TacGia = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_SoLuong = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_TheLoai = new DataGridViewTextBoxColumn();
             tabControl_Sach = new TabControl();
-            tabPage_QuanLiSach = new TabPage();
+            tabPage_Sach = new TabPage();
             tabPage_PhieuNhapSach = new TabPage();
             dataGridView_PhieuNhapSach = new DataGridView();
             maPNDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -106,7 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)sachBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Sach).BeginInit();
             tabControl_Sach.SuspendLayout();
-            tabPage_QuanLiSach.SuspendLayout();
+            tabPage_Sach.SuspendLayout();
             tabPage_PhieuNhapSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_PhieuNhapSach).BeginInit();
             ((System.ComponentModel.ISupportInitialize)phieuNhapSachBindingSource).BeginInit();
@@ -122,10 +122,10 @@
             groupBox_Sach.Controls.Add(icon_Sach_Clear);
             groupBox_Sach.Controls.Add(icon_Sach_Ban);
             groupBox_Sach.Controls.Add(icon_Sach_Nhap);
-            groupBox_Sach.Controls.Add(textBox_TheLoai);
-            groupBox_Sach.Controls.Add(label_TheLoai);
-            groupBox_Sach.Controls.Add(textBox_SoLuong);
-            groupBox_Sach.Controls.Add(label_SoLuong);
+            groupBox_Sach.Controls.Add(textBox_Sach_TheLoai);
+            groupBox_Sach.Controls.Add(label_Sach_TheLoai);
+            groupBox_Sach.Controls.Add(textBox_Sach_SoLuong);
+            groupBox_Sach.Controls.Add(label_Sach_SoLuong);
             groupBox_Sach.Controls.Add(icon_Sach_Loc);
             groupBox_Sach.Controls.Add(icon_Sach_Tim);
             groupBox_Sach.Controls.Add(textBox_Sach_TacGia);
@@ -209,47 +209,50 @@
             icon_Sach_Nhap.TextImageRelation = TextImageRelation.ImageAboveText;
             icon_Sach_Nhap.UseVisualStyleBackColor = false;
             // 
-            // textBox_TheLoai
+            // textBox_Sach_TheLoai
             // 
-            textBox_TheLoai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_TheLoai.Font = new Font("Segoe UI", 12F);
-            textBox_TheLoai.Location = new Point(166, 215);
-            textBox_TheLoai.Margin = new Padding(4);
-            textBox_TheLoai.Name = "textBox_TheLoai";
-            textBox_TheLoai.Size = new Size(382, 34);
-            textBox_TheLoai.TabIndex = 34;
+            textBox_Sach_TheLoai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_Sach_TheLoai.Font = new Font("Segoe UI", 12F);
+            textBox_Sach_TheLoai.Location = new Point(166, 215);
+            textBox_Sach_TheLoai.Margin = new Padding(4);
+            textBox_Sach_TheLoai.Name = "textBox_Sach_TheLoai";
+            textBox_Sach_TheLoai.Size = new Size(382, 34);
+            textBox_Sach_TheLoai.TabIndex = 34;
+            textBox_Sach_TheLoai.TextChanged += TextBox_Sach_TheLoai_TextChanged;
             // 
-            // label_TheLoai
+            // label_Sach_TheLoai
             // 
-            label_TheLoai.Font = new Font("Segoe UI", 12F);
-            label_TheLoai.Location = new Point(36, 217);
-            label_TheLoai.Margin = new Padding(4, 0, 28, 0);
-            label_TheLoai.Name = "label_TheLoai";
-            label_TheLoai.Size = new Size(116, 30);
-            label_TheLoai.TabIndex = 33;
-            label_TheLoai.Text = "Thể loại";
-            label_TheLoai.TextAlign = ContentAlignment.MiddleLeft;
+            label_Sach_TheLoai.Font = new Font("Segoe UI", 12F);
+            label_Sach_TheLoai.Location = new Point(36, 217);
+            label_Sach_TheLoai.Margin = new Padding(4, 0, 28, 0);
+            label_Sach_TheLoai.Name = "label_Sach_TheLoai";
+            label_Sach_TheLoai.Size = new Size(116, 30);
+            label_Sach_TheLoai.TabIndex = 33;
+            label_Sach_TheLoai.Text = "Thể loại";
+            label_Sach_TheLoai.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // textBox_SoLuong
+            // textBox_Sach_SoLuong
             // 
-            textBox_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_SoLuong.Font = new Font("Segoe UI", 12F);
-            textBox_SoLuong.Location = new Point(166, 173);
-            textBox_SoLuong.Margin = new Padding(4);
-            textBox_SoLuong.Name = "textBox_SoLuong";
-            textBox_SoLuong.Size = new Size(382, 34);
-            textBox_SoLuong.TabIndex = 32;
+            textBox_Sach_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_Sach_SoLuong.Font = new Font("Segoe UI", 12F);
+            textBox_Sach_SoLuong.Location = new Point(166, 173);
+            textBox_Sach_SoLuong.Margin = new Padding(4);
+            textBox_Sach_SoLuong.Name = "textBox_Sach_SoLuong";
+            textBox_Sach_SoLuong.ReadOnly = true;
+            textBox_Sach_SoLuong.Size = new Size(382, 34);
+            textBox_Sach_SoLuong.TabIndex = 32;
+            textBox_Sach_SoLuong.Text = "0";
             // 
-            // label_SoLuong
+            // label_Sach_SoLuong
             // 
-            label_SoLuong.Font = new Font("Segoe UI", 12F);
-            label_SoLuong.Location = new Point(36, 175);
-            label_SoLuong.Margin = new Padding(4, 0, 28, 0);
-            label_SoLuong.Name = "label_SoLuong";
-            label_SoLuong.Size = new Size(116, 30);
-            label_SoLuong.TabIndex = 31;
-            label_SoLuong.Text = "Số lượng";
-            label_SoLuong.TextAlign = ContentAlignment.MiddleLeft;
+            label_Sach_SoLuong.Font = new Font("Segoe UI", 12F);
+            label_Sach_SoLuong.Location = new Point(36, 175);
+            label_Sach_SoLuong.Margin = new Padding(4, 0, 28, 0);
+            label_Sach_SoLuong.Name = "label_Sach_SoLuong";
+            label_Sach_SoLuong.Size = new Size(116, 30);
+            label_Sach_SoLuong.TabIndex = 31;
+            label_Sach_SoLuong.Text = "Số lượng";
+            label_Sach_SoLuong.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // icon_Sach_Loc
             // 
@@ -291,6 +294,7 @@
             icon_Sach_Tim.TextAlign = ContentAlignment.MiddleRight;
             icon_Sach_Tim.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_Sach_Tim.UseVisualStyleBackColor = false;
+            icon_Sach_Tim.Click += Icon_Sach_Tim_Click;
             // 
             // textBox_Sach_TacGia
             // 
@@ -301,6 +305,7 @@
             textBox_Sach_TacGia.Name = "textBox_Sach_TacGia";
             textBox_Sach_TacGia.Size = new Size(382, 34);
             textBox_Sach_TacGia.TabIndex = 28;
+            textBox_Sach_TacGia.TextChanged += TextBox_Sach_TacGia_TextChanged;
             // 
             // textBox_Sach_TenSach
             // 
@@ -311,6 +316,7 @@
             textBox_Sach_TenSach.Name = "textBox_Sach_TenSach";
             textBox_Sach_TenSach.Size = new Size(382, 34);
             textBox_Sach_TenSach.TabIndex = 27;
+            textBox_Sach_TenSach.TextChanged += TextBox_Sach_TenSach_TextChanged;
             // 
             // label_Sach_TacGia
             // 
@@ -354,6 +360,7 @@
             textBox_Sach_MaSach.Name = "textBox_Sach_MaSach";
             textBox_Sach_MaSach.Size = new Size(382, 34);
             textBox_Sach_MaSach.TabIndex = 21;
+            textBox_Sach_MaSach.TextChanged += TextBox_Sach_MaSach_TextChanged;
             // 
             // icon_Sach_Xoa
             // 
@@ -374,6 +381,7 @@
             icon_Sach_Xoa.TextAlign = ContentAlignment.MiddleRight;
             icon_Sach_Xoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_Sach_Xoa.UseVisualStyleBackColor = false;
+            icon_Sach_Xoa.Click += Icon_Sach_Xoa_Click;
             // 
             // icon_Sach_Them
             // 
@@ -394,6 +402,7 @@
             icon_Sach_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_Sach_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_Sach_Them.UseVisualStyleBackColor = false;
+            icon_Sach_Them.Click += Icon_Sach_Them_Click;
             // 
             // sachBindingSource
             // 
@@ -409,7 +418,7 @@
             dataGridView_Sach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_Sach.BackgroundColor = Color.White;
             dataGridView_Sach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_Sach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_MaSach, dataGridViewTextBoxColumn_SoLuong, dataGridViewTextBoxColumn_TenSach, dataGridViewTextBoxColumn_TacGia, dataGridViewTextBoxColumn_TheLoai });
+            dataGridView_Sach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_MaSach, dataGridViewTextBoxColumn_TenSach, dataGridViewTextBoxColumn_TacGia, dataGridViewTextBoxColumn_SoLuong, dataGridViewTextBoxColumn_TheLoai });
             dataGridView_Sach.DataSource = sachBindingSource;
             dataGridView_Sach.Dock = DockStyle.Fill;
             dataGridView_Sach.GridColor = SystemColors.ScrollBar;
@@ -422,6 +431,8 @@
             dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridView_Sach.Size = new Size(766, 106);
             dataGridView_Sach.TabIndex = 2;
+            dataGridView_Sach.CellValueChanged += DataGridView_Sach_CellValueChanged;
+            dataGridView_Sach.SelectionChanged += DataGridView_Sach_SelectionChanged;
             // 
             // dataGridViewTextBoxColumn_MaSach
             // 
@@ -429,13 +440,6 @@
             dataGridViewTextBoxColumn_MaSach.HeaderText = "Mã sách";
             dataGridViewTextBoxColumn_MaSach.MinimumWidth = 6;
             dataGridViewTextBoxColumn_MaSach.Name = "dataGridViewTextBoxColumn_MaSach";
-            // 
-            // dataGridViewTextBoxColumn_SoLuong
-            // 
-            dataGridViewTextBoxColumn_SoLuong.DataPropertyName = "SoLuong";
-            dataGridViewTextBoxColumn_SoLuong.HeaderText = "Số lượng";
-            dataGridViewTextBoxColumn_SoLuong.MinimumWidth = 6;
-            dataGridViewTextBoxColumn_SoLuong.Name = "dataGridViewTextBoxColumn_SoLuong";
             // 
             // dataGridViewTextBoxColumn_TenSach
             // 
@@ -451,6 +455,13 @@
             dataGridViewTextBoxColumn_TacGia.MinimumWidth = 6;
             dataGridViewTextBoxColumn_TacGia.Name = "dataGridViewTextBoxColumn_TacGia";
             // 
+            // dataGridViewTextBoxColumn_SoLuong
+            // 
+            dataGridViewTextBoxColumn_SoLuong.DataPropertyName = "SoLuong";
+            dataGridViewTextBoxColumn_SoLuong.HeaderText = "Số lượng";
+            dataGridViewTextBoxColumn_SoLuong.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_SoLuong.Name = "dataGridViewTextBoxColumn_SoLuong";
+            // 
             // dataGridViewTextBoxColumn_TheLoai
             // 
             dataGridViewTextBoxColumn_TheLoai.DataPropertyName = "TheLoai";
@@ -460,7 +471,7 @@
             // 
             // tabControl_Sach
             // 
-            tabControl_Sach.Controls.Add(tabPage_QuanLiSach);
+            tabControl_Sach.Controls.Add(tabPage_Sach);
             tabControl_Sach.Controls.Add(tabPage_PhieuNhapSach);
             tabControl_Sach.Controls.Add(tabPage_HoaDonBanSach);
             tabControl_Sach.Dock = DockStyle.Fill;
@@ -471,28 +482,28 @@
             tabControl_Sach.Size = new Size(782, 553);
             tabControl_Sach.TabIndex = 37;
             // 
-            // tabPage_QuanLiSach
+            // tabPage_Sach
             // 
-            tabPage_QuanLiSach.Controls.Add(dataGridView_Sach);
-            tabPage_QuanLiSach.Controls.Add(groupBox_Sach);
-            tabPage_QuanLiSach.Location = new Point(4, 37);
-            tabPage_QuanLiSach.Margin = new Padding(4);
-            tabPage_QuanLiSach.Name = "tabPage_QuanLiSach";
-            tabPage_QuanLiSach.Padding = new Padding(4);
-            tabPage_QuanLiSach.Size = new Size(774, 512);
-            tabPage_QuanLiSach.TabIndex = 0;
-            tabPage_QuanLiSach.Text = "Quản lý sách";
-            tabPage_QuanLiSach.UseVisualStyleBackColor = true;
+            tabPage_Sach.Controls.Add(dataGridView_Sach);
+            tabPage_Sach.Controls.Add(groupBox_Sach);
+            tabPage_Sach.Location = new Point(4, 37);
+            tabPage_Sach.Margin = new Padding(4);
+            tabPage_Sach.Name = "tabPage_Sach";
+            tabPage_Sach.Padding = new Padding(4);
+            tabPage_Sach.Size = new Size(774, 512);
+            tabPage_Sach.TabIndex = 0;
+            tabPage_Sach.Text = "Quản lý sách";
+            tabPage_Sach.UseVisualStyleBackColor = true;
             // 
             // tabPage_PhieuNhapSach
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 37);
+            tabPage_PhieuNhapSach.Location = new Point(4, 29);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(774, 512);
+            tabPage_PhieuNhapSach.Size = new Size(774, 520);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -518,7 +529,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(766, 106);
+            dataGridView_PhieuNhapSach.Size = new Size(766, 114);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             // 
             // maPNDataGridViewTextBoxColumn
@@ -795,11 +806,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 37);
+            tabPage_HoaDonBanSach.Location = new Point(4, 29);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(774, 512);
+            tabPage_HoaDonBanSach.Size = new Size(774, 520);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -825,7 +836,7 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(766, 91);
+            dataGridView_HoaDonBanSach.Size = new Size(766, 99);
             dataGridView_HoaDonBanSach.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn2
@@ -1146,7 +1157,7 @@
             ((System.ComponentModel.ISupportInitialize)sachBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Sach).EndInit();
             tabControl_Sach.ResumeLayout(false);
-            tabPage_QuanLiSach.ResumeLayout(false);
+            tabPage_Sach.ResumeLayout(false);
             tabPage_PhieuNhapSach.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView_PhieuNhapSach).EndInit();
             ((System.ComponentModel.ISupportInitialize)phieuNhapSachBindingSource).EndInit();
@@ -1179,15 +1190,13 @@
         private DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hoTenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn vaiTroDataGridViewTextBoxColumn;
-        private TextBox textBox_TheLoai;
-        private Label label_TheLoai;
-        private TextBox textBox_SoLuong;
-        private Label label_SoLuong;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MaSach;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_SoLuong;
+        private TextBox textBox_Sach_TheLoai;
+        private Label label_Sach_TheLoai;
+        private TextBox textBox_Sach_SoLuong;
+        private Label label_Sach_SoLuong;
         private FontAwesome.Sharp.IconButton icon_Sach_Nhap;
         private TabControl tabControl_Sach;
-        private TabPage tabPage_QuanLiSach;
+        private TabPage tabPage_Sach;
         private TabPage tabPage_PhieuNhapSach;
         private DataGridView dataGridView_PhieuNhapSach;
         private FontAwesome.Sharp.IconButton icon_Sach_Ban;
@@ -1210,9 +1219,6 @@
         private FontAwesome.Sharp.IconButton icon_PNS_Them;
         private DateTimePicker date_PNS_NgayNhap;
         private BindingSource phieuNhapSachBindingSource;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenSach;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TacGia;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TheLoai;
         private DataGridViewTextBoxColumn maPNDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn maSachDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn soLuongDataGridViewTextBoxColumn;
@@ -1244,5 +1250,10 @@
         private DataGridViewTextBoxColumn SoLuong;
         private DataGridViewTextBoxColumn GiaBan;
         private DataGridViewTextBoxColumn NgayHD;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MaSach;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenSach;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TacGia;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_SoLuong;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TheLoai;
     }
 }

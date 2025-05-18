@@ -22,10 +22,23 @@ namespace Show10.Child_Forms {
 
             dataGridView_TaiKhoan.Refresh();
         }
-
         private void Form_Account_FormClosing(object sender, FormClosingEventArgs e) {
             db?.Dispose();
             db = null;
+        }
+        private TaiKhoan GetTaiKhoan() {
+            string tenTK = textBox_TK_TenTK.Text;
+            string matKhau = textBox_TK_MatKhau.Text;
+            string hoTen = textBox_TK_HoTen.Text;
+            string vaiTro = checkBox_TK_QTV.Checked ? "admin" : "user";
+
+            return new TaiKhoan { TenTK = tenTK, HoTen = hoTen, MatKhau = matKhau, VaiTro = vaiTro };
+        }
+        private void SetTaiKhoan(TaiKhoan taiKhoan) {
+            textBox_TK_TenTK.Text = taiKhoan.TenTK;
+            textBox_TK_MatKhau.Text = taiKhoan.MatKhau;
+            textBox_TK_HoTen.Text = taiKhoan.HoTen;
+            checkBox_TK_QTV.Checked = taiKhoan.VaiTro == "admin" ? true : false;
         }
 
         #region Detect changes
@@ -71,20 +84,7 @@ namespace Show10.Child_Forms {
                 dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = filteredData.ToList() };
             }
         }
-        private TaiKhoan GetTaiKhoan() {
-            string tenTK = textBox_TK_TenTK.Text;
-            string matKhau = textBox_TK_MatKhau.Text;
-            string hoTen = textBox_TK_HoTen.Text;
-            string vaiTro = checkBox_TK_QTV.Checked ? "admin" : "user";
-
-            return new TaiKhoan { TenTK = tenTK, HoTen = hoTen, MatKhau = matKhau, VaiTro = vaiTro };
-        }
-        private void SetTaiKhoan(TaiKhoan taiKhoan) {
-            textBox_TK_TenTK.Text = taiKhoan.TenTK;
-            textBox_TK_MatKhau.Text = taiKhoan.MatKhau;
-            textBox_TK_HoTen.Text = taiKhoan.HoTen;
-            checkBox_TK_QTV.Checked = taiKhoan.VaiTro == "admin" ? true : false;
-        }
+        
         // Thêm / Sửa bằng thêm
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
             TaiKhoan taiKhoan = GetTaiKhoan();
@@ -165,8 +165,6 @@ namespace Show10.Child_Forms {
         }
         // Tìm
         private void Icon_TK_Tim_Click(object sender, EventArgs e) {
-            TaiKhoan taiKhoan = GetTaiKhoan();
-
             var filteredData = db.TaiKhoans.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_TK_TenTK.Text)) {
