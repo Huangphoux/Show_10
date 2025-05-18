@@ -9,8 +9,6 @@ namespace Show10.Child_Forms {
         public Form_Sach() {
             InitializeComponent();
         }
-
-        #region Quản lý sách
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
 
@@ -21,12 +19,23 @@ namespace Show10.Child_Forms {
             db.Sachs.Load();
             sachBindingSource.DataSource = db.Sachs.Local.ToBindingList();
             dataGridView_Sach.Refresh();
+
+            db.PhieuNhapSachs.Load();
+            phieuNhapSachBindingSource.DataSource = db.PhieuNhapSachs.Local.ToBindingList();
+            dataGridView_PhieuNhapSach.Refresh();
+
+            db.HoaDonBanSachs.Load();
+            hoaDonBanSachBindingSource.DataSource = db.HoaDonBanSachs.Local.ToBindingList();
+            dataGridView_HoaDonBanSach.Refresh();
         }
 
         private void Form_Sach_FormClosing(object sender, FormClosingEventArgs e) {
             db?.Dispose();
             db = null;
         }
+
+        #region Quản lý sách
+
         private void Icon_Sach_Loc_Click(object sender, EventArgs e) {
             icon_Sach_Loc.IconChar = (icon_Sach_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
         }
