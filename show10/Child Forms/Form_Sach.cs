@@ -12,6 +12,7 @@ namespace Show10.Child_Forms {
 
         public Form_Sach() {
             InitializeComponent();
+            DoubleBuffered = true;
         }
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -20,7 +21,6 @@ namespace Show10.Child_Forms {
             //db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
-            KiemTraSLSach();
             db.Sachs.Load();
             sachBindingSource.DataSource = db.Sachs.Local.ToBindingList();
             dataGridView_Sach.Refresh();
@@ -48,6 +48,46 @@ namespace Show10.Child_Forms {
                 sach.SoLuong = soLuongNhap;
             }
             db.SaveChanges();
+            dataGridView_Sach.Refresh();
+        }
+        private void KiemTraMaSachTonTai() {
+            if (db == null) return;
+
+            // Use a HashSet to avoid duplicate row indices
+            var rowsToDelete = new HashSet<int>();
+
+            foreach (var phieu in db.PhieuNhapSachs) {
+                if (!db.Sachs.Any(p => p.MaSach == phieu.MaSach)) {
+                    rowsToDelete.Add(phieu.MaPN);
+                }
+            }
+
+            // if hashSet is not empty
+            if (rowsToDelete.Any(x => true)) {
+                var result = MessageBox.Show(
+                     $"Phát hiện các phiếu ({string.Join(" ", rowsToDelete)}) chứa mã sách không tồn tại.\n" +
+                     $"Xoá phiếu?",
+                     "Phát hiện phiếu nhập sách không tồn tại",
+                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes) {
+                    foreach (int rowIndex in rowsToDelete) {
+                        // nếu là rowIndex thì sẽ xoá dòng dưới dòng cần xoá
+                        if (dataGridView_PhieuNhapSach.Rows[rowIndex -1 ].DataBoundItem is PhieuNhapSach phieu) {
+                            db.PhieuNhapSachs.Remove(phieu);
+                        }
+                    }
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        private void TabControl_Sach_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tabControl_Sach.SelectedTab == tabPage_Sach) {
+                KiemTraSLSach();
+            }
+            if (tabControl_Sach.SelectedTab == tabPage_PhieuNhapSach) {
+                KiemTraMaSachTonTai();
+            }
         }
 
         #region Quản lý sách
@@ -102,6 +142,8 @@ namespace Show10.Child_Forms {
                 _ = db.Add(sach);
                 _ = db.SaveChanges();
                 dataGridView_Sach.Refresh();
+
+                Icon_Sach_Clear_Click(sender, e);
             }
         }
         private void Icon_Sach_Xoa_Click(object sender, EventArgs e) {
@@ -244,11 +286,12 @@ namespace Show10.Child_Forms {
                 .OrderByDescending(p => p.MaPN)
                 .FirstOrDefault()?.MaPN ?? 0;
             textBox_PNS_MaPhieu.Text = (lastMaPhieu + 1).ToString();
-            
-            if(dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach){
+
+            if (dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
                 textBox_PNS_MaSach.Text = sach.MaSach.ToString();
             }
         }
+
         #endregion
         #region Quản lý phiếu nhập sách
         private PhieuNhapSach GetPhieuNhapSach() {
@@ -333,6 +376,8 @@ namespace Show10.Child_Forms {
                 _ = db.Add(phieu);
                 _ = db.SaveChanges();
                 dataGridView_PhieuNhapSach.Refresh();
+
+                Icon_PNS_Clear_Click(sender, e);
             }
         }
         private void Icon_PNS_Xoa_Click(object sender, EventArgs e) {
@@ -505,5 +550,6 @@ namespace Show10.Child_Forms {
         }
         #endregion
 
+        
     }
 }

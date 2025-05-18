@@ -8,6 +8,7 @@ namespace Show10.Child_Forms {
         bool isLoc = false;
         public Form_TaiKhoan() {
             InitializeComponent();
+            DoubleBuffered = true;
         }
         private void Form_Account_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -116,6 +117,8 @@ namespace Show10.Child_Forms {
                 _ = db.Add(taiKhoan);
                 _ = db.SaveChanges();
                 dataGridView_TaiKhoan.Refresh();
+
+                Icon_TK_Them_Click(sender, e);
             }
         }
         // Xoá
