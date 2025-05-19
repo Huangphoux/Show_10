@@ -184,20 +184,20 @@
             // textBox_TK_HoTen
             // 
             textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_TK_HoTen.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_TK_HoTen.Location = new Point(200, 139);
+            textBox_TK_HoTen.Font = new Font("Segoe UI", 12F);
+            textBox_TK_HoTen.Location = new Point(200, 146);
             textBox_TK_HoTen.Name = "textBox_TK_HoTen";
-            textBox_TK_HoTen.Size = new Size(480, 43);
+            textBox_TK_HoTen.Size = new Size(480, 34);
             textBox_TK_HoTen.TabIndex = 5;
             textBox_TK_HoTen.TextChanged += TextBox_TK_HoTen_TextChanged;
             // 
             // textBox_TK_MatKhau
             // 
             textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_TK_MatKhau.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_TK_MatKhau.Location = new Point(200, 90);
+            textBox_TK_MatKhau.Font = new Font("Segoe UI", 12F);
+            textBox_TK_MatKhau.Location = new Point(200, 99);
             textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
-            textBox_TK_MatKhau.Size = new Size(480, 43);
+            textBox_TK_MatKhau.Size = new Size(480, 34);
             textBox_TK_MatKhau.TabIndex = 4;
             textBox_TK_MatKhau.TextChanged += TextBox_TK_MatKhau_TextChanged;
             // 
@@ -246,10 +246,10 @@
             // textBox_TK_TenTK
             // 
             textBox_TK_TenTK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_TK_TenTK.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_TK_TenTK.Location = new Point(200, 39);
+            textBox_TK_TenTK.Font = new Font("Segoe UI", 12F);
+            textBox_TK_TenTK.Location = new Point(200, 45);
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
-            textBox_TK_TenTK.Size = new Size(480, 43);
+            textBox_TK_TenTK.Size = new Size(480, 34);
             textBox_TK_TenTK.TabIndex = 3;
             textBox_TK_TenTK.TextChanged += TextBox_TK_TenTK_TextChanged;
             // 

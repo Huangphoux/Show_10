@@ -157,7 +157,7 @@
             icon_Sach_Clear.IconColor = Color.Black;
             icon_Sach_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Clear.IconSize = 30;
-            icon_Sach_Clear.Location = new Point(598, 267);
+            icon_Sach_Clear.Location = new Point(468, 286);
             icon_Sach_Clear.Margin = new Padding(14);
             icon_Sach_Clear.Name = "icon_Sach_Clear";
             icon_Sach_Clear.Size = new Size(80, 80);
@@ -179,10 +179,10 @@
             icon_Sach_Ban.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Ban.IconSize = 30;
             icon_Sach_Ban.ImageAlign = ContentAlignment.BottomCenter;
-            icon_Sach_Ban.Location = new Point(566, 154);
+            icon_Sach_Ban.Location = new Point(566, 217);
             icon_Sach_Ban.Margin = new Padding(14);
             icon_Sach_Ban.Name = "icon_Sach_Ban";
-            icon_Sach_Ban.Size = new Size(165, 85);
+            icon_Sach_Ban.Size = new Size(165, 149);
             icon_Sach_Ban.TabIndex = 36;
             icon_Sach_Ban.Text = "Bán sách";
             icon_Sach_Ban.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -201,10 +201,10 @@
             icon_Sach_Nhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Nhap.IconSize = 30;
             icon_Sach_Nhap.ImageAlign = ContentAlignment.BottomCenter;
-            icon_Sach_Nhap.Location = new Point(566, 45);
+            icon_Sach_Nhap.Location = new Point(566, 49);
             icon_Sach_Nhap.Margin = new Padding(14);
             icon_Sach_Nhap.Name = "icon_Sach_Nhap";
-            icon_Sach_Nhap.Size = new Size(165, 85);
+            icon_Sach_Nhap.Size = new Size(165, 158);
             icon_Sach_Nhap.TabIndex = 35;
             icon_Sach_Nhap.Text = "Nhập sách";
             icon_Sach_Nhap.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -267,7 +267,7 @@
             icon_Sach_Loc.IconColor = Color.Black;
             icon_Sach_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Loc.IconSize = 30;
-            icon_Sach_Loc.Location = new Point(490, 267);
+            icon_Sach_Loc.Location = new Point(360, 286);
             icon_Sach_Loc.Margin = new Padding(14);
             icon_Sach_Loc.Name = "icon_Sach_Loc";
             icon_Sach_Loc.Size = new Size(80, 80);
@@ -288,7 +288,7 @@
             icon_Sach_Tim.IconColor = Color.Black;
             icon_Sach_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Tim.IconSize = 30;
-            icon_Sach_Tim.Location = new Point(382, 267);
+            icon_Sach_Tim.Location = new Point(252, 286);
             icon_Sach_Tim.Margin = new Padding(14);
             icon_Sach_Tim.Name = "icon_Sach_Tim";
             icon_Sach_Tim.Size = new Size(80, 80);
@@ -375,7 +375,7 @@
             icon_Sach_Xoa.IconColor = Color.Black;
             icon_Sach_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Xoa.IconSize = 30;
-            icon_Sach_Xoa.Location = new Point(274, 267);
+            icon_Sach_Xoa.Location = new Point(144, 286);
             icon_Sach_Xoa.Margin = new Padding(14);
             icon_Sach_Xoa.Name = "icon_Sach_Xoa";
             icon_Sach_Xoa.Size = new Size(80, 80);
@@ -396,7 +396,7 @@
             icon_Sach_Them.IconColor = Color.Black;
             icon_Sach_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Them.IconSize = 30;
-            icon_Sach_Them.Location = new Point(166, 267);
+            icon_Sach_Them.Location = new Point(36, 286);
             icon_Sach_Them.Margin = new Padding(14);
             icon_Sach_Them.Name = "icon_Sach_Them";
             icon_Sach_Them.Size = new Size(80, 80);
@@ -821,11 +821,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 37);
+            tabPage_HoaDonBanSach.Location = new Point(4, 29);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(774, 512);
+            tabPage_HoaDonBanSach.Size = new Size(774, 520);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -851,7 +851,7 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(766, 91);
+            dataGridView_HoaDonBanSach.Size = new Size(766, 99);
             dataGridView_HoaDonBanSach.TabIndex = 4;
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
             dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;

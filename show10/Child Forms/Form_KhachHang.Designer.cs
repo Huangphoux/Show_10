@@ -63,6 +63,7 @@
             soTienDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phieuThuTienBindingSource = new BindingSource(components);
             groupBox_PhieuThuTien = new GroupBox();
+            date_PTT_NgayThu = new DateTimePicker();
             icon_PTT_Clear = new FontAwesome.Sharp.IconButton();
             textBox_PTT_SoTien = new TextBox();
             label_PTT_SoTien = new Label();
@@ -70,7 +71,6 @@
             icon_PTT_Tim = new FontAwesome.Sharp.IconButton();
             icon_PTT_Xoa = new FontAwesome.Sharp.IconButton();
             icon_PTT_Them = new FontAwesome.Sharp.IconButton();
-            textBox_PTT_NgayThu = new TextBox();
             textBox_PTT_MaKH = new TextBox();
             label_PTT_NgayThu = new Label();
             label_PTT_MaKH = new Label();
@@ -138,8 +138,10 @@
             // 
             // comboBox_KH_GioiTinh
             // 
+            comboBox_KH_GioiTinh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBox_KH_GioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_KH_GioiTinh.FormattingEnabled = true;
+            comboBox_KH_GioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox_KH_GioiTinh.Location = new Point(185, 141);
             comboBox_KH_GioiTinh.Name = "comboBox_KH_GioiTinh";
             comboBox_KH_GioiTinh.Size = new Size(366, 36);
@@ -182,15 +184,16 @@
             icon_KH_ThuTien.Location = new Point(581, 39);
             icon_KH_ThuTien.Margin = new Padding(10);
             icon_KH_ThuTien.Name = "icon_KH_ThuTien";
-            icon_KH_ThuTien.Size = new Size(174, 84);
+            icon_KH_ThuTien.Size = new Size(174, 278);
             icon_KH_ThuTien.TabIndex = 49;
             icon_KH_ThuTien.Text = "Thu tiền";
             icon_KH_ThuTien.TextImageRelation = TextImageRelation.ImageAboveText;
             icon_KH_ThuTien.UseVisualStyleBackColor = false;
+            icon_KH_ThuTien.Click += Icon_KH_ThuTien_Click;
             // 
             // icon_KH_Loc
             // 
-            icon_KH_Loc.Anchor = AnchorStyles.Right;
+            icon_KH_Loc.Anchor = AnchorStyles.None;
             icon_KH_Loc.BackColor = Color.FromArgb(255, 192, 128);
             icon_KH_Loc.FlatAppearance.BorderSize = 0;
             icon_KH_Loc.FlatStyle = FlatStyle.Flat;
@@ -211,7 +214,7 @@
             // 
             // icon_KH_Tim
             // 
-            icon_KH_Tim.Anchor = AnchorStyles.Right;
+            icon_KH_Tim.Anchor = AnchorStyles.None;
             icon_KH_Tim.BackColor = Color.FromArgb(128, 128, 255);
             icon_KH_Tim.FlatAppearance.BorderSize = 0;
             icon_KH_Tim.FlatStyle = FlatStyle.Flat;
@@ -232,7 +235,7 @@
             // 
             // icon_KH_Xoa
             // 
-            icon_KH_Xoa.Anchor = AnchorStyles.Right;
+            icon_KH_Xoa.Anchor = AnchorStyles.None;
             icon_KH_Xoa.BackColor = Color.FromArgb(255, 128, 128);
             icon_KH_Xoa.FlatAppearance.BorderSize = 0;
             icon_KH_Xoa.FlatStyle = FlatStyle.Flat;
@@ -253,7 +256,7 @@
             // 
             // icon_KH_Them
             // 
-            icon_KH_Them.Anchor = AnchorStyles.Right;
+            icon_KH_Them.Anchor = AnchorStyles.None;
             icon_KH_Them.BackColor = Color.FromArgb(128, 255, 128);
             icon_KH_Them.FlatAppearance.BorderSize = 0;
             icon_KH_Them.FlatStyle = FlatStyle.Flat;
@@ -473,10 +476,10 @@
             // 
             tabPage_PhieuThuTien.Controls.Add(dataGridView_PhieuThuTien);
             tabPage_PhieuThuTien.Controls.Add(groupBox_PhieuThuTien);
-            tabPage_PhieuThuTien.Location = new Point(4, 29);
+            tabPage_PhieuThuTien.Location = new Point(4, 37);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(774, 720);
+            tabPage_PhieuThuTien.Size = new Size(774, 512);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -509,8 +512,10 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(768, 355);
+            dataGridView_PhieuThuTien.Size = new Size(768, 147);
             dataGridView_PhieuThuTien.TabIndex = 4;
+            dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
+            dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
             // 
             // maPTDataGridViewTextBoxColumn
             // 
@@ -546,6 +551,7 @@
             // 
             // groupBox_PhieuThuTien
             // 
+            groupBox_PhieuThuTien.Controls.Add(date_PTT_NgayThu);
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Clear);
             groupBox_PhieuThuTien.Controls.Add(textBox_PTT_SoTien);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_SoTien);
@@ -553,7 +559,6 @@
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Tim);
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Xoa);
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Them);
-            groupBox_PhieuThuTien.Controls.Add(textBox_PTT_NgayThu);
             groupBox_PhieuThuTien.Controls.Add(textBox_PTT_MaKH);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_NgayThu);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_MaKH);
@@ -566,6 +571,14 @@
             groupBox_PhieuThuTien.TabIndex = 5;
             groupBox_PhieuThuTien.TabStop = false;
             groupBox_PhieuThuTien.Text = "Nhập liệu";
+            // 
+            // date_PTT_NgayThu
+            // 
+            date_PTT_NgayThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_PTT_NgayThu.Location = new Point(185, 143);
+            date_PTT_NgayThu.Name = "date_PTT_NgayThu";
+            date_PTT_NgayThu.Size = new Size(480, 34);
+            date_PTT_NgayThu.TabIndex = 57;
             // 
             // icon_PTT_Clear
             // 
@@ -586,6 +599,7 @@
             icon_PTT_Clear.TextAlign = ContentAlignment.MiddleRight;
             icon_PTT_Clear.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PTT_Clear.UseVisualStyleBackColor = false;
+            icon_PTT_Clear.Click += Icon_PTT_Clear_Click;
             // 
             // textBox_PTT_SoTien
             // 
@@ -595,6 +609,7 @@
             textBox_PTT_SoTien.Name = "textBox_PTT_SoTien";
             textBox_PTT_SoTien.Size = new Size(480, 34);
             textBox_PTT_SoTien.TabIndex = 50;
+            textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
             // 
             // label_PTT_SoTien
             // 
@@ -609,7 +624,7 @@
             // 
             // icon_PTT_Loc
             // 
-            icon_PTT_Loc.Anchor = AnchorStyles.Right;
+            icon_PTT_Loc.Anchor = AnchorStyles.None;
             icon_PTT_Loc.BackColor = Color.FromArgb(255, 192, 128);
             icon_PTT_Loc.FlatAppearance.BorderSize = 0;
             icon_PTT_Loc.FlatStyle = FlatStyle.Flat;
@@ -626,10 +641,11 @@
             icon_PTT_Loc.TextAlign = ContentAlignment.MiddleRight;
             icon_PTT_Loc.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PTT_Loc.UseVisualStyleBackColor = false;
+            icon_PTT_Loc.Click += Icon_PTT_Loc_Click;
             // 
             // icon_PTT_Tim
             // 
-            icon_PTT_Tim.Anchor = AnchorStyles.Right;
+            icon_PTT_Tim.Anchor = AnchorStyles.None;
             icon_PTT_Tim.BackColor = Color.FromArgb(128, 128, 255);
             icon_PTT_Tim.FlatAppearance.BorderSize = 0;
             icon_PTT_Tim.FlatStyle = FlatStyle.Flat;
@@ -646,10 +662,11 @@
             icon_PTT_Tim.TextAlign = ContentAlignment.MiddleRight;
             icon_PTT_Tim.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PTT_Tim.UseVisualStyleBackColor = false;
+            icon_PTT_Tim.Click += Icon_PTT_Tim_Click;
             // 
             // icon_PTT_Xoa
             // 
-            icon_PTT_Xoa.Anchor = AnchorStyles.Right;
+            icon_PTT_Xoa.Anchor = AnchorStyles.None;
             icon_PTT_Xoa.BackColor = Color.FromArgb(255, 128, 128);
             icon_PTT_Xoa.FlatAppearance.BorderSize = 0;
             icon_PTT_Xoa.FlatStyle = FlatStyle.Flat;
@@ -666,10 +683,11 @@
             icon_PTT_Xoa.TextAlign = ContentAlignment.MiddleRight;
             icon_PTT_Xoa.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PTT_Xoa.UseVisualStyleBackColor = false;
+            icon_PTT_Xoa.Click += Icon_PTT_Xoa_Click;
             // 
             // icon_PTT_Them
             // 
-            icon_PTT_Them.Anchor = AnchorStyles.Right;
+            icon_PTT_Them.Anchor = AnchorStyles.None;
             icon_PTT_Them.BackColor = Color.FromArgb(128, 255, 128);
             icon_PTT_Them.FlatAppearance.BorderSize = 0;
             icon_PTT_Them.FlatStyle = FlatStyle.Flat;
@@ -686,15 +704,7 @@
             icon_PTT_Them.TextAlign = ContentAlignment.MiddleRight;
             icon_PTT_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PTT_Them.UseVisualStyleBackColor = false;
-            // 
-            // textBox_PTT_NgayThu
-            // 
-            textBox_PTT_NgayThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_PTT_NgayThu.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_NgayThu.Location = new Point(185, 139);
-            textBox_PTT_NgayThu.Name = "textBox_PTT_NgayThu";
-            textBox_PTT_NgayThu.Size = new Size(480, 34);
-            textBox_PTT_NgayThu.TabIndex = 40;
+            icon_PTT_Them.Click += Icon_PTT_Them_Click;
             // 
             // textBox_PTT_MaKH
             // 
@@ -704,6 +714,7 @@
             textBox_PTT_MaKH.Name = "textBox_PTT_MaKH";
             textBox_PTT_MaKH.Size = new Size(480, 34);
             textBox_PTT_MaKH.TabIndex = 39;
+            textBox_PTT_MaKH.TextChanged += TextBox_PTT_MaKH_TextChanged;
             // 
             // label_PTT_NgayThu
             // 
@@ -746,6 +757,7 @@
             textBox_PTT_MaPhieu.Name = "textBox_PTT_MaPhieu";
             textBox_PTT_MaPhieu.Size = new Size(480, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
+            textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
             // 
             // Form_KhachHang
             // 
@@ -814,7 +826,6 @@
         private FontAwesome.Sharp.IconButton icon_PTT_Tim;
         private FontAwesome.Sharp.IconButton icon_PTT_Xoa;
         private FontAwesome.Sharp.IconButton icon_PTT_Them;
-        private TextBox textBox_PTT_NgayThu;
         private TextBox textBox_PTT_MaKH;
         private Label label_PTT_NgayThu;
         private Label label_PTT_MaKH;
@@ -830,5 +841,6 @@
         private DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn ngayThuDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn soTienDataGridViewTextBoxColumn;
+        private DateTimePicker date_PTT_NgayThu;
     }
 }

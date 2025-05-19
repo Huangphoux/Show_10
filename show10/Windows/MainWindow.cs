@@ -179,15 +179,16 @@ namespace show10 {
             }
         }
 
+        // Use a static field to persist index between clicks
+        static int index = 0;
+        static readonly string[] show10 = ["!", "?", ":)", ":D", "XD"];
+
         private void Icon_Brand_Click(object sender, EventArgs e) {
-
             if (icon_Brand.IconChar == IconChar.Store) {
-                List<string> show10 = ["!", "?", ":)", ":D", "XD"];
-
-                Random rnd = new Random();
-                int r = rnd.Next(show10.Count);
-
-                icon_Brand.Text = "Show 10 " + show10[r];
+                icon_Brand.Text = "Show 10 " + show10[index];
+                // Increment the index and wrap around to 0 when reaching the end of the array.
+                // This ensures we cycle through all elements in 'show10' repeatedly without going out of bounds.
+                index = (index + 1) % show10.Length;
             }
 
             if (icon_Brand.IconChar == IconChar.SignOut) {
