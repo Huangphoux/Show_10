@@ -23,30 +23,46 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             tabControl_BaoCao = new TabControl();
             tabPage_BCTon = new TabPage();
             dataGridView_BCTon = new DataGridView();
+            maSachDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tonDauDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phatSinhDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tonCuoiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            baoCaoTonBindingSource = new BindingSource(components);
             groupBox_BCTon = new GroupBox();
-            this.icon_BCTon_In = new FontAwesome.Sharp.IconButton();
-            this.label_BCTon_Nam = new Label();
-            this.label_BCTon_Thang = new Label();
+            icon_BCTon_TaoMoi = new FontAwesome.Sharp.IconButton();
+            label_BCTon_Nam = new Label();
+            label_BCTon_Thang = new Label();
+            comboBox_BCTon_Nam = new ComboBox();
+            comboBox_BCTon_Thang = new ComboBox();
+            icon_BCTon_In = new FontAwesome.Sharp.IconButton();
             tabPage_BCNo = new TabPage();
             dataGridView_BCNo = new DataGridView();
-            textBox_BCTon_Thang = new TextBox();
-            this.textBox_BCTon_Nam = new TextBox();
             groupBox_BCNo = new GroupBox();
-            textBox_BCNo_Nam = new TextBox();
-            textBox_BCNo_Thang = new TextBox();
-            this.icon_BCNo_In = new FontAwesome.Sharp.IconButton();
-            this.label_BCNo_Nam = new Label();
-            this.label_BCNo_Thang = new Label();
+            icon_BCNo_TaoMoi = new FontAwesome.Sharp.IconButton();
+            label_BCNo_Nam = new Label();
+            label_BCNo_Thang = new Label();
+            comboBox_BCNo_Nam = new ComboBox();
+            comboBox_BCNo_Thang = new ComboBox();
+            iconButton_BCNo_In = new FontAwesome.Sharp.IconButton();
+            textBox_BCTon_Thang = new TextBox();
+            baoCaoNoBindingSource = new BindingSource(components);
+            maKHDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            noDauDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phatSinhDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            noCuoiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             tabControl_BaoCao.SuspendLayout();
             tabPage_BCTon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_BCTon).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)baoCaoTonBindingSource).BeginInit();
             groupBox_BCTon.SuspendLayout();
             tabPage_BCNo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_BCNo).BeginInit();
             groupBox_BCNo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)baoCaoNoBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tabControl_BaoCao
@@ -59,6 +75,7 @@
             tabControl_BaoCao.SelectedIndex = 0;
             tabControl_BaoCao.Size = new Size(782, 553);
             tabControl_BaoCao.TabIndex = 0;
+            tabControl_BaoCao.SelectedIndexChanged += TabControl_BaoCao_SelectedIndexChanged;
             // 
             // tabPage_BCTon
             // 
@@ -77,23 +94,65 @@
             // 
             dataGridView_BCTon.AllowUserToAddRows = false;
             dataGridView_BCTon.AllowUserToDeleteRows = false;
+            dataGridView_BCTon.AutoGenerateColumns = false;
+            dataGridView_BCTon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCTon.BackgroundColor = Color.White;
             dataGridView_BCTon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_BCTon.Columns.AddRange(new DataGridViewColumn[] { maSachDataGridViewTextBoxColumn, tonDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn, tonCuoiDataGridViewTextBoxColumn });
+            dataGridView_BCTon.DataSource = baoCaoTonBindingSource;
             dataGridView_BCTon.Dock = DockStyle.Fill;
             dataGridView_BCTon.Location = new Point(3, 231);
             dataGridView_BCTon.Name = "dataGridView_BCTon";
             dataGridView_BCTon.ReadOnly = true;
+            dataGridView_BCTon.RowHeadersVisible = false;
             dataGridView_BCTon.RowHeadersWidth = 51;
             dataGridView_BCTon.Size = new Size(766, 276);
             dataGridView_BCTon.TabIndex = 2;
             // 
+            // maSachDataGridViewTextBoxColumn
+            // 
+            maSachDataGridViewTextBoxColumn.DataPropertyName = "MaSach";
+            maSachDataGridViewTextBoxColumn.HeaderText = "Mã sách";
+            maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
+            maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
+            maSachDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tonDauDataGridViewTextBoxColumn
+            // 
+            tonDauDataGridViewTextBoxColumn.DataPropertyName = "TonDau";
+            tonDauDataGridViewTextBoxColumn.HeaderText = "Tồn đầu";
+            tonDauDataGridViewTextBoxColumn.MinimumWidth = 6;
+            tonDauDataGridViewTextBoxColumn.Name = "tonDauDataGridViewTextBoxColumn";
+            tonDauDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phatSinhDataGridViewTextBoxColumn
+            // 
+            phatSinhDataGridViewTextBoxColumn.DataPropertyName = "PhatSinh";
+            phatSinhDataGridViewTextBoxColumn.HeaderText = "Phát sinh";
+            phatSinhDataGridViewTextBoxColumn.MinimumWidth = 6;
+            phatSinhDataGridViewTextBoxColumn.Name = "phatSinhDataGridViewTextBoxColumn";
+            phatSinhDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tonCuoiDataGridViewTextBoxColumn
+            // 
+            tonCuoiDataGridViewTextBoxColumn.DataPropertyName = "TonCuoi";
+            tonCuoiDataGridViewTextBoxColumn.HeaderText = "Tồn cuối";
+            tonCuoiDataGridViewTextBoxColumn.MinimumWidth = 6;
+            tonCuoiDataGridViewTextBoxColumn.Name = "tonCuoiDataGridViewTextBoxColumn";
+            tonCuoiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // baoCaoTonBindingSource
+            // 
+            baoCaoTonBindingSource.DataSource = typeof(Models.BaoCaoTon);
+            // 
             // groupBox_BCTon
             // 
-            groupBox_BCTon.Controls.Add(this.textBox_BCTon_Nam);
-            groupBox_BCTon.Controls.Add(textBox_BCTon_Thang);
-            groupBox_BCTon.Controls.Add(this.icon_BCTon_In);
-            groupBox_BCTon.Controls.Add(this.label_BCTon_Nam);
-            groupBox_BCTon.Controls.Add(this.label_BCTon_Thang);
+            groupBox_BCTon.Controls.Add(icon_BCTon_TaoMoi);
+            groupBox_BCTon.Controls.Add(label_BCTon_Nam);
+            groupBox_BCTon.Controls.Add(label_BCTon_Thang);
+            groupBox_BCTon.Controls.Add(comboBox_BCTon_Nam);
+            groupBox_BCTon.Controls.Add(comboBox_BCTon_Thang);
+            groupBox_BCTon.Controls.Add(icon_BCTon_In);
             groupBox_BCTon.Dock = DockStyle.Top;
             groupBox_BCTon.Location = new Point(3, 3);
             groupBox_BCTon.Name = "groupBox_BCTon";
@@ -102,50 +161,91 @@
             groupBox_BCTon.TabStop = false;
             groupBox_BCTon.Text = "Nhập liệu";
             // 
-            // icon_BCTon_In
+            // icon_BCTon_TaoMoi
             // 
-            this.icon_BCTon_In.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            this.icon_BCTon_In.BackColor = Color.FromArgb(128, 255, 128);
-            this.icon_BCTon_In.FlatAppearance.BorderSize = 0;
-            this.icon_BCTon_In.FlatStyle = FlatStyle.Flat;
-            this.icon_BCTon_In.Font = new Font("Segoe UI", 12F);
-            this.icon_BCTon_In.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.icon_BCTon_In.IconColor = Color.Black;
-            this.icon_BCTon_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.icon_BCTon_In.IconSize = 30;
-            this.icon_BCTon_In.ImageAlign = ContentAlignment.BottomCenter;
-            this.icon_BCTon_In.Location = new Point(299, 131);
-            this.icon_BCTon_In.Margin = new Padding(10);
-            this.icon_BCTon_In.Name = "icon_BCTon_In";
-            this.icon_BCTon_In.Size = new Size(168, 84);
-            this.icon_BCTon_In.TabIndex = 36;
-            this.icon_BCTon_In.Text = "In báo cáo";
-            this.icon_BCTon_In.TextImageRelation = TextImageRelation.ImageAboveText;
-            this.icon_BCTon_In.UseVisualStyleBackColor = false;
+            icon_BCTon_TaoMoi.Anchor = AnchorStyles.Right;
+            icon_BCTon_TaoMoi.BackColor = Color.FromArgb(255, 128, 255);
+            icon_BCTon_TaoMoi.FlatAppearance.BorderSize = 0;
+            icon_BCTon_TaoMoi.FlatStyle = FlatStyle.Flat;
+            icon_BCTon_TaoMoi.Font = new Font("Segoe UI", 12F);
+            icon_BCTon_TaoMoi.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            icon_BCTon_TaoMoi.IconColor = Color.Black;
+            icon_BCTon_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_BCTon_TaoMoi.IconSize = 30;
+            icon_BCTon_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
+            icon_BCTon_TaoMoi.Location = new Point(370, 40);
+            icon_BCTon_TaoMoi.Margin = new Padding(10);
+            icon_BCTon_TaoMoi.Name = "icon_BCTon_TaoMoi";
+            icon_BCTon_TaoMoi.Size = new Size(174, 91);
+            icon_BCTon_TaoMoi.TabIndex = 55;
+            icon_BCTon_TaoMoi.Text = "Tạo mới";
+            icon_BCTon_TaoMoi.TextImageRelation = TextImageRelation.ImageAboveText;
+            icon_BCTon_TaoMoi.UseVisualStyleBackColor = false;
             // 
             // label_BCTon_Nam
             // 
-            this.label_BCTon_Nam.Location = new Point(177, 79);
-            this.label_BCTon_Nam.Name = "label_BCTon_Nam";
-            this.label_BCTon_Nam.Size = new Size(116, 34);
-            this.label_BCTon_Nam.TabIndex = 3;
-            this.label_BCTon_Nam.Text = "Năm";
-            this.label_BCTon_Nam.TextAlign = ContentAlignment.MiddleLeft;
+            label_BCTon_Nam.Location = new Point(48, 95);
+            label_BCTon_Nam.Name = "label_BCTon_Nam";
+            label_BCTon_Nam.Size = new Size(80, 36);
+            label_BCTon_Nam.TabIndex = 54;
+            label_BCTon_Nam.Text = "Năm";
+            label_BCTon_Nam.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label_BCTon_Thang
             // 
-            this.label_BCTon_Thang.Location = new Point(177, 33);
-            this.label_BCTon_Thang.Name = "label_BCTon_Thang";
-            this.label_BCTon_Thang.Size = new Size(116, 34);
-            this.label_BCTon_Thang.TabIndex = 1;
-            this.label_BCTon_Thang.Text = "Tháng";
-            this.label_BCTon_Thang.TextAlign = ContentAlignment.MiddleLeft;
+            label_BCTon_Thang.Location = new Point(48, 40);
+            label_BCTon_Thang.Name = "label_BCTon_Thang";
+            label_BCTon_Thang.Size = new Size(80, 36);
+            label_BCTon_Thang.TabIndex = 53;
+            label_BCTon_Thang.Text = "Tháng";
+            label_BCTon_Thang.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // comboBox_BCTon_Nam
+            // 
+            comboBox_BCTon_Nam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_BCTon_Nam.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_BCTon_Nam.FormattingEnabled = true;
+            comboBox_BCTon_Nam.Location = new Point(151, 95);
+            comboBox_BCTon_Nam.Name = "comboBox_BCTon_Nam";
+            comboBox_BCTon_Nam.Size = new Size(174, 36);
+            comboBox_BCTon_Nam.TabIndex = 52;
+            // 
+            // comboBox_BCTon_Thang
+            // 
+            comboBox_BCTon_Thang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_BCTon_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_BCTon_Thang.FormattingEnabled = true;
+            comboBox_BCTon_Thang.Location = new Point(151, 40);
+            comboBox_BCTon_Thang.Name = "comboBox_BCTon_Thang";
+            comboBox_BCTon_Thang.Size = new Size(174, 36);
+            comboBox_BCTon_Thang.TabIndex = 51;
+            // 
+            // icon_BCTon_In
+            // 
+            icon_BCTon_In.Anchor = AnchorStyles.Right;
+            icon_BCTon_In.BackColor = Color.FromArgb(0, 192, 192);
+            icon_BCTon_In.FlatAppearance.BorderSize = 0;
+            icon_BCTon_In.FlatStyle = FlatStyle.Flat;
+            icon_BCTon_In.Font = new Font("Segoe UI", 12F);
+            icon_BCTon_In.IconChar = FontAwesome.Sharp.IconChar.Print;
+            icon_BCTon_In.IconColor = Color.Black;
+            icon_BCTon_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_BCTon_In.IconSize = 30;
+            icon_BCTon_In.ImageAlign = ContentAlignment.BottomCenter;
+            icon_BCTon_In.Location = new Point(558, 40);
+            icon_BCTon_In.Margin = new Padding(10);
+            icon_BCTon_In.Name = "icon_BCTon_In";
+            icon_BCTon_In.Size = new Size(174, 91);
+            icon_BCTon_In.TabIndex = 50;
+            icon_BCTon_In.Text = "In báo cáo";
+            icon_BCTon_In.TextImageRelation = TextImageRelation.ImageAboveText;
+            icon_BCTon_In.UseVisualStyleBackColor = false;
             // 
             // tabPage_BCNo
             // 
             tabPage_BCNo.BorderStyle = BorderStyle.FixedSingle;
-            tabPage_BCNo.Controls.Add(groupBox_BCNo);
             tabPage_BCNo.Controls.Add(dataGridView_BCNo);
+            tabPage_BCNo.Controls.Add(groupBox_BCNo);
             tabPage_BCNo.Location = new Point(4, 37);
             tabPage_BCNo.Name = "tabPage_BCNo";
             tabPage_BCNo.Padding = new Padding(3);
@@ -158,15 +258,116 @@
             // 
             dataGridView_BCNo.AllowUserToAddRows = false;
             dataGridView_BCNo.AllowUserToDeleteRows = false;
+            dataGridView_BCNo.AutoGenerateColumns = false;
+            dataGridView_BCNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCNo.BackgroundColor = Color.White;
             dataGridView_BCNo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_BCNo.Columns.AddRange(new DataGridViewColumn[] { maKHDataGridViewTextBoxColumn, noDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn1, noCuoiDataGridViewTextBoxColumn });
+            dataGridView_BCNo.DataSource = baoCaoNoBindingSource;
             dataGridView_BCNo.Dock = DockStyle.Fill;
-            dataGridView_BCNo.Location = new Point(3, 3);
+            dataGridView_BCNo.Location = new Point(3, 231);
             dataGridView_BCNo.Name = "dataGridView_BCNo";
             dataGridView_BCNo.ReadOnly = true;
+            dataGridView_BCNo.RowHeadersVisible = false;
             dataGridView_BCNo.RowHeadersWidth = 51;
-            dataGridView_BCNo.Size = new Size(766, 504);
+            dataGridView_BCNo.Size = new Size(766, 276);
             dataGridView_BCNo.TabIndex = 3;
+            // 
+            // groupBox_BCNo
+            // 
+            groupBox_BCNo.Controls.Add(icon_BCNo_TaoMoi);
+            groupBox_BCNo.Controls.Add(label_BCNo_Nam);
+            groupBox_BCNo.Controls.Add(label_BCNo_Thang);
+            groupBox_BCNo.Controls.Add(comboBox_BCNo_Nam);
+            groupBox_BCNo.Controls.Add(comboBox_BCNo_Thang);
+            groupBox_BCNo.Controls.Add(iconButton_BCNo_In);
+            groupBox_BCNo.Dock = DockStyle.Top;
+            groupBox_BCNo.Location = new Point(3, 3);
+            groupBox_BCNo.Name = "groupBox_BCNo";
+            groupBox_BCNo.Size = new Size(766, 228);
+            groupBox_BCNo.TabIndex = 4;
+            groupBox_BCNo.TabStop = false;
+            groupBox_BCNo.Text = "Nhập liệu";
+            // 
+            // icon_BCNo_TaoMoi
+            // 
+            icon_BCNo_TaoMoi.Anchor = AnchorStyles.Right;
+            icon_BCNo_TaoMoi.BackColor = Color.FromArgb(255, 128, 255);
+            icon_BCNo_TaoMoi.FlatAppearance.BorderSize = 0;
+            icon_BCNo_TaoMoi.FlatStyle = FlatStyle.Flat;
+            icon_BCNo_TaoMoi.Font = new Font("Segoe UI", 12F);
+            icon_BCNo_TaoMoi.IconChar = FontAwesome.Sharp.IconChar.Refresh;
+            icon_BCNo_TaoMoi.IconColor = Color.Black;
+            icon_BCNo_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_BCNo_TaoMoi.IconSize = 30;
+            icon_BCNo_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
+            icon_BCNo_TaoMoi.Location = new Point(378, 40);
+            icon_BCNo_TaoMoi.Margin = new Padding(10);
+            icon_BCNo_TaoMoi.Name = "icon_BCNo_TaoMoi";
+            icon_BCNo_TaoMoi.Size = new Size(174, 91);
+            icon_BCNo_TaoMoi.TabIndex = 55;
+            icon_BCNo_TaoMoi.Text = "Tạo mới";
+            icon_BCNo_TaoMoi.TextImageRelation = TextImageRelation.ImageAboveText;
+            icon_BCNo_TaoMoi.UseVisualStyleBackColor = false;
+            // 
+            // label_BCNo_Nam
+            // 
+            label_BCNo_Nam.Location = new Point(48, 95);
+            label_BCNo_Nam.Name = "label_BCNo_Nam";
+            label_BCNo_Nam.Size = new Size(80, 36);
+            label_BCNo_Nam.TabIndex = 54;
+            label_BCNo_Nam.Text = "Năm";
+            label_BCNo_Nam.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_BCNo_Thang
+            // 
+            label_BCNo_Thang.Location = new Point(48, 40);
+            label_BCNo_Thang.Name = "label_BCNo_Thang";
+            label_BCNo_Thang.Size = new Size(80, 36);
+            label_BCNo_Thang.TabIndex = 53;
+            label_BCNo_Thang.Text = "Tháng";
+            label_BCNo_Thang.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // comboBox_BCNo_Nam
+            // 
+            comboBox_BCNo_Nam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_BCNo_Nam.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_BCNo_Nam.FormattingEnabled = true;
+            comboBox_BCNo_Nam.Location = new Point(151, 95);
+            comboBox_BCNo_Nam.Name = "comboBox_BCNo_Nam";
+            comboBox_BCNo_Nam.Size = new Size(195, 36);
+            comboBox_BCNo_Nam.TabIndex = 52;
+            // 
+            // comboBox_BCNo_Thang
+            // 
+            comboBox_BCNo_Thang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_BCNo_Thang.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_BCNo_Thang.FormattingEnabled = true;
+            comboBox_BCNo_Thang.Location = new Point(151, 40);
+            comboBox_BCNo_Thang.Name = "comboBox_BCNo_Thang";
+            comboBox_BCNo_Thang.Size = new Size(195, 36);
+            comboBox_BCNo_Thang.TabIndex = 51;
+            // 
+            // iconButton_BCNo_In
+            // 
+            iconButton_BCNo_In.Anchor = AnchorStyles.Right;
+            iconButton_BCNo_In.BackColor = Color.FromArgb(0, 192, 192);
+            iconButton_BCNo_In.FlatAppearance.BorderSize = 0;
+            iconButton_BCNo_In.FlatStyle = FlatStyle.Flat;
+            iconButton_BCNo_In.Font = new Font("Segoe UI", 12F);
+            iconButton_BCNo_In.IconChar = FontAwesome.Sharp.IconChar.Print;
+            iconButton_BCNo_In.IconColor = Color.Black;
+            iconButton_BCNo_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            iconButton_BCNo_In.IconSize = 30;
+            iconButton_BCNo_In.ImageAlign = ContentAlignment.BottomCenter;
+            iconButton_BCNo_In.Location = new Point(566, 40);
+            iconButton_BCNo_In.Margin = new Padding(10);
+            iconButton_BCNo_In.Name = "iconButton_BCNo_In";
+            iconButton_BCNo_In.Size = new Size(174, 91);
+            iconButton_BCNo_In.TabIndex = 50;
+            iconButton_BCNo_In.Text = "In báo cáo";
+            iconButton_BCNo_In.TextImageRelation = TextImageRelation.ImageAboveText;
+            iconButton_BCNo_In.UseVisualStyleBackColor = false;
             // 
             // textBox_BCTon_Thang
             // 
@@ -177,86 +378,41 @@
             textBox_BCTon_Thang.Size = new Size(271, 34);
             textBox_BCTon_Thang.TabIndex = 37;
             // 
-            // textBox_BCTon_Nam
+            // baoCaoNoBindingSource
             // 
-            this.textBox_BCTon_Nam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            this.textBox_BCTon_Nam.Font = new Font("Segoe UI", 12F);
-            this.textBox_BCTon_Nam.Location = new Point(299, 84);
-            this.textBox_BCTon_Nam.Name = "textBox_BCTon_Nam";
-            this.textBox_BCTon_Nam.Size = new Size(271, 34);
-            this.textBox_BCTon_Nam.TabIndex = 38;
+            baoCaoNoBindingSource.DataSource = typeof(Models.BaoCaoNo);
             // 
-            // groupBox_BCNo
+            // maKHDataGridViewTextBoxColumn
             // 
-            groupBox_BCNo.Controls.Add(textBox_BCNo_Nam);
-            groupBox_BCNo.Controls.Add(textBox_BCNo_Thang);
-            groupBox_BCNo.Controls.Add(this.icon_BCNo_In);
-            groupBox_BCNo.Controls.Add(this.label_BCNo_Nam);
-            groupBox_BCNo.Controls.Add(this.label_BCNo_Thang);
-            groupBox_BCNo.Dock = DockStyle.Top;
-            groupBox_BCNo.Location = new Point(3, 3);
-            groupBox_BCNo.Name = "groupBox_BCNo";
-            groupBox_BCNo.Size = new Size(766, 228);
-            groupBox_BCNo.TabIndex = 4;
-            groupBox_BCNo.TabStop = false;
-            groupBox_BCNo.Text = "Nhập liệu";
+            maKHDataGridViewTextBoxColumn.DataPropertyName = "MaKH";
+            maKHDataGridViewTextBoxColumn.HeaderText = "MaKH";
+            maKHDataGridViewTextBoxColumn.MinimumWidth = 6;
+            maKHDataGridViewTextBoxColumn.Name = "maKHDataGridViewTextBoxColumn";
+            maKHDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // textBox_BCNo_Nam
+            // noDauDataGridViewTextBoxColumn
             // 
-            textBox_BCNo_Nam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_BCNo_Nam.Font = new Font("Segoe UI", 12F);
-            textBox_BCNo_Nam.Location = new Point(299, 84);
-            textBox_BCNo_Nam.Name = "textBox_BCNo_Nam";
-            textBox_BCNo_Nam.Size = new Size(280, 34);
-            textBox_BCNo_Nam.TabIndex = 38;
+            noDauDataGridViewTextBoxColumn.DataPropertyName = "NoDau";
+            noDauDataGridViewTextBoxColumn.HeaderText = "NoDau";
+            noDauDataGridViewTextBoxColumn.MinimumWidth = 6;
+            noDauDataGridViewTextBoxColumn.Name = "noDauDataGridViewTextBoxColumn";
+            noDauDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // textBox_BCNo_Thang
+            // phatSinhDataGridViewTextBoxColumn1
             // 
-            textBox_BCNo_Thang.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_BCNo_Thang.Font = new Font("Segoe UI", 12F);
-            textBox_BCNo_Thang.Location = new Point(299, 33);
-            textBox_BCNo_Thang.Name = "textBox_BCNo_Thang";
-            textBox_BCNo_Thang.Size = new Size(280, 34);
-            textBox_BCNo_Thang.TabIndex = 37;
+            phatSinhDataGridViewTextBoxColumn1.DataPropertyName = "PhatSinh";
+            phatSinhDataGridViewTextBoxColumn1.HeaderText = "PhatSinh";
+            phatSinhDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            phatSinhDataGridViewTextBoxColumn1.Name = "phatSinhDataGridViewTextBoxColumn1";
+            phatSinhDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // icon_BCNo_In
+            // noCuoiDataGridViewTextBoxColumn
             // 
-            this.icon_BCNo_In.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            this.icon_BCNo_In.BackColor = Color.FromArgb(128, 255, 128);
-            this.icon_BCNo_In.FlatAppearance.BorderSize = 0;
-            this.icon_BCNo_In.FlatStyle = FlatStyle.Flat;
-            this.icon_BCNo_In.Font = new Font("Segoe UI", 12F);
-            this.icon_BCNo_In.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.icon_BCNo_In.IconColor = Color.Black;
-            this.icon_BCNo_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.icon_BCNo_In.IconSize = 30;
-            this.icon_BCNo_In.ImageAlign = ContentAlignment.BottomCenter;
-            this.icon_BCNo_In.Location = new Point(299, 131);
-            this.icon_BCNo_In.Margin = new Padding(10);
-            this.icon_BCNo_In.Name = "icon_BCNo_In";
-            this.icon_BCNo_In.Size = new Size(177, 84);
-            this.icon_BCNo_In.TabIndex = 36;
-            this.icon_BCNo_In.Text = "In báo cáo";
-            this.icon_BCNo_In.TextImageRelation = TextImageRelation.ImageAboveText;
-            this.icon_BCNo_In.UseVisualStyleBackColor = false;
-            // 
-            // label_BCNo_Nam
-            // 
-            this.label_BCNo_Nam.Location = new Point(177, 79);
-            this.label_BCNo_Nam.Name = "label_BCNo_Nam";
-            this.label_BCNo_Nam.Size = new Size(116, 34);
-            this.label_BCNo_Nam.TabIndex = 3;
-            this.label_BCNo_Nam.Text = "Năm";
-            this.label_BCNo_Nam.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label_BCNo_Thang
-            // 
-            this.label_BCNo_Thang.Location = new Point(177, 33);
-            this.label_BCNo_Thang.Name = "label_BCNo_Thang";
-            this.label_BCNo_Thang.Size = new Size(116, 34);
-            this.label_BCNo_Thang.TabIndex = 1;
-            this.label_BCNo_Thang.Text = "Tháng";
-            this.label_BCNo_Thang.TextAlign = ContentAlignment.MiddleLeft;
+            noCuoiDataGridViewTextBoxColumn.DataPropertyName = "NoCuoi";
+            noCuoiDataGridViewTextBoxColumn.HeaderText = "NoCuoi";
+            noCuoiDataGridViewTextBoxColumn.MinimumWidth = 6;
+            noCuoiDataGridViewTextBoxColumn.Name = "noCuoiDataGridViewTextBoxColumn";
+            noCuoiDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form_BaoCao
             // 
@@ -269,15 +425,17 @@
             Name = "Form_BaoCao";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Báo cáo";
+            FormClosing += Form_BaoCao_FormClosing;
+            Load += Form_BaoCao_Load;
             tabControl_BaoCao.ResumeLayout(false);
             tabPage_BCTon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView_BCTon).EndInit();
+            ((System.ComponentModel.ISupportInitialize)baoCaoTonBindingSource).EndInit();
             groupBox_BCTon.ResumeLayout(false);
-            groupBox_BCTon.PerformLayout();
             tabPage_BCNo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView_BCNo).EndInit();
             groupBox_BCNo.ResumeLayout(false);
-            groupBox_BCNo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)baoCaoNoBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -292,10 +450,10 @@
         private Label label_BCTon_BatDau;
         private FontAwesome.Sharp.IconButton icon_BCTon;
         private DataGridView dataGridView_BCNo;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private Label label1;
+        private FontAwesome.Sharp.IconButton icon_BCTon_TaoMoi;
+        private Label label_BCTon_Thang;
         private DateTimePicker dateTimePicker1;
-        private Label label2;
+        private Label label_BCTon_Nam;
         private DateTimePicker date_BCNo_KetThuc;
         private FontAwesome.Sharp.IconButton icon_BCNo;
         private Label label_BCNo_KetThuc;
@@ -303,8 +461,29 @@
         private DateTimePicker date_BCNo_BatDau;
         private TextBox textBox1;
         private TextBox textBox_BCTon_Thang;
+        private ComboBox comboBox_BCTon_Nam;
+        private ComboBox comboBox_BCTon_Thang;
+        private FontAwesome.Sharp.IconButton icon_BCTon_In;
         private GroupBox groupBox_BCNo;
-        private TextBox textBox_BCNo_Nam;
-        private TextBox textBox_BCNo_Thang;
+        private FontAwesome.Sharp.IconButton icon_BCNo_TaoMoi;
+        private Label label_BCNo_Nam;
+        private Label label_BCNo_Thang;
+        private ComboBox comboBox_BCNo_Nam;
+        private ComboBox comboBox_BCNo_Thang;
+        private FontAwesome.Sharp.IconButton iconButton_BCNo_In;
+        private BindingSource baoCaoTonBindingSource;
+        private DataGridViewTextBoxColumn tenTKDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn hoTenDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn vaiTroDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn maSachDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tonDauDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phatSinhDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tonCuoiDataGridViewTextBoxColumn;
+        private BindingSource baoCaoNoBindingSource;
+        private DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn noDauDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phatSinhDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn noCuoiDataGridViewTextBoxColumn;
     }
 }

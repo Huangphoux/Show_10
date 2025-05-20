@@ -11,6 +11,9 @@ namespace Show10 {
         public DbSet<PhieuNhapSach> PhieuNhapSachs { get; set; }
         public DbSet<HoaDonBanSach> HoaDonBanSachs { get; set; }
 
+        public DbSet<BaoCaoTon> BaoCaoTons { get; set; }
+        public DbSet<BaoCaoNo> BaoCaoNos { get; set; }
+
         // The following configures EF to create a Sqlite database file in the
         // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
