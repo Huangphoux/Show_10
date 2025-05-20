@@ -35,17 +35,17 @@ namespace Show10 {
             );
 
             modelBuilder.Entity<Sach>().HasData(
-                new Sach { MaSach = 1, TenSach = "Minna", SoLuong = 123, TacGia = "Minna", TheLoai = "SGK" },
-                new Sach { MaSach = 2, TenSach = "C# Programming", SoLuong = 50, TacGia = "John Doe", TheLoai = "Programming" },
-                new Sach { MaSach = 3, TenSach = "ASP.NET Core Guide", SoLuong = 30, TacGia = "Jane Smith", TheLoai = "Web Development" },
-                new Sach { MaSach = 4, TenSach = "Entity Framework Core", SoLuong = 40, TacGia = "Alex Brown", TheLoai = "Database" },
-                new Sach { MaSach = 5, TenSach = "Clean Code", SoLuong = 25, TacGia = "Robert C. Martin", TheLoai = "Software Engineering" },
-                new Sach { MaSach = 6, TenSach = "Design Patterns", SoLuong = 35, TacGia = "Erich Gamma", TheLoai = "Software Engineering" },
-                new Sach { MaSach = 7, TenSach = "Introduction to Algorithms", SoLuong = 20, TacGia = "Thomas H. Cormen", TheLoai = "Algorithms" },
-                new Sach { MaSach = 8, TenSach = "The Pragmatic Programmer", SoLuong = 15, TacGia = "Andrew Hunt", TheLoai = "Software Engineering" },
-                new Sach { MaSach = 9, TenSach = "Refactoring", SoLuong = 18, TacGia = "Martin Fowler", TheLoai = "Software Engineering" },
-                new Sach { MaSach = 10, TenSach = "Artificial Intelligence", SoLuong = 22, TacGia = "Stuart Russell", TheLoai = "AI" },
-                new Sach { MaSach = 11, TenSach = "Deep Learning", SoLuong = 12, TacGia = "Ian Goodfellow", TheLoai = "AI" }
+                new Sach { MaSach = 1, TenSach = "Minna", SoLuong = 0, TacGia = "Minna", TheLoai = "SGK" },
+                new Sach { MaSach = 2, TenSach = "C# Programming", SoLuong = 0, TacGia = "John Doe", TheLoai = "Programming" },
+                new Sach { MaSach = 3, TenSach = "ASP.NET Core Guide", SoLuong = 0, TacGia = "Jane Smith", TheLoai = "Web Development" },
+                new Sach { MaSach = 4, TenSach = "Entity Framework Core", SoLuong = 0, TacGia = "Alex Brown", TheLoai = "Database" },
+                new Sach { MaSach = 5, TenSach = "Clean Code", SoLuong = 0, TacGia = "Robert C. Martin", TheLoai = "Software Engineering" },
+                new Sach { MaSach = 6, TenSach = "Design Patterns", SoLuong = 0, TacGia = "Erich Gamma", TheLoai = "Software Engineering" },
+                new Sach { MaSach = 7, TenSach = "Introduction to Algorithms", SoLuong = 0, TacGia = "Thomas H. Cormen", TheLoai = "Algorithms" },
+                new Sach { MaSach = 8, TenSach = "The Pragmatic Programmer", SoLuong = 0, TacGia = "Andrew Hunt", TheLoai = "Software Engineering" },
+                new Sach { MaSach = 9, TenSach = "Refactoring", SoLuong = 0, TacGia = "Martin Fowler", TheLoai = "Software Engineering" },
+                new Sach { MaSach = 10, TenSach = "Artificial Intelligence", SoLuong = 0, TacGia = "Stuart Russell", TheLoai = "AI" },
+                new Sach { MaSach = 11, TenSach = "Deep Learning", SoLuong = 0, TacGia = "Ian Goodfellow", TheLoai = "AI" }
             );
 
             modelBuilder.Entity<PhieuThuTien>().HasData(
@@ -64,70 +64,70 @@ namespace Show10 {
 
             modelBuilder.Entity<PhieuNhapSach>().HasData(
                 // MaSach = 1
-                new PhieuNhapSach { MaPN = 1, MaSach = 1, GiaNhap = 50000, NgayNhap = new DateTime(2025, 05, 08), SoLuong = 12 },
-                new PhieuNhapSach { MaPN = 12, MaSach = 1, GiaNhap = 51000, NgayNhap = new DateTime(2025, 06, 08), SoLuong = 10 },
-                new PhieuNhapSach { MaPN = 23, MaSach = 1, GiaNhap = 52000, NgayNhap = new DateTime(2025, 07, 08), SoLuong = 15 },
-                new PhieuNhapSach { MaPN = 34, MaSach = 1, GiaNhap = 53000, NgayNhap = new DateTime(2025, 08, 08), SoLuong = 13 },
+                new PhieuNhapSach { MaPN = 1, MaSach = 1, GiaNhap = 50000, NgayNhap = new DateTime(2025, 05, 08), SoLuong = 151 },
+                new PhieuNhapSach { MaPN = 12, MaSach = 1, GiaNhap = 51000, NgayNhap = new DateTime(2025, 06, 08), SoLuong = 152 },
+                new PhieuNhapSach { MaPN = 23, MaSach = 1, GiaNhap = 52000, NgayNhap = new DateTime(2025, 07, 08), SoLuong = 153 },
+                new PhieuNhapSach { MaPN = 34, MaSach = 1, GiaNhap = 53000, NgayNhap = new DateTime(2025, 08, 08), SoLuong = 154 },
 
                 // MaSach = 2
-                new PhieuNhapSach { MaPN = 2, MaSach = 2, GiaNhap = 60000, NgayNhap = new DateTime(2025, 05, 18), SoLuong = 10 },
-                new PhieuNhapSach { MaPN = 13, MaSach = 2, GiaNhap = 61000, NgayNhap = new DateTime(2025, 06, 18), SoLuong = 12 },
-                new PhieuNhapSach { MaPN = 24, MaSach = 2, GiaNhap = 62000, NgayNhap = new DateTime(2025, 07, 18), SoLuong = 14 },
-                new PhieuNhapSach { MaPN = 35, MaSach = 2, GiaNhap = 63000, NgayNhap = new DateTime(2025, 08, 18), SoLuong = 11 },
+                new PhieuNhapSach { MaPN = 2, MaSach = 2, GiaNhap = 60000, NgayNhap = new DateTime(2025, 05, 18), SoLuong = 155 },
+                new PhieuNhapSach { MaPN = 13, MaSach = 2, GiaNhap = 61000, NgayNhap = new DateTime(2025, 06, 18), SoLuong = 156 },
+                new PhieuNhapSach { MaPN = 24, MaSach = 2, GiaNhap = 62000, NgayNhap = new DateTime(2025, 07, 18), SoLuong = 157 },
+                new PhieuNhapSach { MaPN = 35, MaSach = 2, GiaNhap = 63000, NgayNhap = new DateTime(2025, 08, 18), SoLuong = 158 },
 
                 // MaSach = 3
-                new PhieuNhapSach { MaPN = 3, MaSach = 3, GiaNhap = 45000, NgayNhap = new DateTime(2025, 05, 28), SoLuong = 8 },
-                new PhieuNhapSach { MaPN = 14, MaSach = 3, GiaNhap = 46000, NgayNhap = new DateTime(2025, 06, 28), SoLuong = 9 },
-                new PhieuNhapSach { MaPN = 25, MaSach = 3, GiaNhap = 47000, NgayNhap = new DateTime(2025, 07, 28), SoLuong = 10 },
-                new PhieuNhapSach { MaPN = 36, MaSach = 3, GiaNhap = 48000, NgayNhap = new DateTime(2025, 08, 28), SoLuong = 8 },
+                new PhieuNhapSach { MaPN = 3, MaSach = 3, GiaNhap = 45000, NgayNhap = new DateTime(2025, 05, 28), SoLuong = 159 },
+                new PhieuNhapSach { MaPN = 14, MaSach = 3, GiaNhap = 46000, NgayNhap = new DateTime(2025, 06, 28), SoLuong = 160 },
+                new PhieuNhapSach { MaPN = 25, MaSach = 3, GiaNhap = 47000, NgayNhap = new DateTime(2025, 07, 28), SoLuong = 161 },
+                new PhieuNhapSach { MaPN = 36, MaSach = 3, GiaNhap = 48000, NgayNhap = new DateTime(2025, 08, 28), SoLuong = 162 },
 
                 // MaSach = 4
-                new PhieuNhapSach { MaPN = 4, MaSach = 4, GiaNhap = 70000, NgayNhap = new DateTime(2025, 06, 07), SoLuong = 15 },
-                new PhieuNhapSach { MaPN = 15, MaSach = 4, GiaNhap = 71000, NgayNhap = new DateTime(2025, 07, 07), SoLuong = 13 },
-                new PhieuNhapSach { MaPN = 26, MaSach = 4, GiaNhap = 72000, NgayNhap = new DateTime(2025, 08, 07), SoLuong = 12 },
-                new PhieuNhapSach { MaPN = 37, MaSach = 4, GiaNhap = 73000, NgayNhap = new DateTime(2025, 09, 07), SoLuong = 14 },
+                new PhieuNhapSach { MaPN = 4, MaSach = 4, GiaNhap = 70000, NgayNhap = new DateTime(2025, 06, 07), SoLuong = 163 },
+                new PhieuNhapSach { MaPN = 15, MaSach = 4, GiaNhap = 71000, NgayNhap = new DateTime(2025, 07, 07), SoLuong = 164 },
+                new PhieuNhapSach { MaPN = 26, MaSach = 4, GiaNhap = 72000, NgayNhap = new DateTime(2025, 08, 07), SoLuong = 165 },
+                new PhieuNhapSach { MaPN = 37, MaSach = 4, GiaNhap = 73000, NgayNhap = new DateTime(2025, 09, 07), SoLuong = 166 },
 
                 // MaSach = 5
-                new PhieuNhapSach { MaPN = 5, MaSach = 5, GiaNhap = 52000, NgayNhap = new DateTime(2025, 06, 17), SoLuong = 20 },
-                new PhieuNhapSach { MaPN = 16, MaSach = 5, GiaNhap = 53000, NgayNhap = new DateTime(2025, 07, 17), SoLuong = 18 },
-                new PhieuNhapSach { MaPN = 27, MaSach = 5, GiaNhap = 54000, NgayNhap = new DateTime(2025, 08, 17), SoLuong = 17 },
-                new PhieuNhapSach { MaPN = 38, MaSach = 5, GiaNhap = 55000, NgayNhap = new DateTime(2025, 09, 17), SoLuong = 19 },
+                new PhieuNhapSach { MaPN = 5, MaSach = 5, GiaNhap = 52000, NgayNhap = new DateTime(2025, 06, 17), SoLuong = 167 },
+                new PhieuNhapSach { MaPN = 16, MaSach = 5, GiaNhap = 53000, NgayNhap = new DateTime(2025, 07, 17), SoLuong = 168 },
+                new PhieuNhapSach { MaPN = 27, MaSach = 5, GiaNhap = 54000, NgayNhap = new DateTime(2025, 08, 17), SoLuong = 169 },
+                new PhieuNhapSach { MaPN = 38, MaSach = 5, GiaNhap = 55000, NgayNhap = new DateTime(2025, 09, 17), SoLuong = 170 },
 
                 // MaSach = 6
-                new PhieuNhapSach { MaPN = 6, MaSach = 6, GiaNhap = 48000, NgayNhap = new DateTime(2025, 06, 27), SoLuong = 7 },
-                new PhieuNhapSach { MaPN = 17, MaSach = 6, GiaNhap = 49000, NgayNhap = new DateTime(2025, 07, 27), SoLuong = 8 },
-                new PhieuNhapSach { MaPN = 28, MaSach = 6, GiaNhap = 50000, NgayNhap = new DateTime(2025, 08, 27), SoLuong = 9 },
-                new PhieuNhapSach { MaPN = 39, MaSach = 6, GiaNhap = 51000, NgayNhap = new DateTime(2025, 09, 27), SoLuong = 7 },
+                new PhieuNhapSach { MaPN = 6, MaSach = 6, GiaNhap = 48000, NgayNhap = new DateTime(2025, 06, 27), SoLuong = 171 },
+                new PhieuNhapSach { MaPN = 17, MaSach = 6, GiaNhap = 49000, NgayNhap = new DateTime(2025, 07, 27), SoLuong = 172 },
+                new PhieuNhapSach { MaPN = 28, MaSach = 6, GiaNhap = 50000, NgayNhap = new DateTime(2025, 08, 27), SoLuong = 173 },
+                new PhieuNhapSach { MaPN = 39, MaSach = 6, GiaNhap = 51000, NgayNhap = new DateTime(2025, 09, 27), SoLuong = 174 },
 
                 // MaSach = 7
-                new PhieuNhapSach { MaPN = 7, MaSach = 7, GiaNhap = 55000, NgayNhap = new DateTime(2025, 07, 07), SoLuong = 18 },
-                new PhieuNhapSach { MaPN = 18, MaSach = 7, GiaNhap = 56000, NgayNhap = new DateTime(2025, 08, 07), SoLuong = 16 },
-                new PhieuNhapSach { MaPN = 29, MaSach = 7, GiaNhap = 57000, NgayNhap = new DateTime(2025, 09, 07), SoLuong = 15 },
-                new PhieuNhapSach { MaPN = 40, MaSach = 7, GiaNhap = 58000, NgayNhap = new DateTime(2025, 10, 07), SoLuong = 17 },
+                new PhieuNhapSach { MaPN = 7, MaSach = 7, GiaNhap = 55000, NgayNhap = new DateTime(2025, 07, 07), SoLuong = 175 },
+                new PhieuNhapSach { MaPN = 18, MaSach = 7, GiaNhap = 56000, NgayNhap = new DateTime(2025, 08, 07), SoLuong = 176 },
+                new PhieuNhapSach { MaPN = 29, MaSach = 7, GiaNhap = 57000, NgayNhap = new DateTime(2025, 09, 07), SoLuong = 177 },
+                new PhieuNhapSach { MaPN = 40, MaSach = 7, GiaNhap = 58000, NgayNhap = new DateTime(2025, 10, 07), SoLuong = 178 },
 
                 // MaSach = 8
-                new PhieuNhapSach { MaPN = 8, MaSach = 8, GiaNhap = 63000, NgayNhap = new DateTime(2025, 07, 17), SoLuong = 9 },
-                new PhieuNhapSach { MaPN = 19, MaSach = 8, GiaNhap = 64000, NgayNhap = new DateTime(2025, 08, 17), SoLuong = 10 },
-                new PhieuNhapSach { MaPN = 30, MaSach = 8, GiaNhap = 65000, NgayNhap = new DateTime(2025, 09, 17), SoLuong = 11 },
-                new PhieuNhapSach { MaPN = 41, MaSach = 8, GiaNhap = 66000, NgayNhap = new DateTime(2025, 10, 17), SoLuong = 9 },
+                new PhieuNhapSach { MaPN = 8, MaSach = 8, GiaNhap = 63000, NgayNhap = new DateTime(2025, 07, 17), SoLuong = 179 },
+                new PhieuNhapSach { MaPN = 19, MaSach = 8, GiaNhap = 64000, NgayNhap = new DateTime(2025, 08, 17), SoLuong = 180 },
+                new PhieuNhapSach { MaPN = 30, MaSach = 8, GiaNhap = 65000, NgayNhap = new DateTime(2025, 09, 17), SoLuong = 181 },
+                new PhieuNhapSach { MaPN = 41, MaSach = 8, GiaNhap = 66000, NgayNhap = new DateTime(2025, 10, 17), SoLuong = 182 },
 
                 // MaSach = 9
-                new PhieuNhapSach { MaPN = 9, MaSach = 9, GiaNhap = 47000, NgayNhap = new DateTime(2025, 07, 27), SoLuong = 11 },
-                new PhieuNhapSach { MaPN = 20, MaSach = 9, GiaNhap = 48000, NgayNhap = new DateTime(2025, 08, 27), SoLuong = 12 },
-                new PhieuNhapSach { MaPN = 31, MaSach = 9, GiaNhap = 49000, NgayNhap = new DateTime(2025, 09, 27), SoLuong = 13 },
-                new PhieuNhapSach { MaPN = 42, MaSach = 9, GiaNhap = 50000, NgayNhap = new DateTime(2025, 10, 27), SoLuong = 11 },
+                new PhieuNhapSach { MaPN = 9, MaSach = 9, GiaNhap = 47000, NgayNhap = new DateTime(2025, 07, 27), SoLuong = 183 },
+                new PhieuNhapSach { MaPN = 20, MaSach = 9, GiaNhap = 48000, NgayNhap = new DateTime(2025, 08, 27), SoLuong = 184 },
+                new PhieuNhapSach { MaPN = 31, MaSach = 9, GiaNhap = 49000, NgayNhap = new DateTime(2025, 09, 27), SoLuong = 185 },
+                new PhieuNhapSach { MaPN = 42, MaSach = 9, GiaNhap = 50000, NgayNhap = new DateTime(2025, 10, 27), SoLuong = 186 },
 
                 // MaSach = 10
-                new PhieuNhapSach { MaPN = 10, MaSach = 10, GiaNhap = 51000, NgayNhap = new DateTime(2025, 08, 06), SoLuong = 13 },
-                new PhieuNhapSach { MaPN = 21, MaSach = 10, GiaNhap = 52000, NgayNhap = new DateTime(2025, 09, 06), SoLuong = 12 },
-                new PhieuNhapSach { MaPN = 32, MaSach = 10, GiaNhap = 53000, NgayNhap = new DateTime(2025, 10, 06), SoLuong = 14 },
-                new PhieuNhapSach { MaPN = 43, MaSach = 10, GiaNhap = 54000, NgayNhap = new DateTime(2025, 11, 06), SoLuong = 13 },
+                new PhieuNhapSach { MaPN = 10, MaSach = 10, GiaNhap = 51000, NgayNhap = new DateTime(2025, 08, 06), SoLuong = 187 },
+                new PhieuNhapSach { MaPN = 21, MaSach = 10, GiaNhap = 52000, NgayNhap = new DateTime(2025, 09, 06), SoLuong = 188 },
+                new PhieuNhapSach { MaPN = 32, MaSach = 10, GiaNhap = 53000, NgayNhap = new DateTime(2025, 10, 06), SoLuong = 189 },
+                new PhieuNhapSach { MaPN = 43, MaSach = 10, GiaNhap = 54000, NgayNhap = new DateTime(2025, 11, 06), SoLuong = 190 },
 
                 // MaSach = 11
-                new PhieuNhapSach { MaPN = 11, MaSach = 11, GiaNhap = 59000, NgayNhap = new DateTime(2025, 08, 16), SoLuong = 16 },
-                new PhieuNhapSach { MaPN = 22, MaSach = 11, GiaNhap = 60000, NgayNhap = new DateTime(2025, 09, 16), SoLuong = 15 },
-                new PhieuNhapSach { MaPN = 33, MaSach = 11, GiaNhap = 61000, NgayNhap = new DateTime(2025, 10, 16), SoLuong = 17 },
-                new PhieuNhapSach { MaPN = 44, MaSach = 11, GiaNhap = 62000, NgayNhap = new DateTime(2025, 11, 16), SoLuong = 16 }
+                new PhieuNhapSach { MaPN = 11, MaSach = 11, GiaNhap = 59000, NgayNhap = new DateTime(2025, 08, 16), SoLuong = 191 },
+                new PhieuNhapSach { MaPN = 22, MaSach = 11, GiaNhap = 60000, NgayNhap = new DateTime(2025, 09, 16), SoLuong = 192 },
+                new PhieuNhapSach { MaPN = 33, MaSach = 11, GiaNhap = 61000, NgayNhap = new DateTime(2025, 10, 16), SoLuong = 193 },
+                new PhieuNhapSach { MaPN = 44, MaSach = 11, GiaNhap = 62000, NgayNhap = new DateTime(2025, 11, 16), SoLuong = 194 }
             );
 
             modelBuilder.Entity<KhachHang>().HasData(
@@ -145,6 +145,7 @@ namespace Show10 {
             );
 
             modelBuilder.Entity<HoaDonBanSach>().HasData(
+                // Existing data
                 new HoaDonBanSach { MaHD = 1, MaKH = 1, MaSach = 1, GiaBan = 50000, NgayHD = new DateTime(2025, 05, 08), SoLuong = 1 },
                 new HoaDonBanSach { MaHD = 2, MaKH = 2, MaSach = 2, GiaBan = 60000, NgayHD = new DateTime(2025, 05, 09), SoLuong = 2 },
                 new HoaDonBanSach { MaHD = 3, MaKH = 3, MaSach = 3, GiaBan = 70000, NgayHD = new DateTime(2025, 05, 10), SoLuong = 3 },
@@ -155,7 +156,52 @@ namespace Show10 {
                 new HoaDonBanSach { MaHD = 8, MaKH = 8, MaSach = 8, GiaBan = 120000, NgayHD = new DateTime(2025, 05, 15), SoLuong = 8 },
                 new HoaDonBanSach { MaHD = 9, MaKH = 9, MaSach = 9, GiaBan = 130000, NgayHD = new DateTime(2025, 05, 16), SoLuong = 9 },
                 new HoaDonBanSach { MaHD = 10, MaKH = 10, MaSach = 10, GiaBan = 140000, NgayHD = new DateTime(2025, 05, 17), SoLuong = 10 },
-                new HoaDonBanSach { MaHD = 11, MaKH = 11, MaSach = 11, GiaBan = 150000, NgayHD = new DateTime(2025, 05, 18), SoLuong = 11 }
+                new HoaDonBanSach { MaHD = 11, MaKH = 11, MaSach = 11, GiaBan = 150000, NgayHD = new DateTime(2025, 05, 18), SoLuong = 11 },
+
+                // Book 1
+                new HoaDonBanSach { MaHD = 12, MaKH = 1, MaSach = 1, GiaBan = 50000, NgayHD = new DateTime(2025, 06, 08), SoLuong = 1 },
+                new HoaDonBanSach { MaHD = 13, MaKH = 1, MaSach = 1, GiaBan = 50000, NgayHD = new DateTime(2025, 07, 08), SoLuong = 1 },
+                new HoaDonBanSach { MaHD = 14, MaKH = 1, MaSach = 1, GiaBan = 50000, NgayHD = new DateTime(2025, 08, 08), SoLuong = 1 },
+                // Book 2
+                new HoaDonBanSach { MaHD = 15, MaKH = 2, MaSach = 2, GiaBan = 60000, NgayHD = new DateTime(2025, 06, 09), SoLuong = 2 },
+                new HoaDonBanSach { MaHD = 16, MaKH = 2, MaSach = 2, GiaBan = 60000, NgayHD = new DateTime(2025, 07, 09), SoLuong = 2 },
+                new HoaDonBanSach { MaHD = 17, MaKH = 2, MaSach = 2, GiaBan = 60000, NgayHD = new DateTime(2025, 08, 09), SoLuong = 2 },
+                // Book 3
+                new HoaDonBanSach { MaHD = 18, MaKH = 3, MaSach = 3, GiaBan = 70000, NgayHD = new DateTime(2025, 06, 10), SoLuong = 3 },
+                new HoaDonBanSach { MaHD = 19, MaKH = 3, MaSach = 3, GiaBan = 70000, NgayHD = new DateTime(2025, 07, 10), SoLuong = 3 },
+                new HoaDonBanSach { MaHD = 20, MaKH = 3, MaSach = 3, GiaBan = 70000, NgayHD = new DateTime(2025, 08, 10), SoLuong = 3 },
+                // Book 4
+                new HoaDonBanSach { MaHD = 21, MaKH = 4, MaSach = 4, GiaBan = 80000, NgayHD = new DateTime(2025, 06, 11), SoLuong = 4 },
+                new HoaDonBanSach { MaHD = 22, MaKH = 4, MaSach = 4, GiaBan = 80000, NgayHD = new DateTime(2025, 07, 11), SoLuong = 4 },
+                new HoaDonBanSach { MaHD = 23, MaKH = 4, MaSach = 4, GiaBan = 80000, NgayHD = new DateTime(2025, 08, 11), SoLuong = 4 },
+                // Book 5
+                new HoaDonBanSach { MaHD = 24, MaKH = 5, MaSach = 5, GiaBan = 90000, NgayHD = new DateTime(2025, 06, 12), SoLuong = 5 },
+                new HoaDonBanSach { MaHD = 25, MaKH = 5, MaSach = 5, GiaBan = 90000, NgayHD = new DateTime(2025, 07, 12), SoLuong = 5 },
+                new HoaDonBanSach { MaHD = 26, MaKH = 5, MaSach = 5, GiaBan = 90000, NgayHD = new DateTime(2025, 08, 12), SoLuong = 5 },
+                // Book 6
+                new HoaDonBanSach { MaHD = 27, MaKH = 6, MaSach = 6, GiaBan = 100000, NgayHD = new DateTime(2025, 06, 13), SoLuong = 6 },
+                new HoaDonBanSach { MaHD = 28, MaKH = 6, MaSach = 6, GiaBan = 100000, NgayHD = new DateTime(2025, 07, 13), SoLuong = 6 },
+                new HoaDonBanSach { MaHD = 29, MaKH = 6, MaSach = 6, GiaBan = 100000, NgayHD = new DateTime(2025, 08, 13), SoLuong = 6 },
+                // Book 7
+                new HoaDonBanSach { MaHD = 30, MaKH = 7, MaSach = 7, GiaBan = 110000, NgayHD = new DateTime(2025, 06, 14), SoLuong = 7 },
+                new HoaDonBanSach { MaHD = 31, MaKH = 7, MaSach = 7, GiaBan = 110000, NgayHD = new DateTime(2025, 07, 14), SoLuong = 7 },
+                new HoaDonBanSach { MaHD = 32, MaKH = 7, MaSach = 7, GiaBan = 110000, NgayHD = new DateTime(2025, 08, 14), SoLuong = 7 },
+                // Book 8
+                new HoaDonBanSach { MaHD = 33, MaKH = 8, MaSach = 8, GiaBan = 120000, NgayHD = new DateTime(2025, 06, 15), SoLuong = 8 },
+                new HoaDonBanSach { MaHD = 34, MaKH = 8, MaSach = 8, GiaBan = 120000, NgayHD = new DateTime(2025, 07, 15), SoLuong = 8 },
+                new HoaDonBanSach { MaHD = 35, MaKH = 8, MaSach = 8, GiaBan = 120000, NgayHD = new DateTime(2025, 08, 15), SoLuong = 8 },
+                // Book 9
+                new HoaDonBanSach { MaHD = 36, MaKH = 9, MaSach = 9, GiaBan = 130000, NgayHD = new DateTime(2025, 06, 16), SoLuong = 9 },
+                new HoaDonBanSach { MaHD = 37, MaKH = 9, MaSach = 9, GiaBan = 130000, NgayHD = new DateTime(2025, 07, 16), SoLuong = 9 },
+                new HoaDonBanSach { MaHD = 38, MaKH = 9, MaSach = 9, GiaBan = 130000, NgayHD = new DateTime(2025, 08, 16), SoLuong = 9 },
+                // Book 10
+                new HoaDonBanSach { MaHD = 39, MaKH = 10, MaSach = 10, GiaBan = 140000, NgayHD = new DateTime(2025, 06, 17), SoLuong = 10 },
+                new HoaDonBanSach { MaHD = 40, MaKH = 10, MaSach = 10, GiaBan = 140000, NgayHD = new DateTime(2025, 07, 17), SoLuong = 10 },
+                new HoaDonBanSach { MaHD = 41, MaKH = 10, MaSach = 10, GiaBan = 140000, NgayHD = new DateTime(2025, 08, 17), SoLuong = 10 },
+                // Book 11
+                new HoaDonBanSach { MaHD = 42, MaKH = 11, MaSach = 11, GiaBan = 150000, NgayHD = new DateTime(2025, 06, 18), SoLuong = 11 },
+                new HoaDonBanSach { MaHD = 43, MaKH = 11, MaSach = 11, GiaBan = 150000, NgayHD = new DateTime(2025, 07, 18), SoLuong = 11 },
+                new HoaDonBanSach { MaHD = 44, MaKH = 11, MaSach = 11, GiaBan = 150000, NgayHD = new DateTime(2025, 08, 18), SoLuong = 11 }
             );
         }
 

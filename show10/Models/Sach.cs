@@ -10,3 +10,4 @@ namespace Show10.Models {
         public required string TheLoai { get; set; }
     }
 }
+
