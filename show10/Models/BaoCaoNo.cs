@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Show10.Models {
     internal class BaoCaoNo {
         [Key]
-        public required string MaKH { get; set; }
+        public required int MaKH { get; set; }
         [Column(TypeName = "money")]
         public required double NoDau { get; set; }
         [Column(TypeName = "money")]
