@@ -19,6 +19,7 @@ namespace Show10.Windows
             textBox_maxSLSach.Text = Properties.Settings.Default.maxSLSach;
             textBox_maxNo.Text = Properties.Settings.Default.maxNo;
             textBox_minSLSach.Text = Properties.Settings.Default.minSLSach;
+            checkBox_thuTienVuotNo.Checked = Properties.Settings.Default.thuTienVuotNo;
         }
 
         private void textBox_minNhap_TextChanged(object sender, EventArgs e)
@@ -32,8 +33,14 @@ namespace Show10.Windows
             Properties.Settings.Default.maxSLSach = textBox_maxSLSach.Text;
             Properties.Settings.Default.maxNo = textBox_maxNo.Text;
             Properties.Settings.Default.minSLSach = textBox_minSLSach.Text;
+            Properties.Settings.Default.thuTienVuotNo = checkBox_thuTienVuotNo.Checked;
             Properties.Settings.Default.Save();
             MessageBox.Show("Đã lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

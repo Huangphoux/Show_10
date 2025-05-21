@@ -38,6 +38,8 @@
             label_minSLSach = new Label();
             textBox_minSLSach = new TextBox();
             button_Save = new Button();
+            label_thuTienVuotNo = new Label();
+            checkBox_thuTienVuotNo = new CheckBox();
             SuspendLayout();
             // 
             // label_Settings
@@ -54,7 +56,7 @@
             // textBox_minNhap
             // 
             textBox_minNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_minNhap.Location = new Point(158, 47);
+            textBox_minNhap.Location = new Point(240, 47);
             textBox_minNhap.Name = "textBox_minNhap";
             textBox_minNhap.Size = new Size(125, 34);
             textBox_minNhap.TabIndex = 1;
@@ -65,9 +67,9 @@
             label_minNhap.AutoSize = true;
             label_minNhap.Location = new Point(15, 57);
             label_minNhap.Name = "label_minNhap";
-            label_minNhap.Size = new Size(140, 20);
+            label_minNhap.Size = new Size(124, 20);
             label_minNhap.TabIndex = 2;
-            label_minNhap.Text = "Lượng tồn tối thiểu ";
+            label_minNhap.Text = "SL nhập tối thiểu ";
             // 
             // label_maxNo
             // 
@@ -81,7 +83,7 @@
             // textBox_maxNo
             // 
             textBox_maxNo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_maxNo.Location = new Point(158, 87);
+            textBox_maxNo.Location = new Point(240, 87);
             textBox_maxNo.Name = "textBox_maxNo";
             textBox_maxNo.Size = new Size(125, 34);
             textBox_maxNo.TabIndex = 3;
@@ -91,14 +93,14 @@
             label_maxSLSach.AutoSize = true;
             label_maxSLSach.Location = new Point(15, 137);
             label_maxSLSach.Name = "label_maxSLSach";
-            label_maxSLSach.Size = new Size(100, 20);
+            label_maxSLSach.Size = new Size(219, 20);
             label_maxSLSach.TabIndex = 6;
-            label_maxSLSach.Text = "SL sách tối đa";
+            label_maxSLSach.Text = "Lượng tồn tối đa trước khi nhập";
             // 
             // textBox_maxSLSach
             // 
             textBox_maxSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_maxSLSach.Location = new Point(158, 127);
+            textBox_maxSLSach.Location = new Point(240, 127);
             textBox_maxSLSach.Name = "textBox_maxSLSach";
             textBox_maxSLSach.Size = new Size(125, 34);
             textBox_maxSLSach.TabIndex = 5;
@@ -108,14 +110,14 @@
             label_minSLSach.AutoSize = true;
             label_minSLSach.Location = new Point(15, 177);
             label_minSLSach.Name = "label_minSLSach";
-            label_minSLSach.Size = new Size(116, 20);
+            label_minSLSach.Size = new Size(214, 20);
             label_minSLSach.TabIndex = 8;
-            label_minSLSach.Text = "SL sách tối thiểu";
+            label_minSLSach.Text = "Lượng tồn tối thiểu sau khi bán";
             // 
             // textBox_minSLSach
             // 
             textBox_minSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_minSLSach.Location = new Point(158, 167);
+            textBox_minSLSach.Location = new Point(240, 167);
             textBox_minSLSach.Name = "textBox_minSLSach";
             textBox_minSLSach.Size = new Size(125, 34);
             textBox_minSLSach.TabIndex = 7;
@@ -131,11 +133,32 @@
             button_Save.UseVisualStyleBackColor = true;
             button_Save.Click += button1_Click;
             // 
+            // label_thuTienVuotNo
+            // 
+            label_thuTienVuotNo.AutoSize = true;
+            label_thuTienVuotNo.Location = new Point(15, 217);
+            label_thuTienVuotNo.Name = "label_thuTienVuotNo";
+            label_thuTienVuotNo.Size = new Size(219, 20);
+            label_thuTienVuotNo.TabIndex = 11;
+            label_thuTienVuotNo.Text = "Có thu tiền vượt nợ hay không ?";
+            // 
+            // checkBox_thuTienVuotNo
+            // 
+            checkBox_thuTienVuotNo.AutoSize = true;
+            checkBox_thuTienVuotNo.Location = new Point(240, 219);
+            checkBox_thuTienVuotNo.Name = "checkBox_thuTienVuotNo";
+            checkBox_thuTienVuotNo.Size = new Size(18, 17);
+            checkBox_thuTienVuotNo.TabIndex = 12;
+            checkBox_thuTienVuotNo.UseVisualStyleBackColor = true;
+            checkBox_thuTienVuotNo.CheckedChanged += checkBox1_CheckedChanged;
+            // 
             // Form_Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(checkBox_thuTienVuotNo);
+            Controls.Add(label_thuTienVuotNo);
             Controls.Add(button_Save);
             Controls.Add(label_minSLSach);
             Controls.Add(textBox_minSLSach);
@@ -164,5 +187,7 @@
         private Label label_minSLSach;
         private TextBox textBox_minSLSach;
         private Button button_Save;
+        private Label label_thuTienVuotNo;
+        private CheckBox checkBox_thuTienVuotNo;
     }
 }
