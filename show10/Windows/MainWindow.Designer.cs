@@ -26,7 +26,8 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             timer_Clock = new System.Windows.Forms.Timer(components);
             panel_Menu = new Panel();
@@ -103,6 +104,7 @@
             // icon_CaiDat
             // 
             icon_CaiDat.Dock = DockStyle.Bottom;
+            icon_CaiDat.Enabled = false;
             icon_CaiDat.FlatAppearance.BorderColor = SystemColors.ActiveBorder;
             icon_CaiDat.FlatStyle = FlatStyle.Flat;
             icon_CaiDat.IconChar = FontAwesome.Sharp.IconChar.Cog;
@@ -117,6 +119,7 @@
             icon_CaiDat.TextAlign = ContentAlignment.MiddleRight;
             icon_CaiDat.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_CaiDat.UseVisualStyleBackColor = true;
+            icon_CaiDat.Click += icon_CaiDat_Click;
             // 
             // icon_BaoCao
             // 
