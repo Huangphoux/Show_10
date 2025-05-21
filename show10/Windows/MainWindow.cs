@@ -149,7 +149,7 @@ namespace show10 {
             OpenChildForm(new Form_KhachHang());
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e) {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new Form_BaoCao());
         }
         #endregion

@@ -257,8 +257,6 @@
             // 
             dataGridView_TaiKhoan.AllowUserToAddRows = false;
             dataGridView_TaiKhoan.AllowUserToDeleteRows = false;
-            dataGridView_TaiKhoan.AllowUserToResizeColumns = false;
-            dataGridView_TaiKhoan.AllowUserToResizeRows = false;
             dataGridView_TaiKhoan.AutoGenerateColumns = false;
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_TaiKhoan.BackgroundColor = Color.White;
@@ -284,6 +282,7 @@
             dataGridViewTextBoxColumn_TenTK.HeaderText = "Tên tài khoản";
             dataGridViewTextBoxColumn_TenTK.MinimumWidth = 6;
             dataGridViewTextBoxColumn_TenTK.Name = "dataGridViewTextBoxColumn_TenTK";
+            dataGridViewTextBoxColumn_TenTK.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn_MatKhau
             // 
@@ -352,14 +351,14 @@
         private BindingSource taiKhoanBindingSource;
         private TextBox textBox_TK_HoTen;
         private TextBox textBox_TK_MatKhau;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenTK;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MatKhau;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_HoTen;
-        private DataGridViewCheckBoxColumn dataGridViewTextBoxColumn_VaiTro;
         private FontAwesome.Sharp.IconButton icon_TK_Loc;
         private FontAwesome.Sharp.IconButton icon_TK_Tim;
         private FontAwesome.Sharp.IconButton icon_TK_Xoa;
         private FontAwesome.Sharp.IconButton icon_TK_Them;
         private FontAwesome.Sharp.IconButton icon_TK_Clear;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TenTK;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_MatKhau;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_HoTen;
+        private DataGridViewCheckBoxColumn dataGridViewTextBoxColumn_VaiTro;
     }
 }

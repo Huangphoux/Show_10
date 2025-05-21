@@ -374,8 +374,6 @@
             // 
             dataGridView_KhachHang.AllowUserToAddRows = false;
             dataGridView_KhachHang.AllowUserToDeleteRows = false;
-            dataGridView_KhachHang.AllowUserToResizeColumns = false;
-            dataGridView_KhachHang.AllowUserToResizeRows = false;
             dataGridView_KhachHang.AutoGenerateColumns = false;
             dataGridView_KhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_KhachHang.BackgroundColor = Color.White;
@@ -488,8 +486,6 @@
             // 
             dataGridView_PhieuThuTien.AllowUserToAddRows = false;
             dataGridView_PhieuThuTien.AllowUserToDeleteRows = false;
-            dataGridView_PhieuThuTien.AllowUserToResizeColumns = false;
-            dataGridView_PhieuThuTien.AllowUserToResizeRows = false;
             dataGridView_PhieuThuTien.AutoGenerateColumns = false;
             dataGridView_PhieuThuTien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_PhieuThuTien.BackgroundColor = Color.White;

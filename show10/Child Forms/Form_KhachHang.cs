@@ -301,6 +301,14 @@ namespace Show10.Child_Forms {
         private void Icon_PTT_Them_Click(object sender, EventArgs e) {
             PhieuThuTien phieuThuTien = GetPhieuThuTien();
 
+            if (!Properties.Settings.Default.thuTienVuotNo
+                && 
+                phieuThuTien.SoTien > db.KhachHangs.First(p => p.MaKH == phieuThuTien.MaKH).TienNo) {
+                MessageBox.Show("Số tiền thu không thể vượt quá số tiền khách đang nợ!",
+                    "Tiền thu vượt tiền nợ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(textBox_PTT_MaPhieu.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PTT_MaKH.Text) ||
                 string.IsNullOrWhiteSpace(date_PTT_NgayThu.Text) ||
