@@ -25,8 +25,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             tabControl_BaoCao = new TabControl();
             tabPage_BCTon = new TabPage();
             dataGridView_BCTon = new DataGridView();
@@ -100,14 +100,14 @@
             dataGridView_BCTon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCTon.BackgroundColor = Color.White;
             dataGridView_BCTon.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.Green;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView_BCTon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.Green;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridView_BCTon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridView_BCTon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_BCTon.Columns.AddRange(new DataGridViewColumn[] { maSachDataGridViewTextBoxColumn, tonDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn, tonCuoiDataGridViewTextBoxColumn });
             dataGridView_BCTon.DataSource = baoCaoTonBindingSource;
@@ -241,7 +241,7 @@
             icon_BCTon_In.BackColor = Color.White;
             icon_BCTon_In.FlatAppearance.BorderColor = Color.Green;
             icon_BCTon_In.FlatStyle = FlatStyle.Flat;
-            icon_BCTon_In.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_BCTon_In.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             icon_BCTon_In.ForeColor = Color.Green;
             icon_BCTon_In.IconChar = FontAwesome.Sharp.IconChar.Print;
             icon_BCTon_In.IconColor = Color.Green;
@@ -279,14 +279,14 @@
             dataGridView_BCNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCNo.BackgroundColor = Color.White;
             dataGridView_BCNo.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.Green;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView_BCNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = Color.Green;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dataGridView_BCNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView_BCNo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_BCNo.Columns.AddRange(new DataGridViewColumn[] { maKHDataGridViewTextBoxColumn, noDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn1, noCuoiDataGridViewTextBoxColumn });
             dataGridView_BCNo.DataSource = baoCaoNoBindingSource;
@@ -366,7 +366,7 @@
             icon_BCNo_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCNo_TaoMoi.IconSize = 30;
             icon_BCNo_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
-            icon_BCNo_TaoMoi.Location = new Point(378, 40);
+            icon_BCNo_TaoMoi.Location = new Point(370, 40);
             icon_BCNo_TaoMoi.Margin = new Padding(10);
             icon_BCNo_TaoMoi.Name = "icon_BCNo_TaoMoi";
             icon_BCNo_TaoMoi.Size = new Size(174, 91);
@@ -401,7 +401,7 @@
             comboBox_BCNo_Nam.FormattingEnabled = true;
             comboBox_BCNo_Nam.Location = new Point(151, 95);
             comboBox_BCNo_Nam.Name = "comboBox_BCNo_Nam";
-            comboBox_BCNo_Nam.Size = new Size(195, 36);
+            comboBox_BCNo_Nam.Size = new Size(174, 36);
             comboBox_BCNo_Nam.TabIndex = 52;
             // 
             // comboBox_BCNo_Thang
@@ -411,7 +411,7 @@
             comboBox_BCNo_Thang.FormattingEnabled = true;
             comboBox_BCNo_Thang.Location = new Point(151, 40);
             comboBox_BCNo_Thang.Name = "comboBox_BCNo_Thang";
-            comboBox_BCNo_Thang.Size = new Size(195, 36);
+            comboBox_BCNo_Thang.Size = new Size(174, 36);
             comboBox_BCNo_Thang.TabIndex = 51;
             // 
             // iconButton_BCNo_In
@@ -420,14 +420,14 @@
             iconButton_BCNo_In.BackColor = Color.White;
             iconButton_BCNo_In.FlatAppearance.BorderColor = Color.Green;
             iconButton_BCNo_In.FlatStyle = FlatStyle.Flat;
-            iconButton_BCNo_In.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconButton_BCNo_In.Font = new Font("Segoe UI", 12F);
             iconButton_BCNo_In.ForeColor = Color.Green;
             iconButton_BCNo_In.IconChar = FontAwesome.Sharp.IconChar.Print;
             iconButton_BCNo_In.IconColor = Color.Green;
             iconButton_BCNo_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconButton_BCNo_In.IconSize = 30;
             iconButton_BCNo_In.ImageAlign = ContentAlignment.BottomCenter;
-            iconButton_BCNo_In.Location = new Point(566, 40);
+            iconButton_BCNo_In.Location = new Point(558, 40);
             iconButton_BCNo_In.Margin = new Padding(10);
             iconButton_BCNo_In.Name = "iconButton_BCNo_In";
             iconButton_BCNo_In.Size = new Size(174, 91);
