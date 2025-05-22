@@ -296,6 +296,7 @@
             checkBox_enableTab.Appearance = Appearance.Button;
             checkBox_enableTab.Dock = DockStyle.Bottom;
             checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
+            checkBox_enableTab.FlatAppearance.BorderSize = 0;
             checkBox_enableTab.FlatStyle = FlatStyle.Flat;
             checkBox_enableTab.ForeColor = Color.White;
             checkBox_enableTab.Location = new Point(0, 482);
