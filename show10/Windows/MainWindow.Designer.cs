@@ -26,7 +26,8 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             timer_Clock = new System.Windows.Forms.Timer(components);
             panel_Menu = new Panel();
@@ -39,7 +40,6 @@
             panel_Brand = new Panel();
             icon_Brand = new FontAwesome.Sharp.IconButton();
             panel_ChildForm = new Panel();
-            checkBox_HienMK = new CheckBox();
             label_ChaoDon = new Label();
             label_TenTK = new Label();
             checkBox_enableTab = new CheckBox();
@@ -53,12 +53,14 @@
             label_Welcome = new Label();
             panel_DangNhap = new Panel();
             panel1 = new Panel();
+            icon_ShowPass = new FontAwesome.Sharp.IconPictureBox();
             label_DangNhap = new Label();
             panel_Menu.SuspendLayout();
             panel_Brand.SuspendLayout();
             panel_Welcome.SuspendLayout();
             panel_DangNhap.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)icon_ShowPass).BeginInit();
             SuspendLayout();
             // 
             // timer_Clock
@@ -263,19 +265,6 @@
             panel_ChildForm.Size = new Size(1302, 853);
             panel_ChildForm.TabIndex = 4;
             // 
-            // checkBox_HienMK
-            // 
-            checkBox_HienMK.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            checkBox_HienMK.FlatStyle = FlatStyle.Flat;
-            checkBox_HienMK.Location = new Point(189, 361);
-            checkBox_HienMK.Name = "checkBox_HienMK";
-            checkBox_HienMK.Size = new Size(267, 54);
-            checkBox_HienMK.TabIndex = 11;
-            checkBox_HienMK.Text = "Hiện mật khẩu";
-            checkBox_HienMK.TextAlign = ContentAlignment.MiddleCenter;
-            checkBox_HienMK.UseVisualStyleBackColor = true;
-            checkBox_HienMK.CheckedChanged += CheckBox_HienMK_CheckedChanged;
-            // 
             // label_ChaoDon
             // 
             label_ChaoDon.AccessibleRole = AccessibleRole.None;
@@ -337,7 +326,7 @@
             icon_DangNhap.IconColor = Color.White;
             icon_DangNhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangNhap.IconSize = 30;
-            icon_DangNhap.Location = new Point(107, 441);
+            icon_DangNhap.Location = new Point(107, 396);
             icon_DangNhap.Name = "icon_DangNhap";
             icon_DangNhap.Size = new Size(200, 80);
             icon_DangNhap.TabIndex = 6;
@@ -369,7 +358,7 @@
             icon_DangKy.IconColor = Color.Green;
             icon_DangKy.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangKy.IconSize = 30;
-            icon_DangKy.Location = new Point(331, 441);
+            icon_DangKy.Location = new Point(331, 396);
             icon_DangKy.Name = "icon_DangKy";
             icon_DangKy.Size = new Size(200, 80);
             icon_DangKy.TabIndex = 7;
@@ -432,10 +421,10 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(icon_ShowPass);
             panel1.Controls.Add(label_DangNhap);
             panel1.Controls.Add(label_TenTK);
             panel1.Controls.Add(checkBox_enableTab);
-            panel1.Controls.Add(checkBox_HienMK);
             panel1.Controls.Add(label_ChaoDon);
             panel1.Controls.Add(icon_DangKy);
             panel1.Controls.Add(label_MatKhau);
@@ -447,6 +436,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(591, 853);
             panel1.TabIndex = 12;
+            // 
+            // icon_ShowPass
+            // 
+            icon_ShowPass.BackColor = Color.White;
+            icon_ShowPass.ForeColor = Color.Green;
+            icon_ShowPass.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            icon_ShowPass.IconColor = Color.Green;
+            icon_ShowPass.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_ShowPass.IconSize = 40;
+            icon_ShowPass.Location = new Point(537, 302);
+            icon_ShowPass.Name = "icon_ShowPass";
+            icon_ShowPass.Size = new Size(40, 40);
+            icon_ShowPass.TabIndex = 13;
+            icon_ShowPass.TabStop = false;
+            icon_ShowPass.Click += icon_ShowPass_Click;
             // 
             // label_DangNhap
             // 
@@ -483,6 +487,7 @@
             panel_DangNhap.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)icon_ShowPass).EndInit();
             ResumeLayout(false);
         }
 
@@ -503,7 +508,6 @@
         private Label label_Clock;
         private FontAwesome.Sharp.IconButton icon_Brand;
         private FontAwesome.Sharp.IconButton icon_CaiDat;
-        private CheckBox checkBox_HienMK;
         private Label label_TenTK;
         private CheckBox checkBox_enableTab;
         private TextBox textBox_TenTK;
@@ -514,5 +518,6 @@
         private Panel panel_DangNhap;
         private Panel panel1;
         private Label label_DangNhap;
+        private FontAwesome.Sharp.IconPictureBox icon_ShowPass;
     }
 }

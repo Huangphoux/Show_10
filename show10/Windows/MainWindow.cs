@@ -6,7 +6,8 @@ using Show10.Models;
 using Show10.Windows;
 
 namespace show10 {
-    public partial class MainWindow : Form {
+    public partial class MainWindow : Form
+    {
         private IconButton currentBtn;
         private readonly Panel leftBorderBtn;
         private Form currentChildForm;
@@ -17,11 +18,13 @@ namespace show10 {
         private ToolTip toolTipCaiDat = new ToolTip();
         private bool toolTipShown = false;
 
-        public MainWindow() {
+        public MainWindow()
+        {
             InitializeComponent();
             DoubleBuffered = true;
 
-            leftBorderBtn = new Panel {
+            leftBorderBtn = new Panel
+            {
                 Size = new Size(10, 80)
             };
 
@@ -43,7 +46,8 @@ namespace show10 {
             icon_CaiDat.Parent.MouseLeave += Icon_CaiDat_Parent_MouseLeave;
         }
 
-        private void MainWindow_Load(object sender, EventArgs e) {
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
             db = new NhaSachContext();
 
             _ = db.Database.EnsureDeleted();
@@ -52,31 +56,38 @@ namespace show10 {
             db.TaiKhoans.Load();
         }
 
-        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) {
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
             db?.Dispose();
             db = null;
         }
 
 
-        private void Timer_Tick(object sender, EventArgs e) {
+        private void Timer_Tick(object sender, EventArgs e)
+        {
             label_Clock.Text = "Bây giờ là " + DateTime.Now.ToString("t");
         }
 
         private bool isFullScreen = false;
 
-        private void Icon_Fullscreen_Click(object sender, EventArgs e) {
+        private void Icon_Fullscreen_Click(object sender, EventArgs e)
+        {
             FullScreen fullScreen = new FullScreen();
 
-            if (!isFullScreen) {
+            if (!isFullScreen)
+            {
                 fullScreen.EnterFullScreenMode(this);
                 isFullScreen = true;
-            } else {
+            }
+            else
+            {
                 fullScreen.LeaveFullScreenMode(this);
                 isFullScreen = false;
             }
         }
 
-        private struct RGBColors {
+        private struct RGBColors
+        {
             public static Color color1 = Color.FromArgb(172, 126, 241);
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
@@ -85,8 +96,10 @@ namespace show10 {
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
 
-        private void ActivateButton(object senderBtn, Color color) {
-            if (senderBtn != null) {
+        private void ActivateButton(object senderBtn, Color color)
+        {
+            if (senderBtn != null)
+            {
                 DisableButton();
 
 
@@ -105,17 +118,21 @@ namespace show10 {
             }
         }
 
-        private void DisableButton() {
-            if (currentBtn != null) {
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
                 currentBtn.ForeColor = Color.White;
                 currentBtn.BackColor = Color.Green;
                 currentBtn.IconColor = Color.White;
             }
         }
 
-        private void OpenChildForm(Form childForm) {
+        private void OpenChildForm(Form childForm)
+        {
             //open only form
-            if (currentChildForm != null) {
+            if (currentChildForm != null)
+            {
                 currentChildForm.Close();
             }
 
@@ -136,45 +153,58 @@ namespace show10 {
         }
 
         #region icon Tab Click
-        private void Icon_TaiKhoan_Click(object sender, EventArgs e) {
+        private void Icon_TaiKhoan_Click(object sender, EventArgs e)
+        {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Form_TaiKhoan());
         }
-        private void Icon_Sach_Click(object sender, EventArgs e) {
+        private void Icon_Sach_Click(object sender, EventArgs e)
+        {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Form_Sach());
         }
-        private void Icon_KhachHang_Click(object sender, EventArgs e) {
+        private void Icon_KhachHang_Click(object sender, EventArgs e)
+        {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new Form_KhachHang());
         }
-        private void Icon_BaoCao_Click(object sender, EventArgs e) {
+        private void Icon_BaoCao_Click(object sender, EventArgs e)
+        {
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new Form_BaoCao());
         }
         #endregion
 
-        private void Icon_DangNhap_Click(object sender, EventArgs e) {
+        private void Icon_DangNhap_Click(object sender, EventArgs e)
+        {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
 
-            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
+            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau))
+            {
                 MessageBox.Show(
                     "Nhập đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
                     "Chưa điền tên tài khoản hoặc mật khẩu",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
+            }
+            else if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau))
+            {
                 _ = MessageBox.Show(
                     "Không tìm thấy tài khoản.\nKiểm tra tên tài khoản và mật khẩu đúng như đã đăng ký.",
                     "Không tìm thấy tài khoản",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            } else {
+            }
+            else
+            {
                 var found = db.TaiKhoans.First(tk => tk.TenTK == tenTK);
 
-                if (found.VaiTro == "admin") {
+                if (found.VaiTro == "admin")
+                {
                     icon_Tab.ForEach(tab => tab.Enabled = true);
                     icon_CaiDat.Enabled = true;
-                } else {
+                }
+                else
+                {
                     icon_Sach.Enabled = true;
                     icon_KhachHang.Enabled = true;
                     icon_BaoCao.Enabled = true;
@@ -199,22 +229,26 @@ namespace show10 {
         static int index = 1;
         static readonly string[] show10 = ["!", "?", ":)", ":D", "XD"];
 
-        private void Icon_Brand_Click(object sender, EventArgs e) {
-            if (icon_Brand.IconChar == IconChar.Store) {
+        private void Icon_Brand_Click(object sender, EventArgs e)
+        {
+            if (icon_Brand.IconChar == IconChar.Store)
+            {
                 icon_Brand.Text = "Show 10 " + show10[index];
                 // Increment the index and wrap around to 0 when reaching the end of the array.
                 // This ensures we cycle through all elements in 'show10' repeatedly without going out of bounds.
                 index = (index + 1) % show10.Length;
             }
 
-            if (icon_Brand.IconChar == IconChar.SignOut) {
+            if (icon_Brand.IconChar == IconChar.SignOut)
+            {
                 var result = MessageBox.Show(
                     "Đăng xuất ????????",
                     "Chắc chưa ????????",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning
                 );
 
-                if (result == DialogResult.Yes) {
+                if (result == DialogResult.Yes)
+                {
                     DisableButton();
                     icon_Brand.IconChar = IconChar.Store;
 
@@ -232,14 +266,18 @@ namespace show10 {
             }
         }
 
-        private void Icon_DangKy_Click(object sender, EventArgs e) {
+        private void Icon_DangKy_Click(object sender, EventArgs e)
+        {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
 
-            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
+            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau))
+            {
                 MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng ký.",
                     "Chưa điền tên tài khoản hoặc mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db.TaiKhoans.Any(tk => tk.TenTK == tenTK)) {
+            }
+            else if (db.TaiKhoans.Any(tk => tk.TenTK == tenTK))
+            {
                 _ = MessageBox.Show("Tên tài khoản này đã được sử dụng.\n" +
                     "Vui lòng sử dụng tên tài khoản khác.",
                     "Trùng lặp tên tài khoản",
@@ -247,7 +285,9 @@ namespace show10 {
                 textBox_TenTK.Text = "";
 
 
-            } else {
+            }
+            else
+            {
                 // trường HoTen giải quyết sao ?!
                 _ = db.Add(new TaiKhoan { TenTK = tenTK, MatKhau = matKhau, VaiTro = "user", HoTen = "" });
                 _ = db.SaveChanges();
@@ -259,28 +299,26 @@ namespace show10 {
             }
         }
 
-        private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
+        private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e)
+        {
             icon_Tab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
         }
 
-        private void CheckBox_HienMK_CheckedChanged(object sender, EventArgs e) {
-            if (checkBox_HienMK.Checked) {
-                textBox_MatKhau.PasswordChar = '\0';
-            } else {
-                textBox_MatKhau.PasswordChar = '•';
-            }
-        }
-
-        private void icon_CaiDat_Click(object sender, EventArgs e) {
+        private void icon_CaiDat_Click(object sender, EventArgs e)
+        {
             Form_Settings form_Settings = new Form_Settings();
             form_Settings.Show();
         }
 
-        private void Icon_CaiDat_Parent_MouseMove(object? sender, MouseEventArgs e) {
-            if (!icon_CaiDat.Enabled) {
+        private void Icon_CaiDat_Parent_MouseMove(object? sender, MouseEventArgs e)
+        {
+            if (!icon_CaiDat.Enabled)
+            {
                 var pt = icon_CaiDat.Parent.PointToClient(Cursor.Position);
-                if (icon_CaiDat.Bounds.Contains(pt)) {
-                    if (!toolTipShown) {
+                if (icon_CaiDat.Bounds.Contains(pt))
+                {
+                    if (!toolTipShown)
+                    {
                         toolTipCaiDat.Show("Chỉ admin mới có quyền cài đặt", icon_CaiDat, icon_CaiDat.Width / 2, icon_CaiDat.Height / 2, 5000);
                         toolTipShown = true;
                     }
@@ -291,23 +329,43 @@ namespace show10 {
             toolTipShown = false;
         }
 
-        private void Icon_CaiDat_Parent_MouseLeave(object? sender, EventArgs e) {
+        private void Icon_CaiDat_Parent_MouseLeave(object? sender, EventArgs e)
+        {
             toolTipCaiDat.Hide(icon_CaiDat);
             toolTipShown = false;
         }
 
-        private void Label_ChaoDon_Click(object sender, EventArgs e) {
+        private void Label_ChaoDon_Click(object sender, EventArgs e)
+        {
             label_ChaoDon.Text = "Xin được chào đón " + show10[index];
             // Increment the index and wrap around to 0 when reaching the end of the array.
             // This ensures we cycle through all elements in 'show10' repeatedly without going out of bounds.
             index = (index + 1) % show10.Length;
         }
 
-        private void Label_DangNhap_Click(object sender, EventArgs e) {
+        private void Label_DangNhap_Click(object sender, EventArgs e)
+        {
             label_DangNhap.Text = "Đăng nhập " + show10[index];
             // Increment the index and wrap around to 0 when reaching the end of the array.
             // This ensures we cycle through all elements in 'show10' repeatedly without going out of bounds.
             index = (index + 1) % show10.Length;
+        }
+
+        bool isShowPass = false;
+        private void icon_ShowPass_Click(object sender, EventArgs e)
+        {
+            if (isShowPass == false)
+            {
+                textBox_MatKhau.PasswordChar = '\0';
+                isShowPass = true;
+                icon_ShowPass.IconChar = IconChar.EyeSlash;
+            }
+            else
+            {
+                textBox_MatKhau.PasswordChar = '•';
+                isShowPass = false;
+                icon_ShowPass.IconChar = IconChar.Eye;
+            }
         }
     }
 }
