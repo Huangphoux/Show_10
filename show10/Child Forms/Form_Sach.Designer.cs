@@ -25,9 +25,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             groupBox_Sach = new GroupBox();
             icon_Sach_Clear = new FontAwesome.Sharp.IconButton();
             icon_Sach_Ban = new FontAwesome.Sharp.IconButton();
@@ -175,12 +175,14 @@
             // icon_Sach_Ban
             // 
             icon_Sach_Ban.Anchor = AnchorStyles.Right;
-            icon_Sach_Ban.BackColor = Color.FromArgb(0, 192, 192);
-            icon_Sach_Ban.FlatAppearance.BorderSize = 0;
+            icon_Sach_Ban.BackColor = Color.White;
+            icon_Sach_Ban.FlatAppearance.BorderColor = Color.Green;
+            icon_Sach_Ban.FlatAppearance.BorderSize = 2;
             icon_Sach_Ban.FlatStyle = FlatStyle.Flat;
             icon_Sach_Ban.Font = new Font("Segoe UI", 12F);
+            icon_Sach_Ban.ForeColor = Color.Green;
             icon_Sach_Ban.IconChar = FontAwesome.Sharp.IconChar.Receipt;
-            icon_Sach_Ban.IconColor = Color.Black;
+            icon_Sach_Ban.IconColor = Color.Green;
             icon_Sach_Ban.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Ban.IconSize = 30;
             icon_Sach_Ban.ImageAlign = ContentAlignment.BottomCenter;
@@ -197,12 +199,13 @@
             // icon_Sach_Nhap
             // 
             icon_Sach_Nhap.Anchor = AnchorStyles.Right;
-            icon_Sach_Nhap.BackColor = Color.Fuchsia;
+            icon_Sach_Nhap.BackColor = Color.Green;
             icon_Sach_Nhap.FlatAppearance.BorderSize = 0;
             icon_Sach_Nhap.FlatStyle = FlatStyle.Flat;
-            icon_Sach_Nhap.Font = new Font("Segoe UI", 12F);
+            icon_Sach_Nhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_Sach_Nhap.ForeColor = Color.White;
             icon_Sach_Nhap.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            icon_Sach_Nhap.IconColor = Color.Black;
+            icon_Sach_Nhap.IconColor = Color.White;
             icon_Sach_Nhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Nhap.IconSize = 30;
             icon_Sach_Nhap.ImageAlign = ContentAlignment.BottomCenter;
@@ -425,14 +428,14 @@
             dataGridView_Sach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_Sach.BackgroundColor = Color.White;
             dataGridView_Sach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Green;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.Green;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView_Sach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Sach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_MaSach, dataGridViewTextBoxColumn_TenSach, dataGridViewTextBoxColumn_TacGia, dataGridViewTextBoxColumn_SoLuong, dataGridViewTextBoxColumn_TheLoai });
             dataGridView_Sach.DataSource = sachBindingSource;
@@ -534,14 +537,14 @@
             dataGridView_PhieuNhapSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_PhieuNhapSach.BackgroundColor = Color.White;
             dataGridView_PhieuNhapSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.Green;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.Green;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView_PhieuNhapSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_PhieuNhapSach.Columns.AddRange(new DataGridViewColumn[] { maPNDataGridViewTextBoxColumn, maSachDataGridViewTextBoxColumn, soLuongDataGridViewTextBoxColumn, giaNhapDataGridViewTextBoxColumn, ngayNhapDataGridViewTextBoxColumn });
             dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
@@ -864,14 +867,14 @@
             dataGridView_HoaDonBanSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
             dataGridView_HoaDonBanSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.Green;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.Green;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView_HoaDonBanSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, NgayHD });
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
