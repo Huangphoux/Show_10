@@ -25,10 +25,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             groupBox_KhachHang = new GroupBox();
             icon_KH_Clear = new FontAwesome.Sharp.IconButton();
             comboBox_KH_GioiTinh = new ComboBox();
@@ -113,7 +113,7 @@
             groupBox_KhachHang.Dock = DockStyle.Top;
             groupBox_KhachHang.Location = new Point(3, 3);
             groupBox_KhachHang.Name = "groupBox_KhachHang";
-            groupBox_KhachHang.Size = new Size(768, 433);
+            groupBox_KhachHang.Size = new Size(768, 385);
             groupBox_KhachHang.TabIndex = 0;
             groupBox_KhachHang.TabStop = false;
             groupBox_KhachHang.Text = "Nhập liệu";
@@ -130,7 +130,7 @@
             icon_KH_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_KH_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Clear.IconSize = 30;
-            icon_KH_Clear.Location = new Point(585, 330);
+            icon_KH_Clear.Location = new Point(536, 292);
             icon_KH_Clear.Margin = new Padding(10);
             icon_KH_Clear.Name = "icon_KH_Clear";
             icon_KH_Clear.Size = new Size(80, 80);
@@ -146,9 +146,9 @@
             comboBox_KH_GioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_KH_GioiTinh.FormattingEnabled = true;
             comboBox_KH_GioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
-            comboBox_KH_GioiTinh.Location = new Point(185, 141);
+            comboBox_KH_GioiTinh.Location = new Point(136, 141);
             comboBox_KH_GioiTinh.Name = "comboBox_KH_GioiTinh";
-            comboBox_KH_GioiTinh.Size = new Size(366, 36);
+            comboBox_KH_GioiTinh.Size = new Size(371, 36);
             comboBox_KH_GioiTinh.TabIndex = 54;
             comboBox_KH_GioiTinh.SelectedIndexChanged += ComboBox_KH_GioiTinh_SelectedIndexChanged;
             // 
@@ -156,22 +156,22 @@
             // 
             textBox_KH_TienNo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_KH_TienNo.Font = new Font("Segoe UI", 12F);
-            textBox_KH_TienNo.Location = new Point(185, 283);
+            textBox_KH_TienNo.Location = new Point(375, 42);
             textBox_KH_TienNo.Name = "textBox_KH_TienNo";
-            textBox_KH_TienNo.Size = new Size(366, 34);
+            textBox_KH_TienNo.Size = new Size(132, 34);
             textBox_KH_TienNo.TabIndex = 51;
             textBox_KH_TienNo.TextChanged += TextBox_KH_TienNo_TextChanged;
             // 
             // label_KH_TienNo
             // 
             label_KH_TienNo.Font = new Font("Segoe UI", 12F);
-            label_KH_TienNo.Location = new Point(27, 281);
+            label_KH_TienNo.Location = new Point(269, 39);
             label_KH_TienNo.Margin = new Padding(3, 0, 20, 0);
             label_KH_TienNo.Name = "label_KH_TienNo";
-            label_KH_TienNo.Size = new Size(135, 40);
+            label_KH_TienNo.Size = new Size(110, 40);
             label_KH_TienNo.TabIndex = 50;
             label_KH_TienNo.Text = "Tiền nợ";
-            label_KH_TienNo.TextAlign = ContentAlignment.MiddleLeft;
+            label_KH_TienNo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // icon_KH_ThuTien
             // 
@@ -187,10 +187,10 @@
             icon_KH_ThuTien.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_ThuTien.IconSize = 30;
             icon_KH_ThuTien.ImageAlign = ContentAlignment.BottomCenter;
-            icon_KH_ThuTien.Location = new Point(581, 39);
+            icon_KH_ThuTien.Location = new Point(556, 39);
             icon_KH_ThuTien.Margin = new Padding(10);
             icon_KH_ThuTien.Name = "icon_KH_ThuTien";
-            icon_KH_ThuTien.Size = new Size(174, 278);
+            icon_KH_ThuTien.Size = new Size(174, 233);
             icon_KH_ThuTien.TabIndex = 49;
             icon_KH_ThuTien.Text = "Thu tiền";
             icon_KH_ThuTien.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -209,7 +209,7 @@
             icon_KH_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_KH_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Loc.IconSize = 30;
-            icon_KH_Loc.Location = new Point(485, 330);
+            icon_KH_Loc.Location = new Point(436, 292);
             icon_KH_Loc.Margin = new Padding(10);
             icon_KH_Loc.Name = "icon_KH_Loc";
             icon_KH_Loc.Size = new Size(80, 80);
@@ -231,7 +231,7 @@
             icon_KH_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_KH_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Tim.IconSize = 30;
-            icon_KH_Tim.Location = new Point(385, 330);
+            icon_KH_Tim.Location = new Point(336, 292);
             icon_KH_Tim.Margin = new Padding(10);
             icon_KH_Tim.Name = "icon_KH_Tim";
             icon_KH_Tim.Size = new Size(80, 80);
@@ -252,7 +252,7 @@
             icon_KH_Xoa.IconColor = Color.White;
             icon_KH_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Xoa.IconSize = 30;
-            icon_KH_Xoa.Location = new Point(285, 330);
+            icon_KH_Xoa.Location = new Point(236, 292);
             icon_KH_Xoa.Margin = new Padding(10);
             icon_KH_Xoa.Name = "icon_KH_Xoa";
             icon_KH_Xoa.Size = new Size(80, 80);
@@ -273,7 +273,7 @@
             icon_KH_Them.IconColor = Color.White;
             icon_KH_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Them.IconSize = 30;
-            icon_KH_Them.Location = new Point(185, 330);
+            icon_KH_Them.Location = new Point(136, 292);
             icon_KH_Them.Margin = new Padding(10);
             icon_KH_Them.Name = "icon_KH_Them";
             icon_KH_Them.Size = new Size(80, 80);
@@ -287,9 +287,9 @@
             // 
             textBox_KH_DiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_KH_DiaChi.Font = new Font("Segoe UI", 12F);
-            textBox_KH_DiaChi.Location = new Point(185, 237);
+            textBox_KH_DiaChi.Location = new Point(136, 237);
             textBox_KH_DiaChi.Name = "textBox_KH_DiaChi";
-            textBox_KH_DiaChi.Size = new Size(366, 34);
+            textBox_KH_DiaChi.Size = new Size(371, 34);
             textBox_KH_DiaChi.TabIndex = 44;
             textBox_KH_DiaChi.TextChanged += TextBox_KH_DiaChi_TextChanged;
             // 
@@ -299,7 +299,7 @@
             label_KH_DiaChi.Location = new Point(27, 235);
             label_KH_DiaChi.Margin = new Padding(3, 0, 20, 0);
             label_KH_DiaChi.Name = "label_KH_DiaChi";
-            label_KH_DiaChi.Size = new Size(135, 40);
+            label_KH_DiaChi.Size = new Size(110, 40);
             label_KH_DiaChi.TabIndex = 43;
             label_KH_DiaChi.Text = "Địa chỉ";
             label_KH_DiaChi.TextAlign = ContentAlignment.MiddleLeft;
@@ -308,9 +308,9 @@
             // 
             textBox_KH_Email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_KH_Email.Font = new Font("Segoe UI", 12F);
-            textBox_KH_Email.Location = new Point(185, 188);
+            textBox_KH_Email.Location = new Point(136, 188);
             textBox_KH_Email.Name = "textBox_KH_Email";
-            textBox_KH_Email.Size = new Size(366, 34);
+            textBox_KH_Email.Size = new Size(371, 34);
             textBox_KH_Email.TabIndex = 42;
             textBox_KH_Email.TextChanged += TextBox_KH_Email_TextChanged;
             // 
@@ -320,7 +320,7 @@
             label_KH_Email.Location = new Point(27, 186);
             label_KH_Email.Margin = new Padding(3, 0, 20, 0);
             label_KH_Email.Name = "label_KH_Email";
-            label_KH_Email.Size = new Size(135, 40);
+            label_KH_Email.Size = new Size(110, 40);
             label_KH_Email.TabIndex = 41;
             label_KH_Email.Text = "Email";
             label_KH_Email.TextAlign = ContentAlignment.MiddleLeft;
@@ -329,9 +329,9 @@
             // 
             textBox_KH_TenKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_KH_TenKH.Font = new Font("Segoe UI", 12F);
-            textBox_KH_TenKH.Location = new Point(185, 90);
+            textBox_KH_TenKH.Location = new Point(136, 90);
             textBox_KH_TenKH.Name = "textBox_KH_TenKH";
-            textBox_KH_TenKH.Size = new Size(366, 34);
+            textBox_KH_TenKH.Size = new Size(371, 34);
             textBox_KH_TenKH.TabIndex = 39;
             textBox_KH_TenKH.TextChanged += TextBox_KH_TenKH_TextChanged;
             // 
@@ -341,7 +341,7 @@
             label_KH_GioiTinh.Location = new Point(27, 137);
             label_KH_GioiTinh.Margin = new Padding(3, 0, 20, 0);
             label_KH_GioiTinh.Name = "label_KH_GioiTinh";
-            label_KH_GioiTinh.Size = new Size(135, 40);
+            label_KH_GioiTinh.Size = new Size(110, 40);
             label_KH_GioiTinh.TabIndex = 38;
             label_KH_GioiTinh.Text = "Giới tính";
             label_KH_GioiTinh.TextAlign = ContentAlignment.MiddleLeft;
@@ -352,7 +352,7 @@
             label_KH_TenKH.Location = new Point(27, 88);
             label_KH_TenKH.Margin = new Padding(3, 0, 20, 0);
             label_KH_TenKH.Name = "label_KH_TenKH";
-            label_KH_TenKH.Size = new Size(135, 40);
+            label_KH_TenKH.Size = new Size(110, 40);
             label_KH_TenKH.TabIndex = 37;
             label_KH_TenKH.Text = "Tên KH";
             label_KH_TenKH.TextAlign = ContentAlignment.MiddleLeft;
@@ -363,18 +363,18 @@
             label_KH_MaKH.Location = new Point(27, 39);
             label_KH_MaKH.Margin = new Padding(3, 0, 20, 0);
             label_KH_MaKH.Name = "label_KH_MaKH";
-            label_KH_MaKH.Size = new Size(135, 40);
+            label_KH_MaKH.Size = new Size(110, 40);
             label_KH_MaKH.TabIndex = 36;
             label_KH_MaKH.Text = "Mã KH";
             label_KH_MaKH.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBox_KH_MaKH
             // 
-            textBox_KH_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_KH_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_KH_MaKH.Font = new Font("Segoe UI", 12F);
-            textBox_KH_MaKH.Location = new Point(185, 39);
+            textBox_KH_MaKH.Location = new Point(136, 42);
             textBox_KH_MaKH.Name = "textBox_KH_MaKH";
-            textBox_KH_MaKH.Size = new Size(366, 34);
+            textBox_KH_MaKH.Size = new Size(127, 34);
             textBox_KH_MaKH.TabIndex = 35;
             textBox_KH_MaKH.TextChanged += TextBox_KH_MaKH_TextChanged;
             // 
@@ -386,35 +386,35 @@
             dataGridView_KhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_KhachHang.BackgroundColor = Color.White;
             dataGridView_KhachHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = Color.Green;
-            dataGridViewCellStyle17.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle17.ForeColor = Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            dataGridView_KhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Green;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_KhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_KhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_KhachHang.Columns.AddRange(new DataGridViewColumn[] { maKHDataGridViewTextBoxColumn, tenKHDataGridViewTextBoxColumn, gioiTinhDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, diaChiDataGridViewTextBoxColumn, tienNoDataGridViewTextBoxColumn });
             dataGridView_KhachHang.DataSource = khachHangBindingSource;
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = SystemColors.Window;
-            dataGridViewCellStyle18.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle18.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            dataGridView_KhachHang.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView_KhachHang.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_KhachHang.Dock = DockStyle.Fill;
             dataGridView_KhachHang.EnableHeadersVisualStyles = false;
             dataGridView_KhachHang.GridColor = SystemColors.ScrollBar;
-            dataGridView_KhachHang.Location = new Point(3, 436);
+            dataGridView_KhachHang.Location = new Point(3, 388);
             dataGridView_KhachHang.Name = "dataGridView_KhachHang";
             dataGridView_KhachHang.RightToLeft = RightToLeft.No;
             dataGridView_KhachHang.RowHeadersVisible = false;
             dataGridView_KhachHang.RowHeadersWidth = 51;
             dataGridView_KhachHang.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_KhachHang.Size = new Size(768, 73);
+            dataGridView_KhachHang.Size = new Size(768, 121);
             dataGridView_KhachHang.TabIndex = 3;
             dataGridView_KhachHang.CellValueChanged += DataGridView_KhachHang_CellValueChanged;
             dataGridView_KhachHang.SelectionChanged += DataGridView_KhachHang_SelectionChanged;
@@ -509,35 +509,35 @@
             dataGridView_PhieuThuTien.BackgroundColor = Color.White;
             dataGridView_PhieuThuTien.BorderStyle = BorderStyle.None;
             dataGridView_PhieuThuTien.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = Color.Green;
-            dataGridViewCellStyle19.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle19.ForeColor = Color.White;
-            dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dataGridView_PhieuThuTien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Green;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_PhieuThuTien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_PhieuThuTien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_PhieuThuTien.Columns.AddRange(new DataGridViewColumn[] { maPTDataGridViewTextBoxColumn, maKHDataGridViewTextBoxColumn1, ngayThuDataGridViewTextBoxColumn, soTienDataGridViewTextBoxColumn });
             dataGridView_PhieuThuTien.DataSource = phieuThuTienBindingSource;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = SystemColors.Window;
-            dataGridViewCellStyle20.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle20.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dataGridView_PhieuThuTien.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridView_PhieuThuTien.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridView_PhieuThuTien.Dock = DockStyle.Fill;
             dataGridView_PhieuThuTien.EnableHeadersVisualStyles = false;
             dataGridView_PhieuThuTien.GridColor = SystemColors.ScrollBar;
-            dataGridView_PhieuThuTien.Location = new Point(3, 362);
+            dataGridView_PhieuThuTien.Location = new Point(3, 276);
             dataGridView_PhieuThuTien.Name = "dataGridView_PhieuThuTien";
             dataGridView_PhieuThuTien.RightToLeft = RightToLeft.No;
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(768, 147);
+            dataGridView_PhieuThuTien.Size = new Size(768, 233);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
@@ -592,7 +592,7 @@
             groupBox_PhieuThuTien.Dock = DockStyle.Top;
             groupBox_PhieuThuTien.Location = new Point(3, 3);
             groupBox_PhieuThuTien.Name = "groupBox_PhieuThuTien";
-            groupBox_PhieuThuTien.Size = new Size(768, 359);
+            groupBox_PhieuThuTien.Size = new Size(768, 273);
             groupBox_PhieuThuTien.TabIndex = 5;
             groupBox_PhieuThuTien.TabStop = false;
             groupBox_PhieuThuTien.Text = "Nhập liệu";
@@ -600,9 +600,9 @@
             // date_PTT_NgayThu
             // 
             date_PTT_NgayThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            date_PTT_NgayThu.Location = new Point(185, 143);
+            date_PTT_NgayThu.Location = new Point(485, 102);
             date_PTT_NgayThu.Name = "date_PTT_NgayThu";
-            date_PTT_NgayThu.Size = new Size(480, 34);
+            date_PTT_NgayThu.Size = new Size(137, 34);
             date_PTT_NgayThu.TabIndex = 57;
             // 
             // icon_PTT_Clear
@@ -617,7 +617,7 @@
             icon_PTT_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_PTT_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Clear.IconSize = 30;
-            icon_PTT_Clear.Location = new Point(585, 251);
+            icon_PTT_Clear.Location = new Point(542, 163);
             icon_PTT_Clear.Margin = new Padding(10);
             icon_PTT_Clear.Name = "icon_PTT_Clear";
             icon_PTT_Clear.Size = new Size(80, 80);
@@ -629,21 +629,21 @@
             // 
             // textBox_PTT_SoTien
             // 
-            textBox_PTT_SoTien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_PTT_SoTien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PTT_SoTien.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_SoTien.Location = new Point(185, 193);
+            textBox_PTT_SoTien.Location = new Point(149, 102);
             textBox_PTT_SoTien.Name = "textBox_PTT_SoTien";
-            textBox_PTT_SoTien.Size = new Size(480, 34);
+            textBox_PTT_SoTien.Size = new Size(134, 34);
             textBox_PTT_SoTien.TabIndex = 50;
             textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
             // 
             // label_PTT_SoTien
             // 
             label_PTT_SoTien.Font = new Font("Segoe UI", 12F);
-            label_PTT_SoTien.Location = new Point(27, 191);
+            label_PTT_SoTien.Location = new Point(27, 99);
             label_PTT_SoTien.Margin = new Padding(3, 0, 20, 0);
             label_PTT_SoTien.Name = "label_PTT_SoTien";
-            label_PTT_SoTien.Size = new Size(135, 40);
+            label_PTT_SoTien.Size = new Size(120, 40);
             label_PTT_SoTien.TabIndex = 49;
             label_PTT_SoTien.Text = "Số tiền";
             label_PTT_SoTien.TextAlign = ContentAlignment.MiddleLeft;
@@ -660,7 +660,7 @@
             icon_PTT_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_PTT_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Loc.IconSize = 30;
-            icon_PTT_Loc.Location = new Point(485, 251);
+            icon_PTT_Loc.Location = new Point(442, 163);
             icon_PTT_Loc.Margin = new Padding(10);
             icon_PTT_Loc.Name = "icon_PTT_Loc";
             icon_PTT_Loc.Size = new Size(80, 80);
@@ -682,7 +682,7 @@
             icon_PTT_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_PTT_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Tim.IconSize = 30;
-            icon_PTT_Tim.Location = new Point(385, 251);
+            icon_PTT_Tim.Location = new Point(342, 163);
             icon_PTT_Tim.Margin = new Padding(10);
             icon_PTT_Tim.Name = "icon_PTT_Tim";
             icon_PTT_Tim.Size = new Size(80, 80);
@@ -703,7 +703,7 @@
             icon_PTT_Xoa.IconColor = Color.White;
             icon_PTT_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Xoa.IconSize = 30;
-            icon_PTT_Xoa.Location = new Point(285, 251);
+            icon_PTT_Xoa.Location = new Point(242, 163);
             icon_PTT_Xoa.Margin = new Padding(10);
             icon_PTT_Xoa.Name = "icon_PTT_Xoa";
             icon_PTT_Xoa.Size = new Size(80, 80);
@@ -724,7 +724,7 @@
             icon_PTT_Them.IconColor = Color.White;
             icon_PTT_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Them.IconSize = 30;
-            icon_PTT_Them.Location = new Point(185, 251);
+            icon_PTT_Them.Location = new Point(142, 163);
             icon_PTT_Them.Margin = new Padding(10);
             icon_PTT_Them.Name = "icon_PTT_Them";
             icon_PTT_Them.Size = new Size(80, 80);
@@ -738,19 +738,19 @@
             // 
             textBox_PTT_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PTT_MaKH.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_MaKH.Location = new Point(185, 90);
+            textBox_PTT_MaKH.Location = new Point(485, 42);
             textBox_PTT_MaKH.Name = "textBox_PTT_MaKH";
-            textBox_PTT_MaKH.Size = new Size(480, 34);
+            textBox_PTT_MaKH.Size = new Size(136, 34);
             textBox_PTT_MaKH.TabIndex = 39;
             textBox_PTT_MaKH.TextChanged += TextBox_PTT_MaKH_TextChanged;
             // 
             // label_PTT_NgayThu
             // 
             label_PTT_NgayThu.Font = new Font("Segoe UI", 12F);
-            label_PTT_NgayThu.Location = new Point(27, 137);
+            label_PTT_NgayThu.Location = new Point(370, 99);
             label_PTT_NgayThu.Margin = new Padding(3, 0, 20, 0);
             label_PTT_NgayThu.Name = "label_PTT_NgayThu";
-            label_PTT_NgayThu.Size = new Size(135, 40);
+            label_PTT_NgayThu.Size = new Size(120, 40);
             label_PTT_NgayThu.TabIndex = 38;
             label_PTT_NgayThu.Text = "Ngày thu";
             label_PTT_NgayThu.TextAlign = ContentAlignment.MiddleLeft;
@@ -758,10 +758,10 @@
             // label_PTT_MaKH
             // 
             label_PTT_MaKH.Font = new Font("Segoe UI", 12F);
-            label_PTT_MaKH.Location = new Point(27, 88);
+            label_PTT_MaKH.Location = new Point(370, 39);
             label_PTT_MaKH.Margin = new Padding(3, 0, 20, 0);
             label_PTT_MaKH.Name = "label_PTT_MaKH";
-            label_PTT_MaKH.Size = new Size(135, 40);
+            label_PTT_MaKH.Size = new Size(120, 40);
             label_PTT_MaKH.TabIndex = 37;
             label_PTT_MaKH.Text = "Mã KH";
             label_PTT_MaKH.TextAlign = ContentAlignment.MiddleLeft;
@@ -772,18 +772,18 @@
             label_PTT_MaPhieu.Location = new Point(27, 39);
             label_PTT_MaPhieu.Margin = new Padding(3, 0, 20, 0);
             label_PTT_MaPhieu.Name = "label_PTT_MaPhieu";
-            label_PTT_MaPhieu.Size = new Size(135, 40);
+            label_PTT_MaPhieu.Size = new Size(120, 40);
             label_PTT_MaPhieu.TabIndex = 36;
             label_PTT_MaPhieu.Text = "Mã phiếu";
             label_PTT_MaPhieu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBox_PTT_MaPhieu
             // 
-            textBox_PTT_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_PTT_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PTT_MaPhieu.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_MaPhieu.Location = new Point(185, 39);
+            textBox_PTT_MaPhieu.Location = new Point(149, 42);
             textBox_PTT_MaPhieu.Name = "textBox_PTT_MaPhieu";
-            textBox_PTT_MaPhieu.Size = new Size(480, 34);
+            textBox_PTT_MaPhieu.Size = new Size(136, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
             textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
             // 
