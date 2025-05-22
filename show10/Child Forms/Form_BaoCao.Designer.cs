@@ -25,8 +25,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tabControl_BaoCao = new TabControl();
             tabPage_BCTon = new TabPage();
             dataGridView_BCTon = new DataGridView();
@@ -100,14 +100,14 @@
             dataGridView_BCTon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCTon.BackgroundColor = Color.White;
             dataGridView_BCTon.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Green;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_BCTon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.Green;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView_BCTon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView_BCTon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_BCTon.Columns.AddRange(new DataGridViewColumn[] { maSachDataGridViewTextBoxColumn, tonDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn, tonCuoiDataGridViewTextBoxColumn });
             dataGridView_BCTon.DataSource = baoCaoTonBindingSource;
@@ -177,12 +177,13 @@
             // icon_BCTon_TaoMoi
             // 
             icon_BCTon_TaoMoi.Anchor = AnchorStyles.Right;
-            icon_BCTon_TaoMoi.BackColor = Color.FromArgb(255, 128, 255);
+            icon_BCTon_TaoMoi.BackColor = Color.Green;
             icon_BCTon_TaoMoi.FlatAppearance.BorderSize = 0;
             icon_BCTon_TaoMoi.FlatStyle = FlatStyle.Flat;
-            icon_BCTon_TaoMoi.Font = new Font("Segoe UI", 12F);
+            icon_BCTon_TaoMoi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_BCTon_TaoMoi.ForeColor = Color.White;
             icon_BCTon_TaoMoi.IconChar = FontAwesome.Sharp.IconChar.Refresh;
-            icon_BCTon_TaoMoi.IconColor = Color.Black;
+            icon_BCTon_TaoMoi.IconColor = Color.White;
             icon_BCTon_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCTon_TaoMoi.IconSize = 30;
             icon_BCTon_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
@@ -237,12 +238,13 @@
             // icon_BCTon_In
             // 
             icon_BCTon_In.Anchor = AnchorStyles.Right;
-            icon_BCTon_In.BackColor = Color.FromArgb(0, 192, 192);
-            icon_BCTon_In.FlatAppearance.BorderSize = 0;
+            icon_BCTon_In.BackColor = Color.White;
+            icon_BCTon_In.FlatAppearance.BorderColor = Color.Green;
             icon_BCTon_In.FlatStyle = FlatStyle.Flat;
-            icon_BCTon_In.Font = new Font("Segoe UI", 12F);
+            icon_BCTon_In.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_BCTon_In.ForeColor = Color.Green;
             icon_BCTon_In.IconChar = FontAwesome.Sharp.IconChar.Print;
-            icon_BCTon_In.IconColor = Color.Black;
+            icon_BCTon_In.IconColor = Color.Green;
             icon_BCTon_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCTon_In.IconSize = 30;
             icon_BCTon_In.ImageAlign = ContentAlignment.BottomCenter;
@@ -277,14 +279,14 @@
             dataGridView_BCNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCNo.BackgroundColor = Color.White;
             dataGridView_BCNo.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.Green;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView_BCNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Green;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_BCNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_BCNo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_BCNo.Columns.AddRange(new DataGridViewColumn[] { maKHDataGridViewTextBoxColumn, noDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn1, noCuoiDataGridViewTextBoxColumn });
             dataGridView_BCNo.DataSource = baoCaoNoBindingSource;
@@ -354,12 +356,13 @@
             // icon_BCNo_TaoMoi
             // 
             icon_BCNo_TaoMoi.Anchor = AnchorStyles.Right;
-            icon_BCNo_TaoMoi.BackColor = Color.FromArgb(255, 128, 255);
+            icon_BCNo_TaoMoi.BackColor = Color.Green;
             icon_BCNo_TaoMoi.FlatAppearance.BorderSize = 0;
             icon_BCNo_TaoMoi.FlatStyle = FlatStyle.Flat;
-            icon_BCNo_TaoMoi.Font = new Font("Segoe UI", 12F);
+            icon_BCNo_TaoMoi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_BCNo_TaoMoi.ForeColor = Color.White;
             icon_BCNo_TaoMoi.IconChar = FontAwesome.Sharp.IconChar.Refresh;
-            icon_BCNo_TaoMoi.IconColor = Color.Black;
+            icon_BCNo_TaoMoi.IconColor = Color.White;
             icon_BCNo_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCNo_TaoMoi.IconSize = 30;
             icon_BCNo_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
@@ -414,12 +417,13 @@
             // iconButton_BCNo_In
             // 
             iconButton_BCNo_In.Anchor = AnchorStyles.Right;
-            iconButton_BCNo_In.BackColor = Color.FromArgb(0, 192, 192);
-            iconButton_BCNo_In.FlatAppearance.BorderSize = 0;
+            iconButton_BCNo_In.BackColor = Color.White;
+            iconButton_BCNo_In.FlatAppearance.BorderColor = Color.Green;
             iconButton_BCNo_In.FlatStyle = FlatStyle.Flat;
-            iconButton_BCNo_In.Font = new Font("Segoe UI", 12F);
+            iconButton_BCNo_In.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconButton_BCNo_In.ForeColor = Color.Green;
             iconButton_BCNo_In.IconChar = FontAwesome.Sharp.IconChar.Print;
-            iconButton_BCNo_In.IconColor = Color.Black;
+            iconButton_BCNo_In.IconColor = Color.Green;
             iconButton_BCNo_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconButton_BCNo_In.IconSize = 30;
             iconButton_BCNo_In.ImageAlign = ContentAlignment.BottomCenter;
