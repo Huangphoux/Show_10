@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox_TaiKhoan = new GroupBox();
             icon_TK_Clear = new FontAwesome.Sharp.IconButton();
             icon_TK_Loc = new FontAwesome.Sharp.IconButton();
@@ -83,12 +83,13 @@
             // icon_TK_Clear
             // 
             icon_TK_Clear.Anchor = AnchorStyles.None;
-            icon_TK_Clear.BackColor = Color.FromArgb(255, 128, 255);
-            icon_TK_Clear.FlatAppearance.BorderSize = 0;
+            icon_TK_Clear.BackColor = Color.White;
+            icon_TK_Clear.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 255);
+            icon_TK_Clear.FlatAppearance.BorderSize = 2;
             icon_TK_Clear.FlatStyle = FlatStyle.Flat;
             icon_TK_Clear.Font = new Font("Segoe UI", 12F);
             icon_TK_Clear.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            icon_TK_Clear.IconColor = Color.Black;
+            icon_TK_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_TK_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Clear.IconSize = 30;
             icon_TK_Clear.Location = new Point(600, 259);
@@ -104,12 +105,13 @@
             // icon_TK_Loc
             // 
             icon_TK_Loc.Anchor = AnchorStyles.None;
-            icon_TK_Loc.BackColor = Color.FromArgb(255, 192, 128);
-            icon_TK_Loc.FlatAppearance.BorderSize = 0;
+            icon_TK_Loc.BackColor = Color.White;
+            icon_TK_Loc.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 128);
+            icon_TK_Loc.FlatAppearance.BorderSize = 2;
             icon_TK_Loc.FlatStyle = FlatStyle.Flat;
             icon_TK_Loc.Font = new Font("Segoe UI", 12F);
             icon_TK_Loc.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            icon_TK_Loc.IconColor = Color.Black;
+            icon_TK_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_TK_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Loc.IconSize = 30;
             icon_TK_Loc.Location = new Point(500, 259);
@@ -125,12 +127,13 @@
             // icon_TK_Tim
             // 
             icon_TK_Tim.Anchor = AnchorStyles.None;
-            icon_TK_Tim.BackColor = Color.FromArgb(128, 128, 255);
-            icon_TK_Tim.FlatAppearance.BorderSize = 0;
+            icon_TK_Tim.BackColor = Color.White;
+            icon_TK_Tim.FlatAppearance.BorderColor = Color.FromArgb(128, 128, 255);
+            icon_TK_Tim.FlatAppearance.BorderSize = 2;
             icon_TK_Tim.FlatStyle = FlatStyle.Flat;
             icon_TK_Tim.Font = new Font("Segoe UI", 12F);
             icon_TK_Tim.IconChar = FontAwesome.Sharp.IconChar.Search;
-            icon_TK_Tim.IconColor = Color.Black;
+            icon_TK_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_TK_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Tim.IconSize = 30;
             icon_TK_Tim.Location = new Point(400, 259);
@@ -146,12 +149,12 @@
             // icon_TK_Xoa
             // 
             icon_TK_Xoa.Anchor = AnchorStyles.None;
-            icon_TK_Xoa.BackColor = Color.FromArgb(255, 128, 128);
+            icon_TK_Xoa.BackColor = Color.Brown;
             icon_TK_Xoa.FlatAppearance.BorderSize = 0;
             icon_TK_Xoa.FlatStyle = FlatStyle.Flat;
             icon_TK_Xoa.Font = new Font("Segoe UI", 12F);
             icon_TK_Xoa.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            icon_TK_Xoa.IconColor = Color.Black;
+            icon_TK_Xoa.IconColor = Color.White;
             icon_TK_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Xoa.IconSize = 30;
             icon_TK_Xoa.Location = new Point(300, 259);
@@ -167,12 +170,12 @@
             // icon_TK_Them
             // 
             icon_TK_Them.Anchor = AnchorStyles.None;
-            icon_TK_Them.BackColor = Color.FromArgb(128, 255, 128);
+            icon_TK_Them.BackColor = Color.Green;
             icon_TK_Them.FlatAppearance.BorderSize = 0;
             icon_TK_Them.FlatStyle = FlatStyle.Flat;
             icon_TK_Them.Font = new Font("Segoe UI", 12F);
             icon_TK_Them.IconChar = FontAwesome.Sharp.IconChar.Add;
-            icon_TK_Them.IconColor = Color.Black;
+            icon_TK_Them.IconColor = Color.White;
             icon_TK_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Them.IconSize = 30;
             icon_TK_Them.Location = new Point(200, 259);
@@ -265,14 +268,14 @@
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_TaiKhoan.BackgroundColor = Color.White;
             dataGridView_TaiKhoan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Green;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_TaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Green;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_TaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_TenTK, dataGridViewTextBoxColumn_MatKhau, dataGridViewTextBoxColumn_HoTen, dataGridViewTextBoxColumn_VaiTro });
             dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;

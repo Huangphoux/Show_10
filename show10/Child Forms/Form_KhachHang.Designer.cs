@@ -121,12 +121,13 @@
             // icon_KH_Clear
             // 
             icon_KH_Clear.Anchor = AnchorStyles.None;
-            icon_KH_Clear.BackColor = Color.FromArgb(255, 128, 255);
-            icon_KH_Clear.FlatAppearance.BorderSize = 0;
+            icon_KH_Clear.BackColor = Color.White;
+            icon_KH_Clear.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 255);
+            icon_KH_Clear.FlatAppearance.BorderSize = 2;
             icon_KH_Clear.FlatStyle = FlatStyle.Flat;
             icon_KH_Clear.Font = new Font("Segoe UI", 12F);
             icon_KH_Clear.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            icon_KH_Clear.IconColor = Color.Black;
+            icon_KH_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_KH_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Clear.IconSize = 30;
             icon_KH_Clear.Location = new Point(585, 330);
@@ -197,12 +198,13 @@
             // icon_KH_Loc
             // 
             icon_KH_Loc.Anchor = AnchorStyles.None;
-            icon_KH_Loc.BackColor = Color.FromArgb(255, 192, 128);
-            icon_KH_Loc.FlatAppearance.BorderSize = 0;
+            icon_KH_Loc.BackColor = Color.White;
+            icon_KH_Loc.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 128);
+            icon_KH_Loc.FlatAppearance.BorderSize = 2;
             icon_KH_Loc.FlatStyle = FlatStyle.Flat;
             icon_KH_Loc.Font = new Font("Segoe UI", 12F);
             icon_KH_Loc.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            icon_KH_Loc.IconColor = Color.Black;
+            icon_KH_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_KH_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Loc.IconSize = 30;
             icon_KH_Loc.Location = new Point(485, 330);
@@ -218,12 +220,13 @@
             // icon_KH_Tim
             // 
             icon_KH_Tim.Anchor = AnchorStyles.None;
-            icon_KH_Tim.BackColor = Color.FromArgb(128, 128, 255);
-            icon_KH_Tim.FlatAppearance.BorderSize = 0;
+            icon_KH_Tim.BackColor = Color.White;
+            icon_KH_Tim.FlatAppearance.BorderColor = Color.FromArgb(128, 128, 255);
+            icon_KH_Tim.FlatAppearance.BorderSize = 2;
             icon_KH_Tim.FlatStyle = FlatStyle.Flat;
             icon_KH_Tim.Font = new Font("Segoe UI", 12F);
             icon_KH_Tim.IconChar = FontAwesome.Sharp.IconChar.Search;
-            icon_KH_Tim.IconColor = Color.Black;
+            icon_KH_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_KH_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Tim.IconSize = 30;
             icon_KH_Tim.Location = new Point(385, 330);
@@ -239,12 +242,12 @@
             // icon_KH_Xoa
             // 
             icon_KH_Xoa.Anchor = AnchorStyles.None;
-            icon_KH_Xoa.BackColor = Color.FromArgb(255, 128, 128);
+            icon_KH_Xoa.BackColor = Color.Brown;
             icon_KH_Xoa.FlatAppearance.BorderSize = 0;
             icon_KH_Xoa.FlatStyle = FlatStyle.Flat;
             icon_KH_Xoa.Font = new Font("Segoe UI", 12F);
             icon_KH_Xoa.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            icon_KH_Xoa.IconColor = Color.Black;
+            icon_KH_Xoa.IconColor = Color.White;
             icon_KH_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Xoa.IconSize = 30;
             icon_KH_Xoa.Location = new Point(285, 330);
@@ -260,12 +263,12 @@
             // icon_KH_Them
             // 
             icon_KH_Them.Anchor = AnchorStyles.None;
-            icon_KH_Them.BackColor = Color.FromArgb(128, 255, 128);
+            icon_KH_Them.BackColor = Color.Green;
             icon_KH_Them.FlatAppearance.BorderSize = 0;
             icon_KH_Them.FlatStyle = FlatStyle.Flat;
             icon_KH_Them.Font = new Font("Segoe UI", 12F);
             icon_KH_Them.IconChar = FontAwesome.Sharp.IconChar.Add;
-            icon_KH_Them.IconColor = Color.Black;
+            icon_KH_Them.IconColor = Color.White;
             icon_KH_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Them.IconSize = 30;
             icon_KH_Them.Location = new Point(185, 330);
@@ -603,12 +606,13 @@
             // icon_PTT_Clear
             // 
             icon_PTT_Clear.Anchor = AnchorStyles.None;
-            icon_PTT_Clear.BackColor = Color.FromArgb(255, 128, 255);
-            icon_PTT_Clear.FlatAppearance.BorderSize = 0;
+            icon_PTT_Clear.BackColor = Color.White;
+            icon_PTT_Clear.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 255);
+            icon_PTT_Clear.FlatAppearance.BorderSize = 2;
             icon_PTT_Clear.FlatStyle = FlatStyle.Flat;
             icon_PTT_Clear.Font = new Font("Segoe UI", 12F);
             icon_PTT_Clear.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            icon_PTT_Clear.IconColor = Color.Black;
+            icon_PTT_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_PTT_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Clear.IconSize = 30;
             icon_PTT_Clear.Location = new Point(585, 251);
@@ -645,12 +649,13 @@
             // icon_PTT_Loc
             // 
             icon_PTT_Loc.Anchor = AnchorStyles.None;
-            icon_PTT_Loc.BackColor = Color.FromArgb(255, 192, 128);
-            icon_PTT_Loc.FlatAppearance.BorderSize = 0;
+            icon_PTT_Loc.BackColor = Color.White;
+            icon_PTT_Loc.FlatAppearance.BorderColor = Color.FromArgb(255, 192, 128);
+            icon_PTT_Loc.FlatAppearance.BorderSize = 2;
             icon_PTT_Loc.FlatStyle = FlatStyle.Flat;
             icon_PTT_Loc.Font = new Font("Segoe UI", 12F);
             icon_PTT_Loc.IconChar = FontAwesome.Sharp.IconChar.Filter;
-            icon_PTT_Loc.IconColor = Color.Black;
+            icon_PTT_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_PTT_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Loc.IconSize = 30;
             icon_PTT_Loc.Location = new Point(485, 251);
@@ -666,12 +671,13 @@
             // icon_PTT_Tim
             // 
             icon_PTT_Tim.Anchor = AnchorStyles.None;
-            icon_PTT_Tim.BackColor = Color.FromArgb(128, 128, 255);
-            icon_PTT_Tim.FlatAppearance.BorderSize = 0;
+            icon_PTT_Tim.BackColor = Color.White;
+            icon_PTT_Tim.FlatAppearance.BorderColor = Color.FromArgb(128, 128, 255);
+            icon_PTT_Tim.FlatAppearance.BorderSize = 2;
             icon_PTT_Tim.FlatStyle = FlatStyle.Flat;
             icon_PTT_Tim.Font = new Font("Segoe UI", 12F);
             icon_PTT_Tim.IconChar = FontAwesome.Sharp.IconChar.Search;
-            icon_PTT_Tim.IconColor = Color.Black;
+            icon_PTT_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_PTT_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Tim.IconSize = 30;
             icon_PTT_Tim.Location = new Point(385, 251);
@@ -687,12 +693,12 @@
             // icon_PTT_Xoa
             // 
             icon_PTT_Xoa.Anchor = AnchorStyles.None;
-            icon_PTT_Xoa.BackColor = Color.FromArgb(255, 128, 128);
+            icon_PTT_Xoa.BackColor = Color.Brown;
             icon_PTT_Xoa.FlatAppearance.BorderSize = 0;
             icon_PTT_Xoa.FlatStyle = FlatStyle.Flat;
             icon_PTT_Xoa.Font = new Font("Segoe UI", 12F);
             icon_PTT_Xoa.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            icon_PTT_Xoa.IconColor = Color.Black;
+            icon_PTT_Xoa.IconColor = Color.White;
             icon_PTT_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Xoa.IconSize = 30;
             icon_PTT_Xoa.Location = new Point(285, 251);
@@ -708,12 +714,12 @@
             // icon_PTT_Them
             // 
             icon_PTT_Them.Anchor = AnchorStyles.None;
-            icon_PTT_Them.BackColor = Color.FromArgb(128, 255, 128);
+            icon_PTT_Them.BackColor = Color.Green;
             icon_PTT_Them.FlatAppearance.BorderSize = 0;
             icon_PTT_Them.FlatStyle = FlatStyle.Flat;
             icon_PTT_Them.Font = new Font("Segoe UI", 12F);
             icon_PTT_Them.IconChar = FontAwesome.Sharp.IconChar.Add;
-            icon_PTT_Them.IconColor = Color.Black;
+            icon_PTT_Them.IconColor = Color.White;
             icon_PTT_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Them.IconSize = 30;
             icon_PTT_Them.Location = new Point(185, 251);
