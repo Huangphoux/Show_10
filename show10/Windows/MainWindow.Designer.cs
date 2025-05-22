@@ -294,10 +294,13 @@
             // checkBox_enableTab
             // 
             checkBox_enableTab.Appearance = Appearance.Button;
+            checkBox_enableTab.Dock = DockStyle.Bottom;
+            checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
             checkBox_enableTab.FlatStyle = FlatStyle.Flat;
-            checkBox_enableTab.Location = new Point(107, 689);
+            checkBox_enableTab.ForeColor = Color.White;
+            checkBox_enableTab.Location = new Point(0, 482);
             checkBox_enableTab.Name = "checkBox_enableTab";
-            checkBox_enableTab.Size = new Size(424, 83);
+            checkBox_enableTab.Size = new Size(591, 371);
             checkBox_enableTab.TabIndex = 10;
             checkBox_enableTab.Text = "Bật các tab";
             checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
