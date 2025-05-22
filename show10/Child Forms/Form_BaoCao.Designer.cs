@@ -22,8 +22,11 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tabControl_BaoCao = new TabControl();
             tabPage_BCTon = new TabPage();
             dataGridView_BCTon = new DataGridView();
@@ -96,10 +99,21 @@
             dataGridView_BCTon.AutoGenerateColumns = false;
             dataGridView_BCTon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCTon.BackgroundColor = Color.White;
+            dataGridView_BCTon.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Green;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_BCTon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_BCTon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_BCTon.Columns.AddRange(new DataGridViewColumn[] { maSachDataGridViewTextBoxColumn, tonDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn, tonCuoiDataGridViewTextBoxColumn });
             dataGridView_BCTon.DataSource = baoCaoTonBindingSource;
             dataGridView_BCTon.Dock = DockStyle.Fill;
+            dataGridView_BCTon.EnableHeadersVisualStyles = false;
+            dataGridView_BCTon.GridColor = SystemColors.ScrollBar;
             dataGridView_BCTon.Location = new Point(3, 231);
             dataGridView_BCTon.Name = "dataGridView_BCTon";
             dataGridView_BCTon.ReadOnly = true;
@@ -262,10 +276,21 @@
             dataGridView_BCNo.AutoGenerateColumns = false;
             dataGridView_BCNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCNo.BackgroundColor = Color.White;
+            dataGridView_BCNo.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Green;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_BCNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_BCNo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_BCNo.Columns.AddRange(new DataGridViewColumn[] { maKHDataGridViewTextBoxColumn, noDauDataGridViewTextBoxColumn, phatSinhDataGridViewTextBoxColumn1, noCuoiDataGridViewTextBoxColumn });
             dataGridView_BCNo.DataSource = baoCaoNoBindingSource;
             dataGridView_BCNo.Dock = DockStyle.Fill;
+            dataGridView_BCNo.EnableHeadersVisualStyles = false;
+            dataGridView_BCNo.GridColor = SystemColors.ScrollBar;
             dataGridView_BCNo.Location = new Point(3, 231);
             dataGridView_BCNo.Name = "dataGridView_BCNo";
             dataGridView_BCNo.ReadOnly = true;

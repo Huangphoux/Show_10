@@ -26,8 +26,10 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox_TaiKhoan = new GroupBox();
             icon_TK_Clear = new FontAwesome.Sharp.IconButton();
             icon_TK_Loc = new FontAwesome.Sharp.IconButton();
@@ -54,6 +56,7 @@
             // 
             // groupBox_TaiKhoan
             // 
+            groupBox_TaiKhoan.BackColor = Color.White;
             groupBox_TaiKhoan.Controls.Add(icon_TK_Clear);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Loc);
             groupBox_TaiKhoan.Controls.Add(icon_TK_Tim);
@@ -67,6 +70,7 @@
             groupBox_TaiKhoan.Controls.Add(label_TK_TenTK);
             groupBox_TaiKhoan.Controls.Add(textBox_TK_TenTK);
             groupBox_TaiKhoan.Dock = DockStyle.Top;
+            groupBox_TaiKhoan.FlatStyle = FlatStyle.Flat;
             groupBox_TaiKhoan.Location = new Point(0, 0);
             groupBox_TaiKhoan.Margin = new Padding(0);
             groupBox_TaiKhoan.Name = "groupBox_TaiKhoan";
@@ -260,10 +264,20 @@
             dataGridView_TaiKhoan.AutoGenerateColumns = false;
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_TaiKhoan.BackgroundColor = Color.White;
+            dataGridView_TaiKhoan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Green;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_TaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_TenTK, dataGridViewTextBoxColumn_MatKhau, dataGridViewTextBoxColumn_HoTen, dataGridViewTextBoxColumn_VaiTro });
             dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
             dataGridView_TaiKhoan.Dock = DockStyle.Fill;
+            dataGridView_TaiKhoan.EnableHeadersVisualStyles = false;
             dataGridView_TaiKhoan.GridColor = SystemColors.ScrollBar;
             dataGridView_TaiKhoan.Location = new Point(0, 355);
             dataGridView_TaiKhoan.Name = "dataGridView_TaiKhoan";

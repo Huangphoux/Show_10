@@ -390,6 +390,7 @@
             // 
             // label_Clock
             // 
+            label_Clock.BackColor = Color.White;
             label_Clock.Dock = DockStyle.Fill;
             label_Clock.Location = new Point(0, 259);
             label_Clock.Name = "label_Clock";
@@ -400,8 +401,10 @@
             // 
             // label_Welcome
             // 
+            label_Welcome.BackColor = Color.Green;
             label_Welcome.Dock = DockStyle.Top;
             label_Welcome.Font = new Font("Segoe UI Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Welcome.ForeColor = Color.White;
             label_Welcome.Location = new Point(0, 0);
             label_Welcome.Name = "label_Welcome";
             label_Welcome.Size = new Size(1302, 259);
@@ -470,8 +473,8 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1582, 853);
-            Controls.Add(panel_DangNhap);
             Controls.Add(panel_Welcome);
+            Controls.Add(panel_DangNhap);
             Controls.Add(panel_ChildForm);
             Controls.Add(panel_Menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);

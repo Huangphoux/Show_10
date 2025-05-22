@@ -22,8 +22,12 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupBox_Sach = new GroupBox();
             icon_Sach_Clear = new FontAwesome.Sharp.IconButton();
             icon_Sach_Ban = new FontAwesome.Sharp.IconButton();
@@ -417,10 +421,20 @@
             dataGridView_Sach.AutoGenerateColumns = false;
             dataGridView_Sach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_Sach.BackgroundColor = Color.White;
+            dataGridView_Sach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Green;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Sach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Sach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_MaSach, dataGridViewTextBoxColumn_TenSach, dataGridViewTextBoxColumn_TacGia, dataGridViewTextBoxColumn_SoLuong, dataGridViewTextBoxColumn_TheLoai });
             dataGridView_Sach.DataSource = sachBindingSource;
             dataGridView_Sach.Dock = DockStyle.Fill;
+            dataGridView_Sach.EnableHeadersVisualStyles = false;
             dataGridView_Sach.GridColor = SystemColors.ScrollBar;
             dataGridView_Sach.Location = new Point(4, 402);
             dataGridView_Sach.Margin = new Padding(4);
@@ -500,11 +514,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 37);
+            tabPage_PhieuNhapSach.Location = new Point(4, 29);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(774, 512);
+            tabPage_PhieuNhapSach.Size = new Size(774, 520);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -516,10 +530,20 @@
             dataGridView_PhieuNhapSach.AutoGenerateColumns = false;
             dataGridView_PhieuNhapSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_PhieuNhapSach.BackgroundColor = Color.White;
+            dataGridView_PhieuNhapSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Green;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_PhieuNhapSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_PhieuNhapSach.Columns.AddRange(new DataGridViewColumn[] { maPNDataGridViewTextBoxColumn, maSachDataGridViewTextBoxColumn, soLuongDataGridViewTextBoxColumn, giaNhapDataGridViewTextBoxColumn, ngayNhapDataGridViewTextBoxColumn });
             dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
             dataGridView_PhieuNhapSach.Dock = DockStyle.Fill;
+            dataGridView_PhieuNhapSach.EnableHeadersVisualStyles = false;
             dataGridView_PhieuNhapSach.GridColor = SystemColors.ScrollBar;
             dataGridView_PhieuNhapSach.Location = new Point(4, 402);
             dataGridView_PhieuNhapSach.Margin = new Padding(4);
@@ -528,7 +552,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(766, 106);
+            dataGridView_PhieuNhapSach.Size = new Size(766, 114);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
@@ -833,10 +857,20 @@
             dataGridView_HoaDonBanSach.AutoGenerateColumns = false;
             dataGridView_HoaDonBanSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
+            dataGridView_HoaDonBanSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Green;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_HoaDonBanSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, NgayHD });
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
             dataGridView_HoaDonBanSach.Dock = DockStyle.Fill;
+            dataGridView_HoaDonBanSach.EnableHeadersVisualStyles = false;
             dataGridView_HoaDonBanSach.GridColor = SystemColors.ScrollBar;
             dataGridView_HoaDonBanSach.Location = new Point(4, 417);
             dataGridView_HoaDonBanSach.Margin = new Padding(4);
