@@ -45,8 +45,10 @@
             // 
             // label_Settings
             // 
+            label_Settings.BackColor = Color.Green;
             label_Settings.Dock = DockStyle.Top;
             label_Settings.Font = new Font("Segoe UI Black", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Settings.ForeColor = Color.White;
             label_Settings.Location = new Point(0, 0);
             label_Settings.Margin = new Padding(4, 0, 4, 0);
             label_Settings.Name = "label_Settings";
@@ -59,7 +61,7 @@
             // 
             textBox_minNhap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_minNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_minNhap.Location = new Point(442, 77);
+            textBox_minNhap.Location = new Point(442, 86);
             textBox_minNhap.Margin = new Padding(4);
             textBox_minNhap.Name = "textBox_minNhap";
             textBox_minNhap.Size = new Size(312, 34);
@@ -68,7 +70,7 @@
             // label_minNhap
             // 
             label_minNhap.AutoSize = true;
-            label_minNhap.Location = new Point(21, 80);
+            label_minNhap.Location = new Point(21, 89);
             label_minNhap.Margin = new Padding(4, 0, 4, 0);
             label_minNhap.Name = "label_minNhap";
             label_minNhap.Size = new Size(267, 28);
@@ -78,7 +80,7 @@
             // label_maxNo
             // 
             label_maxNo.AutoSize = true;
-            label_maxNo.Location = new Point(21, 136);
+            label_maxNo.Location = new Point(21, 145);
             label_maxNo.Margin = new Padding(4, 0, 4, 0);
             label_maxNo.Name = "label_maxNo";
             label_maxNo.Size = new Size(132, 28);
@@ -89,7 +91,7 @@
             // 
             textBox_maxNo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_maxNo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_maxNo.Location = new Point(442, 133);
+            textBox_maxNo.Location = new Point(442, 142);
             textBox_maxNo.Margin = new Padding(4);
             textBox_maxNo.Name = "textBox_maxNo";
             textBox_maxNo.Size = new Size(312, 34);
@@ -98,7 +100,7 @@
             // label_maxSLSach
             // 
             label_maxSLSach.AutoSize = true;
-            label_maxSLSach.Location = new Point(21, 192);
+            label_maxSLSach.Location = new Point(21, 201);
             label_maxSLSach.Margin = new Padding(4, 0, 4, 0);
             label_maxSLSach.Name = "label_maxSLSach";
             label_maxSLSach.Size = new Size(396, 28);
@@ -109,7 +111,7 @@
             // 
             textBox_maxSLSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_maxSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_maxSLSach.Location = new Point(442, 189);
+            textBox_maxSLSach.Location = new Point(442, 198);
             textBox_maxSLSach.Margin = new Padding(4);
             textBox_maxSLSach.Name = "textBox_maxSLSach";
             textBox_maxSLSach.Size = new Size(312, 34);
@@ -118,7 +120,7 @@
             // label_minSLSach
             // 
             label_minSLSach.AutoSize = true;
-            label_minSLSach.Location = new Point(21, 248);
+            label_minSLSach.Location = new Point(21, 257);
             label_minSLSach.Margin = new Padding(4, 0, 4, 0);
             label_minSLSach.Name = "label_minSLSach";
             label_minSLSach.Size = new Size(346, 28);
@@ -129,7 +131,7 @@
             // 
             textBox_minSLSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_minSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox_minSLSach.Location = new Point(442, 245);
+            textBox_minSLSach.Location = new Point(442, 254);
             textBox_minSLSach.Margin = new Padding(4);
             textBox_minSLSach.Name = "textBox_minSLSach";
             textBox_minSLSach.Size = new Size(312, 34);
@@ -138,7 +140,7 @@
             // label_thuTienVuotNo
             // 
             label_thuTienVuotNo.AutoSize = true;
-            label_thuTienVuotNo.Location = new Point(21, 304);
+            label_thuTienVuotNo.Location = new Point(21, 313);
             label_thuTienVuotNo.Margin = new Padding(4, 0, 4, 0);
             label_thuTienVuotNo.Name = "label_thuTienVuotNo";
             label_thuTienVuotNo.Size = new Size(340, 28);
@@ -148,7 +150,7 @@
             // checkBox_thuTienVuotNo
             // 
             checkBox_thuTienVuotNo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            checkBox_thuTienVuotNo.Location = new Point(442, 304);
+            checkBox_thuTienVuotNo.Location = new Point(442, 313);
             checkBox_thuTienVuotNo.Margin = new Padding(4);
             checkBox_thuTienVuotNo.Name = "checkBox_thuTienVuotNo";
             checkBox_thuTienVuotNo.Size = new Size(312, 37);
@@ -158,14 +160,16 @@
             // icon_Luu
             // 
             icon_Luu.Anchor = AnchorStyles.Top;
-            icon_Luu.BackColor = Color.FromArgb(192, 255, 192);
+            icon_Luu.BackColor = Color.Green;
             icon_Luu.FlatAppearance.BorderSize = 0;
             icon_Luu.FlatStyle = FlatStyle.Flat;
+            icon_Luu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_Luu.ForeColor = Color.White;
             icon_Luu.IconChar = FontAwesome.Sharp.IconChar.Save;
-            icon_Luu.IconColor = Color.Black;
+            icon_Luu.IconColor = Color.White;
             icon_Luu.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Luu.ImageAlign = ContentAlignment.MiddleRight;
-            icon_Luu.Location = new Point(486, 376);
+            icon_Luu.Location = new Point(442, 394);
             icon_Luu.Name = "icon_Luu";
             icon_Luu.Size = new Size(222, 80);
             icon_Luu.TabIndex = 13;
@@ -177,14 +181,15 @@
             // icon_Reset
             // 
             icon_Reset.Anchor = AnchorStyles.Top;
-            icon_Reset.BackColor = Color.FromArgb(192, 192, 255);
-            icon_Reset.FlatAppearance.BorderSize = 0;
+            icon_Reset.BackColor = Color.White;
+            icon_Reset.FlatAppearance.BorderColor = Color.Green;
             icon_Reset.FlatStyle = FlatStyle.Flat;
+            icon_Reset.ForeColor = Color.Green;
             icon_Reset.IconChar = FontAwesome.Sharp.IconChar.RotateBack;
-            icon_Reset.IconColor = Color.Black;
+            icon_Reset.IconColor = Color.Green;
             icon_Reset.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Reset.ImageAlign = ContentAlignment.MiddleRight;
-            icon_Reset.Location = new Point(66, 376);
+            icon_Reset.Location = new Point(108, 394);
             icon_Reset.Name = "icon_Reset";
             icon_Reset.Size = new Size(222, 80);
             icon_Reset.TabIndex = 14;
@@ -197,6 +202,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(782, 553);
             Controls.Add(icon_Reset);
             Controls.Add(icon_Luu);
