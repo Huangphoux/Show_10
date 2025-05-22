@@ -15,19 +15,15 @@ namespace Show10.Windows
         public Form_Settings()
         {
             InitializeComponent();
-            textBox_minNhap.Text = Properties.Settings.Default.minNhap;
-            textBox_maxSLSach.Text = Properties.Settings.Default.maxSLSach;
-            textBox_maxNo.Text = Properties.Settings.Default.maxNo;
-            textBox_minSLSach.Text = Properties.Settings.Default.minSLSach;
-            checkBox_thuTienVuotNo.Checked = Properties.Settings.Default.thuTienVuotNo;
+            setTextbox();
         }
 
         private void Icon_Luu_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.minNhap = textBox_minNhap.Text;
-            Properties.Settings.Default.maxSLSach = textBox_maxSLSach.Text;
-            Properties.Settings.Default.maxNo = textBox_maxNo.Text;
-            Properties.Settings.Default.minSLSach = textBox_minSLSach.Text;
+            Properties.Settings.Default.minNhap = int.Parse(textBox_minNhap.Text);
+            Properties.Settings.Default.maxSLSach = int.Parse(textBox_maxSLSach.Text);
+            Properties.Settings.Default.maxNo = double.Parse(textBox_maxNo.Text);
+            Properties.Settings.Default.minSLSach = int.Parse(textBox_minSLSach.Text);
             Properties.Settings.Default.thuTienVuotNo = checkBox_thuTienVuotNo.Checked;
             Properties.Settings.Default.Save();
             MessageBox.Show("Lưu thành công !", "Lưu thành công !", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -35,5 +31,24 @@ namespace Show10.Windows
             Close();
         }
 
+        private void icon_Reset_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.minNhap = 150;
+            Properties.Settings.Default.maxSLSach = 300;
+            Properties.Settings.Default.maxNo = 1000000;
+            Properties.Settings.Default.minSLSach = 20;
+            Properties.Settings.Default.thuTienVuotNo = false;
+            Properties.Settings.Default.Save();
+            setTextbox();
+        }
+
+        private void setTextbox()
+        {
+            textBox_minNhap.Text = Properties.Settings.Default.minNhap.ToString();
+            textBox_maxSLSach.Text = Properties.Settings.Default.maxSLSach.ToString();
+            textBox_maxNo.Text = Properties.Settings.Default.maxNo.ToString();
+            textBox_minSLSach.Text = Properties.Settings.Default.minSLSach.ToString();
+            checkBox_thuTienVuotNo.Checked = Properties.Settings.Default.thuTienVuotNo;
+        }
     }
 }

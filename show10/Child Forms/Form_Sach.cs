@@ -342,7 +342,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            int minNhap = int.Parse(Properties.Settings.Default.minNhap);
+            int minNhap = Properties.Settings.Default.minNhap;
             if (phieu.SoLuong < minNhap) {
                 MessageBox.Show(
                     $"Số lượng nhập yêu cầu ít nhất {minNhap} quyển.",
@@ -351,7 +351,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            int maxSLSach = int.Parse(Properties.Settings.Default.maxSLSach);
+            int maxSLSach = Properties.Settings.Default.maxSLSach;
             if (db!.Sachs.First(tk => tk.MaSach == phieu.MaSach).SoLuong > maxSLSach) {
                 MessageBox.Show(
                     $"Không được nhập các sách có số lượng tồn khô trên {maxSLSach} quyển.",
@@ -582,7 +582,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            int maxNo = int.Parse(Properties.Settings.Default.maxNo);
+            double maxNo = Properties.Settings.Default.maxNo;
             var khachHang = db.KhachHangs.First(p => p.MaKH == hoaDon.MaKH);
             if (khachHang.TienNo > maxNo) {
                 MessageBox.Show(
@@ -593,7 +593,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            int minSLSach = int.Parse(Properties.Settings.Default.minSLSach);
+            int minSLSach = Properties.Settings.Default.minSLSach;
             var sach = db!.Sachs.First(s => s.MaSach == hoaDon.MaSach);
             if (sach.SoLuong - hoaDon.SoLuong < minSLSach) {
                 MessageBox.Show(

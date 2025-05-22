@@ -26,9 +26,9 @@ namespace Show10.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("150")]
-        public string minNhap {
+        public int minNhap {
             get {
-                return ((string)(this["minNhap"]));
+                return ((int)(this["minNhap"]));
             }
             set {
                 this["minNhap"] = value;
@@ -38,9 +38,9 @@ namespace Show10.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("300")]
-        public string maxSLSach {
+        public int maxSLSach {
             get {
-                return ((string)(this["maxSLSach"]));
+                return ((int)(this["maxSLSach"]));
             }
             set {
                 this["maxSLSach"] = value;
@@ -50,9 +50,9 @@ namespace Show10.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000000")]
-        public string maxNo {
+        public double maxNo {
             get {
-                return ((string)(this["maxNo"]));
+                return ((double)(this["maxNo"]));
             }
             set {
                 this["maxNo"] = value;
@@ -62,25 +62,23 @@ namespace Show10.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("20")]
-        public string minSLSach {
+        public int minSLSach {
             get {
-                return ((string)(this["minSLSach"]));
+                return ((int)(this["minSLSach"]));
             }
             set {
                 this["minSLSach"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("false")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool thuTienVuotNo {
-            get
-            {
+            get {
                 return ((bool)(this["thuTienVuotNo"]));
             }
-            set
-            {
+            set {
                 this["thuTienVuotNo"] = value;
             }
         }

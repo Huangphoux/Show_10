@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             label_Settings = new Label();
             textBox_minNhap = new TextBox();
             label_minNhap = new Label();
@@ -39,6 +40,7 @@
             label_thuTienVuotNo = new Label();
             checkBox_thuTienVuotNo = new CheckBox();
             icon_Luu = new FontAwesome.Sharp.IconButton();
+            icon_Reset = new FontAwesome.Sharp.IconButton();
             SuspendLayout();
             // 
             // label_Settings
@@ -58,7 +60,7 @@
             textBox_minNhap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_minNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_minNhap.Location = new Point(442, 77);
-            textBox_minNhap.Margin = new Padding(4, 4, 4, 4);
+            textBox_minNhap.Margin = new Padding(4);
             textBox_minNhap.Name = "textBox_minNhap";
             textBox_minNhap.Size = new Size(312, 34);
             textBox_minNhap.TabIndex = 1;
@@ -88,7 +90,7 @@
             textBox_maxNo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_maxNo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_maxNo.Location = new Point(442, 133);
-            textBox_maxNo.Margin = new Padding(4, 4, 4, 4);
+            textBox_maxNo.Margin = new Padding(4);
             textBox_maxNo.Name = "textBox_maxNo";
             textBox_maxNo.Size = new Size(312, 34);
             textBox_maxNo.TabIndex = 3;
@@ -108,7 +110,7 @@
             textBox_maxSLSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_maxSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_maxSLSach.Location = new Point(442, 189);
-            textBox_maxSLSach.Margin = new Padding(4, 4, 4, 4);
+            textBox_maxSLSach.Margin = new Padding(4);
             textBox_maxSLSach.Name = "textBox_maxSLSach";
             textBox_maxSLSach.Size = new Size(312, 34);
             textBox_maxSLSach.TabIndex = 5;
@@ -128,7 +130,7 @@
             textBox_minSLSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_minSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_minSLSach.Location = new Point(442, 245);
-            textBox_minSLSach.Margin = new Padding(4, 4, 4, 4);
+            textBox_minSLSach.Margin = new Padding(4);
             textBox_minSLSach.Name = "textBox_minSLSach";
             textBox_minSLSach.Size = new Size(312, 34);
             textBox_minSLSach.TabIndex = 7;
@@ -156,14 +158,14 @@
             // icon_Luu
             // 
             icon_Luu.Anchor = AnchorStyles.Top;
-            icon_Luu.BackColor = Color.FromArgb(128, 255, 128);
+            icon_Luu.BackColor = Color.FromArgb(192, 255, 192);
             icon_Luu.FlatAppearance.BorderSize = 0;
             icon_Luu.FlatStyle = FlatStyle.Flat;
             icon_Luu.IconChar = FontAwesome.Sharp.IconChar.Save;
             icon_Luu.IconColor = Color.Black;
             icon_Luu.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Luu.ImageAlign = ContentAlignment.MiddleRight;
-            icon_Luu.Location = new Point(273, 374);
+            icon_Luu.Location = new Point(486, 376);
             icon_Luu.Name = "icon_Luu";
             icon_Luu.Size = new Size(222, 80);
             icon_Luu.TabIndex = 13;
@@ -172,11 +174,31 @@
             icon_Luu.UseVisualStyleBackColor = false;
             icon_Luu.Click += Icon_Luu_Click;
             // 
+            // icon_Reset
+            // 
+            icon_Reset.Anchor = AnchorStyles.Top;
+            icon_Reset.BackColor = Color.FromArgb(192, 192, 255);
+            icon_Reset.FlatAppearance.BorderSize = 0;
+            icon_Reset.FlatStyle = FlatStyle.Flat;
+            icon_Reset.IconChar = FontAwesome.Sharp.IconChar.RotateBack;
+            icon_Reset.IconColor = Color.Black;
+            icon_Reset.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_Reset.ImageAlign = ContentAlignment.MiddleRight;
+            icon_Reset.Location = new Point(66, 376);
+            icon_Reset.Name = "icon_Reset";
+            icon_Reset.Size = new Size(222, 80);
+            icon_Reset.TabIndex = 14;
+            icon_Reset.Text = "Đặt lại";
+            icon_Reset.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_Reset.UseVisualStyleBackColor = false;
+            icon_Reset.Click += icon_Reset_Click;
+            // 
             // Form_Settings
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 553);
+            Controls.Add(icon_Reset);
             Controls.Add(icon_Luu);
             Controls.Add(checkBox_thuTienVuotNo);
             Controls.Add(label_thuTienVuotNo);
@@ -190,7 +212,7 @@
             Controls.Add(textBox_minNhap);
             Controls.Add(label_Settings);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form_Settings";
             Text = "Settings";
             ResumeLayout(false);
@@ -211,5 +233,6 @@
         private Label label_thuTienVuotNo;
         private CheckBox checkBox_thuTienVuotNo;
         private FontAwesome.Sharp.IconButton icon_Luu;
+        private FontAwesome.Sharp.IconButton icon_Reset;
     }
 }
