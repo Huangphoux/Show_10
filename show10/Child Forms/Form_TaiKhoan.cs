@@ -210,6 +210,9 @@ namespace Show10.Child_Forms {
         private void DataGridView_TaiKhoan_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
+            if (dataGridView_TaiKhoan.CurrentRow == null || dataGridView_TaiKhoan.CurrentRow.DataBoundItem == null)
+                return;
+
             if (dataGridView_TaiKhoan.CurrentRow?.DataBoundItem is TaiKhoan taiKhoan) {
                 SetTaiKhoan(taiKhoan);
             }

@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -427,6 +426,7 @@
             dataGridView_Sach.AutoGenerateColumns = false;
             dataGridView_Sach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_Sach.BackgroundColor = Color.White;
+            dataGridView_Sach.BorderStyle = BorderStyle.None;
             dataGridView_Sach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.Green;
@@ -441,7 +441,7 @@
             dataGridView_Sach.DataSource = sachBindingSource;
             dataGridView_Sach.Dock = DockStyle.Fill;
             dataGridView_Sach.EnableHeadersVisualStyles = false;
-            dataGridView_Sach.GridColor = SystemColors.ScrollBar;
+            dataGridView_Sach.GridColor = Color.Black;
             dataGridView_Sach.Location = new Point(4, 350);
             dataGridView_Sach.Margin = new Padding(4);
             dataGridView_Sach.Name = "dataGridView_Sach";
@@ -536,6 +536,7 @@
             dataGridView_PhieuNhapSach.AutoGenerateColumns = false;
             dataGridView_PhieuNhapSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_PhieuNhapSach.BackgroundColor = Color.White;
+            dataGridView_PhieuNhapSach.BorderStyle = BorderStyle.None;
             dataGridView_PhieuNhapSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.Green;
@@ -550,7 +551,7 @@
             dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
             dataGridView_PhieuNhapSach.Dock = DockStyle.Fill;
             dataGridView_PhieuNhapSach.EnableHeadersVisualStyles = false;
-            dataGridView_PhieuNhapSach.GridColor = SystemColors.ScrollBar;
+            dataGridView_PhieuNhapSach.GridColor = Color.Black;
             dataGridView_PhieuNhapSach.Location = new Point(4, 317);
             dataGridView_PhieuNhapSach.Margin = new Padding(4);
             dataGridView_PhieuNhapSach.Name = "dataGridView_PhieuNhapSach";
@@ -866,6 +867,7 @@
             dataGridView_HoaDonBanSach.AutoGenerateColumns = false;
             dataGridView_HoaDonBanSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
+            dataGridView_HoaDonBanSach.BorderStyle = BorderStyle.None;
             dataGridView_HoaDonBanSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.Green;
@@ -880,7 +882,7 @@
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
             dataGridView_HoaDonBanSach.Dock = DockStyle.Fill;
             dataGridView_HoaDonBanSach.EnableHeadersVisualStyles = false;
-            dataGridView_HoaDonBanSach.GridColor = SystemColors.ScrollBar;
+            dataGridView_HoaDonBanSach.GridColor = Color.Black;
             dataGridView_HoaDonBanSach.Location = new Point(4, 317);
             dataGridView_HoaDonBanSach.Margin = new Padding(4);
             dataGridView_HoaDonBanSach.Name = "dataGridView_HoaDonBanSach";

@@ -18,19 +18,17 @@ namespace show10 {
         private ToolTip toolTipCaiDat = new ToolTip();
         private bool toolTipShown = false;
 
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
             DoubleBuffered = true;
 
-            leftBorderBtn = new Panel
-            {
+            leftBorderBtn = new Panel {
                 Size = new Size(10, 80)
             };
 
             panel_Menu.Controls.Add(leftBorderBtn);
 
-            icon_Tab = [icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao, icon_CaiDat];
+            icon_Tab = new List<Button> { icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao, icon_CaiDat };
 
             icon_Tab.ForEach(tab => tab.Enabled = false);
             panel_Welcome.Visible = false;
@@ -38,12 +36,6 @@ namespace show10 {
             icon_Brand.IconSize = 100;
 
             panel_DangNhap.BringToFront();
-
-            // t thêm tooltip cho icon settings (Hịp :>)
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(icon_CaiDat, "Chỉ admin mới có quyền cài đặt !");
-            icon_CaiDat.Parent.MouseMove += Icon_CaiDat_Parent_MouseMove;
-            icon_CaiDat.Parent.MouseLeave += Icon_CaiDat_Parent_MouseLeave;
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -102,7 +94,6 @@ namespace show10 {
             {
                 DisableButton();
 
-
                 //Button
                 currentBtn = (IconButton)senderBtn;
 
@@ -130,11 +121,7 @@ namespace show10 {
 
         private void OpenChildForm(Form childForm)
         {
-            //open only form
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
+            currentChildForm?.Close();
 
             currentChildForm = childForm;
 
@@ -157,23 +144,41 @@ namespace show10 {
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new Form_TaiKhoan());
+            label_TabName.Text = "Quản lý tài khoản";
         }
         private void Icon_Sach_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new Form_Sach());
+            label_TabName.Text = "Quản lý sách";
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new Form_KhachHang());
+            label_TabName.Text = "Quản lý khách hàng";
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new Form_BaoCao());
+            label_TabName.Text = "Tạo báo cáo";
         }
         #endregion
+
+        private string getGreetings() {
+            var chaoHoi = "Xin chào";
+            var hour = DateTime.Now.Hour;
+
+            if (hour >= 0 && hour < 12) {
+                chaoHoi = "Chào buổi sáng ☀️";
+            } else if (hour >= 12 && hour < 18) {
+                chaoHoi = "Chào buổi chiều ☀️";
+            } else {
+                chaoHoi = "Chào buổi tối 🌙";
+            }
+            return chaoHoi;
+        }
 
         private void Icon_DangNhap_Click(object sender, EventArgs e)
         {
@@ -215,7 +220,7 @@ namespace show10 {
                 panel_Welcome.Visible = true;
                 panel_Welcome.BringToFront();
 
-                label_Welcome.Text = $"Xin chào\n{found.HoTen}";
+                label_Welcome.Text = $"{getGreetings()},\n{found.HoTen}";
 
                 icon_Brand.IconChar = IconChar.SignOut;
                 icon_Brand.Text = "Đăng xuất";

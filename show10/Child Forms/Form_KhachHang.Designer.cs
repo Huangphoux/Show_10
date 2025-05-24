@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -385,6 +384,7 @@
             dataGridView_KhachHang.AutoGenerateColumns = false;
             dataGridView_KhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_KhachHang.BackgroundColor = Color.White;
+            dataGridView_KhachHang.BorderStyle = BorderStyle.None;
             dataGridView_KhachHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.Green;
@@ -407,7 +407,7 @@
             dataGridView_KhachHang.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_KhachHang.Dock = DockStyle.Fill;
             dataGridView_KhachHang.EnableHeadersVisualStyles = false;
-            dataGridView_KhachHang.GridColor = SystemColors.ScrollBar;
+            dataGridView_KhachHang.GridColor = Color.Black;
             dataGridView_KhachHang.Location = new Point(3, 388);
             dataGridView_KhachHang.Name = "dataGridView_KhachHang";
             dataGridView_KhachHang.RightToLeft = RightToLeft.No;
@@ -530,7 +530,7 @@
             dataGridView_PhieuThuTien.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridView_PhieuThuTien.Dock = DockStyle.Fill;
             dataGridView_PhieuThuTien.EnableHeadersVisualStyles = false;
-            dataGridView_PhieuThuTien.GridColor = SystemColors.ScrollBar;
+            dataGridView_PhieuThuTien.GridColor = Color.Black;
             dataGridView_PhieuThuTien.Location = new Point(3, 276);
             dataGridView_PhieuThuTien.Name = "dataGridView_PhieuThuTien";
             dataGridView_PhieuThuTien.RightToLeft = RightToLeft.No;
