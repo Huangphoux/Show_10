@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Show10.Windows
-{
-    public partial class Form_Settings : Form
-    {
-        public Form_Settings()
-        {
+﻿namespace Show10.Windows {
+    public partial class Form_Settings : Form {
+        public Form_Settings() {
             InitializeComponent();
             setTextbox();
         }
 
-        private void Icon_Luu_Click(object sender, EventArgs e)
-        {
+        private void Icon_Luu_Click(object sender, EventArgs e) {
             Properties.Settings.Default.minNhap = int.Parse(textBox_minNhap.Text);
             Properties.Settings.Default.maxSLSach = int.Parse(textBox_maxSLSach.Text);
             Properties.Settings.Default.maxNo = double.Parse(textBox_maxNo.Text);
@@ -31,8 +17,7 @@ namespace Show10.Windows
             Close();
         }
 
-        private void icon_Reset_Click(object sender, EventArgs e)
-        {
+        private void icon_Reset_Click(object sender, EventArgs e) {
             Properties.Settings.Default.minNhap = 150;
             Properties.Settings.Default.maxSLSach = 300;
             Properties.Settings.Default.maxNo = 1000000;
@@ -42,8 +27,7 @@ namespace Show10.Windows
             setTextbox();
         }
 
-        private void setTextbox()
-        {
+        private void setTextbox() {
             textBox_minNhap.Text = Properties.Settings.Default.minNhap.ToString();
             textBox_maxSLSach.Text = Properties.Settings.Default.maxSLSach.ToString();
             textBox_maxNo.Text = Properties.Settings.Default.maxNo.ToString();

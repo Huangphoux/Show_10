@@ -47,6 +47,11 @@
             icon_Sach_Them = new FontAwesome.Sharp.IconButton();
             sachBindingSource = new BindingSource(components);
             dataGridView_Sach = new DataGridView();
+            dataGridViewTextBoxColumn_MaSach = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_TenSach = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_TacGia = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_SoLuong = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn_TheLoai = new DataGridViewTextBoxColumn();
             tabControl_Sach = new TabControl();
             tabPage_Sach = new TabPage();
             tabPage_PhieuNhapSach = new TabPage();
@@ -100,11 +105,6 @@
             textBox_HD_MaHD = new TextBox();
             icon_HD_Xoa = new FontAwesome.Sharp.IconButton();
             icon_HD_Them = new FontAwesome.Sharp.IconButton();
-            dataGridViewTextBoxColumn_MaSach = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn_TenSach = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn_TacGia = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn_SoLuong = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn_TheLoai = new DataGridViewTextBoxColumn();
             groupBox_Sach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sachBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Sach).BeginInit();
@@ -252,6 +252,7 @@
             textBox_Sach_SoLuong.Size = new Size(124, 34);
             textBox_Sach_SoLuong.TabIndex = 32;
             textBox_Sach_SoLuong.Text = "0";
+            textBox_Sach_SoLuong.TextChanged += TextBox_Sach_SoLuong_TextChanged;
             // 
             // label_Sach_SoLuong
             // 
@@ -458,6 +459,43 @@
             dataGridView_Sach.TabIndex = 2;
             dataGridView_Sach.CellValueChanged += DataGridView_Sach_CellValueChanged;
             dataGridView_Sach.SelectionChanged += DataGridView_Sach_SelectionChanged;
+            // 
+            // dataGridViewTextBoxColumn_MaSach
+            // 
+            dataGridViewTextBoxColumn_MaSach.DataPropertyName = "MaSach";
+            dataGridViewTextBoxColumn_MaSach.HeaderText = "Mã sách";
+            dataGridViewTextBoxColumn_MaSach.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_MaSach.Name = "dataGridViewTextBoxColumn_MaSach";
+            dataGridViewTextBoxColumn_MaSach.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_TenSach
+            // 
+            dataGridViewTextBoxColumn_TenSach.DataPropertyName = "TenSach";
+            dataGridViewTextBoxColumn_TenSach.HeaderText = "Tên sách";
+            dataGridViewTextBoxColumn_TenSach.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_TenSach.Name = "dataGridViewTextBoxColumn_TenSach";
+            // 
+            // dataGridViewTextBoxColumn_TacGia
+            // 
+            dataGridViewTextBoxColumn_TacGia.DataPropertyName = "TacGia";
+            dataGridViewTextBoxColumn_TacGia.HeaderText = "Tác giả";
+            dataGridViewTextBoxColumn_TacGia.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_TacGia.Name = "dataGridViewTextBoxColumn_TacGia";
+            // 
+            // dataGridViewTextBoxColumn_SoLuong
+            // 
+            dataGridViewTextBoxColumn_SoLuong.DataPropertyName = "SoLuong";
+            dataGridViewTextBoxColumn_SoLuong.HeaderText = "Số lượng";
+            dataGridViewTextBoxColumn_SoLuong.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_SoLuong.Name = "dataGridViewTextBoxColumn_SoLuong";
+            dataGridViewTextBoxColumn_SoLuong.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_TheLoai
+            // 
+            dataGridViewTextBoxColumn_TheLoai.DataPropertyName = "TheLoai";
+            dataGridViewTextBoxColumn_TheLoai.HeaderText = "Thể loại";
+            dataGridViewTextBoxColumn_TheLoai.MinimumWidth = 6;
+            dataGridViewTextBoxColumn_TheLoai.Name = "dataGridViewTextBoxColumn_TheLoai";
             // 
             // tabControl_Sach
             // 
@@ -1178,43 +1216,6 @@
             icon_HD_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_HD_Them.UseVisualStyleBackColor = false;
             icon_HD_Them.Click += Icon_HD_Them_Click;
-            // 
-            // dataGridViewTextBoxColumn_MaSach
-            // 
-            dataGridViewTextBoxColumn_MaSach.DataPropertyName = "MaSach";
-            dataGridViewTextBoxColumn_MaSach.HeaderText = "Mã sách";
-            dataGridViewTextBoxColumn_MaSach.MinimumWidth = 6;
-            dataGridViewTextBoxColumn_MaSach.Name = "dataGridViewTextBoxColumn_MaSach";
-            dataGridViewTextBoxColumn_MaSach.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_TenSach
-            // 
-            dataGridViewTextBoxColumn_TenSach.DataPropertyName = "TenSach";
-            dataGridViewTextBoxColumn_TenSach.HeaderText = "Tên sách";
-            dataGridViewTextBoxColumn_TenSach.MinimumWidth = 6;
-            dataGridViewTextBoxColumn_TenSach.Name = "dataGridViewTextBoxColumn_TenSach";
-            // 
-            // dataGridViewTextBoxColumn_TacGia
-            // 
-            dataGridViewTextBoxColumn_TacGia.DataPropertyName = "TacGia";
-            dataGridViewTextBoxColumn_TacGia.HeaderText = "Tác giả";
-            dataGridViewTextBoxColumn_TacGia.MinimumWidth = 6;
-            dataGridViewTextBoxColumn_TacGia.Name = "dataGridViewTextBoxColumn_TacGia";
-            // 
-            // dataGridViewTextBoxColumn_SoLuong
-            // 
-            dataGridViewTextBoxColumn_SoLuong.DataPropertyName = "SoLuong";
-            dataGridViewTextBoxColumn_SoLuong.HeaderText = "Số lượng";
-            dataGridViewTextBoxColumn_SoLuong.MinimumWidth = 6;
-            dataGridViewTextBoxColumn_SoLuong.Name = "dataGridViewTextBoxColumn_SoLuong";
-            dataGridViewTextBoxColumn_SoLuong.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_TheLoai
-            // 
-            dataGridViewTextBoxColumn_TheLoai.DataPropertyName = "TheLoai";
-            dataGridViewTextBoxColumn_TheLoai.HeaderText = "Thể loại";
-            dataGridViewTextBoxColumn_TheLoai.MinimumWidth = 6;
-            dataGridViewTextBoxColumn_TheLoai.Name = "dataGridViewTextBoxColumn_TheLoai";
             // 
             // Form_Sach
             // 

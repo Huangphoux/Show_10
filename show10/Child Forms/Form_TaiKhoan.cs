@@ -61,7 +61,6 @@ namespace Show10.Child_Forms {
             ApplyFilters();
         }
         #endregion
-
         private void ApplyFilters() {
             if (isLoc && dataGridView_TaiKhoan != null) {
                 var filteredData = db.TaiKhoans.Local.AsQueryable();
@@ -87,8 +86,6 @@ namespace Show10.Child_Forms {
                 dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = filteredData.ToList() };
             }
         }
-
-        // Thêm / Sửa bằng thêm
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
             TaiKhoan taiKhoan = GetTaiKhoan();
 
@@ -134,7 +131,6 @@ namespace Show10.Child_Forms {
 
             Icon_TK_Clear_Click(sender, e);
         }
-        // Xoá
         private void Icon_TK_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
                 "Xoá tài khoản?",
@@ -159,7 +155,6 @@ namespace Show10.Child_Forms {
                 dataGridView_TaiKhoan.Refresh();
             }
         }
-        // Lọc
         private void Icon_TK_Loc_Click(object sender, EventArgs e) {
             icon_TK_Loc.IconChar = (icon_TK_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
             isLoc = !isLoc;
@@ -180,7 +175,6 @@ namespace Show10.Child_Forms {
                 checkBox_TK_QTV.CheckState = CheckState.Indeterminate;
             }
         }
-        // Tìm
         private void Icon_TK_Tim_Click(object sender, EventArgs e) {
             var filteredData = db!.TaiKhoans.Local.AsQueryable();
 
@@ -218,7 +212,6 @@ namespace Show10.Child_Forms {
                 }
             }
         }
-        // Set textbox khi select cell
         private void Icon_TK_Clear_Click(object sender, EventArgs e) {
             SetTaiKhoan(new TaiKhoan { TenTK = "", MatKhau = "", HoTen = "", VaiTro = "user" });
         }
@@ -241,10 +234,8 @@ namespace Show10.Child_Forms {
                 });
             }
         }
-
         private void DataGridView_TaiKhoan_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             db?.SaveChanges();
         }
-
     }
 }

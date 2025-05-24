@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
+using System.Linq.Dynamic.Core;
 
 namespace Show10.Child_Forms {
     public partial class Form_Sach : Form {
@@ -16,6 +17,14 @@ namespace Show10.Child_Forms {
             dataGridView_Sach.RowTemplate.Height = 50;
             dataGridView_PhieuNhapSach.RowTemplate.Height = 50;
             dataGridView_HoaDonBanSach.RowTemplate.Height = 50;
+
+            ToolTip soLuongTooltip = new();
+            soLuongTooltip.SetToolTip(textBox_Sach_SoLuong,
+                "Các giá trị có thể nhận:\n" +
+                "- Miền giá trị: 6 < x < 9, 4 <= x <= 20, 310 < x <= 105\n" +
+                "- Tìm đúng số lượng: 31, 01, 05\n" +
+                "- Giới hạn: > 69, <= 420, = 310, != 105"
+            );
         }
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -41,7 +50,6 @@ namespace Show10.Child_Forms {
             db?.Dispose();
             db = null;
         }
-
         private void KiemTraSoLuong() {
             if (db == null) return;
             foreach (var sach in db.Sachs) {
@@ -57,7 +65,6 @@ namespace Show10.Child_Forms {
             db.SaveChanges();
             dataGridView_Sach.Refresh();
         }
-
         #region Quản lý sách
         private void TabControl_Sach_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_Sach.SelectedTab == tabPage_Sach) {
@@ -185,15 +192,16 @@ namespace Show10.Child_Forms {
 
             icon_Sach.ForEach(icon => icon.Enabled = !isLoc_Sach);
 
-
             if (!isLoc_Sach) {
                 dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_Sach.DataSource = sachBindingSource;
+
             } else {
                 ApplyFilter_Sach();
                 Icon_Sach_Clear_Click(sender, e);
             }
         }
+
         #region Detech changes in Sach
         private void TextBox_Sach_MaSach_TextChanged(object sender, EventArgs e) {
             ApplyFilter_Sach();
@@ -207,30 +215,88 @@ namespace Show10.Child_Forms {
         private void TextBox_Sach_TheLoai_TextChanged(object sender, EventArgs e) {
             ApplyFilter_Sach();
         }
+        private void TextBox_Sach_SoLuong_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_Sach();
+        }
         #endregion
         private void ApplyFilter_Sach() {
             if (isLoc_Sach && dataGridView_Sach != null) {
-                var filteredData = db.Sachs.Local.AsQueryable();
+                var filteredData = db!.Sachs.Local.AsQueryable();
 
                 if (!string.IsNullOrEmpty(textBox_Sach_MaSach.Text)) {
                     if (int.TryParse(textBox_Sach_MaSach.Text, out int maSach)) {
                         filteredData = filteredData.Where(s => s.MaSach == maSach);
                     }
                 }
-
                 if (!string.IsNullOrEmpty(textBox_Sach_TenSach.Text)) {
                     filteredData = filteredData.Where(s => s.TenSach.Contains(textBox_Sach_TenSach.Text));
                 }
-
                 if (!string.IsNullOrEmpty(textBox_Sach_TacGia.Text)) {
                     filteredData = filteredData.Where(s => s.TacGia.Contains(textBox_Sach_TacGia.Text));
                 }
-
                 if (!string.IsNullOrEmpty(textBox_Sach_TheLoai.Text)) {
                     filteredData = filteredData.Where(s => s.TheLoai.Contains(textBox_Sach_TheLoai.Text));
                 }
+                if (!string.IsNullOrWhiteSpace(textBox_Sach_SoLuong.Text)) {
+                    try {
+                        string input = textBox_Sach_SoLuong.Text.Trim();
 
-                // Update DataGridView
+                        string expr;
+
+                        // Regex explanation:
+                        // ^\s*           : Start of string, optional leading whitespace
+                        // (\d+)          : Capture group 1 - one or more digits (lower bound)
+                        // \s*            : Optional whitespace
+                        // (<|<=)         : Capture group 2 - either '<' or '<=' (lower operator)
+                        // \s*            : Optional whitespace
+                        // x              : Literal 'x' (used as variable placeholder)
+                        // \s*            : Optional whitespace
+                        // (<|<=)         : Capture group 3 - either '<' or '<=' (upper operator)
+                        // \s*            : Optional whitespace
+                        // (\d+)          : Capture group 4 - one or more digits (upper bound)
+                        // \s*$           : Optional trailing whitespace, end of string
+                        // Example matches: "1 < x < 5", "10 <= x <= 20", "  3 < x <= 7  "
+
+                        var rangeMatch = System.Text.RegularExpressions.Regex.Match(input, @"^\s*(\d+)\s*(<|<=)\s*x\s*(<|<=)\s*(\d+)\s*$");
+                        if (rangeMatch.Success) {
+                            int lower = int.Parse(rangeMatch.Groups[1].Value);
+                            string lowerOp = rangeMatch.Groups[2].Value;
+                            string upperOp = rangeMatch.Groups[3].Value;
+                            int upper = int.Parse(rangeMatch.Groups[4].Value);
+
+                            string lowerExpr = lowerOp == "<=" ? $"SoLuong >= {lower}" : $"SoLuong > {lower}";
+                            string upperExpr = upperOp == "<=" ? $"SoLuong <= {upper}" : $"SoLuong < {upper}";
+
+                            expr = $"{lowerExpr} && {upperExpr}";
+                        }
+                        // If input is a number, treat as equality
+                        else if (int.TryParse(input, out int value)) {
+                            expr = $"SoLuong == {value}";
+                        }
+                        // If input starts with an operator, prepend property name
+                        else if (input.StartsWith(">") || input.StartsWith("<") || input.StartsWith("=") || input.StartsWith("!")) {
+                            if (input.StartsWith("=") && !input.StartsWith("==")) {
+                                expr = $"SoLuong == {input.Substring(1).Trim()}";
+                            } else if (input.StartsWith("!=")) {
+                                expr = $"SoLuong != {input.Substring(2).Trim()}";
+                            } else {
+                                expr = $"SoLuong {input}";
+                            }
+                        }
+                        //// If input contains 'x', replace with property name
+                        //else if (input.Contains("x")) {
+                        //    expr = input.Replace("x", "SoLuong");
+                        //} 
+                        else {
+                            expr = $"SoLuong == {input}";
+                        }
+
+                        filteredData = filteredData.Where(expr);
+                    } catch {
+                        // Ignore invalid expressions
+                    }
+                }
+
                 dataGridView_Sach.DataSource = new BindingSource { DataSource = filteredData.ToList() };
             }
         }
@@ -253,6 +319,65 @@ namespace Show10.Child_Forms {
 
             if (!string.IsNullOrEmpty(textBox_Sach_TheLoai.Text)) {
                 filteredData = filteredData.Where(s => s.TheLoai.Contains(textBox_Sach_TheLoai.Text));
+            }
+            if (!string.IsNullOrWhiteSpace(textBox_Sach_SoLuong.Text)) {
+                try {
+                    string input = textBox_Sach_SoLuong.Text.Trim();
+
+                    string expr;
+
+                    // Regex explanation:
+                    // ^\s*           : Start of string, optional leading whitespace
+                    // (\d+)          : Capture group 1 - one or more digits (lower bound)
+                    // \s*            : Optional whitespace
+                    // (<|<=)         : Capture group 2 - either '<' or '<=' (lower operator)
+                    // \s*            : Optional whitespace
+                    // x              : Literal 'x' (used as variable placeholder)
+                    // \s*            : Optional whitespace
+                    // (<|<=)         : Capture group 3 - either '<' or '<=' (upper operator)
+                    // \s*            : Optional whitespace
+                    // (\d+)          : Capture group 4 - one or more digits (upper bound)
+                    // \s*$           : Optional trailing whitespace, end of string
+                    // Example matches: "1 < x < 5", "10 <= x <= 20", "  3 < x <= 7  "
+
+                    var rangeMatch = System.Text.RegularExpressions.Regex.Match(input, @"^\s*(\d+)\s*(<|<=)\s*x\s*(<|<=)\s*(\d+)\s*$");
+                    if (rangeMatch.Success) {
+                        int lower = int.Parse(rangeMatch.Groups[1].Value);
+                        string lowerOp = rangeMatch.Groups[2].Value;
+                        string upperOp = rangeMatch.Groups[3].Value;
+                        int upper = int.Parse(rangeMatch.Groups[4].Value);
+
+                        string lowerExpr = lowerOp == "<=" ? $"SoLuong >= {lower}" : $"SoLuong > {lower}";
+                        string upperExpr = upperOp == "<=" ? $"SoLuong <= {upper}" : $"SoLuong < {upper}";
+
+                        expr = $"{lowerExpr} && {upperExpr}";
+                    }
+                    // If input is a number, treat as equality
+                    else if (int.TryParse(input, out int value)) {
+                        expr = $"SoLuong == {value}";
+                    }
+                    // If input starts with an operator, prepend property name
+                    else if (input.StartsWith(">") || input.StartsWith("<") || input.StartsWith("=") || input.StartsWith("!")) {
+                        if (input.StartsWith("=") && !input.StartsWith("==")) {
+                            expr = $"SoLuong == {input.Substring(1).Trim()}";
+                        } else if (input.StartsWith("!=")) {
+                            expr = $"SoLuong != {input.Substring(2).Trim()}";
+                        } else {
+                            expr = $"SoLuong {input}";
+                        }
+                    }
+                    //// If input contains 'x', replace with property name
+                    //else if (input.Contains("x")) {
+                    //    expr = input.Replace("x", "SoLuong");
+                    //} 
+                    else {
+                        expr = $"SoLuong == {input}";
+                    }
+
+                    filteredData = filteredData.Where(expr);
+                } catch {
+                    // Ignore invalid expressions
+                }
             }
 
             var filteredList = filteredData.ToList();
@@ -280,7 +405,7 @@ namespace Show10.Child_Forms {
         private void DataGridView_Sach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
-            if (dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
+            if (!isLoc_Sach && dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
                 SetSach(sach);
             }
         }
