@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox_TaiKhoan = new GroupBox();
             icon_TK_Clear = new FontAwesome.Sharp.IconButton();
             icon_TK_Loc = new FontAwesome.Sharp.IconButton();
@@ -74,7 +74,7 @@
             groupBox_TaiKhoan.Margin = new Padding(0);
             groupBox_TaiKhoan.Name = "groupBox_TaiKhoan";
             groupBox_TaiKhoan.Padding = new Padding(0);
-            groupBox_TaiKhoan.Size = new Size(782, 355);
+            groupBox_TaiKhoan.Size = new Size(782, 362);
             groupBox_TaiKhoan.TabIndex = 0;
             groupBox_TaiKhoan.TabStop = false;
             groupBox_TaiKhoan.Text = "Nhập liệu";
@@ -91,7 +91,7 @@
             icon_TK_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_TK_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Clear.IconSize = 30;
-            icon_TK_Clear.Location = new Point(600, 259);
+            icon_TK_Clear.Location = new Point(600, 262);
             icon_TK_Clear.Margin = new Padding(10);
             icon_TK_Clear.Name = "icon_TK_Clear";
             icon_TK_Clear.Size = new Size(80, 80);
@@ -99,7 +99,7 @@
             icon_TK_Clear.TextAlign = ContentAlignment.MiddleRight;
             icon_TK_Clear.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_TK_Clear.UseVisualStyleBackColor = false;
-            icon_TK_Clear.Click += icon_TK_Clear_Click;
+            icon_TK_Clear.Click += Icon_TK_Clear_Click;
             // 
             // icon_TK_Loc
             // 
@@ -113,7 +113,7 @@
             icon_TK_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_TK_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Loc.IconSize = 30;
-            icon_TK_Loc.Location = new Point(500, 259);
+            icon_TK_Loc.Location = new Point(500, 262);
             icon_TK_Loc.Margin = new Padding(10);
             icon_TK_Loc.Name = "icon_TK_Loc";
             icon_TK_Loc.Size = new Size(80, 80);
@@ -135,7 +135,7 @@
             icon_TK_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_TK_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Tim.IconSize = 30;
-            icon_TK_Tim.Location = new Point(400, 259);
+            icon_TK_Tim.Location = new Point(400, 262);
             icon_TK_Tim.Margin = new Padding(10);
             icon_TK_Tim.Name = "icon_TK_Tim";
             icon_TK_Tim.Size = new Size(80, 80);
@@ -156,7 +156,7 @@
             icon_TK_Xoa.IconColor = Color.White;
             icon_TK_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Xoa.IconSize = 30;
-            icon_TK_Xoa.Location = new Point(300, 259);
+            icon_TK_Xoa.Location = new Point(300, 262);
             icon_TK_Xoa.Margin = new Padding(10);
             icon_TK_Xoa.Name = "icon_TK_Xoa";
             icon_TK_Xoa.Size = new Size(80, 80);
@@ -177,7 +177,7 @@
             icon_TK_Them.IconColor = Color.White;
             icon_TK_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_TK_Them.IconSize = 30;
-            icon_TK_Them.Location = new Point(200, 259);
+            icon_TK_Them.Location = new Point(200, 262);
             icon_TK_Them.Margin = new Padding(10);
             icon_TK_Them.Name = "icon_TK_Them";
             icon_TK_Them.Size = new Size(80, 80);
@@ -190,6 +190,7 @@
             // textBox_TK_HoTen
             // 
             textBox_TK_HoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_TK_HoTen.BorderStyle = BorderStyle.FixedSingle;
             textBox_TK_HoTen.Font = new Font("Segoe UI", 12F);
             textBox_TK_HoTen.Location = new Point(200, 146);
             textBox_TK_HoTen.Name = "textBox_TK_HoTen";
@@ -200,6 +201,7 @@
             // textBox_TK_MatKhau
             // 
             textBox_TK_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_TK_MatKhau.BorderStyle = BorderStyle.FixedSingle;
             textBox_TK_MatKhau.Font = new Font("Segoe UI", 12F);
             textBox_TK_MatKhau.Location = new Point(200, 99);
             textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
@@ -210,7 +212,7 @@
             // checkBox_TK_QTV
             // 
             checkBox_TK_QTV.Anchor = AnchorStyles.None;
-            checkBox_TK_QTV.Location = new Point(200, 186);
+            checkBox_TK_QTV.Location = new Point(200, 189);
             checkBox_TK_QTV.Name = "checkBox_TK_QTV";
             checkBox_TK_QTV.Size = new Size(480, 60);
             checkBox_TK_QTV.TabIndex = 6;
@@ -252,6 +254,7 @@
             // textBox_TK_TenTK
             // 
             textBox_TK_TenTK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_TK_TenTK.BorderStyle = BorderStyle.FixedSingle;
             textBox_TK_TenTK.Font = new Font("Segoe UI", 12F);
             textBox_TK_TenTK.Location = new Point(200, 45);
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
@@ -268,27 +271,27 @@
             dataGridView_TaiKhoan.BackgroundColor = Color.White;
             dataGridView_TaiKhoan.BorderStyle = BorderStyle.None;
             dataGridView_TaiKhoan.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Green;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_TaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Green;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_TaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_TaiKhoan.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_TenTK, dataGridViewTextBoxColumn_MatKhau, dataGridViewTextBoxColumn_HoTen, dataGridViewTextBoxColumn_VaiTro });
             dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
             dataGridView_TaiKhoan.Dock = DockStyle.Fill;
             dataGridView_TaiKhoan.EnableHeadersVisualStyles = false;
             dataGridView_TaiKhoan.GridColor = Color.Black;
-            dataGridView_TaiKhoan.Location = new Point(0, 355);
+            dataGridView_TaiKhoan.Location = new Point(0, 362);
             dataGridView_TaiKhoan.Name = "dataGridView_TaiKhoan";
             dataGridView_TaiKhoan.RightToLeft = RightToLeft.No;
             dataGridView_TaiKhoan.RowHeadersVisible = false;
             dataGridView_TaiKhoan.RowHeadersWidth = 51;
             dataGridView_TaiKhoan.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_TaiKhoan.Size = new Size(782, 198);
+            dataGridView_TaiKhoan.Size = new Size(782, 191);
             dataGridView_TaiKhoan.TabIndex = 1;
             dataGridView_TaiKhoan.CellValueChanged += DataGridView_TaiKhoan_CellValueChanged;
             dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;

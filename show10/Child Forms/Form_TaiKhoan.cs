@@ -9,6 +9,8 @@ namespace Show10.Child_Forms {
         public Form_TaiKhoan() {
             InitializeComponent();
             DoubleBuffered = true;
+
+            dataGridView_TaiKhoan.RowTemplate.Height = 50;
         }
         private void Form_Account_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -39,7 +41,7 @@ namespace Show10.Child_Forms {
             textBox_TK_TenTK.Text = taiKhoan.TenTK;
             textBox_TK_MatKhau.Text = taiKhoan.MatKhau;
             textBox_TK_HoTen.Text = taiKhoan.HoTen;
-            checkBox_TK_QTV.Checked = taiKhoan.VaiTro == "admin" ? true : false;
+            checkBox_TK_QTV.Checked = taiKhoan.VaiTro == "admin";
         }
 
         #region Detect changes
@@ -162,13 +164,14 @@ namespace Show10.Child_Forms {
                 dataGridView_TaiKhoan.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_TaiKhoan.DataSource = taiKhoanBindingSource;
             } else {
-                checkBox_TK_QTV.CheckState = CheckState.Indeterminate;
                 ApplyFilters();
+                Icon_TK_Clear_Click(sender, e);
+                checkBox_TK_QTV.CheckState = CheckState.Indeterminate;
             }
         }
         // Tìm
         private void Icon_TK_Tim_Click(object sender, EventArgs e) {
-            var filteredData = db.TaiKhoans.Local.AsQueryable();
+            var filteredData = db!.TaiKhoans.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_TK_TenTK.Text)) {
                 filteredData = filteredData.Where(tk => tk.TenTK.Contains(textBox_TK_TenTK.Text));
@@ -194,34 +197,43 @@ namespace Show10.Child_Forms {
             var firstAccount = filteredList[0];
 
             foreach (DataGridViewRow row in dataGridView_TaiKhoan.Rows) {
+                SetTaiKhoan(firstAccount);
                 if (row.DataBoundItem is TaiKhoan rowAccount &&
                     rowAccount.TenTK == firstAccount.TenTK) // Compare by unique key
                 {
                     row.Selected = true;
                     dataGridView_TaiKhoan.CurrentCell = row.Cells[0];
+                    SetTaiKhoan(rowAccount);
                     break;
                 }
             }
         }
         // Set textbox khi select cell
-        private void icon_TK_Clear_Click(object sender, EventArgs e) {
+        private void Icon_TK_Clear_Click(object sender, EventArgs e) {
             SetTaiKhoan(new TaiKhoan { TenTK = "", MatKhau = "", HoTen = "", VaiTro = "user" });
         }
         private void DataGridView_TaiKhoan_SelectionChanged(object sender, EventArgs e) {
-            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+            if (db == null || this.IsDisposed || this.Disposing || dataGridView_TaiKhoan.IsDisposed) {
                 return;
-            if (dataGridView_TaiKhoan.CurrentRow == null || dataGridView_TaiKhoan.CurrentRow.DataBoundItem == null)
-                return;
+            }
 
-            if (dataGridView_TaiKhoan.CurrentRow?.DataBoundItem is TaiKhoan taiKhoan) {
-                SetTaiKhoan(taiKhoan);
+            if (!isLoc && dataGridView_TaiKhoan.CurrentRow != null) {
+                var tenTK = dataGridView_TaiKhoan.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                var matKhau = dataGridView_TaiKhoan.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                var hoTen = dataGridView_TaiKhoan.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                var vaiTro = dataGridView_TaiKhoan.CurrentRow.Cells[3].Value?.ToString() ?? "user";
+
+                SetTaiKhoan(new TaiKhoan {
+                    TenTK = tenTK,
+                    MatKhau = matKhau,
+                    HoTen = hoTen,
+                    VaiTro = vaiTro
+                });
             }
         }
 
         private void DataGridView_TaiKhoan_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
-            if (db != null) {
-                db.SaveChanges();
-            }
+            db?.SaveChanges();
         }
 
     }

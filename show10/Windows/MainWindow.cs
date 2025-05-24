@@ -53,8 +53,6 @@ namespace show10 {
             db?.Dispose();
             db = null;
         }
-
-
         private void Timer_Tick(object sender, EventArgs e)
         {
             label_Clock.Text = "Bây giờ là " + DateTime.Now.ToString("t");
@@ -64,7 +62,7 @@ namespace show10 {
 
         private void Icon_Fullscreen_Click(object sender, EventArgs e)
         {
-            FullScreen fullScreen = new FullScreen();
+            FullScreen fullScreen = new();
 
             if (!isFullScreen)
             {
@@ -78,17 +76,7 @@ namespace show10 {
             }
         }
 
-        private struct RGBColors
-        {
-            public static Color color1 = Color.FromArgb(172, 126, 241);
-            public static Color color2 = Color.FromArgb(249, 118, 176);
-            public static Color color3 = Color.FromArgb(253, 138, 114);
-            public static Color color4 = Color.FromArgb(95, 77, 221);
-            public static Color color5 = Color.FromArgb(249, 88, 155);
-            public static Color color6 = Color.FromArgb(24, 161, 251);
-        }
-
-        private void ActivateButton(object senderBtn, Color color)
+        private void ActivateButton(object senderBtn)
         {
             if (senderBtn != null)
             {
@@ -97,12 +85,12 @@ namespace show10 {
                 //Button
                 currentBtn = (IconButton)senderBtn;
 
-                currentBtn.ForeColor = color;
-                currentBtn.BackColor = ControlPaint.Dark(color);
-                currentBtn.IconColor = color;
+                currentBtn.ForeColor = Color.White;
+                currentBtn.BackColor = Color.DarkGreen;
+                currentBtn.IconColor = Color.White;
 
                 //Left border button
-                leftBorderBtn.BackColor = color;
+                leftBorderBtn.BackColor = Color.White;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
@@ -142,25 +130,25 @@ namespace show10 {
         #region icon Tab Click
         private void Icon_TaiKhoan_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender);
             OpenChildForm(new Form_TaiKhoan());
             label_TabName.Text = "Quản lý tài khoản";
         }
         private void Icon_Sach_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender);
             OpenChildForm(new Form_Sach());
             label_TabName.Text = "Quản lý sách";
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender);
             OpenChildForm(new Form_KhachHang());
             label_TabName.Text = "Quản lý khách hàng";
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateButton(sender);
             OpenChildForm(new Form_BaoCao());
             label_TabName.Text = "Tạo báo cáo";
         }
