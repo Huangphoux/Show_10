@@ -97,7 +97,10 @@ namespace Show10.Child_Forms {
                     "Nhập đủ tên tài khoản, mật khẩu và họ tên\ntrước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db.TaiKhoans.Any(tk => tk.TenTK == taiKhoan.TenTK)) {
+                return;
+            }
+
+            if (db!.TaiKhoans.Any(tk => tk.TenTK == taiKhoan.TenTK)) {
                 var result = MessageBox.Show(
                     "Tồn tại tài khoản với tên tài khoản này.\n" +
                     "Ghi đè thông tin của tài khoản?",
@@ -111,17 +114,25 @@ namespace Show10.Child_Forms {
                     existingAccount.HoTen = taiKhoan.HoTen;
                     existingAccount.VaiTro = taiKhoan.VaiTro;
 
-                    db.SaveChanges();
-                    dataGridView_TaiKhoan.Refresh();
                 }
-
             } else {
-                _ = db.Add(taiKhoan);
-                _ = db.SaveChanges();
-                dataGridView_TaiKhoan.Refresh();
-
-                Icon_TK_Them_Click(sender, e);
+                db.Add(taiKhoan);
             }
+
+            db.SaveChanges();
+            dataGridView_TaiKhoan.Refresh();
+
+            foreach (DataGridViewRow row in dataGridView_TaiKhoan.Rows) {
+                if (row.DataBoundItem is TaiKhoan rowAccount &&
+                    rowAccount.TenTK == taiKhoan.TenTK) // Compare by unique key
+                {
+                    row.Selected = true;
+                    dataGridView_TaiKhoan.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+            Icon_TK_Clear_Click(sender, e);
         }
         // Xoá
         private void Icon_TK_Xoa_Click(object sender, EventArgs e) {
@@ -197,7 +208,6 @@ namespace Show10.Child_Forms {
             var firstAccount = filteredList[0];
 
             foreach (DataGridViewRow row in dataGridView_TaiKhoan.Rows) {
-                SetTaiKhoan(firstAccount);
                 if (row.DataBoundItem is TaiKhoan rowAccount &&
                     rowAccount.TenTK == firstAccount.TenTK) // Compare by unique key
                 {
