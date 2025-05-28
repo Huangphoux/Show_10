@@ -571,6 +571,7 @@ namespace Show10.Child_Forms {
                 dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
             } else {
                 ApplyFilter_PhieuNhapSach();
+                Icon_PNS_Clear_Click(sender, e);
             }
         }
         private void ApplyFilter_PhieuNhapSach() {
@@ -661,7 +662,7 @@ namespace Show10.Child_Forms {
         private void DataGridView_PhieuNhapSach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
-            if (dataGridView_PhieuNhapSach.CurrentRow?.DataBoundItem is PhieuNhapSach phieuNhapSachh) {
+            if (!isLoc_PNS && dataGridView_PhieuNhapSach.CurrentRow?.DataBoundItem is PhieuNhapSach phieuNhapSachh) {
                 SetPhieuNhapSach(phieuNhapSachh);
             }
         }
@@ -833,6 +834,7 @@ namespace Show10.Child_Forms {
                 dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
             } else {
                 ApplyFilter_HoaDonBanSach();
+                Icon_HD_Clear_Click(sender, e);
             }
         }
 
@@ -967,7 +969,7 @@ namespace Show10.Child_Forms {
         private void DataGridView_HoaDonBanSach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
-            if (dataGridView_HoaDonBanSach.CurrentRow?.DataBoundItem is HoaDonBanSach hoaDonBanSach) {
+            if (!isLoc_HD && dataGridView_HoaDonBanSach.CurrentRow?.DataBoundItem is HoaDonBanSach hoaDonBanSach) {
                 SetHoaDonBanSach(hoaDonBanSach);
             }
         }

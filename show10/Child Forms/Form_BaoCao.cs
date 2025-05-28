@@ -8,6 +8,9 @@ namespace Show10.Child_Forms {
         public Form_BaoCao() {
             InitializeComponent();
             DoubleBuffered = true;
+
+            dataGridView_BCNo.RowTemplate.Height = 50;
+            dataGridView_BCTon.RowTemplate.Height = 50;
         }
         private void Form_BaoCao_Load(object sender, EventArgs e) {
             db = new NhaSachContext();

@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -528,11 +529,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 29);
+            tabPage_PhieuNhapSach.Location = new Point(4, 37);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(774, 520);
+            tabPage_PhieuNhapSach.Size = new Size(774, 512);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -567,7 +568,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(766, 199);
+            dataGridView_PhieuNhapSach.Size = new Size(766, 191);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
@@ -684,6 +685,7 @@
             // textBox_PNS_GiaNhap
             // 
             textBox_PNS_GiaNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_PNS_GiaNhap.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_GiaNhap.Font = new Font("Segoe UI", 12F);
             textBox_PNS_GiaNhap.Location = new Point(514, 105);
             textBox_PNS_GiaNhap.Margin = new Padding(4);
@@ -750,6 +752,7 @@
             // textBox_PNS_SoLuong
             // 
             textBox_PNS_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_PNS_SoLuong.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_SoLuong.Font = new Font("Segoe UI", 12F);
             textBox_PNS_SoLuong.Location = new Point(167, 105);
             textBox_PNS_SoLuong.Margin = new Padding(4);
@@ -761,6 +764,7 @@
             // textBox_PNS_MaSach
             // 
             textBox_PNS_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_PNS_MaSach.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_MaSach.Font = new Font("Segoe UI", 12F);
             textBox_PNS_MaSach.Location = new Point(514, 51);
             textBox_PNS_MaSach.Margin = new Padding(4);
@@ -805,6 +809,7 @@
             // textBox_PNS_MaPhieu
             // 
             textBox_PNS_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_PNS_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_MaPhieu.Font = new Font("Segoe UI", 12F);
             textBox_PNS_MaPhieu.Location = new Point(167, 51);
             textBox_PNS_MaPhieu.Margin = new Padding(4);
@@ -859,11 +864,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 29);
+            tabPage_HoaDonBanSach.Location = new Point(4, 37);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(774, 520);
+            tabPage_HoaDonBanSach.Size = new Size(774, 512);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -898,7 +903,7 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(766, 199);
+            dataGridView_HoaDonBanSach.Size = new Size(766, 191);
             dataGridView_HoaDonBanSach.TabIndex = 4;
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
             dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;
@@ -981,6 +986,7 @@
             // textBox_HD_GiaBan
             // 
             textBox_HD_GiaBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_HD_GiaBan.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_GiaBan.Font = new Font("Segoe UI", 12F);
             textBox_HD_GiaBan.Location = new Point(531, 106);
             textBox_HD_GiaBan.Margin = new Padding(4);
@@ -1046,6 +1052,7 @@
             // textBox_HD_SoLuong
             // 
             textBox_HD_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_HD_SoLuong.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_SoLuong.Font = new Font("Segoe UI", 12F);
             textBox_HD_SoLuong.Location = new Point(136, 106);
             textBox_HD_SoLuong.Margin = new Padding(4);
@@ -1112,6 +1119,7 @@
             // textBox_HD_MaSach
             // 
             textBox_HD_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_HD_MaSach.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaSach.Font = new Font("Segoe UI", 12F);
             textBox_HD_MaSach.Location = new Point(620, 53);
             textBox_HD_MaSach.Margin = new Padding(4);
@@ -1123,6 +1131,7 @@
             // textBox_HD_MaKH
             // 
             textBox_HD_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_HD_MaKH.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaKH.Font = new Font("Segoe UI", 12F);
             textBox_HD_MaKH.Location = new Point(372, 53);
             textBox_HD_MaKH.Margin = new Padding(4);
@@ -1167,6 +1176,7 @@
             // textBox_HD_MaHD
             // 
             textBox_HD_MaHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_HD_MaHD.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaHD.Font = new Font("Segoe UI", 12F);
             textBox_HD_MaHD.Location = new Point(136, 53);
             textBox_HD_MaHD.Margin = new Padding(4);
