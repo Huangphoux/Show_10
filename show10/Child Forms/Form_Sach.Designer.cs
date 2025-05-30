@@ -546,11 +546,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 29);
+            tabPage_PhieuNhapSach.Location = new Point(4, 37);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(774, 520);
+            tabPage_PhieuNhapSach.Size = new Size(774, 512);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -585,7 +585,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(766, 130);
+            dataGridView_PhieuNhapSach.Size = new Size(766, 122);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
@@ -669,6 +669,7 @@
             // 
             // label_PNS_NgayNhap_Filter
             // 
+            label_PNS_NgayNhap_Filter.Enabled = false;
             label_PNS_NgayNhap_Filter.Font = new Font("Segoe UI", 12F);
             label_PNS_NgayNhap_Filter.ImageAlign = ContentAlignment.BottomLeft;
             label_PNS_NgayNhap_Filter.Location = new Point(352, 166);
@@ -682,11 +683,13 @@
             // date_PNS_Filter
             // 
             date_PNS_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_PNS_Filter.Enabled = false;
             date_PNS_Filter.Format = DateTimePickerFormat.Short;
             date_PNS_Filter.Location = new Point(514, 164);
             date_PNS_Filter.Name = "date_PNS_Filter";
             date_PNS_Filter.Size = new Size(165, 34);
             date_PNS_Filter.TabIndex = 41;
+            date_PNS_Filter.ValueChanged += Date_PNS_Filter_ValueChanged;
             // 
             // textBox_PNS_NhaCungCap
             // 
@@ -698,6 +701,7 @@
             textBox_PNS_NhaCungCap.Name = "textBox_PNS_NhaCungCap";
             textBox_PNS_NhaCungCap.Size = new Size(512, 34);
             textBox_PNS_NhaCungCap.TabIndex = 40;
+            textBox_PNS_NhaCungCap.TextChanged += TextBox_PNS_NhaCungCap_TextChanged;
             // 
             // label_PNS_NhaCungCap
             // 
@@ -935,11 +939,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 37);
+            tabPage_HoaDonBanSach.Location = new Point(4, 29);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(774, 512);
+            tabPage_HoaDonBanSach.Size = new Size(774, 520);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -974,7 +978,7 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(766, 103);
+            dataGridView_HoaDonBanSach.Size = new Size(766, 111);
             dataGridView_HoaDonBanSach.TabIndex = 4;
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
             dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;
