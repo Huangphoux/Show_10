@@ -24,9 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupBox_Sach = new GroupBox();
             icon_Sach_Clear = new FontAwesome.Sharp.IconButton();
             icon_Sach_Ban = new FontAwesome.Sharp.IconButton();
@@ -56,6 +56,12 @@
             tabPage_Sach = new TabPage();
             tabPage_PhieuNhapSach = new TabPage();
             dataGridView_PhieuNhapSach = new DataGridView();
+            maPNDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            maSachDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            soLuongDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            giaNhapDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ngayNhapDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            NhaCungCap = new DataGridViewTextBoxColumn();
             phieuNhapSachBindingSource = new BindingSource(components);
             groupBox_PhieuNhapSach = new GroupBox();
             label_PNS_NgayNhap_Filter = new Label();
@@ -79,8 +85,25 @@
             icon_PNS_Them = new FontAwesome.Sharp.IconButton();
             tabPage_HoaDonBanSach = new TabPage();
             dataGridView_HoaDonBanSach = new DataGridView();
+            MaHD = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            MaSach = new DataGridViewTextBoxColumn();
+            SoLuong = new DataGridViewTextBoxColumn();
+            GiaBan = new DataGridViewTextBoxColumn();
+            TongTien = new DataGridViewTextBoxColumn();
+            SoTienTra = new DataGridViewTextBoxColumn();
+            ConLai = new DataGridViewTextBoxColumn();
+            NgayHD = new DataGridViewTextBoxColumn();
             hoaDonBanSachBindingSource = new BindingSource(components);
             groupBox_HoaDonBanSach = new GroupBox();
+            textBox_HD_ConLai = new TextBox();
+            label_HD_ConLai = new Label();
+            textBox_HD_TongTien = new TextBox();
+            label_HD_TongTien = new Label();
+            textBox_HD_SoTienTra = new TextBox();
+            label_HD_SoTienTra = new Label();
+            label_HD_NgayBan_Filter = new Label();
+            date_HD_Filter = new DateTimePicker();
             textBox_HD_GiaBan = new TextBox();
             label_HD_GiaBan = new Label();
             date_HD_NgayBan = new DateTimePicker();
@@ -98,29 +121,6 @@
             textBox_HD_MaHD = new TextBox();
             icon_HD_Xoa = new FontAwesome.Sharp.IconButton();
             icon_HD_Them = new FontAwesome.Sharp.IconButton();
-            maPNDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            maSachDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            soLuongDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            giaNhapDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            ngayNhapDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            NhaCungCap = new DataGridViewTextBoxColumn();
-            MaHD = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            MaSach = new DataGridViewTextBoxColumn();
-            SoLuong = new DataGridViewTextBoxColumn();
-            GiaBan = new DataGridViewTextBoxColumn();
-            TongTien = new DataGridViewTextBoxColumn();
-            SoTienTra = new DataGridViewTextBoxColumn();
-            ConLai = new DataGridViewTextBoxColumn();
-            NgayHD = new DataGridViewTextBoxColumn();
-            date_HD_NgayBan_Filter = new DateTimePicker();
-            label_HD_NgayBan_Filter = new Label();
-            textBox_HD_SoTienTra = new TextBox();
-            label_HD_SoTienTra = new Label();
-            textBox_HD_TongTien = new TextBox();
-            label_HD_TongTien = new Label();
-            textBox_HD_ConLai = new TextBox();
-            label_HD_ConLai = new Label();
             groupBox_Sach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sachBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_Sach).BeginInit();
@@ -239,7 +239,7 @@
             textBox_Sach_TheLoai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Sach_TheLoai.BorderStyle = BorderStyle.FixedSingle;
             textBox_Sach_TheLoai.Font = new Font("Segoe UI", 12F);
-            textBox_Sach_TheLoai.Location = new Point(166, 175);
+            textBox_Sach_TheLoai.Location = new Point(166, 199);
             textBox_Sach_TheLoai.Margin = new Padding(4);
             textBox_Sach_TheLoai.Name = "textBox_Sach_TheLoai";
             textBox_Sach_TheLoai.Size = new Size(382, 34);
@@ -249,7 +249,7 @@
             // label_Sach_TheLoai
             // 
             label_Sach_TheLoai.Font = new Font("Segoe UI", 12F);
-            label_Sach_TheLoai.Location = new Point(36, 177);
+            label_Sach_TheLoai.Location = new Point(36, 201);
             label_Sach_TheLoai.Margin = new Padding(4, 0, 28, 0);
             label_Sach_TheLoai.Name = "label_Sach_TheLoai";
             label_Sach_TheLoai.Size = new Size(116, 30);
@@ -261,6 +261,7 @@
             // 
             textBox_Sach_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Sach_SoLuong.BorderStyle = BorderStyle.FixedSingle;
+            textBox_Sach_SoLuong.Enabled = false;
             textBox_Sach_SoLuong.Font = new Font("Segoe UI", 12F);
             textBox_Sach_SoLuong.Location = new Point(424, 47);
             textBox_Sach_SoLuong.Margin = new Padding(4);
@@ -330,7 +331,7 @@
             textBox_Sach_TacGia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Sach_TacGia.BorderStyle = BorderStyle.FixedSingle;
             textBox_Sach_TacGia.Font = new Font("Segoe UI", 12F);
-            textBox_Sach_TacGia.Location = new Point(166, 131);
+            textBox_Sach_TacGia.Location = new Point(166, 146);
             textBox_Sach_TacGia.Margin = new Padding(4);
             textBox_Sach_TacGia.Name = "textBox_Sach_TacGia";
             textBox_Sach_TacGia.Size = new Size(382, 34);
@@ -342,7 +343,7 @@
             textBox_Sach_TenSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Sach_TenSach.BorderStyle = BorderStyle.FixedSingle;
             textBox_Sach_TenSach.Font = new Font("Segoe UI", 12F);
-            textBox_Sach_TenSach.Location = new Point(166, 89);
+            textBox_Sach_TenSach.Location = new Point(166, 95);
             textBox_Sach_TenSach.Margin = new Padding(4);
             textBox_Sach_TenSach.Name = "textBox_Sach_TenSach";
             textBox_Sach_TenSach.Size = new Size(382, 34);
@@ -352,7 +353,7 @@
             // label_Sach_TacGia
             // 
             label_Sach_TacGia.Font = new Font("Segoe UI", 12F);
-            label_Sach_TacGia.Location = new Point(36, 133);
+            label_Sach_TacGia.Location = new Point(36, 148);
             label_Sach_TacGia.Margin = new Padding(4, 0, 28, 0);
             label_Sach_TacGia.Name = "label_Sach_TacGia";
             label_Sach_TacGia.Size = new Size(116, 30);
@@ -363,7 +364,7 @@
             // label_Sach_TenSach
             // 
             label_Sach_TenSach.Font = new Font("Segoe UI", 12F);
-            label_Sach_TenSach.Location = new Point(36, 91);
+            label_Sach_TenSach.Location = new Point(36, 97);
             label_Sach_TenSach.Margin = new Padding(4, 0, 28, 0);
             label_Sach_TenSach.Name = "label_Sach_TenSach";
             label_Sach_TenSach.Size = new Size(116, 30);
@@ -450,14 +451,14 @@
             dataGridView_Sach.BackgroundColor = Color.White;
             dataGridView_Sach.BorderStyle = BorderStyle.None;
             dataGridView_Sach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.Green;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Green;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Sach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Sach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_MaSach, dataGridViewTextBoxColumn_TenSach, dataGridViewTextBoxColumn_TacGia, dataGridViewTextBoxColumn_SoLuong, dataGridViewTextBoxColumn_TheLoai });
             dataGridView_Sach.DataSource = sachBindingSource;
@@ -562,14 +563,14 @@
             dataGridView_PhieuNhapSach.BackgroundColor = Color.White;
             dataGridView_PhieuNhapSach.BorderStyle = BorderStyle.None;
             dataGridView_PhieuNhapSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.Green;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Green;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_PhieuNhapSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_PhieuNhapSach.Columns.AddRange(new DataGridViewColumn[] { maPNDataGridViewTextBoxColumn, maSachDataGridViewTextBoxColumn, soLuongDataGridViewTextBoxColumn, giaNhapDataGridViewTextBoxColumn, ngayNhapDataGridViewTextBoxColumn, NhaCungCap });
             dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
@@ -587,6 +588,48 @@
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
+            // 
+            // maPNDataGridViewTextBoxColumn
+            // 
+            maPNDataGridViewTextBoxColumn.DataPropertyName = "MaPN";
+            maPNDataGridViewTextBoxColumn.HeaderText = "Mã phiếu nhập";
+            maPNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            maPNDataGridViewTextBoxColumn.Name = "maPNDataGridViewTextBoxColumn";
+            // 
+            // maSachDataGridViewTextBoxColumn
+            // 
+            maSachDataGridViewTextBoxColumn.DataPropertyName = "MaSach";
+            maSachDataGridViewTextBoxColumn.HeaderText = "Mã sách";
+            maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
+            maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
+            // 
+            // soLuongDataGridViewTextBoxColumn
+            // 
+            soLuongDataGridViewTextBoxColumn.DataPropertyName = "SoLuong";
+            soLuongDataGridViewTextBoxColumn.HeaderText = "Số lượng";
+            soLuongDataGridViewTextBoxColumn.MinimumWidth = 6;
+            soLuongDataGridViewTextBoxColumn.Name = "soLuongDataGridViewTextBoxColumn";
+            // 
+            // giaNhapDataGridViewTextBoxColumn
+            // 
+            giaNhapDataGridViewTextBoxColumn.DataPropertyName = "GiaNhap";
+            giaNhapDataGridViewTextBoxColumn.HeaderText = "Giá nhập";
+            giaNhapDataGridViewTextBoxColumn.MinimumWidth = 6;
+            giaNhapDataGridViewTextBoxColumn.Name = "giaNhapDataGridViewTextBoxColumn";
+            // 
+            // ngayNhapDataGridViewTextBoxColumn
+            // 
+            ngayNhapDataGridViewTextBoxColumn.DataPropertyName = "NgayNhap";
+            ngayNhapDataGridViewTextBoxColumn.HeaderText = "Ngày nhập";
+            ngayNhapDataGridViewTextBoxColumn.MinimumWidth = 6;
+            ngayNhapDataGridViewTextBoxColumn.Name = "ngayNhapDataGridViewTextBoxColumn";
+            // 
+            // NhaCungCap
+            // 
+            NhaCungCap.DataPropertyName = "NhaCungCap";
+            NhaCungCap.HeaderText = "Nhà cung cấp";
+            NhaCungCap.MinimumWidth = 6;
+            NhaCungCap.Name = "NhaCungCap";
             // 
             // phieuNhapSachBindingSource
             // 
@@ -627,7 +670,7 @@
             // 
             label_PNS_NgayNhap_Filter.Font = new Font("Segoe UI", 12F);
             label_PNS_NgayNhap_Filter.ImageAlign = ContentAlignment.BottomLeft;
-            label_PNS_NgayNhap_Filter.Location = new Point(352, 164);
+            label_PNS_NgayNhap_Filter.Location = new Point(352, 166);
             label_PNS_NgayNhap_Filter.Margin = new Padding(4, 0, 28, 0);
             label_PNS_NgayNhap_Filter.Name = "label_PNS_NgayNhap_Filter";
             label_PNS_NgayNhap_Filter.Size = new Size(147, 30);
@@ -639,17 +682,17 @@
             // 
             date_PNS_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             date_PNS_Filter.Format = DateTimePickerFormat.Short;
-            date_PNS_Filter.Location = new Point(514, 162);
+            date_PNS_Filter.Location = new Point(514, 164);
             date_PNS_Filter.Name = "date_PNS_Filter";
             date_PNS_Filter.Size = new Size(165, 34);
             date_PNS_Filter.TabIndex = 41;
             // 
             // textBox_PNS_NhaCungCap
             // 
-            textBox_PNS_NhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_PNS_NhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PNS_NhaCungCap.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_NhaCungCap.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_NhaCungCap.Location = new Point(167, 221);
+            textBox_PNS_NhaCungCap.Location = new Point(167, 223);
             textBox_PNS_NhaCungCap.Margin = new Padding(4);
             textBox_PNS_NhaCungCap.Name = "textBox_PNS_NhaCungCap";
             textBox_PNS_NhaCungCap.Size = new Size(512, 34);
@@ -661,16 +704,16 @@
             label_PNS_NhaCungCap.Location = new Point(36, 223);
             label_PNS_NhaCungCap.Margin = new Padding(4, 0, 28, 0);
             label_PNS_NhaCungCap.Name = "label_PNS_NhaCungCap";
-            label_PNS_NhaCungCap.Size = new Size(116, 30);
+            label_PNS_NhaCungCap.Size = new Size(165, 30);
             label_PNS_NhaCungCap.TabIndex = 39;
             label_PNS_NhaCungCap.Text = "Nhà cung cấp";
             label_PNS_NhaCungCap.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // date_PNS_NgayNhap
             // 
-            date_PNS_NgayNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_PNS_NgayNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             date_PNS_NgayNhap.Format = DateTimePickerFormat.Short;
-            date_PNS_NgayNhap.Location = new Point(167, 162);
+            date_PNS_NgayNhap.Location = new Point(167, 164);
             date_PNS_NgayNhap.Name = "date_PNS_NgayNhap";
             date_PNS_NgayNhap.Size = new Size(165, 34);
             date_PNS_NgayNhap.TabIndex = 38;
@@ -714,7 +757,7 @@
             textBox_PNS_GiaNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PNS_GiaNhap.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_GiaNhap.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_GiaNhap.Location = new Point(514, 105);
+            textBox_PNS_GiaNhap.Location = new Point(514, 107);
             textBox_PNS_GiaNhap.Margin = new Padding(4);
             textBox_PNS_GiaNhap.Name = "textBox_PNS_GiaNhap";
             textBox_PNS_GiaNhap.Size = new Size(165, 34);
@@ -724,7 +767,7 @@
             // label_PNS_GiaNhap
             // 
             label_PNS_GiaNhap.Font = new Font("Segoe UI", 12F);
-            label_PNS_GiaNhap.Location = new Point(383, 107);
+            label_PNS_GiaNhap.Location = new Point(383, 109);
             label_PNS_GiaNhap.Margin = new Padding(4, 0, 28, 0);
             label_PNS_GiaNhap.Name = "label_PNS_GiaNhap";
             label_PNS_GiaNhap.Size = new Size(116, 30);
@@ -781,7 +824,7 @@
             textBox_PNS_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PNS_SoLuong.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_SoLuong.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_SoLuong.Location = new Point(167, 105);
+            textBox_PNS_SoLuong.Location = new Point(167, 107);
             textBox_PNS_SoLuong.Margin = new Padding(4);
             textBox_PNS_SoLuong.Name = "textBox_PNS_SoLuong";
             textBox_PNS_SoLuong.Size = new Size(165, 34);
@@ -793,7 +836,7 @@
             textBox_PNS_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PNS_MaSach.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_MaSach.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_MaSach.Location = new Point(514, 51);
+            textBox_PNS_MaSach.Location = new Point(514, 53);
             textBox_PNS_MaSach.Margin = new Padding(4);
             textBox_PNS_MaSach.Name = "textBox_PNS_MaSach";
             textBox_PNS_MaSach.Size = new Size(165, 34);
@@ -814,7 +857,7 @@
             // label_PNS_MaSach
             // 
             label_PNS_MaSach.Font = new Font("Segoe UI", 12F);
-            label_PNS_MaSach.Location = new Point(383, 53);
+            label_PNS_MaSach.Location = new Point(383, 55);
             label_PNS_MaSach.Margin = new Padding(4, 0, 28, 0);
             label_PNS_MaSach.Name = "label_PNS_MaSach";
             label_PNS_MaSach.Size = new Size(116, 30);
@@ -838,7 +881,7 @@
             textBox_PNS_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PNS_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_MaPhieu.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_MaPhieu.Location = new Point(167, 51);
+            textBox_PNS_MaPhieu.Location = new Point(167, 53);
             textBox_PNS_MaPhieu.Margin = new Padding(4);
             textBox_PNS_MaPhieu.Name = "textBox_PNS_MaPhieu";
             textBox_PNS_MaPhieu.Size = new Size(165, 34);
@@ -909,14 +952,14 @@
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
             dataGridView_HoaDonBanSach.BorderStyle = BorderStyle.None;
             dataGridView_HoaDonBanSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = Color.Green;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Green;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_HoaDonBanSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, TongTien, SoTienTra, ConLai, NgayHD });
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
@@ -935,6 +978,71 @@
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
             dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;
             // 
+            // MaHD
+            // 
+            MaHD.DataPropertyName = "MaHD";
+            MaHD.HeaderText = "Mã hoá đơn";
+            MaHD.MinimumWidth = 6;
+            MaHD.Name = "MaHD";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "MaKH";
+            dataGridViewTextBoxColumn3.HeaderText = "Mã khách hàng";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // MaSach
+            // 
+            MaSach.DataPropertyName = "MaSach";
+            MaSach.HeaderText = "Mã sách";
+            MaSach.MinimumWidth = 6;
+            MaSach.Name = "MaSach";
+            // 
+            // SoLuong
+            // 
+            SoLuong.DataPropertyName = "SoLuong";
+            SoLuong.HeaderText = "Số lượng";
+            SoLuong.MinimumWidth = 6;
+            SoLuong.Name = "SoLuong";
+            // 
+            // GiaBan
+            // 
+            GiaBan.DataPropertyName = "GiaBan";
+            GiaBan.HeaderText = "Giá bán";
+            GiaBan.MinimumWidth = 6;
+            GiaBan.Name = "GiaBan";
+            // 
+            // TongTien
+            // 
+            TongTien.DataPropertyName = "TongTien";
+            TongTien.HeaderText = "Tổng tiền";
+            TongTien.MinimumWidth = 6;
+            TongTien.Name = "TongTien";
+            TongTien.ReadOnly = true;
+            // 
+            // SoTienTra
+            // 
+            SoTienTra.DataPropertyName = "SoTienTra";
+            SoTienTra.HeaderText = "Số tiền trả";
+            SoTienTra.MinimumWidth = 6;
+            SoTienTra.Name = "SoTienTra";
+            // 
+            // ConLai
+            // 
+            ConLai.DataPropertyName = "ConLai";
+            ConLai.HeaderText = "Còn lại";
+            ConLai.MinimumWidth = 6;
+            ConLai.Name = "ConLai";
+            ConLai.ReadOnly = true;
+            // 
+            // NgayHD
+            // 
+            NgayHD.DataPropertyName = "NgayHD";
+            NgayHD.HeaderText = "Ngày bán";
+            NgayHD.MinimumWidth = 6;
+            NgayHD.Name = "NgayHD";
+            // 
             // hoaDonBanSachBindingSource
             // 
             hoaDonBanSachBindingSource.DataSource = typeof(Models.HoaDonBanSach);
@@ -948,7 +1056,7 @@
             groupBox_HoaDonBanSach.Controls.Add(textBox_HD_SoTienTra);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_SoTienTra);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_NgayBan_Filter);
-            groupBox_HoaDonBanSach.Controls.Add(date_HD_NgayBan_Filter);
+            groupBox_HoaDonBanSach.Controls.Add(date_HD_Filter);
             groupBox_HoaDonBanSach.Controls.Add(textBox_HD_GiaBan);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_GiaBan);
             groupBox_HoaDonBanSach.Controls.Add(date_HD_NgayBan);
@@ -976,9 +1084,97 @@
             groupBox_HoaDonBanSach.TabStop = false;
             groupBox_HoaDonBanSach.Text = "Nhập liệu";
             // 
+            // textBox_HD_ConLai
+            // 
+            textBox_HD_ConLai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_HD_ConLai.BorderStyle = BorderStyle.FixedSingle;
+            textBox_HD_ConLai.Enabled = false;
+            textBox_HD_ConLai.Font = new Font("Segoe UI", 12F);
+            textBox_HD_ConLai.Location = new Point(620, 174);
+            textBox_HD_ConLai.Margin = new Padding(4);
+            textBox_HD_ConLai.Name = "textBox_HD_ConLai";
+            textBox_HD_ConLai.Size = new Size(120, 34);
+            textBox_HD_ConLai.TabIndex = 48;
+            // 
+            // label_HD_ConLai
+            // 
+            label_HD_ConLai.Font = new Font("Segoe UI", 12F);
+            label_HD_ConLai.Location = new Point(520, 176);
+            label_HD_ConLai.Margin = new Padding(4, 0, 28, 0);
+            label_HD_ConLai.Name = "label_HD_ConLai";
+            label_HD_ConLai.Size = new Size(115, 30);
+            label_HD_ConLai.TabIndex = 47;
+            label_HD_ConLai.Text = "Còn lại";
+            label_HD_ConLai.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBox_HD_TongTien
+            // 
+            textBox_HD_TongTien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_HD_TongTien.BorderStyle = BorderStyle.FixedSingle;
+            textBox_HD_TongTien.Enabled = false;
+            textBox_HD_TongTien.Font = new Font("Segoe UI", 12F);
+            textBox_HD_TongTien.Location = new Point(375, 174);
+            textBox_HD_TongTien.Margin = new Padding(4);
+            textBox_HD_TongTien.Name = "textBox_HD_TongTien";
+            textBox_HD_TongTien.Size = new Size(120, 34);
+            textBox_HD_TongTien.TabIndex = 46;
+            // 
+            // label_HD_TongTien
+            // 
+            label_HD_TongTien.Font = new Font("Segoe UI", 12F);
+            label_HD_TongTien.Location = new Point(275, 176);
+            label_HD_TongTien.Margin = new Padding(4, 0, 28, 0);
+            label_HD_TongTien.Name = "label_HD_TongTien";
+            label_HD_TongTien.Size = new Size(115, 30);
+            label_HD_TongTien.TabIndex = 45;
+            label_HD_TongTien.Text = "Tổng tiền";
+            label_HD_TongTien.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBox_HD_SoTienTra
+            // 
+            textBox_HD_SoTienTra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_HD_SoTienTra.BorderStyle = BorderStyle.FixedSingle;
+            textBox_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
+            textBox_HD_SoTienTra.Location = new Point(531, 108);
+            textBox_HD_SoTienTra.Margin = new Padding(4);
+            textBox_HD_SoTienTra.Name = "textBox_HD_SoTienTra";
+            textBox_HD_SoTienTra.Size = new Size(208, 34);
+            textBox_HD_SoTienTra.TabIndex = 44;
+            // 
+            // label_HD_SoTienTra
+            // 
+            label_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
+            label_HD_SoTienTra.Location = new Point(372, 110);
+            label_HD_SoTienTra.Margin = new Padding(4, 0, 28, 0);
+            label_HD_SoTienTra.Name = "label_HD_SoTienTra";
+            label_HD_SoTienTra.Size = new Size(115, 30);
+            label_HD_SoTienTra.TabIndex = 43;
+            label_HD_SoTienTra.Text = "Số tiền trả";
+            label_HD_SoTienTra.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label_HD_NgayBan_Filter
+            // 
+            label_HD_NgayBan_Filter.Font = new Font("Segoe UI", 12F);
+            label_HD_NgayBan_Filter.Location = new Point(351, 247);
+            label_HD_NgayBan_Filter.Margin = new Padding(4, 0, 28, 0);
+            label_HD_NgayBan_Filter.Name = "label_HD_NgayBan_Filter";
+            label_HD_NgayBan_Filter.Size = new Size(173, 30);
+            label_HD_NgayBan_Filter.TabIndex = 42;
+            label_HD_NgayBan_Filter.Text = "→";
+            label_HD_NgayBan_Filter.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // date_HD_Filter
+            // 
+            date_HD_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_HD_Filter.Format = DateTimePickerFormat.Short;
+            date_HD_Filter.Location = new Point(531, 245);
+            date_HD_Filter.Name = "date_HD_Filter";
+            date_HD_Filter.Size = new Size(208, 34);
+            date_HD_Filter.TabIndex = 41;
+            // 
             // textBox_HD_GiaBan
             // 
-            textBox_HD_GiaBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox_HD_GiaBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_GiaBan.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_GiaBan.Enabled = false;
             textBox_HD_GiaBan.Font = new Font("Segoe UI", 12F);
@@ -1002,7 +1198,7 @@
             // 
             // date_HD_NgayBan
             // 
-            date_HD_NgayBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_HD_NgayBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             date_HD_NgayBan.Format = DateTimePickerFormat.Short;
             date_HD_NgayBan.Location = new Point(136, 245);
             date_HD_NgayBan.Name = "date_HD_NgayBan";
@@ -1221,201 +1417,6 @@
             icon_HD_Them.UseVisualStyleBackColor = false;
             icon_HD_Them.Click += Icon_HD_Them_Click;
             // 
-            // maPNDataGridViewTextBoxColumn
-            // 
-            maPNDataGridViewTextBoxColumn.DataPropertyName = "MaPN";
-            maPNDataGridViewTextBoxColumn.HeaderText = "Mã phiếu nhập";
-            maPNDataGridViewTextBoxColumn.MinimumWidth = 6;
-            maPNDataGridViewTextBoxColumn.Name = "maPNDataGridViewTextBoxColumn";
-            // 
-            // maSachDataGridViewTextBoxColumn
-            // 
-            maSachDataGridViewTextBoxColumn.DataPropertyName = "MaSach";
-            maSachDataGridViewTextBoxColumn.HeaderText = "Mã sách";
-            maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
-            maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
-            // 
-            // soLuongDataGridViewTextBoxColumn
-            // 
-            soLuongDataGridViewTextBoxColumn.DataPropertyName = "SoLuong";
-            soLuongDataGridViewTextBoxColumn.HeaderText = "Số lượng";
-            soLuongDataGridViewTextBoxColumn.MinimumWidth = 6;
-            soLuongDataGridViewTextBoxColumn.Name = "soLuongDataGridViewTextBoxColumn";
-            // 
-            // giaNhapDataGridViewTextBoxColumn
-            // 
-            giaNhapDataGridViewTextBoxColumn.DataPropertyName = "GiaNhap";
-            giaNhapDataGridViewTextBoxColumn.HeaderText = "Giá nhập";
-            giaNhapDataGridViewTextBoxColumn.MinimumWidth = 6;
-            giaNhapDataGridViewTextBoxColumn.Name = "giaNhapDataGridViewTextBoxColumn";
-            // 
-            // ngayNhapDataGridViewTextBoxColumn
-            // 
-            ngayNhapDataGridViewTextBoxColumn.DataPropertyName = "NgayNhap";
-            ngayNhapDataGridViewTextBoxColumn.HeaderText = "Ngày nhập";
-            ngayNhapDataGridViewTextBoxColumn.MinimumWidth = 6;
-            ngayNhapDataGridViewTextBoxColumn.Name = "ngayNhapDataGridViewTextBoxColumn";
-            // 
-            // NhaCungCap
-            // 
-            NhaCungCap.DataPropertyName = "NhaCungCap";
-            NhaCungCap.HeaderText = "Nhà cung cấp";
-            NhaCungCap.MinimumWidth = 6;
-            NhaCungCap.Name = "NhaCungCap";
-            // 
-            // MaHD
-            // 
-            MaHD.DataPropertyName = "MaHD";
-            MaHD.HeaderText = "Mã hoá đơn";
-            MaHD.MinimumWidth = 6;
-            MaHD.Name = "MaHD";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "MaKH";
-            dataGridViewTextBoxColumn3.HeaderText = "Mã khách hàng";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // MaSach
-            // 
-            MaSach.DataPropertyName = "MaSach";
-            MaSach.HeaderText = "Mã sách";
-            MaSach.MinimumWidth = 6;
-            MaSach.Name = "MaSach";
-            // 
-            // SoLuong
-            // 
-            SoLuong.DataPropertyName = "SoLuong";
-            SoLuong.HeaderText = "Số lượng";
-            SoLuong.MinimumWidth = 6;
-            SoLuong.Name = "SoLuong";
-            // 
-            // GiaBan
-            // 
-            GiaBan.DataPropertyName = "GiaBan";
-            GiaBan.HeaderText = "Giá bán";
-            GiaBan.MinimumWidth = 6;
-            GiaBan.Name = "GiaBan";
-            // 
-            // TongTien
-            // 
-            TongTien.DataPropertyName = "TongTien";
-            TongTien.HeaderText = "Tổng tiền";
-            TongTien.MinimumWidth = 6;
-            TongTien.Name = "TongTien";
-            TongTien.ReadOnly = true;
-            // 
-            // SoTienTra
-            // 
-            SoTienTra.DataPropertyName = "SoTienTra";
-            SoTienTra.HeaderText = "Số tiền trả";
-            SoTienTra.MinimumWidth = 6;
-            SoTienTra.Name = "SoTienTra";
-            // 
-            // ConLai
-            // 
-            ConLai.DataPropertyName = "ConLai";
-            ConLai.HeaderText = "Còn lại";
-            ConLai.MinimumWidth = 6;
-            ConLai.Name = "ConLai";
-            ConLai.ReadOnly = true;
-            // 
-            // NgayHD
-            // 
-            NgayHD.DataPropertyName = "NgayHD";
-            NgayHD.HeaderText = "Ngày bán";
-            NgayHD.MinimumWidth = 6;
-            NgayHD.Name = "NgayHD";
-            // 
-            // date_HD_NgayBan_Filter
-            // 
-            date_HD_NgayBan_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            date_HD_NgayBan_Filter.Format = DateTimePickerFormat.Short;
-            date_HD_NgayBan_Filter.Location = new Point(531, 245);
-            date_HD_NgayBan_Filter.Name = "date_HD_NgayBan_Filter";
-            date_HD_NgayBan_Filter.Size = new Size(208, 34);
-            date_HD_NgayBan_Filter.TabIndex = 41;
-            // 
-            // label_HD_NgayBan_Filter
-            // 
-            label_HD_NgayBan_Filter.Font = new Font("Segoe UI", 12F);
-            label_HD_NgayBan_Filter.Location = new Point(351, 247);
-            label_HD_NgayBan_Filter.Margin = new Padding(4, 0, 28, 0);
-            label_HD_NgayBan_Filter.Name = "label_HD_NgayBan_Filter";
-            label_HD_NgayBan_Filter.Size = new Size(173, 30);
-            label_HD_NgayBan_Filter.TabIndex = 42;
-            label_HD_NgayBan_Filter.Text = "→";
-            label_HD_NgayBan_Filter.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // textBox_HD_SoTienTra
-            // 
-            textBox_HD_SoTienTra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_HD_SoTienTra.BorderStyle = BorderStyle.FixedSingle;
-            textBox_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
-            textBox_HD_SoTienTra.Location = new Point(531, 108);
-            textBox_HD_SoTienTra.Margin = new Padding(4);
-            textBox_HD_SoTienTra.Name = "textBox_HD_SoTienTra";
-            textBox_HD_SoTienTra.Size = new Size(208, 34);
-            textBox_HD_SoTienTra.TabIndex = 44;
-            // 
-            // label_HD_SoTienTra
-            // 
-            label_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
-            label_HD_SoTienTra.Location = new Point(372, 110);
-            label_HD_SoTienTra.Margin = new Padding(4, 0, 28, 0);
-            label_HD_SoTienTra.Name = "label_HD_SoTienTra";
-            label_HD_SoTienTra.Size = new Size(115, 30);
-            label_HD_SoTienTra.TabIndex = 43;
-            label_HD_SoTienTra.Text = "Số tiền trả";
-            label_HD_SoTienTra.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // textBox_HD_TongTien
-            // 
-            textBox_HD_TongTien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_HD_TongTien.BorderStyle = BorderStyle.FixedSingle;
-            textBox_HD_TongTien.Enabled = false;
-            textBox_HD_TongTien.Font = new Font("Segoe UI", 12F);
-            textBox_HD_TongTien.Location = new Point(375, 174);
-            textBox_HD_TongTien.Margin = new Padding(4);
-            textBox_HD_TongTien.Name = "textBox_HD_TongTien";
-            textBox_HD_TongTien.Size = new Size(120, 34);
-            textBox_HD_TongTien.TabIndex = 46;
-            // 
-            // label_HD_TongTien
-            // 
-            label_HD_TongTien.Font = new Font("Segoe UI", 12F);
-            label_HD_TongTien.Location = new Point(275, 176);
-            label_HD_TongTien.Margin = new Padding(4, 0, 28, 0);
-            label_HD_TongTien.Name = "label_HD_TongTien";
-            label_HD_TongTien.Size = new Size(115, 30);
-            label_HD_TongTien.TabIndex = 45;
-            label_HD_TongTien.Text = "Tổng tiền";
-            label_HD_TongTien.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // textBox_HD_ConLai
-            // 
-            textBox_HD_ConLai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_HD_ConLai.BorderStyle = BorderStyle.FixedSingle;
-            textBox_HD_ConLai.Enabled = false;
-            textBox_HD_ConLai.Font = new Font("Segoe UI", 12F);
-            textBox_HD_ConLai.Location = new Point(620, 174);
-            textBox_HD_ConLai.Margin = new Padding(4);
-            textBox_HD_ConLai.Name = "textBox_HD_ConLai";
-            textBox_HD_ConLai.Size = new Size(120, 34);
-            textBox_HD_ConLai.TabIndex = 48;
-            // 
-            // label_HD_ConLai
-            // 
-            label_HD_ConLai.Font = new Font("Segoe UI", 12F);
-            label_HD_ConLai.Location = new Point(520, 176);
-            label_HD_ConLai.Margin = new Padding(4, 0, 28, 0);
-            label_HD_ConLai.Name = "label_HD_ConLai";
-            label_HD_ConLai.Size = new Size(115, 30);
-            label_HD_ConLai.TabIndex = 47;
-            label_HD_ConLai.Text = "Còn lại";
-            label_HD_ConLai.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // Form_Sach
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -1548,6 +1549,6 @@
         private TextBox textBox_HD_SoTienTra;
         private Label label_HD_SoTienTra;
         private Label label_HD_NgayBan_Filter;
-        private DateTimePicker date_HD_NgayBan_Filter;
+        private DateTimePicker date_HD_Filter;
     }
 }

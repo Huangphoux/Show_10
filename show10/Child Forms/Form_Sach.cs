@@ -192,10 +192,11 @@ namespace Show10.Child_Forms {
 
             icon_Sach.ForEach(icon => icon.Enabled = !isLoc_Sach);
 
+            textBox_Sach_SoLuong.Enabled = isLoc_Sach;
+
             if (!isLoc_Sach) {
                 dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_Sach.DataSource = sachBindingSource;
-
             } else {
                 ApplyFilter_Sach();
                 Icon_Sach_Clear_Click(sender, e);
@@ -436,6 +437,12 @@ namespace Show10.Child_Forms {
 
             if (dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
                 textBox_HD_MaSach.Text = sach.MaSach.ToString();
+
+                double giaNhap = db.PhieuNhapSachs
+    .Where(p => p.MaSach == sach.MaSach)
+    .OrderByDescending(p => p.NgayNhap) // Assuming NgayNhap determines the order
+    .FirstOrDefault()?.GiaNhap * 1.05 ?? 0;
+                textBox_HD_GiaBan.Text = giaNhap.ToString();
             }
         }
 
@@ -462,6 +469,7 @@ namespace Show10.Child_Forms {
             textBox_PNS_MaSach.Text = phieu.MaSach.ToString();
             textBox_PNS_SoLuong.Text = phieu.SoLuong.ToString();
             textBox_PNS_GiaNhap.Text = phieu.GiaNhap.ToString();
+            textBox_PNS_NhaCungCap.Text = phieu.NhaCungCap.ToString();
             date_PNS_NgayNhap.Text = phieu.NgayNhap.ToShortDateString();
         }
         private void Icon_PNS_Them_Click(object sender, EventArgs e) {
@@ -557,6 +565,7 @@ namespace Show10.Child_Forms {
             textBox_PNS_MaSach.Text = "";
             textBox_PNS_SoLuong.Text = "";
             textBox_PNS_GiaNhap.Text = "";
+            textBox_PNS_NhaCungCap.Text = "";
             date_PNS_NgayNhap.Text = DateTime.Now.ToShortDateString();
         }
         private void Icon_PNS_Loc_Click(object sender, EventArgs e) {
@@ -704,6 +713,9 @@ namespace Show10.Child_Forms {
             textBox_HD_MaSach.Text = hoaDon.MaSach.ToString();
             textBox_HD_SoLuong.Text = hoaDon.SoLuong.ToString();
             textBox_HD_GiaBan.Text = hoaDon.GiaBan.ToString();
+            textBox_HD_TongTien.Text = hoaDon.TongTien.ToString();
+            textBox_HD_SoTienTra.Text = hoaDon.SoTienTra.ToString();
+            textBox_HD_ConLai.Text = hoaDon.ConLai.ToString();
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
         private void Icon_HD_Them_Click(object sender, EventArgs e) {
@@ -830,6 +842,9 @@ namespace Show10.Child_Forms {
             textBox_HD_SoLuong.Text = "";
             textBox_HD_GiaBan.Text = "";
             date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
+            textBox_HD_SoTienTra.Text = "";
+            textBox_HD_TongTien.Text = "";
+            textBox_HD_ConLai.Text = "";
         }
         private void Icon_HD_Loc_Click(object sender, EventArgs e) {
             icon_HD_Loc.IconChar = (icon_HD_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
@@ -979,8 +994,29 @@ namespace Show10.Child_Forms {
         private void DataGridView_HoaDonBanSach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
-            if (!isLoc_HD && dataGridView_HoaDonBanSach.CurrentRow?.DataBoundItem is HoaDonBanSach hoaDonBanSach) {
-                SetHoaDonBanSach(hoaDonBanSach);
+
+            if (!isLoc_HD && dataGridView_HoaDonBanSach.CurrentRow != null) {
+                var maHD = dataGridView_HoaDonBanSach.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                var maKH = dataGridView_HoaDonBanSach.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                var maSach = dataGridView_HoaDonBanSach.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                var soLuong = dataGridView_HoaDonBanSach.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                var giaBan = dataGridView_HoaDonBanSach.CurrentRow.Cells[4].Value?.ToString() ?? "";
+                var tongTien = dataGridView_HoaDonBanSach.CurrentRow.Cells[5].Value?.ToString() ?? "";
+                var soTienTra = dataGridView_HoaDonBanSach.CurrentRow.Cells[6].Value?.ToString() ?? "";
+                var conLai = dataGridView_HoaDonBanSach.CurrentRow.Cells[7].Value?.ToString() ?? "";
+                var ngayHD = dataGridView_HoaDonBanSach.CurrentRow.Cells[8].Value?.ToString() ?? "";
+
+                SetHoaDonBanSach(new HoaDonBanSach {
+                    MaHD = int.TryParse(maHD, out var _maHD) ? _maHD : 0,
+                    MaKH = int.TryParse(maKH, out var _maKH) ? _maKH : 0,
+                    MaSach = int.TryParse(maSach, out var _maSach) ? _maSach : 0,
+                    SoLuong = int.TryParse(soLuong, out var _soLuong) ? _soLuong : 0,
+                    GiaBan = double.TryParse(giaBan, out var _giaBan) ? _giaBan : 0,
+                    TongTien = double.TryParse(tongTien, out var _tongTien) ? _tongTien : 0,
+                    SoTienTra = double.TryParse(soTienTra, out var _soTienTra) ? _soTienTra : 0,
+                    ConLai = double.TryParse(conLai, out var _conLai) ? _conLai : 0,
+                    NgayHD = DateTime.TryParse(ngayHD, out var _ngayHD) ? _ngayHD : DateTime.Now
+                });
             }
         }
 
