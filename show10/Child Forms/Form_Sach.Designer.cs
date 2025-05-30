@@ -24,9 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupBox_Sach = new GroupBox();
             icon_Sach_Clear = new FontAwesome.Sharp.IconButton();
             icon_Sach_Ban = new FontAwesome.Sharp.IconButton();
@@ -178,7 +178,7 @@
             icon_Sach_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_Sach_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Clear.IconSize = 30;
-            icon_Sach_Clear.Location = new Point(468, 251);
+            icon_Sach_Clear.Location = new Point(468, 263);
             icon_Sach_Clear.Margin = new Padding(14);
             icon_Sach_Clear.Name = "icon_Sach_Clear";
             icon_Sach_Clear.Size = new Size(80, 80);
@@ -243,7 +243,7 @@
             textBox_Sach_TheLoai.Location = new Point(166, 199);
             textBox_Sach_TheLoai.Margin = new Padding(4);
             textBox_Sach_TheLoai.Name = "textBox_Sach_TheLoai";
-            textBox_Sach_TheLoai.Size = new Size(382, 34);
+            textBox_Sach_TheLoai.Size = new Size(363, 34);
             textBox_Sach_TheLoai.TabIndex = 34;
             textBox_Sach_TheLoai.TextChanged += TextBox_Sach_TheLoai_TextChanged;
             // 
@@ -267,7 +267,7 @@
             textBox_Sach_SoLuong.Location = new Point(424, 47);
             textBox_Sach_SoLuong.Margin = new Padding(4);
             textBox_Sach_SoLuong.Name = "textBox_Sach_SoLuong";
-            textBox_Sach_SoLuong.Size = new Size(124, 34);
+            textBox_Sach_SoLuong.Size = new Size(105, 34);
             textBox_Sach_SoLuong.TabIndex = 32;
             textBox_Sach_SoLuong.Text = "0";
             textBox_Sach_SoLuong.TextChanged += TextBox_Sach_SoLuong_TextChanged;
@@ -295,7 +295,7 @@
             icon_Sach_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_Sach_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Loc.IconSize = 30;
-            icon_Sach_Loc.Location = new Point(360, 251);
+            icon_Sach_Loc.Location = new Point(360, 263);
             icon_Sach_Loc.Margin = new Padding(14);
             icon_Sach_Loc.Name = "icon_Sach_Loc";
             icon_Sach_Loc.Size = new Size(80, 80);
@@ -317,7 +317,7 @@
             icon_Sach_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_Sach_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Tim.IconSize = 30;
-            icon_Sach_Tim.Location = new Point(252, 251);
+            icon_Sach_Tim.Location = new Point(252, 263);
             icon_Sach_Tim.Margin = new Padding(14);
             icon_Sach_Tim.Name = "icon_Sach_Tim";
             icon_Sach_Tim.Size = new Size(80, 80);
@@ -335,7 +335,7 @@
             textBox_Sach_TacGia.Location = new Point(166, 146);
             textBox_Sach_TacGia.Margin = new Padding(4);
             textBox_Sach_TacGia.Name = "textBox_Sach_TacGia";
-            textBox_Sach_TacGia.Size = new Size(382, 34);
+            textBox_Sach_TacGia.Size = new Size(363, 34);
             textBox_Sach_TacGia.TabIndex = 28;
             textBox_Sach_TacGia.TextChanged += TextBox_Sach_TacGia_TextChanged;
             // 
@@ -347,7 +347,7 @@
             textBox_Sach_TenSach.Location = new Point(166, 95);
             textBox_Sach_TenSach.Margin = new Padding(4);
             textBox_Sach_TenSach.Name = "textBox_Sach_TenSach";
-            textBox_Sach_TenSach.Size = new Size(382, 34);
+            textBox_Sach_TenSach.Size = new Size(363, 34);
             textBox_Sach_TenSach.TabIndex = 27;
             textBox_Sach_TenSach.TextChanged += TextBox_Sach_TenSach_TextChanged;
             // 
@@ -407,7 +407,7 @@
             icon_Sach_Xoa.IconColor = Color.White;
             icon_Sach_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Xoa.IconSize = 30;
-            icon_Sach_Xoa.Location = new Point(144, 251);
+            icon_Sach_Xoa.Location = new Point(144, 263);
             icon_Sach_Xoa.Margin = new Padding(14);
             icon_Sach_Xoa.Name = "icon_Sach_Xoa";
             icon_Sach_Xoa.Size = new Size(80, 80);
@@ -428,7 +428,7 @@
             icon_Sach_Them.IconColor = Color.White;
             icon_Sach_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Them.IconSize = 30;
-            icon_Sach_Them.Location = new Point(36, 251);
+            icon_Sach_Them.Location = new Point(36, 263);
             icon_Sach_Them.Margin = new Padding(14);
             icon_Sach_Them.Name = "icon_Sach_Them";
             icon_Sach_Them.Size = new Size(80, 80);
@@ -452,14 +452,14 @@
             dataGridView_Sach.BackgroundColor = Color.White;
             dataGridView_Sach.BorderStyle = BorderStyle.None;
             dataGridView_Sach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = Color.Green;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Green;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView_Sach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView_Sach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_Sach.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn_MaSach, dataGridViewTextBoxColumn_TenSach, dataGridViewTextBoxColumn_TacGia, dataGridViewTextBoxColumn_SoLuong, dataGridViewTextBoxColumn_TheLoai });
             dataGridView_Sach.DataSource = sachBindingSource;
@@ -564,14 +564,14 @@
             dataGridView_PhieuNhapSach.BackgroundColor = Color.White;
             dataGridView_PhieuNhapSach.BorderStyle = BorderStyle.None;
             dataGridView_PhieuNhapSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = Color.Green;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle12.ForeColor = Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Green;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_PhieuNhapSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_PhieuNhapSach.Columns.AddRange(new DataGridViewColumn[] { maPNDataGridViewTextBoxColumn, maSachDataGridViewTextBoxColumn, soLuongDataGridViewTextBoxColumn, giaNhapDataGridViewTextBoxColumn, ngayNhapDataGridViewTextBoxColumn, NhaCungCap });
             dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
@@ -671,7 +671,7 @@
             // 
             label_PNS_NgayNhap_Filter.Font = new Font("Segoe UI", 12F);
             label_PNS_NgayNhap_Filter.ImageAlign = ContentAlignment.BottomLeft;
-            label_PNS_NgayNhap_Filter.Location = new Point(352, 166);
+            label_PNS_NgayNhap_Filter.Location = new Point(362, 166);
             label_PNS_NgayNhap_Filter.Margin = new Padding(4, 0, 28, 0);
             label_PNS_NgayNhap_Filter.Name = "label_PNS_NgayNhap_Filter";
             label_PNS_NgayNhap_Filter.Size = new Size(147, 30);
@@ -684,7 +684,7 @@
             date_PNS_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             date_PNS_Filter.Enabled = false;
             date_PNS_Filter.Format = DateTimePickerFormat.Short;
-            date_PNS_Filter.Location = new Point(514, 164);
+            date_PNS_Filter.Location = new Point(524, 164);
             date_PNS_Filter.Name = "date_PNS_Filter";
             date_PNS_Filter.Size = new Size(165, 34);
             date_PNS_Filter.TabIndex = 41;
@@ -695,7 +695,7 @@
             textBox_PNS_NhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PNS_NhaCungCap.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_NhaCungCap.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_NhaCungCap.Location = new Point(167, 223);
+            textBox_PNS_NhaCungCap.Location = new Point(177, 223);
             textBox_PNS_NhaCungCap.Margin = new Padding(4);
             textBox_PNS_NhaCungCap.Name = "textBox_PNS_NhaCungCap";
             textBox_PNS_NhaCungCap.Size = new Size(512, 34);
@@ -717,7 +717,7 @@
             // 
             date_PNS_NgayNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             date_PNS_NgayNhap.Format = DateTimePickerFormat.Short;
-            date_PNS_NgayNhap.Location = new Point(167, 164);
+            date_PNS_NgayNhap.Location = new Point(177, 164);
             date_PNS_NgayNhap.Name = "date_PNS_NgayNhap";
             date_PNS_NgayNhap.Size = new Size(165, 34);
             date_PNS_NgayNhap.TabIndex = 38;
@@ -735,7 +735,7 @@
             icon_PNS_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_PNS_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PNS_Clear.IconSize = 30;
-            icon_PNS_Clear.Location = new Point(599, 273);
+            icon_PNS_Clear.Location = new Point(559, 284);
             icon_PNS_Clear.Margin = new Padding(14);
             icon_PNS_Clear.Name = "icon_PNS_Clear";
             icon_PNS_Clear.Size = new Size(80, 80);
@@ -761,7 +761,7 @@
             textBox_PNS_GiaNhap.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PNS_GiaNhap.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_GiaNhap.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_GiaNhap.Location = new Point(514, 107);
+            textBox_PNS_GiaNhap.Location = new Point(524, 107);
             textBox_PNS_GiaNhap.Margin = new Padding(4);
             textBox_PNS_GiaNhap.Name = "textBox_PNS_GiaNhap";
             textBox_PNS_GiaNhap.Size = new Size(165, 34);
@@ -771,7 +771,7 @@
             // label_PNS_GiaNhap
             // 
             label_PNS_GiaNhap.Font = new Font("Segoe UI", 12F);
-            label_PNS_GiaNhap.Location = new Point(383, 109);
+            label_PNS_GiaNhap.Location = new Point(393, 109);
             label_PNS_GiaNhap.Margin = new Padding(4, 0, 28, 0);
             label_PNS_GiaNhap.Name = "label_PNS_GiaNhap";
             label_PNS_GiaNhap.Size = new Size(116, 30);
@@ -791,7 +791,7 @@
             icon_PNS_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_PNS_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PNS_Loc.IconSize = 30;
-            icon_PNS_Loc.Location = new Point(491, 273);
+            icon_PNS_Loc.Location = new Point(451, 284);
             icon_PNS_Loc.Margin = new Padding(14);
             icon_PNS_Loc.Name = "icon_PNS_Loc";
             icon_PNS_Loc.Size = new Size(80, 80);
@@ -813,7 +813,7 @@
             icon_PNS_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_PNS_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PNS_Tim.IconSize = 30;
-            icon_PNS_Tim.Location = new Point(383, 273);
+            icon_PNS_Tim.Location = new Point(343, 284);
             icon_PNS_Tim.Margin = new Padding(14);
             icon_PNS_Tim.Name = "icon_PNS_Tim";
             icon_PNS_Tim.Size = new Size(80, 80);
@@ -828,7 +828,7 @@
             textBox_PNS_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PNS_SoLuong.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_SoLuong.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_SoLuong.Location = new Point(167, 107);
+            textBox_PNS_SoLuong.Location = new Point(177, 107);
             textBox_PNS_SoLuong.Margin = new Padding(4);
             textBox_PNS_SoLuong.Name = "textBox_PNS_SoLuong";
             textBox_PNS_SoLuong.Size = new Size(165, 34);
@@ -840,7 +840,7 @@
             textBox_PNS_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PNS_MaSach.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_MaSach.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_MaSach.Location = new Point(514, 53);
+            textBox_PNS_MaSach.Location = new Point(524, 53);
             textBox_PNS_MaSach.Margin = new Padding(4);
             textBox_PNS_MaSach.Name = "textBox_PNS_MaSach";
             textBox_PNS_MaSach.Size = new Size(165, 34);
@@ -861,7 +861,7 @@
             // label_PNS_MaSach
             // 
             label_PNS_MaSach.Font = new Font("Segoe UI", 12F);
-            label_PNS_MaSach.Location = new Point(383, 55);
+            label_PNS_MaSach.Location = new Point(393, 55);
             label_PNS_MaSach.Margin = new Padding(4, 0, 28, 0);
             label_PNS_MaSach.Name = "label_PNS_MaSach";
             label_PNS_MaSach.Size = new Size(116, 30);
@@ -885,7 +885,7 @@
             textBox_PNS_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PNS_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
             textBox_PNS_MaPhieu.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_MaPhieu.Location = new Point(167, 53);
+            textBox_PNS_MaPhieu.Location = new Point(177, 53);
             textBox_PNS_MaPhieu.Margin = new Padding(4);
             textBox_PNS_MaPhieu.Name = "textBox_PNS_MaPhieu";
             textBox_PNS_MaPhieu.Size = new Size(165, 34);
@@ -903,7 +903,7 @@
             icon_PNS_Xoa.IconColor = Color.White;
             icon_PNS_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PNS_Xoa.IconSize = 30;
-            icon_PNS_Xoa.Location = new Point(275, 273);
+            icon_PNS_Xoa.Location = new Point(235, 284);
             icon_PNS_Xoa.Margin = new Padding(14);
             icon_PNS_Xoa.Name = "icon_PNS_Xoa";
             icon_PNS_Xoa.Size = new Size(80, 80);
@@ -924,7 +924,7 @@
             icon_PNS_Them.IconColor = Color.White;
             icon_PNS_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PNS_Them.IconSize = 30;
-            icon_PNS_Them.Location = new Point(167, 273);
+            icon_PNS_Them.Location = new Point(127, 284);
             icon_PNS_Them.Margin = new Padding(14);
             icon_PNS_Them.Name = "icon_PNS_Them";
             icon_PNS_Them.Size = new Size(80, 80);
@@ -956,14 +956,14 @@
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
             dataGridView_HoaDonBanSach.BorderStyle = BorderStyle.None;
             dataGridView_HoaDonBanSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = Color.Green;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
-            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.Green;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_HoaDonBanSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, TongTien, SoTienTra, ConLai, NgayHD });
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
@@ -1091,6 +1091,7 @@
             // 
             // icon_HD_Tinh
             // 
+            icon_HD_Tinh.Anchor = AnchorStyles.None;
             icon_HD_Tinh.BackColor = Color.White;
             icon_HD_Tinh.FlatAppearance.BorderColor = Color.Black;
             icon_HD_Tinh.FlatAppearance.BorderSize = 2;
@@ -1101,7 +1102,7 @@
             icon_HD_Tinh.IconColor = Color.Black;
             icon_HD_Tinh.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Tinh.IconSize = 30;
-            icon_HD_Tinh.Location = new Point(36, 303);
+            icon_HD_Tinh.Location = new Point(613, 303);
             icon_HD_Tinh.Margin = new Padding(14);
             icon_HD_Tinh.Name = "icon_HD_Tinh";
             icon_HD_Tinh.Size = new Size(80, 80);
@@ -1117,17 +1118,17 @@
             textBox_HD_ConLai.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_ConLai.Enabled = false;
             textBox_HD_ConLai.Font = new Font("Segoe UI", 12F);
-            textBox_HD_ConLai.Location = new Point(620, 174);
+            textBox_HD_ConLai.Location = new Point(624, 176);
             textBox_HD_ConLai.Margin = new Padding(4);
             textBox_HD_ConLai.Name = "textBox_HD_ConLai";
-            textBox_HD_ConLai.Size = new Size(120, 34);
+            textBox_HD_ConLai.Size = new Size(108, 34);
             textBox_HD_ConLai.TabIndex = 48;
             textBox_HD_ConLai.TextChanged += TextBox_HD_ConLai_TextChanged;
             // 
             // label_HD_ConLai
             // 
             label_HD_ConLai.Font = new Font("Segoe UI", 12F);
-            label_HD_ConLai.Location = new Point(520, 176);
+            label_HD_ConLai.Location = new Point(524, 178);
             label_HD_ConLai.Margin = new Padding(4, 0, 28, 0);
             label_HD_ConLai.Name = "label_HD_ConLai";
             label_HD_ConLai.Size = new Size(115, 30);
@@ -1141,7 +1142,7 @@
             textBox_HD_TongTien.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_TongTien.Enabled = false;
             textBox_HD_TongTien.Font = new Font("Segoe UI", 12F);
-            textBox_HD_TongTien.Location = new Point(375, 174);
+            textBox_HD_TongTien.Location = new Point(379, 176);
             textBox_HD_TongTien.Margin = new Padding(4);
             textBox_HD_TongTien.Name = "textBox_HD_TongTien";
             textBox_HD_TongTien.Size = new Size(120, 34);
@@ -1151,7 +1152,7 @@
             // label_HD_TongTien
             // 
             label_HD_TongTien.Font = new Font("Segoe UI", 12F);
-            label_HD_TongTien.Location = new Point(275, 176);
+            label_HD_TongTien.Location = new Point(279, 178);
             label_HD_TongTien.Margin = new Padding(4, 0, 28, 0);
             label_HD_TongTien.Name = "label_HD_TongTien";
             label_HD_TongTien.Size = new Size(115, 30);
@@ -1164,17 +1165,17 @@
             textBox_HD_SoTienTra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_HD_SoTienTra.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
-            textBox_HD_SoTienTra.Location = new Point(531, 108);
+            textBox_HD_SoTienTra.Location = new Point(535, 110);
             textBox_HD_SoTienTra.Margin = new Padding(4);
             textBox_HD_SoTienTra.Name = "textBox_HD_SoTienTra";
-            textBox_HD_SoTienTra.Size = new Size(208, 34);
+            textBox_HD_SoTienTra.Size = new Size(196, 34);
             textBox_HD_SoTienTra.TabIndex = 44;
             textBox_HD_SoTienTra.TextChanged += TextBox_HD_SoTienTra_TextChanged;
             // 
             // label_HD_SoTienTra
             // 
             label_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
-            label_HD_SoTienTra.Location = new Point(372, 110);
+            label_HD_SoTienTra.Location = new Point(376, 112);
             label_HD_SoTienTra.Margin = new Padding(4, 0, 28, 0);
             label_HD_SoTienTra.Name = "label_HD_SoTienTra";
             label_HD_SoTienTra.Size = new Size(115, 30);
@@ -1185,7 +1186,7 @@
             // label_HD_NgayBan_Filter
             // 
             label_HD_NgayBan_Filter.Font = new Font("Segoe UI", 12F);
-            label_HD_NgayBan_Filter.Location = new Point(351, 247);
+            label_HD_NgayBan_Filter.Location = new Point(355, 240);
             label_HD_NgayBan_Filter.Margin = new Padding(4, 0, 28, 0);
             label_HD_NgayBan_Filter.Name = "label_HD_NgayBan_Filter";
             label_HD_NgayBan_Filter.Size = new Size(173, 30);
@@ -1198,9 +1199,9 @@
             date_HD_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             date_HD_Filter.Enabled = false;
             date_HD_Filter.Format = DateTimePickerFormat.Short;
-            date_HD_Filter.Location = new Point(531, 245);
+            date_HD_Filter.Location = new Point(535, 238);
             date_HD_Filter.Name = "date_HD_Filter";
-            date_HD_Filter.Size = new Size(208, 34);
+            date_HD_Filter.Size = new Size(196, 34);
             date_HD_Filter.TabIndex = 41;
             date_HD_Filter.ValueChanged += Date_HD_Filter_ValueChanged;
             // 
@@ -1210,7 +1211,7 @@
             textBox_HD_GiaBan.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_GiaBan.Enabled = false;
             textBox_HD_GiaBan.Font = new Font("Segoe UI", 12F);
-            textBox_HD_GiaBan.Location = new Point(136, 174);
+            textBox_HD_GiaBan.Location = new Point(140, 176);
             textBox_HD_GiaBan.Margin = new Padding(4);
             textBox_HD_GiaBan.Name = "textBox_HD_GiaBan";
             textBox_HD_GiaBan.Size = new Size(120, 34);
@@ -1232,7 +1233,7 @@
             // 
             date_HD_NgayBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             date_HD_NgayBan.Format = DateTimePickerFormat.Short;
-            date_HD_NgayBan.Location = new Point(136, 245);
+            date_HD_NgayBan.Location = new Point(140, 238);
             date_HD_NgayBan.Name = "date_HD_NgayBan";
             date_HD_NgayBan.Size = new Size(208, 34);
             date_HD_NgayBan.TabIndex = 38;
@@ -1250,7 +1251,7 @@
             icon_HD_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_HD_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Clear.IconSize = 30;
-            icon_HD_Clear.Location = new Point(599, 303);
+            icon_HD_Clear.Location = new Point(505, 303);
             icon_HD_Clear.Margin = new Padding(14);
             icon_HD_Clear.Name = "icon_HD_Clear";
             icon_HD_Clear.Size = new Size(80, 80);
@@ -1263,7 +1264,7 @@
             // label_HD_NgayBan
             // 
             label_HD_NgayBan.Font = new Font("Segoe UI", 12F);
-            label_HD_NgayBan.Location = new Point(36, 247);
+            label_HD_NgayBan.Location = new Point(36, 238);
             label_HD_NgayBan.Margin = new Padding(4, 0, 28, 0);
             label_HD_NgayBan.Name = "label_HD_NgayBan";
             label_HD_NgayBan.Size = new Size(115, 30);
@@ -1276,7 +1277,7 @@
             textBox_HD_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_SoLuong.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_SoLuong.Font = new Font("Segoe UI", 12F);
-            textBox_HD_SoLuong.Location = new Point(136, 108);
+            textBox_HD_SoLuong.Location = new Point(140, 110);
             textBox_HD_SoLuong.Margin = new Padding(4);
             textBox_HD_SoLuong.Name = "textBox_HD_SoLuong";
             textBox_HD_SoLuong.Size = new Size(194, 34);
@@ -1306,7 +1307,7 @@
             icon_HD_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_HD_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Loc.IconSize = 30;
-            icon_HD_Loc.Location = new Point(491, 303);
+            icon_HD_Loc.Location = new Point(397, 303);
             icon_HD_Loc.Margin = new Padding(14);
             icon_HD_Loc.Name = "icon_HD_Loc";
             icon_HD_Loc.Size = new Size(80, 80);
@@ -1328,7 +1329,7 @@
             icon_HD_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_HD_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Tim.IconSize = 30;
-            icon_HD_Tim.Location = new Point(383, 303);
+            icon_HD_Tim.Location = new Point(289, 303);
             icon_HD_Tim.Margin = new Padding(14);
             icon_HD_Tim.Name = "icon_HD_Tim";
             icon_HD_Tim.Size = new Size(80, 80);
@@ -1343,10 +1344,10 @@
             textBox_HD_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_HD_MaSach.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaSach.Font = new Font("Segoe UI", 12F);
-            textBox_HD_MaSach.Location = new Point(620, 53);
+            textBox_HD_MaSach.Location = new Point(624, 55);
             textBox_HD_MaSach.Margin = new Padding(4);
             textBox_HD_MaSach.Name = "textBox_HD_MaSach";
-            textBox_HD_MaSach.Size = new Size(120, 34);
+            textBox_HD_MaSach.Size = new Size(108, 34);
             textBox_HD_MaSach.TabIndex = 28;
             textBox_HD_MaSach.TextChanged += TextBox_HD_MaSach_TextChanged;
             // 
@@ -1355,7 +1356,7 @@
             textBox_HD_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_MaKH.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaKH.Font = new Font("Segoe UI", 12F);
-            textBox_HD_MaKH.Location = new Point(372, 53);
+            textBox_HD_MaKH.Location = new Point(376, 55);
             textBox_HD_MaKH.Margin = new Padding(4);
             textBox_HD_MaKH.Name = "textBox_HD_MaKH";
             textBox_HD_MaKH.Size = new Size(120, 34);
@@ -1365,7 +1366,7 @@
             // label_HD_MaSach
             // 
             label_HD_MaSach.Font = new Font("Segoe UI", 12F);
-            label_HD_MaSach.Location = new Point(510, 55);
+            label_HD_MaSach.Location = new Point(514, 57);
             label_HD_MaSach.Margin = new Padding(4, 0, 28, 0);
             label_HD_MaSach.Name = "label_HD_MaSach";
             label_HD_MaSach.Size = new Size(90, 30);
@@ -1376,7 +1377,7 @@
             // label_HD_MaKH
             // 
             label_HD_MaKH.Font = new Font("Segoe UI", 12F);
-            label_HD_MaKH.Location = new Point(273, 55);
+            label_HD_MaKH.Location = new Point(277, 57);
             label_HD_MaKH.Margin = new Padding(4, 0, 28, 0);
             label_HD_MaKH.Name = "label_HD_MaKH";
             label_HD_MaKH.Size = new Size(90, 30);
@@ -1400,7 +1401,7 @@
             textBox_HD_MaHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_MaHD.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaHD.Font = new Font("Segoe UI", 12F);
-            textBox_HD_MaHD.Location = new Point(136, 53);
+            textBox_HD_MaHD.Location = new Point(140, 55);
             textBox_HD_MaHD.Margin = new Padding(4);
             textBox_HD_MaHD.Name = "textBox_HD_MaHD";
             textBox_HD_MaHD.Size = new Size(120, 34);
@@ -1418,7 +1419,7 @@
             icon_HD_Xoa.IconColor = Color.White;
             icon_HD_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Xoa.IconSize = 30;
-            icon_HD_Xoa.Location = new Point(275, 303);
+            icon_HD_Xoa.Location = new Point(181, 303);
             icon_HD_Xoa.Margin = new Padding(14);
             icon_HD_Xoa.Name = "icon_HD_Xoa";
             icon_HD_Xoa.Size = new Size(80, 80);
@@ -1439,7 +1440,7 @@
             icon_HD_Them.IconColor = Color.White;
             icon_HD_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Them.IconSize = 30;
-            icon_HD_Them.Location = new Point(167, 303);
+            icon_HD_Them.Location = new Point(73, 303);
             icon_HD_Them.Margin = new Padding(14);
             icon_HD_Them.Name = "icon_HD_Them";
             icon_HD_Them.Size = new Size(80, 80);
