@@ -65,6 +65,8 @@
             soTienDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phieuThuTienBindingSource = new BindingSource(components);
             groupBox_PhieuThuTien = new GroupBox();
+            label_PTT_Filter = new Label();
+            date_PTT_Filter = new DateTimePicker();
             date_PTT_NgayThu = new DateTimePicker();
             icon_PTT_Clear = new FontAwesome.Sharp.IconButton();
             textBox_PTT_SoTien = new TextBox();
@@ -481,6 +483,7 @@
             tabControl_KhachHang.SelectedIndex = 0;
             tabControl_KhachHang.Size = new Size(782, 553);
             tabControl_KhachHang.TabIndex = 54;
+            tabControl_KhachHang.SelectedIndexChanged += TabControl_KhachHang_SelectedIndexChanged;
             // 
             // tabPage_KhachHang
             // 
@@ -537,13 +540,13 @@
             dataGridView_PhieuThuTien.Dock = DockStyle.Fill;
             dataGridView_PhieuThuTien.EnableHeadersVisualStyles = false;
             dataGridView_PhieuThuTien.GridColor = Color.Black;
-            dataGridView_PhieuThuTien.Location = new Point(3, 276);
+            dataGridView_PhieuThuTien.Location = new Point(3, 266);
             dataGridView_PhieuThuTien.Name = "dataGridView_PhieuThuTien";
             dataGridView_PhieuThuTien.RightToLeft = RightToLeft.No;
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(768, 233);
+            dataGridView_PhieuThuTien.Size = new Size(768, 243);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
@@ -582,6 +585,8 @@
             // 
             // groupBox_PhieuThuTien
             // 
+            groupBox_PhieuThuTien.Controls.Add(label_PTT_Filter);
+            groupBox_PhieuThuTien.Controls.Add(date_PTT_Filter);
             groupBox_PhieuThuTien.Controls.Add(date_PTT_NgayThu);
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Clear);
             groupBox_PhieuThuTien.Controls.Add(textBox_PTT_SoTien);
@@ -598,15 +603,36 @@
             groupBox_PhieuThuTien.Dock = DockStyle.Top;
             groupBox_PhieuThuTien.Location = new Point(3, 3);
             groupBox_PhieuThuTien.Name = "groupBox_PhieuThuTien";
-            groupBox_PhieuThuTien.Size = new Size(768, 273);
+            groupBox_PhieuThuTien.Size = new Size(768, 263);
             groupBox_PhieuThuTien.TabIndex = 5;
             groupBox_PhieuThuTien.TabStop = false;
             groupBox_PhieuThuTien.Text = "Nhập liệu";
             // 
+            // label_PTT_Filter
+            // 
+            label_PTT_Filter.Font = new Font("Segoe UI", 12F);
+            label_PTT_Filter.ImageAlign = ContentAlignment.BottomLeft;
+            label_PTT_Filter.Location = new Point(354, 109);
+            label_PTT_Filter.Margin = new Padding(4, 0, 28, 0);
+            label_PTT_Filter.Name = "label_PTT_Filter";
+            label_PTT_Filter.Size = new Size(93, 30);
+            label_PTT_Filter.TabIndex = 59;
+            label_PTT_Filter.Text = "→";
+            label_PTT_Filter.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // date_PTT_Filter
+            // 
+            date_PTT_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            date_PTT_Filter.Enabled = false;
+            date_PTT_Filter.Format = DateTimePickerFormat.Short;
+            date_PTT_Filter.Location = new Point(495, 107);
+            date_PTT_Filter.Name = "date_PTT_Filter";
+            date_PTT_Filter.Size = new Size(137, 34);
+            date_PTT_Filter.TabIndex = 58;
+            // 
             // date_PTT_NgayThu
             // 
-            date_PTT_NgayThu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            date_PTT_NgayThu.Location = new Point(485, 102);
+            date_PTT_NgayThu.Location = new Point(169, 107);
             date_PTT_NgayThu.Name = "date_PTT_NgayThu";
             date_PTT_NgayThu.Size = new Size(137, 34);
             date_PTT_NgayThu.TabIndex = 57;
@@ -623,7 +649,7 @@
             icon_PTT_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_PTT_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Clear.IconSize = 30;
-            icon_PTT_Clear.Location = new Point(542, 163);
+            icon_PTT_Clear.Location = new Point(544, 170);
             icon_PTT_Clear.Margin = new Padding(10);
             icon_PTT_Clear.Name = "icon_PTT_Clear";
             icon_PTT_Clear.Size = new Size(80, 80);
@@ -635,25 +661,25 @@
             // 
             // textBox_PTT_SoTien
             // 
-            textBox_PTT_SoTien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            textBox_PTT_SoTien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PTT_SoTien.BorderStyle = BorderStyle.FixedSingle;
             textBox_PTT_SoTien.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_SoTien.Location = new Point(149, 102);
+            textBox_PTT_SoTien.Location = new Point(624, 45);
             textBox_PTT_SoTien.Name = "textBox_PTT_SoTien";
-            textBox_PTT_SoTien.Size = new Size(134, 34);
+            textBox_PTT_SoTien.Size = new Size(106, 34);
             textBox_PTT_SoTien.TabIndex = 50;
             textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
             // 
             // label_PTT_SoTien
             // 
             label_PTT_SoTien.Font = new Font("Segoe UI", 12F);
-            label_PTT_SoTien.Location = new Point(27, 99);
+            label_PTT_SoTien.Location = new Point(503, 42);
             label_PTT_SoTien.Margin = new Padding(3, 0, 20, 0);
             label_PTT_SoTien.Name = "label_PTT_SoTien";
-            label_PTT_SoTien.Size = new Size(120, 40);
+            label_PTT_SoTien.Size = new Size(94, 40);
             label_PTT_SoTien.TabIndex = 49;
             label_PTT_SoTien.Text = "Số tiền";
-            label_PTT_SoTien.TextAlign = ContentAlignment.MiddleLeft;
+            label_PTT_SoTien.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // icon_PTT_Loc
             // 
@@ -667,7 +693,7 @@
             icon_PTT_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_PTT_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Loc.IconSize = 30;
-            icon_PTT_Loc.Location = new Point(442, 163);
+            icon_PTT_Loc.Location = new Point(444, 170);
             icon_PTT_Loc.Margin = new Padding(10);
             icon_PTT_Loc.Name = "icon_PTT_Loc";
             icon_PTT_Loc.Size = new Size(80, 80);
@@ -689,7 +715,7 @@
             icon_PTT_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_PTT_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Tim.IconSize = 30;
-            icon_PTT_Tim.Location = new Point(342, 163);
+            icon_PTT_Tim.Location = new Point(344, 170);
             icon_PTT_Tim.Margin = new Padding(10);
             icon_PTT_Tim.Name = "icon_PTT_Tim";
             icon_PTT_Tim.Size = new Size(80, 80);
@@ -710,7 +736,7 @@
             icon_PTT_Xoa.IconColor = Color.White;
             icon_PTT_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Xoa.IconSize = 30;
-            icon_PTT_Xoa.Location = new Point(242, 163);
+            icon_PTT_Xoa.Location = new Point(244, 170);
             icon_PTT_Xoa.Margin = new Padding(10);
             icon_PTT_Xoa.Name = "icon_PTT_Xoa";
             icon_PTT_Xoa.Size = new Size(80, 80);
@@ -731,7 +757,7 @@
             icon_PTT_Them.IconColor = Color.White;
             icon_PTT_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Them.IconSize = 30;
-            icon_PTT_Them.Location = new Point(142, 163);
+            icon_PTT_Them.Location = new Point(144, 170);
             icon_PTT_Them.Margin = new Padding(10);
             icon_PTT_Them.Name = "icon_PTT_Them";
             icon_PTT_Them.Size = new Size(80, 80);
@@ -743,22 +769,21 @@
             // 
             // textBox_PTT_MaKH
             // 
-            textBox_PTT_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PTT_MaKH.BorderStyle = BorderStyle.FixedSingle;
             textBox_PTT_MaKH.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_MaKH.Location = new Point(485, 42);
+            textBox_PTT_MaKH.Location = new Point(386, 45);
             textBox_PTT_MaKH.Name = "textBox_PTT_MaKH";
-            textBox_PTT_MaKH.Size = new Size(136, 34);
+            textBox_PTT_MaKH.Size = new Size(106, 34);
             textBox_PTT_MaKH.TabIndex = 39;
             textBox_PTT_MaKH.TextChanged += TextBox_PTT_MaKH_TextChanged;
             // 
             // label_PTT_NgayThu
             // 
             label_PTT_NgayThu.Font = new Font("Segoe UI", 12F);
-            label_PTT_NgayThu.Location = new Point(370, 99);
+            label_PTT_NgayThu.Location = new Point(27, 104);
             label_PTT_NgayThu.Margin = new Padding(3, 0, 20, 0);
             label_PTT_NgayThu.Name = "label_PTT_NgayThu";
-            label_PTT_NgayThu.Size = new Size(120, 40);
+            label_PTT_NgayThu.Size = new Size(94, 40);
             label_PTT_NgayThu.TabIndex = 38;
             label_PTT_NgayThu.Text = "Ngày thu";
             label_PTT_NgayThu.TextAlign = ContentAlignment.MiddleLeft;
@@ -766,33 +791,32 @@
             // label_PTT_MaKH
             // 
             label_PTT_MaKH.Font = new Font("Segoe UI", 12F);
-            label_PTT_MaKH.Location = new Point(370, 39);
+            label_PTT_MaKH.Location = new Point(265, 42);
             label_PTT_MaKH.Margin = new Padding(3, 0, 20, 0);
             label_PTT_MaKH.Name = "label_PTT_MaKH";
-            label_PTT_MaKH.Size = new Size(120, 40);
+            label_PTT_MaKH.Size = new Size(94, 40);
             label_PTT_MaKH.TabIndex = 37;
             label_PTT_MaKH.Text = "Mã KH";
-            label_PTT_MaKH.TextAlign = ContentAlignment.MiddleLeft;
+            label_PTT_MaKH.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_PTT_MaPhieu
             // 
             label_PTT_MaPhieu.Font = new Font("Segoe UI", 12F);
-            label_PTT_MaPhieu.Location = new Point(27, 39);
+            label_PTT_MaPhieu.Location = new Point(27, 42);
             label_PTT_MaPhieu.Margin = new Padding(3, 0, 20, 0);
             label_PTT_MaPhieu.Name = "label_PTT_MaPhieu";
-            label_PTT_MaPhieu.Size = new Size(120, 40);
+            label_PTT_MaPhieu.Size = new Size(94, 40);
             label_PTT_MaPhieu.TabIndex = 36;
             label_PTT_MaPhieu.Text = "Mã phiếu";
             label_PTT_MaPhieu.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBox_PTT_MaPhieu
             // 
-            textBox_PTT_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PTT_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
             textBox_PTT_MaPhieu.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_MaPhieu.Location = new Point(149, 42);
+            textBox_PTT_MaPhieu.Location = new Point(148, 45);
             textBox_PTT_MaPhieu.Name = "textBox_PTT_MaPhieu";
-            textBox_PTT_MaPhieu.Size = new Size(136, 34);
+            textBox_PTT_MaPhieu.Size = new Size(106, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
             textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
             // 
@@ -879,5 +903,7 @@
         private DataGridViewTextBoxColumn ngayThuDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn soTienDataGridViewTextBoxColumn;
         private DateTimePicker date_PTT_NgayThu;
+        private Label label_PTT_Filter;
+        private DateTimePicker date_PTT_Filter;
     }
 }

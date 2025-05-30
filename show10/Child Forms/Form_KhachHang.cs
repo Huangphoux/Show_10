@@ -1,12 +1,14 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
+using System.Linq.Dynamic.Core;
 
 namespace Show10.Child_Forms {
     public partial class Form_KhachHang : Form {
         private NhaSachContext? db;
         bool isLoc_KH = false;
         bool isLoc_PTT = false;
+
         public Form_KhachHang() {
             InitializeComponent();
             DoubleBuffered = true;
@@ -22,6 +24,8 @@ namespace Show10.Child_Forms {
             //db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
+            KiemTraNo();
+
             db.KhachHangs.Load();
             khachHangBindingSource.DataSource = db.KhachHangs.Local.ToBindingList();
             dataGridView_KhachHang.Refresh();
@@ -35,8 +39,62 @@ namespace Show10.Child_Forms {
             db?.Dispose();
             db = null;
         }
+        private void KiemTraNo() {
+            if (db == null) return;
+            foreach (var kh in db.KhachHangs) {
+                double tienNo = db.HoaDonBanSachs
+                    .Where(p => p.MaKH == kh.MaKH)
+                    .Sum(p => p.ConLai);
+                double tienTra = db.PhieuThuTiens
+                    .Where(p => p.MaKH == kh.MaKH)
+                    .Sum(p => p.SoTien);
 
+                kh.TienNo = tienNo - tienTra;
+            }
+            db.SaveChanges();
+            dataGridView_KhachHang.Refresh();
+        }
+        private static string FilterSoLuong(string input, string table) {
+            string expr = "";
+
+            try {
+                input = input.Trim();
+                var rangeMatch = System.Text.RegularExpressions.Regex.Match(input, @"^\s*(\d+)\s*(<|<=)\s*x\s*(<|<=)\s*(\d+)\s*$");
+                if (rangeMatch.Success) {
+                    int lower = int.Parse(rangeMatch.Groups[1].Value);
+                    string lowerOp = rangeMatch.Groups[2].Value;
+                    string upperOp = rangeMatch.Groups[3].Value;
+                    int upper = int.Parse(rangeMatch.Groups[4].Value);
+                    string lowerExpr = lowerOp == "<=" ? $"{table} >= {lower}" : $"{table} > {lower}";
+                    string upperExpr = upperOp == "<=" ? $"{table} <= {upper}" : $"{table} < {upper}";
+                    expr = $"{lowerExpr} && {upperExpr}";
+                } else if (int.TryParse(input, out int value)) {
+                    expr = $"{table} == {value}";
+                } else if (input.StartsWith(">") || input.StartsWith("<") || input.StartsWith("=") || input.StartsWith("!")) {
+                    if (input.StartsWith("=") && !input.StartsWith("==")) {
+                        expr = $"{table} == {input.Substring(1).Trim()}";
+                    } else if (input.StartsWith("!=")) {
+                        expr = $"{table} != {input.Substring(2).Trim()}";
+                    } else {
+                        expr = $"{table} {input}";
+                    }
+                } else if (input.Contains("x")) {
+                    expr = input.Replace("x", table);
+                } else {
+                    expr = $"{table} == {input}";
+                }
+            } catch {
+                // Ignore invalid expressions  
+            }
+
+            return expr;
+        }
         #region Quản lý khách hàng
+        private void TabControl_KhachHang_SelectedIndexChanged(object sender, EventArgs e) {
+            if (tabControl_KhachHang.SelectedTab == tabPage_KhachHang) {
+                KiemTraNo();
+            }
+        }
         private KhachHang GetKhachHang() {
             string maKH = textBox_KH_MaKH.Text;
             string tenKH = textBox_KH_TenKH.Text;
@@ -135,6 +193,8 @@ namespace Show10.Child_Forms {
 
             icon_KH.ForEach(icon => icon.Enabled = !isLoc_KH);
 
+            textBox_KH_TienNo.Enabled = isLoc_KH;
+
             if (!isLoc_KH) {
                 dataGridView_KhachHang.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_KhachHang.DataSource = khachHangBindingSource;
@@ -145,92 +205,68 @@ namespace Show10.Child_Forms {
                 Icon_KH_Clear_Click(sender, e);
             }
         }
-        private void ApplyFilter_KhachHang() {
-            if (isLoc_KH && dataGridView_KhachHang != null) {
-                var filteredData = db.KhachHangs.Local.AsQueryable();
-
-                if (!string.IsNullOrEmpty(textBox_KH_MaKH.Text)) {
-                    if (int.TryParse(textBox_KH_MaKH.Text, out int maKH)) {
-                        filteredData = filteredData.Where(kh => kh.MaKH.ToString().Contains(maKH.ToString()));
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_KH_TenKH.Text)) {
-                    filteredData = filteredData.Where(kh => kh.TenKH.Contains(textBox_KH_TenKH.Text));
-                }
-
-                if (!string.IsNullOrEmpty(comboBox_KH_GioiTinh.Text) && comboBox_KH_GioiTinh.Text != "Tất cả") {
-                    filteredData = filteredData.Where(kh => kh.GioiTinh.Contains(comboBox_KH_GioiTinh.Text));
-                }
-
-                if (!string.IsNullOrEmpty(textBox_KH_Email.Text)) {
-                    filteredData = filteredData.Where(kh => kh.Email.Contains(textBox_KH_Email.Text));
-                }
-
-                if (!string.IsNullOrEmpty(textBox_KH_DiaChi.Text)) {
-                    filteredData = filteredData.Where(kh => kh.DiaChi.Contains(textBox_KH_DiaChi.Text));
-                }
-
-
-                dataGridView_KhachHang.DataSource = new BindingSource { DataSource = filteredData.ToList() };
-            }
-        }
         #region Detect changes in quản lý khách hàng
         private void TextBox_KH_MaKH_TextChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
         }
-
         private void TextBox_KH_TenKH_TextChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
 
         }
-
         private void ComboBox_KH_GioiTinh_SelectedIndexChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
 
         }
-
         private void TextBox_KH_Email_TextChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
 
         }
-
         private void TextBox_KH_DiaChi_TextChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
 
         }
-
         private void TextBox_KH_TienNo_TextChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
 
         }
         #endregion
-        private void Icon_KH_Tim_Click(object sender, EventArgs e) {
-            var filteredData = db.KhachHangs.Local.AsQueryable();
+        private IQueryable<KhachHang> GetFilteredData_KH() {
+            var filteredData = db!.KhachHangs.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_KH_MaKH.Text)) {
                 if (int.TryParse(textBox_KH_MaKH.Text, out int maKH)) {
                     filteredData = filteredData.Where(kh => kh.MaKH == maKH);
                 }
             }
-
             if (!string.IsNullOrEmpty(textBox_KH_TenKH.Text)) {
-                filteredData = filteredData.Where(kh => kh.TenKH == textBox_KH_TenKH.Text);
+                filteredData = filteredData.Where(kh => kh.TenKH.Contains(textBox_KH_TenKH.Text));
             }
-
-            if (!string.IsNullOrEmpty(comboBox_KH_GioiTinh.Text) && comboBox_KH_GioiTinh.Text != "") {
-                filteredData = filteredData.Where(kh => kh.GioiTinh == comboBox_KH_GioiTinh.Text);
+            if (!string.IsNullOrEmpty(comboBox_KH_GioiTinh.Text)) {
+                filteredData = filteredData.Where(kh => kh.GioiTinh.Contains(comboBox_KH_GioiTinh.Text));
             }
-
             if (!string.IsNullOrEmpty(textBox_KH_Email.Text)) {
-                filteredData = filteredData.Where(kh => kh.Email == textBox_KH_Email.Text);
+                filteredData = filteredData.Where(kh => kh.Email.Contains(textBox_KH_Email.Text));
             }
-
             if (!string.IsNullOrEmpty(textBox_KH_DiaChi.Text)) {
-                filteredData = filteredData.Where(kh => kh.DiaChi == textBox_KH_DiaChi.Text);
+                filteredData = filteredData.Where(kh => kh.DiaChi.Contains(textBox_KH_DiaChi.Text));
+            }
+            if (!string.IsNullOrWhiteSpace(textBox_KH_TienNo.Text)) {
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_KH_TienNo.Text, "TienNo"));
+                } catch {
+                    // Ignore invalid expressions
+                }
             }
 
-            var filteredList = filteredData.ToList();
+            return filteredData;
+        }
+        private void ApplyFilter_KhachHang() {
+            if (isLoc_KH && dataGridView_KhachHang != null) {
+                dataGridView_KhachHang.DataSource = new BindingSource { DataSource = GetFilteredData_KH().ToList() };
+            }
+        }
+        private void Icon_KH_Tim_Click(object sender, EventArgs e) {
+            var filteredList = GetFilteredData_KH().ToList();
             if (filteredList.Count == 0)
                 return;
 
@@ -262,24 +298,27 @@ namespace Show10.Child_Forms {
         private void DataGridView_KhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             db?.SaveChanges();
         }
-
-
         private void Icon_KH_ThuTien_Click(object sender, EventArgs e) {
-            tabControl_KhachHang.SelectedTab = tabPage_PhieuThuTien;
-            Icon_PTT_Clear_Click(sender, e);
-
-            int lastMaPhieu = db!.PhieuThuTiens
-                .OrderByDescending(p => p.MaPT)
-                .FirstOrDefault()?.MaPT ?? 0;
-            textBox_PTT_MaPhieu.Text = (lastMaPhieu + 1).ToString();
-
             if (dataGridView_KhachHang.CurrentRow?.DataBoundItem is KhachHang khachHang) {
+                if (khachHang.TienNo <= 0) {
+                    MessageBox.Show("Không thể thu tiền khách hàng do khách hàng không có nợ.",
+                        "Không thể thu tiền khách hàng",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                tabControl_KhachHang.SelectedTab = tabPage_PhieuThuTien;
+                Icon_PTT_Clear_Click(sender, e);
+
+                int lastMaPhieu = db!.PhieuThuTiens
+                    .OrderByDescending(p => p.MaPT)
+                    .FirstOrDefault()?.MaPT ?? 0;
+                textBox_PTT_MaPhieu.Text = (lastMaPhieu + 1).ToString();
+
                 textBox_PTT_MaKH.Text = khachHang.MaKH.ToString();
             }
         }
-
         #endregion
-
         #region Quản lý phiếu thu tiền
         private PhieuThuTien GetPhieuThuTien() {
             string maPT = textBox_PTT_MaPhieu.Text;
@@ -300,7 +339,6 @@ namespace Show10.Child_Forms {
             date_PTT_NgayThu.Text = phieuThuTien.NgayThu.ToShortDateString();
             textBox_PTT_SoTien.Text = phieuThuTien.SoTien.ToString();
         }
-
         private void Icon_PTT_Them_Click(object sender, EventArgs e) {
             PhieuThuTien phieuThuTien = GetPhieuThuTien();
 
@@ -344,8 +382,7 @@ namespace Show10.Child_Forms {
                 _ = db.SaveChanges();
                 dataGridView_PhieuThuTien.Refresh();
 
-                // Optionally clear input fields after adding
-                // Icon_PTT_Clear_Click(sender, e);
+                Icon_PTT_Clear_Click(sender, e);
             }
         }
         private void Icon_PTT_Xoa_Click(object sender, EventArgs e) {
@@ -388,37 +425,6 @@ namespace Show10.Child_Forms {
                 Icon_PTT_Clear_Click(sender, e);
             }
         }
-        private void ApplyFilter_PhieuThuTien() {
-            if (isLoc_PTT && dataGridView_PhieuThuTien != null) {
-                var filteredData = db.PhieuThuTiens.Local.AsQueryable();
-
-                if (!string.IsNullOrEmpty(textBox_PTT_MaPhieu.Text)) {
-                    if (int.TryParse(textBox_PTT_MaPhieu.Text, out int maPT)) {
-                        filteredData = filteredData.Where(ptt => ptt.MaPT.ToString().Contains(maPT.ToString()));
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_PTT_MaKH.Text)) {
-                    if (int.TryParse(textBox_PTT_MaKH.Text, out int maKH)) {
-                        filteredData = filteredData.Where(ptt => ptt.MaKH.ToString().Contains(maKH.ToString()));
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(date_PTT_NgayThu.Text)) {
-                    if (DateTime.TryParse(date_PTT_NgayThu.Text, out DateTime ngayThu)) {
-                        filteredData = filteredData.Where(ptt => ptt.NgayThu.Date == ngayThu.Date);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_PTT_SoTien.Text)) {
-                    if (double.TryParse(textBox_PTT_SoTien.Text, out double soTien)) {
-                        filteredData = filteredData.Where(ptt => ptt.SoTien == soTien);
-                    }
-                }
-
-                dataGridView_PhieuThuTien.DataSource = new BindingSource { DataSource = filteredData.ToList() };
-            }
-        }
         #region Detect changes in quanLyPhieuThuTien
         private void TextBox_PTT_MaPhieu_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuThuTien();
@@ -439,34 +445,38 @@ namespace Show10.Child_Forms {
 
         }
         #endregion
-        private void Icon_PTT_Tim_Click(object sender, EventArgs e) {
-            var filteredData = db.PhieuThuTiens.Local.AsQueryable();
+        private IQueryable<PhieuThuTien> GetFilteredData_PTT() {
+            var filteredData = db!.PhieuThuTiens.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_PTT_MaPhieu.Text)) {
                 if (int.TryParse(textBox_PTT_MaPhieu.Text, out int maPT)) {
-                    filteredData = filteredData.Where(ptt => ptt.MaPT == maPT);
+                    filteredData = filteredData.Where(ptt => ptt.MaPT.ToString().Contains(maPT.ToString()));
                 }
             }
-
             if (!string.IsNullOrEmpty(textBox_PTT_MaKH.Text)) {
                 if (int.TryParse(textBox_PTT_MaKH.Text, out int maKH)) {
-                    filteredData = filteredData.Where(ptt => ptt.MaKH == maKH);
+                    filteredData = filteredData.Where(ptt => ptt.MaKH.ToString().Contains(maKH.ToString()));
                 }
             }
-
-            if (!string.IsNullOrEmpty(date_PTT_NgayThu.Text)) {
-                if (DateTime.TryParse(date_PTT_NgayThu.Text, out DateTime ngayThu)) {
-                    filteredData = filteredData.Where(ptt => ptt.NgayThu.Date == ngayThu.Date);
-                }
-            }
-
             if (!string.IsNullOrEmpty(textBox_PTT_SoTien.Text)) {
                 if (double.TryParse(textBox_PTT_SoTien.Text, out double soTien)) {
                     filteredData = filteredData.Where(ptt => ptt.SoTien == soTien);
                 }
             }
 
-            var filteredList = filteredData.ToList();
+            DateTime from = DateTime.Parse(date_PTT_NgayThu.Text);
+            DateTime to = DateTime.Parse(date_PTT_Filter.Text);
+            filteredData = filteredData.Where(s => s.NgayThu >= from && s.NgayThu <= to);
+
+            return filteredData;
+        }
+        private void ApplyFilter_PhieuThuTien() {
+            if (isLoc_PTT && dataGridView_PhieuThuTien != null) {
+                dataGridView_PhieuThuTien.DataSource = new BindingSource { DataSource = GetFilteredData_PTT().ToList() };
+            }
+        }
+        private void Icon_PTT_Tim_Click(object sender, EventArgs e) {
+            var filteredList = GetFilteredData_PTT().ToList();
             if (filteredList.Count == 0)
                 return;
 
@@ -482,14 +492,12 @@ namespace Show10.Child_Forms {
                 }
             }
         }
-
         private void Icon_PTT_Clear_Click(object sender, EventArgs e) {
             textBox_PTT_MaPhieu.Text = "";
             textBox_PTT_MaKH.Text = "";
             date_PTT_NgayThu.Text = "";
             textBox_PTT_SoTien.Text = "";
         }
-
         private void DataGridView_PhieuThuTien_SelectionChanged(object sender, EventArgs e) {
             if (db == null || this.IsDisposed || this.Disposing)
                 return;
@@ -500,7 +508,6 @@ namespace Show10.Child_Forms {
         private void DataGridView_PhieuThuTien_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             db?.SaveChanges();
         }
-
         #endregion
     }
 }

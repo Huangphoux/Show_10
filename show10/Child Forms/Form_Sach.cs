@@ -667,6 +667,7 @@ namespace Show10.Child_Forms {
         private void Icon_HD_Them_Click(object sender, EventArgs e) {
             HoaDonBanSach hoaDon = GetHoaDonBanSach();
 
+            // Không tìm thấy mã sách
             if (!db!.Sachs.Any(sach => sach.MaSach == hoaDon.MaSach)) {
                 MessageBox.Show(
                     $"Không tồn tại sách với mã số {hoaDon.MaSach}.",
@@ -674,7 +675,7 @@ namespace Show10.Child_Forms {
                 );
                 return;
             }
-
+            // Không tìm thấy mã KH
             if (!db!.KhachHangs.Any(kh => kh.MaKH == hoaDon.MaKH)) {
                 MessageBox.Show(
                     $"Không tồn tại khách hàng với mã số {hoaDon.MaKH}.",
@@ -683,6 +684,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
+            // Không bán cho khách hàng nợ vượt mức quy định
             double maxNo = Properties.Settings.Default.maxNo;
             var khachHang = db.KhachHangs.First(p => p.MaKH == hoaDon.MaKH);
             if (khachHang.TienNo > maxNo) {
@@ -694,6 +696,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
+            // Đảm bảo tồn sách không dưới mức quy định
             int minSLSach = Properties.Settings.Default.minSLSach;
             var sach = db!.Sachs.First(s => s.MaSach == hoaDon.MaSach);
             if (sach.SoLuong - hoaDon.SoLuong < minSLSach) {

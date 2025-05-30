@@ -43,7 +43,6 @@ namespace Show10.Child_Forms {
             textBox_TK_HoTen.Text = taiKhoan.HoTen;
             checkBox_TK_QTV.Checked = taiKhoan.VaiTro == "admin";
         }
-
         #region Detect changes
         private void TextBox_TK_TenTK_TextChanged(object sender, EventArgs e) {
             ApplyFilters();
