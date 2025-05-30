@@ -18,13 +18,23 @@ namespace Show10.Child_Forms {
             dataGridView_PhieuNhapSach.RowTemplate.Height = 50;
             dataGridView_HoaDonBanSach.RowTemplate.Height = 50;
 
-            ToolTip soLuongTooltip = new();
-            soLuongTooltip.SetToolTip(textBox_Sach_SoLuong,
+            string soLuongToolTip =
                 "Các giá trị có thể nhận:\n" +
                 "- Miền giá trị: 6 < x < 9, 4 <= x <= 20, 310 < x <= 105\n" +
                 "- Tìm đúng số lượng: 31, 01, 05\n" +
-                "- Giới hạn: > 69, <= 420, = 310, != 105"
-            );
+                "- Giới hạn: > 69, <= 420, = 310, != 105";
+
+            ToolTip soLuongTooltip = new();
+            soLuongTooltip.SetToolTip(textBox_Sach_SoLuong, soLuongToolTip);
+
+            soLuongTooltip.SetToolTip(textBox_PNS_SoLuong, soLuongToolTip);
+            soLuongTooltip.SetToolTip(textBox_PNS_GiaNhap, soLuongToolTip);
+
+            soLuongTooltip.SetToolTip(textBox_HD_SoLuong, soLuongToolTip);
+            soLuongTooltip.SetToolTip(textBox_HD_SoTienTra, soLuongToolTip);
+            soLuongTooltip.SetToolTip(textBox_HD_TongTien, soLuongToolTip);
+            soLuongTooltip.SetToolTip(textBox_HD_ConLai, soLuongToolTip);
+            soLuongTooltip.SetToolTip(textBox_HD_GiaBan, soLuongToolTip);
         }
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -257,7 +267,7 @@ namespace Show10.Child_Forms {
             ApplyFilter_Sach();
         }
         #endregion
-        private IQueryable<Sach> PrepareFilteredData_Sach() {
+        private IQueryable<Sach> GetFilteredData_Sach() {
             var filteredData = db!.Sachs.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_Sach_MaSach.Text)) {
@@ -286,11 +296,11 @@ namespace Show10.Child_Forms {
         }
         private void ApplyFilter_Sach() {
             if (isLoc_Sach && dataGridView_Sach != null) {
-                dataGridView_Sach.DataSource = new BindingSource { DataSource = PrepareFilteredData_Sach().ToList() };
+                dataGridView_Sach.DataSource = new BindingSource { DataSource = GetFilteredData_Sach().ToList() };
             }
         }
         private void Icon_Sach_Tim_Click(object sender, EventArgs e) {
-            var filteredList = PrepareFilteredData_Sach().ToList();
+            var filteredList = GetFilteredData_Sach().ToList();
 
             if (filteredList.Count == 0)
                 return;
@@ -359,15 +369,10 @@ namespace Show10.Child_Forms {
                 int lastMaHD = db!.HoaDonBanSachs
                     .OrderByDescending(hd => hd.MaHD)
                     .FirstOrDefault()?.MaHD ?? 0;
+
                 textBox_HD_MaHD.Text = (lastMaHD + 1).ToString();
-
                 textBox_HD_MaSach.Text = sach.MaSach.ToString();
-
-                double giaNhap = db.PhieuNhapSachs
-                                        .Where(p => p.MaSach == sach.MaSach)
-                                        .OrderByDescending(p => p.NgayNhap) // Assuming NgayNhap determines the order
-                                        .FirstOrDefault()?.GiaNhap * 1.05 ?? 0;
-                textBox_HD_GiaBan.Text = giaNhap.ToString();
+                textBox_HD_GiaBan.Text = GetGiaBan(sach.MaSach).ToString();
             }
         }
 
@@ -505,7 +510,6 @@ namespace Show10.Child_Forms {
 
             icon_PNS.ForEach(icon => icon.Enabled = !isLoc_PNS);
 
-            label_PNS_NgayNhap_Filter.Enabled = isLoc_PNS;
             date_PNS_Filter.Enabled = isLoc_PNS;
 
             if (!isLoc_PNS) {
@@ -523,7 +527,7 @@ namespace Show10.Child_Forms {
                                                 .FirstOrDefault()?.NgayNhap.ToShortDateString();
             }
         }
-        private IQueryable<PhieuNhapSach> PrepareFilteredData_PNS() {
+        private IQueryable<PhieuNhapSach> GetFilteredData_PNS() {
             var filteredData = db!.PhieuNhapSachs.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_PNS_MaPhieu.Text)) {
@@ -536,6 +540,7 @@ namespace Show10.Child_Forms {
                     filteredData = filteredData.Where(p => p.MaSach == maSach);
                 }
             }
+
             if (!string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text)) {
                 try {
                     filteredData = filteredData.Where(FilterSoLuong(textBox_PNS_SoLuong.Text, "SoLuong"));
@@ -556,14 +561,13 @@ namespace Show10.Child_Forms {
 
             DateTime from = DateTime.Parse(date_PNS_NgayNhap.Text);
             DateTime to = DateTime.Parse(date_PNS_Filter.Text);
-
             filteredData = filteredData.Where(s => s.NgayNhap >= from && s.NgayNhap <= to);
 
             return filteredData;
         }
         private void ApplyFilter_PhieuNhapSach() {
             if (isLoc_PNS && dataGridView_PhieuNhapSach != null) {
-                dataGridView_PhieuNhapSach.DataSource = new BindingSource { DataSource = PrepareFilteredData_PNS().ToList() };
+                dataGridView_PhieuNhapSach.DataSource = new BindingSource { DataSource = GetFilteredData_PNS().ToList() };
             }
         }
         #region Detect changes in phieuNhapSach
@@ -590,7 +594,7 @@ namespace Show10.Child_Forms {
         }
         #endregion
         private void Icon_PNS_Tim_Click(object sender, EventArgs e) {
-            var filteredList = PrepareFilteredData_PNS().ToList();
+            var filteredList = GetFilteredData_PNS().ToList();
             if (filteredList.Count == 0)
                 return;
 
@@ -618,29 +622,34 @@ namespace Show10.Child_Forms {
         }
         #endregion
         #region Quản lý hoá đơn bán sách
+        private double GetGiaBan(int maSach) {
+            double giaBan = db!.PhieuNhapSachs
+                                        .Where(p => p.MaSach == maSach)
+                                        .OrderByDescending(p => p.NgayNhap) // Assuming NgayNhap determines the order
+                                        .FirstOrDefault()?.GiaNhap * 1.05 ?? 0;
+            return giaBan;
+        }
         private HoaDonBanSach GetHoaDonBanSach() {
             string maHD = textBox_HD_MaHD.Text;
             string maKH = textBox_HD_MaKH.Text;
             string maSach = textBox_HD_MaSach.Text;
             string soLuong = textBox_HD_SoLuong.Text;
-            string giaBan = textBox_HD_GiaBan.Text;
+            string soTienTra = textBox_HD_SoTienTra.Text;
             string ngayBan = date_HD_NgayBan.Text;
 
-            int parsedSoLuong = int.Parse(soLuong);
-            double parsedGiaBan = double.Parse(giaBan);
-            double tongTien = parsedSoLuong * parsedGiaBan;
-            double soTienTra = 0; // Default value, adjust as needed  
-            double conLai = tongTien - soTienTra;
+            double giaBan = GetGiaBan(int.Parse(maSach));
+            double tongTien = int.Parse(soLuong) * giaBan;
+            double conLai = tongTien - double.Parse(soTienTra);
 
             return new HoaDonBanSach {
                 MaHD = int.Parse(maHD),
                 MaKH = int.Parse(maKH),
                 MaSach = int.Parse(maSach),
                 SoLuong = int.Parse(soLuong),
-                GiaBan = double.Parse(giaBan),
+                GiaBan = giaBan,
                 NgayHD = DateTime.Parse(ngayBan),
                 TongTien = tongTien,
-                SoTienTra = soTienTra,
+                SoTienTra = double.Parse(soTienTra),
                 ConLai = conLai
             };
         }
@@ -701,10 +710,10 @@ namespace Show10.Child_Forms {
                 string.IsNullOrWhiteSpace(textBox_HD_MaKH.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_GiaBan.Text) ||
-                string.IsNullOrWhiteSpace(date_HD_NgayBan.Text)) {
+                string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
                 MessageBox.Show(
-                    "Nhập đủ mã hoá đơn, mã khách hàng, mã sách, số lượng, giá bán và ngày bán\ntrước khi thêm vào cơ sở dữ liệu.",
+                    "Nhập đủ mã hoá đơn, mã khách hàng, mã sách, số lượng và số tiền trả\n" +
+                    "trước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } else if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
@@ -734,10 +743,13 @@ namespace Show10.Child_Forms {
                     dataGridView_HoaDonBanSach.Refresh();
                 }
             } else {
-                // Trừ số lượng sách khi bán
                 sach.SoLuong -= hoaDon.SoLuong;
-                _ = db.Add(hoaDon);
-                _ = db.SaveChanges();
+
+                var khacHang = db!.KhachHangs.First(s => s.MaKH == hoaDon.MaKH);
+                khachHang.TienNo += hoaDon.ConLai;
+
+                db.Add(hoaDon);
+                db.SaveChanges();
                 dataGridView_HoaDonBanSach.Refresh();
 
                 textBox_HD_MaHD.Text = "";
@@ -791,84 +803,27 @@ namespace Show10.Child_Forms {
 
             icon_HD.ForEach(icon => icon.Enabled = !isLoc_HD);
 
+            date_HD_Filter.Enabled = isLoc_HD;
+            textBox_HD_GiaBan.Enabled = isLoc_HD;
+            textBox_HD_TongTien.Enabled = isLoc_HD;
+            textBox_HD_ConLai.Enabled = isLoc_HD;
+
             if (!isLoc_HD) {
                 dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
             } else {
                 ApplyFilter_HoaDonBanSach();
                 Icon_HD_Clear_Click(sender, e);
+
+                date_HD_NgayBan.Text = db!.HoaDonBanSachs
+                                                 .OrderBy(s => s.NgayHD)
+                                                 .FirstOrDefault()?.NgayHD.ToShortDateString();
+                date_HD_Filter.Text = db!.HoaDonBanSachs
+                                                .OrderByDescending(s => s.NgayHD)
+                                                .FirstOrDefault()?.NgayHD.ToShortDateString();
             }
         }
-        private void ApplyFilter_HoaDonBanSach() {
-            if (isLoc_HD && dataGridView_HoaDonBanSach != null) {
-                var filteredData = db!.HoaDonBanSachs.Local.AsQueryable();
-
-                if (!string.IsNullOrEmpty(textBox_HD_MaHD.Text)) {
-                    if (int.TryParse(textBox_HD_MaHD.Text, out int soHD)) {
-                        filteredData = filteredData.Where(hd => hd.MaHD == soHD);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_HD_MaKH.Text)) {
-                    if (int.TryParse(textBox_HD_MaKH.Text, out int maKH)) {
-                        filteredData = filteredData.Where(hd => hd.MaKH == maKH);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_HD_MaSach.Text)) {
-                    if (int.TryParse(textBox_HD_MaSach.Text, out int maSach)) {
-                        filteredData = filteredData.Where(hd => hd.MaSach == maSach);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_HD_SoLuong.Text)) {
-                    if (int.TryParse(textBox_HD_SoLuong.Text, out int soLuong)) {
-                        filteredData = filteredData.Where(hd => hd.SoLuong == soLuong);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(textBox_HD_GiaBan.Text)) {
-                    if (double.TryParse(textBox_HD_GiaBan.Text, out double giaBan)) {
-                        filteredData = filteredData.Where(hd => hd.GiaBan == giaBan);
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(date_HD_NgayBan.Text)) {
-                    if (DateTime.TryParse(date_HD_NgayBan.Text, out DateTime ngayBan)) {
-                        filteredData = filteredData.Where(hd => hd.NgayHD.Date == ngayBan.Date);
-                    }
-                }
-
-                dataGridView_HoaDonBanSach.DataSource = new BindingSource { DataSource = filteredData.ToList() };
-            }
-        }
-        #region Detect changes in hoaDonBanSach
-        private void TextBox_HD_MaHD_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_HoaDonBanSach();
-        }
-
-        private void TextBox_HD_MaKH_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_HoaDonBanSach();
-        }
-
-        private void TextBox_HD_MaSach_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_HoaDonBanSach();
-        }
-
-        private void TextBox_HD_SoLuong_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_HoaDonBanSach();
-        }
-
-        private void TextBox_HD_GiaBan_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_HoaDonBanSach();
-        }
-
-        private void Date_HD_NgayBan_ValueChanged(object sender, EventArgs e) {
-            ApplyFilter_HoaDonBanSach();
-        }
-        #endregion
-
-        private void Icon_HD_Tim_Click(object sender, EventArgs e) {
+        private IQueryable<HoaDonBanSach> GetFilteredData_HD() {
             var filteredData = db!.HoaDonBanSachs.Local.AsQueryable();
 
             if (!string.IsNullOrEmpty(textBox_HD_MaHD.Text)) {
@@ -876,13 +831,11 @@ namespace Show10.Child_Forms {
                     filteredData = filteredData.Where(hd => hd.MaHD == soHD);
                 }
             }
-
             if (!string.IsNullOrEmpty(textBox_HD_MaKH.Text)) {
                 if (int.TryParse(textBox_HD_MaKH.Text, out int maKH)) {
                     filteredData = filteredData.Where(hd => hd.MaKH == maKH);
                 }
             }
-
             if (!string.IsNullOrEmpty(textBox_HD_MaSach.Text)) {
                 if (int.TryParse(textBox_HD_MaSach.Text, out int maSach)) {
                     filteredData = filteredData.Where(hd => hd.MaSach == maSach);
@@ -890,24 +843,86 @@ namespace Show10.Child_Forms {
             }
 
             if (!string.IsNullOrEmpty(textBox_HD_SoLuong.Text)) {
-                if (int.TryParse(textBox_HD_SoLuong.Text, out int soLuong)) {
-                    filteredData = filteredData.Where(hd => hd.SoLuong == soLuong);
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_HD_SoLuong.Text, "SoLuong"));
+                } catch {
+                    // Ignore invalid expressions
                 }
             }
-
             if (!string.IsNullOrEmpty(textBox_HD_GiaBan.Text)) {
-                if (double.TryParse(textBox_HD_GiaBan.Text, out double giaBan)) {
-                    filteredData = filteredData.Where(hd => hd.GiaBan == giaBan);
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_HD_GiaBan.Text, "GiaBan"));
+                } catch {
+                    // Ignore invalid expressions
+                }
+            }
+            if (!string.IsNullOrEmpty(textBox_HD_SoTienTra.Text)) {
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_HD_SoTienTra.Text, "SoTienTra"));
+                } catch {
+                    // Ignore invalid expressions
+                }
+            }
+            if (!string.IsNullOrEmpty(textBox_HD_TongTien.Text)) {
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_HD_TongTien.Text, "TongTien"));
+                } catch {
+                    // Ignore invalid expressions
+                }
+            }
+            if (!string.IsNullOrEmpty(textBox_HD_ConLai.Text)) {
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_HD_ConLai.Text, "ConLai"));
+                } catch {
+                    // Ignore invalid expressions
                 }
             }
 
-            if (!string.IsNullOrEmpty(date_HD_NgayBan.Text)) {
-                if (DateTime.TryParse(date_HD_NgayBan.Text, out DateTime ngayBan)) {
-                    filteredData = filteredData.Where(hd => hd.NgayHD.Date == ngayBan.Date);
-                }
-            }
+            DateTime from = DateTime.Parse(date_HD_NgayBan.Text);
+            DateTime to = DateTime.Parse(date_HD_Filter.Text);
+            filteredData = filteredData.Where(s => s.NgayHD >= from && s.NgayHD <= to);
 
-            var filteredList = filteredData.ToList();
+            return filteredData;
+        }
+        private void ApplyFilter_HoaDonBanSach() {
+            if (isLoc_HD && dataGridView_HoaDonBanSach != null) {
+                dataGridView_HoaDonBanSach.DataSource = new BindingSource { DataSource = GetFilteredData_HD().ToList() };
+            }
+        }
+        #region Detect changes in hoaDonBanSach
+        private void TextBox_HD_MaHD_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_MaKH_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_MaSach_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_SoLuong_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_GiaBan_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void Date_HD_NgayBan_ValueChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_SoTienTra_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_TongTien_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void TextBox_HD_ConLai_TextChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void Date_HD_Filter_ValueChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        #endregion
+        private void Icon_HD_Tim_Click(object sender, EventArgs e) {
+            var filteredList = GetFilteredData_HD().ToList();
             if (filteredList.Count == 0)
                 return;
 
@@ -925,7 +940,6 @@ namespace Show10.Child_Forms {
         }
         private void DataGridView_HoaDonBanSach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             db?.SaveChanges();
-
         }
         private void DataGridView_HoaDonBanSach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
