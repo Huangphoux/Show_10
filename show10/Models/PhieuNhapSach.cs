@@ -10,5 +10,7 @@ namespace Show10.Models {
         [Column(TypeName = "money")]
         public required double GiaNhap { get; set; }
         public required DateTime NgayNhap { get; set; }
+        public required string NhaCungCap { get; set; }
+
     }
 }

@@ -453,7 +453,8 @@ namespace Show10.Child_Forms {
                 MaSach = int.Parse(maSach),
                 GiaNhap = double.Parse(giaNhap),
                 SoLuong = int.Parse(soLuong),
-                NgayNhap = DateTime.Parse(ngayNhap)
+                NgayNhap = DateTime.Parse(ngayNhap),
+                NhaCungCap = ""
             };
         }
         private void SetPhieuNhapSach(PhieuNhapSach phieu) {
@@ -679,13 +680,22 @@ namespace Show10.Child_Forms {
             string giaBan = textBox_HD_GiaBan.Text;
             string ngayBan = date_HD_NgayBan.Text;
 
+            int parsedSoLuong = int.Parse(soLuong);
+            double parsedGiaBan = double.Parse(giaBan);
+            double tongTien = parsedSoLuong * parsedGiaBan;
+            double soTienTra = 0; // Default value, adjust as needed  
+            double conLai = tongTien - soTienTra;
+
             return new HoaDonBanSach {
                 MaHD = int.Parse(maHD),
                 MaKH = int.Parse(maKH),
                 MaSach = int.Parse(maSach),
                 SoLuong = int.Parse(soLuong),
                 GiaBan = double.Parse(giaBan),
-                NgayHD = DateTime.Parse(ngayBan)
+                NgayHD = DateTime.Parse(ngayBan),
+                TongTien = tongTien,
+                SoTienTra = soTienTra,
+                ConLai = conLai
             };
         }
         private void SetHoaDonBanSach(HoaDonBanSach hoaDon) {

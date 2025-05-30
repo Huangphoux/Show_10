@@ -10,6 +10,9 @@ namespace Show10.Models {
         public required int SoLuong { get; set; }
         [Column(TypeName = "money")]
         public required double GiaBan { get; set; }
+        public required double TongTien { get; set; }
+        public required double SoTienTra { get; set; }
+        public required double ConLai { get; set; }
         public required DateTime NgayHD { get; set; }
     }
 
