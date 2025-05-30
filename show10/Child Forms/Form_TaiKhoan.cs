@@ -61,29 +61,31 @@ namespace Show10.Child_Forms {
             ApplyFilters();
         }
         #endregion
+        private IQueryable<TaiKhoan> PrepareFilteredData() {
+            var filteredData = db!.TaiKhoans.Local.AsQueryable();
+
+            if (!string.IsNullOrEmpty(textBox_TK_TenTK.Text)) {
+                filteredData = filteredData.Where(tk => tk.TenTK.Contains(textBox_TK_TenTK.Text));
+            }
+
+            if (!string.IsNullOrEmpty(textBox_TK_MatKhau.Text)) {
+                filteredData = filteredData.Where(tk => tk.MatKhau.Contains(textBox_TK_MatKhau.Text));
+            }
+
+            if (!string.IsNullOrEmpty(textBox_TK_HoTen.Text)) {
+                filteredData = filteredData.Where(tk => tk.HoTen.Contains(textBox_TK_HoTen.Text));
+            }
+
+            if (checkBox_TK_QTV.CheckState != CheckState.Indeterminate) {
+                string checkState = checkBox_TK_QTV.CheckState == CheckState.Checked ? "admin" : "user";
+                filteredData = filteredData.Where(tk => tk.VaiTro.Equals(checkState));
+            }
+
+            return filteredData;
+        }
         private void ApplyFilters() {
             if (isLoc && dataGridView_TaiKhoan != null) {
-                var filteredData = db.TaiKhoans.Local.AsQueryable();
-
-                if (!string.IsNullOrEmpty(textBox_TK_TenTK.Text)) {
-                    filteredData = filteredData.Where(tk => tk.TenTK.Contains(textBox_TK_TenTK.Text));
-                }
-
-                if (!string.IsNullOrEmpty(textBox_TK_MatKhau.Text)) {
-                    filteredData = filteredData.Where(tk => tk.MatKhau.Contains(textBox_TK_MatKhau.Text));
-                }
-
-                if (!string.IsNullOrEmpty(textBox_TK_HoTen.Text)) {
-                    filteredData = filteredData.Where(tk => tk.HoTen.Contains(textBox_TK_HoTen.Text));
-                }
-
-                if (checkBox_TK_QTV.CheckState != CheckState.Indeterminate) {
-                    string checkState = checkBox_TK_QTV.CheckState == CheckState.Checked ? "admin" : "user";
-                    filteredData = filteredData.Where(tk => tk.VaiTro.Equals(checkState));
-                }
-
-                // Update DataGridView
-                dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+                dataGridView_TaiKhoan.DataSource = new BindingSource { DataSource = PrepareFilteredData().ToList() };
             }
         }
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
@@ -176,26 +178,8 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_TK_Tim_Click(object sender, EventArgs e) {
-            var filteredData = db!.TaiKhoans.Local.AsQueryable();
+            var filteredList = PrepareFilteredData().ToList();
 
-            if (!string.IsNullOrEmpty(textBox_TK_TenTK.Text)) {
-                filteredData = filteredData.Where(tk => tk.TenTK.Contains(textBox_TK_TenTK.Text));
-            }
-
-            if (!string.IsNullOrEmpty(textBox_TK_MatKhau.Text)) {
-                filteredData = filteredData.Where(tk => tk.MatKhau.Contains(textBox_TK_MatKhau.Text));
-            }
-
-            if (!string.IsNullOrEmpty(textBox_TK_HoTen.Text)) {
-                filteredData = filteredData.Where(tk => tk.HoTen.Contains(textBox_TK_HoTen.Text));
-            }
-
-            if (checkBox_TK_QTV.CheckState != CheckState.Indeterminate) {
-                string checkState = checkBox_TK_QTV.CheckState == CheckState.Checked ? "admin" : "user";
-                filteredData = filteredData.Where(tk => tk.VaiTro.Equals(checkState));
-            }
-
-            var filteredList = filteredData.ToList();
             if (filteredList.Count == 0)
                 return;
 
