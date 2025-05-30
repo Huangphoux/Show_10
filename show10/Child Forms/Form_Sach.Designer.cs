@@ -96,6 +96,7 @@
             NgayHD = new DataGridViewTextBoxColumn();
             hoaDonBanSachBindingSource = new BindingSource(components);
             groupBox_HoaDonBanSach = new GroupBox();
+            icon_HD_Tinh = new FontAwesome.Sharp.IconButton();
             textBox_HD_ConLai = new TextBox();
             label_HD_ConLai = new Label();
             textBox_HD_TongTien = new TextBox();
@@ -545,11 +546,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 37);
+            tabPage_PhieuNhapSach.Location = new Point(4, 29);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(774, 512);
+            tabPage_PhieuNhapSach.Size = new Size(774, 520);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -584,7 +585,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(766, 122);
+            dataGridView_PhieuNhapSach.Size = new Size(766, 130);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
@@ -1049,6 +1050,7 @@
             // 
             // groupBox_HoaDonBanSach
             // 
+            groupBox_HoaDonBanSach.Controls.Add(icon_HD_Tinh);
             groupBox_HoaDonBanSach.Controls.Add(textBox_HD_ConLai);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_ConLai);
             groupBox_HoaDonBanSach.Controls.Add(textBox_HD_TongTien);
@@ -1083,6 +1085,28 @@
             groupBox_HoaDonBanSach.TabIndex = 5;
             groupBox_HoaDonBanSach.TabStop = false;
             groupBox_HoaDonBanSach.Text = "Nhập liệu";
+            // 
+            // icon_HD_Tinh
+            // 
+            icon_HD_Tinh.BackColor = Color.White;
+            icon_HD_Tinh.FlatAppearance.BorderColor = Color.Black;
+            icon_HD_Tinh.FlatAppearance.BorderSize = 2;
+            icon_HD_Tinh.FlatStyle = FlatStyle.Flat;
+            icon_HD_Tinh.Font = new Font("Segoe UI", 12F);
+            icon_HD_Tinh.ForeColor = Color.Black;
+            icon_HD_Tinh.IconChar = FontAwesome.Sharp.IconChar.Calculator;
+            icon_HD_Tinh.IconColor = Color.Black;
+            icon_HD_Tinh.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_HD_Tinh.IconSize = 30;
+            icon_HD_Tinh.Location = new Point(36, 303);
+            icon_HD_Tinh.Margin = new Padding(14);
+            icon_HD_Tinh.Name = "icon_HD_Tinh";
+            icon_HD_Tinh.Size = new Size(80, 80);
+            icon_HD_Tinh.TabIndex = 49;
+            icon_HD_Tinh.TextAlign = ContentAlignment.MiddleRight;
+            icon_HD_Tinh.TextImageRelation = TextImageRelation.ImageBeforeText;
+            icon_HD_Tinh.UseVisualStyleBackColor = false;
+            icon_HD_Tinh.Click += Icon_HD_Tinh_Click;
             // 
             // textBox_HD_ConLai
             // 
@@ -1550,5 +1574,6 @@
         private Label label_HD_SoTienTra;
         private Label label_HD_NgayBan_Filter;
         private DateTimePicker date_HD_Filter;
+        private FontAwesome.Sharp.IconButton icon_HD_Tinh;
     }
 }
