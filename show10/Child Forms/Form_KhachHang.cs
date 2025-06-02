@@ -141,7 +141,7 @@ namespace Show10.Child_Forms {
                 GioiTinh = gioiTinh,
                 Email = email,
                 DiaChi = diaChi,
-                TienNo = double.Parse(tienNo)
+                TienNo = 0
             };
         }
         private void SetKhachHang(KhachHang khachHang) {
@@ -157,8 +157,7 @@ namespace Show10.Child_Forms {
 
             if (string.IsNullOrWhiteSpace(khachHang.TenKH) ||
                 string.IsNullOrWhiteSpace(khachHang.Email) ||
-                string.IsNullOrWhiteSpace(khachHang.DiaChi) ||
-                string.IsNullOrWhiteSpace(textBox_KH_TienNo.Text)
+                string.IsNullOrWhiteSpace(khachHang.DiaChi)
                 ) {
                 MessageBox.Show(
                     "Vui lòng nhập đầy đủ tên khách hàng, giới tính, email, địa chỉ, số điện thoại và tiền nợ\n" +
