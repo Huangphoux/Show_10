@@ -18,23 +18,48 @@ namespace Show10.Child_Forms {
             dataGridView_PhieuNhapSach.RowTemplate.Height = 50;
             dataGridView_HoaDonBanSach.RowTemplate.Height = 50;
 
+            string themTooltip_Text =
+                "Thêm vào cơ sở dữ liệu.\n" +
+                "Nếu chưa điền mã, sẽ tự động thêm mã để chống trùng lặp mã phân biệt.\n" +
+                "Nếu phát hiện trùng mã, có thể ghi đè lên dữ liệu có sẵn.\n";
+
+            ToolTip toolTip = new();
+            toolTip.SetToolTip(icon_Sach_Them, themTooltip_Text);
+            toolTip.SetToolTip(icon_Sach_Xoa, "Xoá khỏi cơ sở dữ liệu");
+            toolTip.SetToolTip(icon_Sach_Tim, "Tìm dữ liệu đầu tiên tương ứng với các ô dữ liệu");
+            toolTip.SetToolTip(icon_Sach_Loc, "Giới hạn hiển thị các dữ liệu dựa trên các điều kiện");
+            toolTip.SetToolTip(icon_Sach_Clear, "Làm trống các ô dữ liệu");
+
+            toolTip.SetToolTip(icon_PNS_Them, themTooltip_Text);
+            toolTip.SetToolTip(icon_PNS_Xoa, "Xoá phiếu nhập sách khỏi cơ sở dữ liệu");
+            toolTip.SetToolTip(icon_PNS_Tim, "Tìm phiếu nhập sách đầu tiên tương ứng với các ô dữ liệu");
+            toolTip.SetToolTip(icon_PNS_Loc, "Giới hạn hiển thị các phiếu nhập sách dựa trên các điều kiện");
+            toolTip.SetToolTip(icon_PNS_Clear, "Làm trống các ô dữ liệu phiếu nhập sách");
+
+            toolTip.SetToolTip(icon_HD_Them, themTooltip_Text);
+            toolTip.SetToolTip(icon_HD_Xoa, "Xoá hoá đơn bán sách khỏi cơ sở dữ liệu");
+            toolTip.SetToolTip(icon_HD_Tim, "Tìm hoá đơn bán sách đầu tiên tương ứng với các ô dữ liệu");
+            toolTip.SetToolTip(icon_HD_Loc, "Giới hạn hiển thị các hoá đơn bán sách dựa trên các điều kiện");
+            toolTip.SetToolTip(icon_HD_Clear, "Làm trống các ô dữ liệu hoá đơn bán sách");
+            toolTip.SetToolTip(icon_HD_Tinh, "Tính tổng tiền, số tiền trả và còn lại cho hoá đơn bán sách");
+
+
             string soLuongToolTip =
-                "Các giá trị có thể nhận:\n" +
-                "- Miền giá trị: 6 < x < 9, 4 <= x <= 20, 310 < x <= 105\n" +
+                "Khi ở chế độ LỌC, sử dụng các biểu thức sau để giới hạn kết quả:\n" +
+                "- Miền giá trị (x đại diện cho thuộc tính): 6 < x < 9, 4 <= x <= 20, 310 < x <= 105\n" +
                 "- Tìm đúng số lượng: 31, 01, 05\n" +
                 "- Giới hạn: > 69, <= 420, = 310, != 105";
 
-            ToolTip soLuongTooltip = new();
-            soLuongTooltip.SetToolTip(textBox_Sach_SoLuong, soLuongToolTip);
+            toolTip.SetToolTip(textBox_Sach_SoLuong, soLuongToolTip);
 
-            soLuongTooltip.SetToolTip(textBox_PNS_SoLuong, soLuongToolTip);
-            soLuongTooltip.SetToolTip(textBox_PNS_GiaNhap, soLuongToolTip);
+            toolTip.SetToolTip(textBox_PNS_SoLuong, soLuongToolTip);
+            toolTip.SetToolTip(textBox_PNS_GiaNhap, soLuongToolTip);
 
-            soLuongTooltip.SetToolTip(textBox_HD_SoLuong, soLuongToolTip);
-            soLuongTooltip.SetToolTip(textBox_HD_SoTienTra, soLuongToolTip);
-            soLuongTooltip.SetToolTip(textBox_HD_TongTien, soLuongToolTip);
-            soLuongTooltip.SetToolTip(textBox_HD_ConLai, soLuongToolTip);
-            soLuongTooltip.SetToolTip(textBox_HD_GiaBan, soLuongToolTip);
+            toolTip.SetToolTip(textBox_HD_SoLuong, soLuongToolTip);
+            toolTip.SetToolTip(textBox_HD_SoTienTra, soLuongToolTip);
+            toolTip.SetToolTip(textBox_HD_TongTien, soLuongToolTip);
+            toolTip.SetToolTip(textBox_HD_ConLai, soLuongToolTip);
+            toolTip.SetToolTip(textBox_HD_GiaBan, soLuongToolTip);
         }
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -130,7 +155,7 @@ namespace Show10.Child_Forms {
             string theLoai = textBox_Sach_TheLoai.Text;
 
             return new Sach {
-                MaSach = lastMaSach + 1,
+                MaSach = int.TryParse(maSach, out var parsedMaHD) ? parsedMaHD : lastMaSach + 1,
                 TenSach = tenSach,
                 SoLuong = 0,
                 TacGia = tacGia,
@@ -157,9 +182,9 @@ namespace Show10.Child_Forms {
 
             if (db!.Sachs.Any(s => s.MaSach == sach.MaSach)) {
                 var result = MessageBox.Show(
-                    "Tồn tại sách với mã sách này.\n" +
-                    "Ghi đè thông tin của sách?",
-                    "Ghi đè thông tin của sách",
+                    $"Đã có sách với mã số {sach.MaSach}.\n" +
+                    "Bạn có muốn ghi đè thông tin có sẵn của sách?",
+                    "Ghi đè thông tin có sẵn của sách",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes) {
@@ -171,6 +196,7 @@ namespace Show10.Child_Forms {
                 }
             } else {
                 db.Add(sach);
+                Icon_Sach_Clear_Click(sender, e);
             }
 
             db.SaveChanges();
@@ -186,7 +212,6 @@ namespace Show10.Child_Forms {
                 }
             }
 
-            Icon_Sach_Clear_Click(sender, e);
         }
         private void Icon_Sach_Xoa_Click(object sender, EventArgs e) {
             // Use a HashSet to avoid duplicate row indices
@@ -379,6 +404,10 @@ namespace Show10.Child_Forms {
         #endregion
         #region Quản lý phiếu nhập sách
         private PhieuNhapSach GetPhieuNhapSach() {
+            int lastMaPNS = db!.PhieuNhapSachs
+                .OrderByDescending(p => p.MaPN)
+                .FirstOrDefault()?.MaPN ?? 0;
+
             string maPN = textBox_PNS_MaPhieu.Text;
             string maSach = textBox_PNS_MaSach.Text;
             string soLuong = textBox_PNS_SoLuong.Text;
@@ -387,7 +416,7 @@ namespace Show10.Child_Forms {
             string nhaCungCap = textBox_PNS_NhaCungCap.Text;
 
             return new PhieuNhapSach {
-                MaPN = int.Parse(maPN),
+                MaPN = int.TryParse(maPN, out var parsedMaHD) ? parsedMaHD : lastMaPNS + 1,
                 MaSach = int.Parse(maSach),
                 GiaNhap = double.Parse(giaNhap),
                 SoLuong = int.Parse(soLuong),
@@ -408,7 +437,7 @@ namespace Show10.Child_Forms {
 
             if (!db!.Sachs.Any(sach => sach.MaSach == phieu.MaSach)) {
                 MessageBox.Show(
-                    $"Không tồn tại sách với mã số {phieu.MaSach}.",
+                    $"Không tìm thấy sách với mã số {phieu.MaSach}.",
                     null, MessageBoxButtons.OK, MessageBoxIcon.Warning
                 );
                 return;
@@ -426,7 +455,7 @@ namespace Show10.Child_Forms {
             int maxSLSach = Properties.Settings.Default.maxSLSach;
             if (db!.Sachs.First(tk => tk.MaSach == phieu.MaSach).SoLuong > maxSLSach) {
                 MessageBox.Show(
-                    $"Không được nhập các sách có số lượng tồn khô trên {maxSLSach} quyển.",
+                    $"Không được nhập sách nếu sách có số lượng tồn kho trên {maxSLSach} quyển.",
                     null, MessageBoxButtons.OK, MessageBoxIcon.Warning
                 );
                 return;
@@ -618,6 +647,22 @@ namespace Show10.Child_Forms {
             }
         }
         private void DataGridView_PhieuNhapSach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridView_PhieuNhapSach.Rows.Count) {
+                return; // Exit if RowIndex is invalid
+            }
+
+            if (e.ColumnIndex == 1 && dataGridView_PhieuNhapSach.Rows[e.RowIndex].DataBoundItem is PhieuNhapSach phieu) {
+                if (db != null && !db.Sachs.Any(s => s.MaSach == phieu.MaSach)) {
+                    MessageBox.Show($"Không tìm thấy sách với mã số {phieu.MaSach}.", "Lỗi mã sách", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    var oldPhieu = db.PhieuNhapSachs.AsNoTracking().FirstOrDefault(p => p.MaPN == phieu.MaPN);
+                    if (oldPhieu != null) {
+                        phieu.MaSach = oldPhieu.MaSach;
+                        dataGridView_PhieuNhapSach.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldPhieu.MaSach;
+                    }
+                }
+            }
+
             db?.SaveChanges();
         }
         #endregion
@@ -630,6 +675,10 @@ namespace Show10.Child_Forms {
             return giaBan;
         }
         private HoaDonBanSach GetHoaDonBanSach() {
+            int lastMaHD = db!.HoaDonBanSachs
+                .OrderByDescending(p => p.MaHD)
+                .FirstOrDefault()?.MaHD ?? 0;
+
             string maHD = textBox_HD_MaHD.Text;
             string maKH = textBox_HD_MaKH.Text;
             string maSach = textBox_HD_MaSach.Text;
@@ -642,7 +691,7 @@ namespace Show10.Child_Forms {
             double conLai = tongTien - double.Parse(soTienTra);
 
             return new HoaDonBanSach {
-                MaHD = int.Parse(maHD),
+                MaHD = int.TryParse(maHD, out var parsedMaHD) ? parsedMaHD : lastMaHD + 1,
                 MaKH = int.Parse(maKH),
                 MaSach = int.Parse(maSach),
                 SoLuong = int.Parse(soLuong),
@@ -942,6 +991,34 @@ namespace Show10.Child_Forms {
             }
         }
         private void DataGridView_HoaDonBanSach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridView_PhieuNhapSach.Rows.Count) {
+                return; // Exit if RowIndex is invalid
+            }
+
+            if (db != null && dataGridView_HoaDonBanSach.Rows[e.RowIndex].DataBoundItem is HoaDonBanSach hoadon) {
+                if (e.ColumnIndex == 1 && !db.KhachHangs.Any(s => s.MaKH == hoadon.MaKH)) {
+                    MessageBox.Show($"Không tìm thấy khách hàng với mã số {hoadon.MaKH}.", "Lỗi mã khách hàng",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    var old = db.HoaDonBanSachs.AsNoTracking().FirstOrDefault(p => p.MaHD == hoadon.MaHD);
+                    if (old != null) {
+                        hoadon.MaKH = old.MaKH;
+                        dataGridView_PhieuNhapSach.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = old.MaKH;
+                    }
+                }
+
+                if (e.ColumnIndex == 2 && !db.Sachs.Any(s => s.MaSach == hoadon.MaSach)) {
+                    MessageBox.Show($"Không tìm thấy sách với mã số {hoadon.MaSach}.", "Lỗi mã sách",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    var old = db.HoaDonBanSachs.AsNoTracking().FirstOrDefault(p => p.MaHD == hoadon.MaHD);
+                    if (old != null) {
+                        hoadon.MaSach = old.MaSach;
+                        dataGridView_PhieuNhapSach.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = old.MaSach;
+                    }
+                }
+            }
+
             db?.SaveChanges();
         }
         private void DataGridView_HoaDonBanSach_SelectionChanged(object sender, EventArgs e) {

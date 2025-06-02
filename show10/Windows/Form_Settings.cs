@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
-namespace Show10.Windows {
+﻿namespace Show10.Windows {
     public partial class Form_Settings : Form {
         public Form_Settings() {
             InitializeComponent();
@@ -44,7 +41,7 @@ namespace Show10.Windows {
                 "Xoá cơ sở dữ liệu",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if(result == DialogResult.Yes) {
+            if (result == DialogResult.Yes) {
                 NhaSachContext db = new();
 
                 db.TaiKhoans.RemoveRange(db.TaiKhoans);

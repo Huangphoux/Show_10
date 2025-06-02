@@ -433,6 +433,7 @@
             maKHDataGridViewTextBoxColumn.HeaderText = "Mã KH";
             maKHDataGridViewTextBoxColumn.MinimumWidth = 6;
             maKHDataGridViewTextBoxColumn.Name = "maKHDataGridViewTextBoxColumn";
+            maKHDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tenKHDataGridViewTextBoxColumn
             // 
@@ -557,6 +558,7 @@
             maPTDataGridViewTextBoxColumn.HeaderText = "Mã phiếu";
             maPTDataGridViewTextBoxColumn.MinimumWidth = 6;
             maPTDataGridViewTextBoxColumn.Name = "maPTDataGridViewTextBoxColumn";
+            maPTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // maKHDataGridViewTextBoxColumn1
             // 

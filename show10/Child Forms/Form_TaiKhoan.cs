@@ -11,6 +11,19 @@ namespace Show10.Child_Forms {
             DoubleBuffered = true;
 
             dataGridView_TaiKhoan.RowTemplate.Height = 50;
+
+            string themTooltip_Text =
+                "Thêm vào cơ sở dữ liệu.\n" +
+                "Nếu chưa điền mã, sẽ tự động thêm mã để chống trùng lặp mã phân biệt.\n" +
+                "Nếu phát hiện trùng mã, có thể ghi đè lên dữ liệu có sẵn.\n";
+
+            ToolTip toolTip = new();
+            toolTip.SetToolTip(icon_TK_Them, themTooltip_Text);
+            toolTip.SetToolTip(icon_TK_Xoa, "Xoá khỏi cơ sở dữ liệu");
+            toolTip.SetToolTip(icon_TK_Tim, "Tìm dữ liệu đầu tiên tương ứng với các ô dữ liệu");
+            toolTip.SetToolTip(icon_TK_Loc, "Giới hạn hiển thị các dữ liệu dựa trên các điều kiện");
+            toolTip.SetToolTip(icon_TK_Clear, "Làm trống các ô dữ liệu");
+
         }
         private void Form_Account_Load(object sender, EventArgs e) {
             db = new NhaSachContext();

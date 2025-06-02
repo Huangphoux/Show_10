@@ -15,7 +15,35 @@ namespace Show10.Child_Forms {
 
             dataGridView_KhachHang.RowTemplate.Height = 50;
             dataGridView_PhieuThuTien.RowTemplate.Height = 50;
-            //comboBox_KH_GioiTinh.Text = "";
+
+            string themTooltip_Text =
+                "Thêm vào cơ sở dữ liệu.\n" +
+                "Nếu chưa điền mã, sẽ tự động thêm mã để chống trùng lặp mã phân biệt.\n" +
+                "Nếu phát hiện trùng mã, có thể ghi đè lên dữ liệu có sẵn.\n";
+
+            ToolTip toolTip = new();
+            toolTip.SetToolTip(icon_KH_Them, themTooltip_Text);
+            toolTip.SetToolTip(icon_KH_Xoa, "Xoá khỏi cơ sở dữ liệu");
+            toolTip.SetToolTip(icon_KH_Tim, "Tìm dữ liệu đầu tiên tương ứng với các ô dữ liệu");
+            toolTip.SetToolTip(icon_KH_Loc, "Giới hạn hiển thị các dữ liệu dựa trên các điều kiện");
+            toolTip.SetToolTip(icon_KH_Clear, "Làm trống các ô dữ liệu");
+
+            toolTip.SetToolTip(icon_PTT_Them, themTooltip_Text);
+            toolTip.SetToolTip(icon_PTT_Xoa, "Xoá khỏi cơ sở dữ liệu");
+            toolTip.SetToolTip(icon_PTT_Tim, "Tìm dữ liệu đầu tiên tương ứng với các ô dữ liệu");
+            toolTip.SetToolTip(icon_PTT_Loc, "Giới hạn hiển thị các dữ liệu dựa trên các điều kiện");
+            toolTip.SetToolTip(icon_PTT_Clear, "Làm trống các ô dữ liệu");
+
+            string soLuongToolTip =
+                "Khi ở chế độ LỌC, sử dụng các biểu thức sau để giới hạn kết quả:\n" +
+                "- Miền giá trị (x đại diện cho thuộc tính): 6 < x < 9, 4 <= x <= 20, 310 < x <= 105\n" +
+                "- Tìm đúng số lượng: 31, 01, 05\n" +
+                "- Giới hạn: > 69, <= 420, = 310, != 105";
+
+            ToolTip soLuongTooltip = new();
+            soLuongTooltip.SetToolTip(textBox_KH_TienNo, soLuongToolTip);
+            soLuongTooltip.SetToolTip(textBox_PTT_SoTien, soLuongToolTip);
+
         }
         private void Form_KhachHang_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -96,6 +124,10 @@ namespace Show10.Child_Forms {
             }
         }
         private KhachHang GetKhachHang() {
+            int lastMaKH = db!.KhachHangs
+                .OrderByDescending(p => p.MaKH)
+                .FirstOrDefault()?.MaKH ?? 0;
+
             string maKH = textBox_KH_MaKH.Text;
             string tenKH = textBox_KH_TenKH.Text;
             string gioiTinh = comboBox_KH_GioiTinh.Text;
@@ -104,7 +136,7 @@ namespace Show10.Child_Forms {
             string tienNo = textBox_KH_TienNo.Text;
 
             return new KhachHang {
-                MaKH = int.Parse(maKH),
+                MaKH = int.TryParse(maKH, out var parsedMaHD) ? parsedMaHD : lastMaKH + 1,
                 TenKH = tenKH,
                 GioiTinh = gioiTinh,
                 Email = email,
@@ -321,13 +353,17 @@ namespace Show10.Child_Forms {
         #endregion
         #region Quản lý phiếu thu tiền
         private PhieuThuTien GetPhieuThuTien() {
+            int lastMaPT = db!.PhieuThuTiens
+                .OrderByDescending(p => p.MaPT)
+                .FirstOrDefault()?.MaPT ?? 0;
+
             string maPT = textBox_PTT_MaPhieu.Text;
             string maKH = textBox_PTT_MaKH.Text;
             string ngayThu = date_PTT_NgayThu.Text;
             string soTien = textBox_PTT_SoTien.Text;
 
             return new PhieuThuTien {
-                MaPT = int.Parse(maPT),
+                MaPT = int.TryParse(maPT, out var parsedMaHD) ? parsedMaHD : lastMaPT + 1,
                 MaKH = int.Parse(maKH),
                 NgayThu = DateTime.Parse(ngayThu),
                 SoTien = double.Parse(soTien)
@@ -506,6 +542,24 @@ namespace Show10.Child_Forms {
             }
         }
         private void DataGridView_PhieuThuTien_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridView_PhieuThuTien.Rows.Count) {
+                return; // Exit if RowIndex is invalid
+            }
+
+            if (db != null && dataGridView_PhieuThuTien.Rows[e.RowIndex].DataBoundItem is PhieuThuTien phieuThuTien) {
+                if (e.ColumnIndex == 1 && !db.KhachHangs.Any(s => s.MaKH == phieuThuTien.MaKH)) {
+                    MessageBox.Show($"Không tìm thấy khách hàng với mã số {phieuThuTien.MaKH}.", "Lỗi mã khách hàng",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    var old = db.PhieuThuTiens.AsNoTracking().FirstOrDefault(p => p.MaPT == phieuThuTien.MaPT);
+                    if (old != null) {
+                        phieuThuTien.MaKH = old.MaKH;
+                        dataGridView_PhieuThuTien.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = old.MaKH;
+                    }
+                }
+
+            }
+
             db?.SaveChanges();
         }
         #endregion

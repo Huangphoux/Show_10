@@ -27,7 +27,7 @@ namespace show10 {
 
             panel_Menu.Controls.Add(leftBorderBtn);
 
-            icon_Tab = new List<Button> { icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao, icon_CaiDat };
+            icon_Tab = [icon_TaiKhoan, icon_Sach, icon_KhachHang, icon_BaoCao, icon_CaiDat];
 
             icon_Tab.ForEach(tab => tab.Enabled = false);
             panel_Welcome.Visible = false;
@@ -40,7 +40,9 @@ namespace show10 {
         private void MainWindow_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
 
-            //_ = db.Database.EnsureDeleted();
+            //Comment dòng dưới để không tạo lại DB mỗi khi chạy chương trình
+            _ = db.Database.EnsureDeleted();
+
             _ = db.Database.EnsureCreated();
 
             db.TaiKhoans.Load();
@@ -76,7 +78,7 @@ namespace show10 {
                 currentBtn = (IconButton)senderBtn;
 
                 currentBtn.ForeColor = Color.White;
-                currentBtn.BackColor = Color.DarkGreen;
+                currentBtn.BackColor = Color.Black;
                 currentBtn.IconColor = Color.White;
 
                 //Left border button
@@ -118,22 +120,22 @@ namespace show10 {
         private void Icon_TaiKhoan_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_TaiKhoan());
-            label_TabName.Text = "Quản lý tài khoản";
+            label_TabName.Text = "Quản lý tài khoản !";
         }
         private void Icon_Sach_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_Sach());
-            label_TabName.Text = "Quản lý sách";
+            label_TabName.Text = "Quản lý sách !";
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_KhachHang());
-            label_TabName.Text = "Quản lý khách hàng";
+            label_TabName.Text = "Quản lý khách hàng !";
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_BaoCao());
-            label_TabName.Text = "Tạo báo cáo";
+            label_TabName.Text = "Tạo báo cáo !";
         }
         #endregion
 
