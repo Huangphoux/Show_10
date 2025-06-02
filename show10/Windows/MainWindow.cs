@@ -40,7 +40,7 @@ namespace show10 {
         private void MainWindow_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
 
-            _ = db.Database.EnsureDeleted();
+            //_ = db.Database.EnsureDeleted();
             _ = db.Database.EnsureCreated();
 
             db.TaiKhoans.Load();

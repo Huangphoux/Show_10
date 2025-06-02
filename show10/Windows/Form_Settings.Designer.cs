@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             label_Settings = new Label();
             textBox_minNhap = new TextBox();
             label_minNhap = new Label();
@@ -41,6 +40,7 @@
             checkBox_thuTienVuotNo = new CheckBox();
             icon_Luu = new FontAwesome.Sharp.IconButton();
             icon_Reset = new FontAwesome.Sharp.IconButton();
+            icon_DeleteDB = new FontAwesome.Sharp.IconButton();
             SuspendLayout();
             // 
             // label_Settings
@@ -159,7 +159,7 @@
             // 
             // icon_Luu
             // 
-            icon_Luu.Anchor = AnchorStyles.Top;
+            icon_Luu.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             icon_Luu.BackColor = Color.Green;
             icon_Luu.FlatAppearance.BorderSize = 0;
             icon_Luu.FlatStyle = FlatStyle.Flat;
@@ -168,42 +168,65 @@
             icon_Luu.IconChar = FontAwesome.Sharp.IconChar.Save;
             icon_Luu.IconColor = Color.White;
             icon_Luu.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_Luu.ImageAlign = ContentAlignment.MiddleRight;
-            icon_Luu.Location = new Point(442, 394);
+            icon_Luu.IconSize = 30;
+            icon_Luu.Location = new Point(684, 388);
             icon_Luu.Name = "icon_Luu";
-            icon_Luu.Size = new Size(222, 80);
+            icon_Luu.Padding = new Padding(10);
+            icon_Luu.Size = new Size(70, 70);
             icon_Luu.TabIndex = 13;
-            icon_Luu.Text = "Lưu !";
             icon_Luu.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_Luu.UseVisualStyleBackColor = false;
             icon_Luu.Click += Icon_Luu_Click;
             // 
             // icon_Reset
             // 
-            icon_Reset.Anchor = AnchorStyles.Top;
+            icon_Reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             icon_Reset.BackColor = Color.White;
-            icon_Reset.FlatAppearance.BorderColor = Color.Green;
+            icon_Reset.FlatAppearance.BorderColor = Color.Blue;
+            icon_Reset.FlatAppearance.BorderSize = 2;
             icon_Reset.FlatStyle = FlatStyle.Flat;
-            icon_Reset.ForeColor = Color.Green;
+            icon_Reset.ForeColor = Color.Blue;
             icon_Reset.IconChar = FontAwesome.Sharp.IconChar.RotateBack;
-            icon_Reset.IconColor = Color.Green;
+            icon_Reset.IconColor = Color.Blue;
             icon_Reset.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_Reset.ImageAlign = ContentAlignment.MiddleRight;
-            icon_Reset.Location = new Point(108, 394);
+            icon_Reset.IconSize = 30;
+            icon_Reset.Location = new Point(596, 388);
             icon_Reset.Name = "icon_Reset";
-            icon_Reset.Size = new Size(222, 80);
+            icon_Reset.Padding = new Padding(10);
+            icon_Reset.Size = new Size(70, 70);
             icon_Reset.TabIndex = 14;
-            icon_Reset.Text = "Đặt lại";
             icon_Reset.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_Reset.UseVisualStyleBackColor = false;
-            icon_Reset.Click += icon_Reset_Click;
+            icon_Reset.Click += Icon_Reset_Click;
+            // 
+            // icon_DeleteDB
+            // 
+            icon_DeleteDB.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            icon_DeleteDB.BackColor = Color.White;
+            icon_DeleteDB.FlatAppearance.BorderColor = Color.Red;
+            icon_DeleteDB.FlatAppearance.BorderSize = 2;
+            icon_DeleteDB.FlatStyle = FlatStyle.Flat;
+            icon_DeleteDB.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            icon_DeleteDB.ForeColor = Color.Red;
+            icon_DeleteDB.IconChar = FontAwesome.Sharp.IconChar.Trash;
+            icon_DeleteDB.IconColor = Color.Red;
+            icon_DeleteDB.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            icon_DeleteDB.IconSize = 30;
+            icon_DeleteDB.Location = new Point(21, 388);
+            icon_DeleteDB.Name = "icon_DeleteDB";
+            icon_DeleteDB.Padding = new Padding(10);
+            icon_DeleteDB.Size = new Size(70, 70);
+            icon_DeleteDB.TabIndex = 15;
+            icon_DeleteDB.UseVisualStyleBackColor = false;
+            icon_DeleteDB.Click += Icon_DeleteDB_Click;
             // 
             // Form_Settings
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(782, 553);
+            ClientSize = new Size(782, 470);
+            Controls.Add(icon_DeleteDB);
             Controls.Add(icon_Reset);
             Controls.Add(icon_Luu);
             Controls.Add(checkBox_thuTienVuotNo);
@@ -240,5 +263,6 @@
         private CheckBox checkBox_thuTienVuotNo;
         private FontAwesome.Sharp.IconButton icon_Luu;
         private FontAwesome.Sharp.IconButton icon_Reset;
+        private FontAwesome.Sharp.IconButton icon_DeleteDB;
     }
 }
