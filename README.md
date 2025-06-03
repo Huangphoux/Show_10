@@ -21,5 +21,6 @@ A collaborative effort to create a bookstore management desktop software
 	- Report making: Khang + Thành + Hào
 		- Chapter 1: Thành
 		- Chapter 2: Khang + Hào
+                - Chapter 3-n: KhangSenpai	 	
 	- Presentation slides: Hào
                 - App showcasing: Khang
