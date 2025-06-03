@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
 using System.Media;
-using System.Windows.Forms;
 
 namespace Show10.Child_Forms {
     public partial class Form_TaiKhoan : Form {
@@ -153,11 +152,13 @@ namespace Show10.Child_Forms {
         }
         private void Icon_TK_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
-                "Xoá tài khoản?",
+                "Xoá tài khoản?\n(Sẽ không thể phục hồi được dữ liệu.)",
                 "Trước khi xoá tài khoản",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes) {
+                SystemSounds.Beep.Play();
+
                 // Use a HashSet to avoid duplicate row indices
                 var rowsToDelete = new HashSet<int>();
 
@@ -171,7 +172,7 @@ namespace Show10.Child_Forms {
                     }
                 }
 
-                db.SaveChanges();
+                db!.SaveChanges();
                 dataGridView_TaiKhoan.Refresh();
             }
         }

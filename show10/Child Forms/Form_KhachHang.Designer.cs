@@ -179,7 +179,7 @@
             // icon_KH_ThuTien
             // 
             icon_KH_ThuTien.Anchor = AnchorStyles.Right;
-            icon_KH_ThuTien.BackColor = Color.Green;
+            icon_KH_ThuTien.BackColor = Color.Black;
             icon_KH_ThuTien.FlatAppearance.BorderColor = Color.Green;
             icon_KH_ThuTien.FlatAppearance.BorderSize = 0;
             icon_KH_ThuTien.FlatStyle = FlatStyle.Flat;
@@ -634,6 +634,7 @@
             // 
             // date_PTT_NgayThu
             // 
+            date_PTT_NgayThu.Format = DateTimePickerFormat.Short;
             date_PTT_NgayThu.Location = new Point(169, 107);
             date_PTT_NgayThu.Name = "date_PTT_NgayThu";
             date_PTT_NgayThu.Size = new Size(137, 34);

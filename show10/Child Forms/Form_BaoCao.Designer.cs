@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -254,7 +253,7 @@
             icon_BCTon_In.Name = "icon_BCTon_In";
             icon_BCTon_In.Size = new Size(174, 91);
             icon_BCTon_In.TabIndex = 50;
-            icon_BCTon_In.Text = "In báo cáo";
+            icon_BCTon_In.Text = "Lưu báo cáo";
             icon_BCTon_In.TextImageRelation = TextImageRelation.ImageAboveText;
             icon_BCTon_In.UseVisualStyleBackColor = false;
             icon_BCTon_In.Click += Icon_BCTon_In_Click;

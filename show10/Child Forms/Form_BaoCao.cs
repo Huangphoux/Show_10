@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ReaLTaiizor.Controls;
 using Show10.Models;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Show10.Child_Forms {
@@ -37,7 +39,29 @@ namespace Show10.Child_Forms {
             db?.Dispose();
             db = null;
         }
+        private void InBaoCao(DataGridView dataGridView) {
+            var sb = new StringBuilder();
 
+            var headers = dataGridView.Columns.Cast<DataGridViewColumn>();
+            sb.AppendLine(string.Join("\t", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
+
+            foreach (DataGridViewRow row in dataGridView.Rows) {
+                if (!row.IsNewRow) {
+                    var cells = row.Cells.Cast<DataGridViewCell>();
+                    sb.AppendLine(string.Join("\t", cells.Select(cell => "\"" + cell.Value + "\"").ToArray()));
+                }
+            }
+
+            using var sfd = new SaveFileDialog();
+            sfd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            sfd.Title = "Lưu báo cáo";
+            sfd.FileName = "BaoCao.csv";
+
+            if (sfd.ShowDialog() == DialogResult.OK) {
+                System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.Unicode);
+                MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         #region Báo cáo tồn
         private void LoadMonthsToComboBox_BaoCaoTon() {
@@ -72,7 +96,6 @@ namespace Show10.Child_Forms {
             if (comboBox_BCTon_Nam.Items.Count > 0)
                 comboBox_BCTon_Nam.SelectedIndex = 0;
         }
-
         private int getTonCuoi(int tonDau, int phatSinh) {
             if (tonDau + phatSinh < 0) {
                 return tonDau - phatSinh;
@@ -91,7 +114,6 @@ namespace Show10.Child_Forms {
 
             return tongNhap - tongBan;
         }
-
         private void Icon_BCTon_TaoMoi_Click(object sender, EventArgs e) {
             db!.BaoCaoTons.RemoveRange(db.BaoCaoTons);
 
@@ -133,30 +155,9 @@ namespace Show10.Child_Forms {
             dataGridView_BCTon.Refresh();
         }
         private void Icon_BCTon_In_Click(object sender, EventArgs e) {
-            var sb = new StringBuilder();
-
-            var headers = dataGridView_BCTon.Columns.Cast<DataGridViewColumn>();
-            sb.AppendLine(string.Join(",", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
-
-            foreach (DataGridViewRow row in dataGridView_BCTon.Rows) {
-                if (!row.IsNewRow) {
-                    var cells = row.Cells.Cast<DataGridViewCell>();
-                    sb.AppendLine(string.Join(",", cells.Select(cell => "\"" + cell.Value + "\"").ToArray()));
-                }
-            }
-
-            using var sfd = new SaveFileDialog();
-            sfd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            sfd.Title = "Save Report As";
-            sfd.FileName = "BaoCaoTon.csv";
-
-            if (sfd.ShowDialog() == DialogResult.OK) {
-                System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.Unicode);
-                MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            InBaoCao(dataGridView_BCTon);
         }
         #endregion
-
         #region Báo cáo nợ
         private void LoadMonthsToComboBox_BaoCaoNo() {
             var months = db!.PhieuThuTiens
@@ -190,7 +191,6 @@ namespace Show10.Child_Forms {
             if (comboBox_BCNo_Nam.Items.Count > 0)
                 comboBox_BCNo_Nam.SelectedIndex = 0;
         }
-
         private double getNoCuoi(double noDau, double phatSinh) {
             if (noDau + phatSinh < 0) {
                 return noDau - phatSinh;
@@ -250,29 +250,8 @@ namespace Show10.Child_Forms {
             db.SaveChanges();
             dataGridView_BCNo.Refresh();
         }
-
         private void IconButton_BCNo_In_Click(object sender, EventArgs e) {
-            var sb = new StringBuilder();
-
-            var headers = dataGridView_BCNo.Columns.Cast<DataGridViewColumn>();
-            sb.AppendLine(string.Join(",", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
-
-            foreach (DataGridViewRow row in dataGridView_BCNo.Rows) {
-                if (!row.IsNewRow) {
-                    var cells = row.Cells.Cast<DataGridViewCell>();
-                    sb.AppendLine(string.Join(",", cells.Select(cell => "\"" + cell.Value + "\"").ToArray()));
-                }
-            }
-
-            using var sfd = new SaveFileDialog();
-            sfd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            sfd.Title = "Save Report As";
-            sfd.FileName = "BaoCaoNo.csv";
-
-            if (sfd.ShowDialog() == DialogResult.OK) {
-                System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.Unicode);
-                MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            InBaoCao(dataGridView_BCNo);
         }
 
         #endregion

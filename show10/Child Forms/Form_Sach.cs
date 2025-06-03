@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Show10.Models;
 using System.Linq.Dynamic.Core;
 using System.Media;
-using System.Text.RegularExpressions;
 
 namespace Show10.Child_Forms {
     public partial class Form_Sach : Form {
@@ -174,6 +173,8 @@ namespace Show10.Child_Forms {
         private void Icon_Sach_Them_Click(object sender, EventArgs e) {
             Sach sach = GetSach();
 
+
+
             if (string.IsNullOrEmpty(sach.TenSach) || string.IsNullOrEmpty(sach.TacGia) || string.IsNullOrEmpty(sach.TheLoai)) {
                 MessageBox.Show(
                     "Nhập đủ tên sách, tác giả và thể loại\ntrước khi thêm vào cơ sở dữ liệu.",
@@ -242,16 +243,19 @@ namespace Show10.Child_Forms {
 
             if (!notInHD && !notInPNS) {
                 MessageBox.Show("Mã sách có trong phiếu nhập sách hoặc hoá đơn bán sách.\n" +
-                    "Không thể xoá sách!", "Không thể xoá sách!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Không thể xoá sách !!!",
+                    "Không thể xoá sách !!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             var result = MessageBox.Show(
-                "Xoá sách?",
+                "Xoá sách?\n(Sẽ không thể phục hồi được dữ liệu.)",
                 "Chuẩn bị xoá sách",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes) {
+                SystemSounds.Beep.Play();
+
                 foreach (int rowIndex in rowsToDelete) {
                     if (dataGridView_Sach.Rows[rowIndex].DataBoundItem is Sach sach) {
                         db!.Sachs.Remove(sach);
@@ -387,10 +391,13 @@ namespace Show10.Child_Forms {
         }
         private void Icon_Sach_Ban_Click(object sender, EventArgs e) {
             if (dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
-                if (sach.SoLuong == Properties.Settings.Default.minSLSach) {
-                    MessageBox.Show("Không thể bán sách do số lượng tồn kho dưới mức cho phép.",
-                        "Không thể bán sách",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (sach.SoLuong == 0) {
+                    MessageBox.Show(
+                        "Sách này chưa được nhập vào kho nên hiện tại chưa thể bán.\n" +
+                        "Vui lòng nhập sách trước khi tiến hành bán sách.",
+                        "Chưa có sách trong kho",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     return;
                 }
 
@@ -518,11 +525,12 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PNS_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
-                "Xoá phiếu nhập sách?",
+                "Xoá phiếu nhập sách?\n(Sẽ không thể phục hồi được dữ liệu.)",
                 "Trước khi xoá phiếu nhập",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes) {
+                SystemSounds.Beep.Play();
                 // Use a HashSet to avoid duplicate row indices
                 var rowsToDelete = new HashSet<int>();
 
@@ -703,9 +711,11 @@ namespace Show10.Child_Forms {
             string soTienTra = textBox_HD_SoTienTra.Text;
             string ngayBan = date_HD_NgayBan.Text;
 
+            double parsedSoTienTra = double.TryParse(soTienTra, out var parsed) ? parsed : 0;
+
             double giaBan = GetGiaBan(int.Parse(maSach));
             double tongTien = int.Parse(soLuong) * giaBan;
-            double conLai = tongTien - double.Parse(soTienTra);
+            double conLai = tongTien - parsedSoTienTra;
 
             return new HoaDonBanSach {
                 MaHD = int.TryParse(maHD, out var parsedMaHD) ? parsedMaHD : lastMaHD + 1,
@@ -715,7 +725,7 @@ namespace Show10.Child_Forms {
                 GiaBan = giaBan,
                 NgayHD = DateTime.Parse(ngayBan),
                 TongTien = tongTien,
-                SoTienTra = double.Parse(soTienTra),
+                SoTienTra = parsedSoTienTra,
                 ConLai = conLai
             };
         }
@@ -740,6 +750,16 @@ namespace Show10.Child_Forms {
                     null, MessageBoxButtons.OK, MessageBoxIcon.Warning
                 );
                 return;
+            } else {
+                if (db!.Sachs.First(sach => sach.MaSach == hoaDon.MaSach).SoLuong == 0) {
+                    MessageBox.Show(
+                        "Sách này chưa được nhập vào kho nên hiện tại chưa thể bán.\n" +
+                        "Vui lòng nhập sách trước khi tiến hành bán sách.",
+                        "Chưa có sách trong kho",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    return;
+                }
             }
             // Không tìm thấy mã KH
             if (!db!.KhachHangs.Any(kh => kh.MaKH == hoaDon.MaKH)) {
@@ -840,11 +860,12 @@ namespace Show10.Child_Forms {
         }
         private void Icon_HD_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
-                "Xoá hoá đơn bán sách?",
+                "Xoá hoá đơn bán sách?\n(Sẽ không thể phục hồi được dữ liệu.)",
                 "Trước khi xoá hoá đơn",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes) {
+                SystemSounds.Beep.Play();
                 // Use a HashSet to avoid duplicate row indices
                 var rowsToDelete = new HashSet<int>();
 
@@ -1076,13 +1097,19 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_HD_Tinh_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
+                string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text)) {
+                MessageBox.Show(
+                    "Nhập đủ mã sách và số lượng trước khi tính các số liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             int soLuong = int.Parse(textBox_HD_SoLuong.Text);
-            double giaBan = double.Parse(textBox_HD_GiaBan.Text);
-
+            double giaBan = GetGiaBan(int.Parse(textBox_HD_MaSach.Text));
             double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsed) ? parsed : 0;
-
-            textBox_HD_TongTien.Text = (soLuong * giaBan).ToString();
-
             double conLai = double.Parse(textBox_HD_TongTien.Text) - soTienTra;
 
             if (conLai < 0) {
@@ -1092,8 +1119,9 @@ namespace Show10.Child_Forms {
                 conLai = 0;
             }
 
+            textBox_HD_GiaBan.Text = giaBan.ToString();
+            textBox_HD_TongTien.Text = (soLuong * giaBan).ToString();
             textBox_HD_ConLai.Text = conLai.ToString();
-
         }
         private void Icon_DemLenTren_Click(object sender, EventArgs e) {
             textBox_HD_SoTienTra.Text = textBox_HD_ConLai.Text;

@@ -198,9 +198,9 @@
             icon_Sach_Ban.FlatAppearance.BorderSize = 2;
             icon_Sach_Ban.FlatStyle = FlatStyle.Flat;
             icon_Sach_Ban.Font = new Font("Segoe UI", 12F);
-            icon_Sach_Ban.ForeColor = Color.Green;
+            icon_Sach_Ban.ForeColor = Color.Black;
             icon_Sach_Ban.IconChar = FontAwesome.Sharp.IconChar.Receipt;
-            icon_Sach_Ban.IconColor = Color.Green;
+            icon_Sach_Ban.IconColor = Color.Black;
             icon_Sach_Ban.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Ban.IconSize = 30;
             icon_Sach_Ban.ImageAlign = ContentAlignment.BottomCenter;
@@ -217,7 +217,7 @@
             // icon_Sach_Nhap
             // 
             icon_Sach_Nhap.Anchor = AnchorStyles.Right;
-            icon_Sach_Nhap.BackColor = Color.Green;
+            icon_Sach_Nhap.BackColor = Color.Black;
             icon_Sach_Nhap.FlatAppearance.BorderSize = 0;
             icon_Sach_Nhap.FlatStyle = FlatStyle.Flat;
             icon_Sach_Nhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);

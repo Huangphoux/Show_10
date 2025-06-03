@@ -4,7 +4,6 @@ using Show10;
 using Show10.Child_Forms;
 using Show10.Models;
 using Show10.Windows;
-using System.Text.RegularExpressions;
 
 namespace show10 {
     public partial class MainWindow : Form {
@@ -156,7 +155,6 @@ namespace show10 {
 
                 return;
             }
-
             if (!db!.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
                 MessageBox.Show(
                     "Không tìm thấy tài khoản.\n" +
@@ -225,7 +223,6 @@ namespace show10 {
                     currentChildForm?.Close();
 
                     icon_Brand.Text = "Show 10 !";
-
                 }
             }
         }

@@ -497,8 +497,8 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1582, 853);
-            Controls.Add(panel_ChildForm);
             Controls.Add(panel_DangNhap);
+            Controls.Add(panel_ChildForm);
             Controls.Add(panel_Welcome);
             Controls.Add(panel_Menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);

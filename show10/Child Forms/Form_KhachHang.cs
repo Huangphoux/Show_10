@@ -204,11 +204,12 @@ namespace Show10.Child_Forms {
         }
         private void Icon_KH_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
-                "Xoá khách hàng?",
+                "Xoá khách hàng?\n(Sẽ không thể phục hồi được dữ liệu.)",
                 "Trước khi xoá khách hàng",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes) {
+                SystemSounds.Beep.Play();
                 // Use a HashSet to avoid duplicate row indices
                 var rowsToDelete = new HashSet<int>();
 
@@ -357,6 +358,7 @@ namespace Show10.Child_Forms {
                 textBox_PTT_MaPhieu.Text = (lastMaPhieu + 1).ToString();
 
                 textBox_PTT_MaKH.Text = khachHang.MaKH.ToString();
+                textBox_PTT_SoTien.Text = khachHang.TienNo.ToString();
             }
         }
         #endregion
@@ -407,8 +409,8 @@ namespace Show10.Child_Forms {
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
-            } 
-            
+            }
+
             if (db!.PhieuThuTiens.Any(ptt => ptt.MaPT == phieuThuTien.MaPT)) {
                 var result = MessageBox.Show(
                     "Tồn tại phiếu thu tiền với mã phiếu này.\n" +
@@ -448,11 +450,12 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PTT_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
-                "Xoá phiếu thu tiền?",
+                "Xoá phiếu thu tiền?\n(Sẽ không thể phục hồi được dữ liệu.)",
                 "Trước khi xoá phiếu thu tiền",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes) {
+                SystemSounds.Beep.Play();
                 // Use a HashSet to avoid duplicate row indices
                 var rowsToDelete = new HashSet<int>();
 
@@ -462,7 +465,7 @@ namespace Show10.Child_Forms {
 
                 foreach (int rowIndex in rowsToDelete) {
                     if (dataGridView_PhieuThuTien.Rows[rowIndex].DataBoundItem is PhieuThuTien phieuThuTien) {
-                        db.PhieuThuTiens.Remove(phieuThuTien);
+                        db!.PhieuThuTiens.Remove(phieuThuTien);
                     }
                 }
 
