@@ -1097,6 +1097,27 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_HD_Tinh_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text)) {
+                MessageBox.Show(
+                    "Nhập mã sách trước khi tính các số liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int maSach = int.Parse(textBox_HD_MaSach.Text);
+
+            if (db!.Sachs.First(s => s.MaSach == maSach).SoLuong == 0) {
+                MessageBox.Show(
+                    "Sách này chưa được nhập vào kho nên hiện tại chưa thể bán.\n" +
+                    "Vui lòng nhập sách trước khi tiến hành bán sách.",
+                    "Chưa có sách trong kho",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text)) {
                 MessageBox.Show(

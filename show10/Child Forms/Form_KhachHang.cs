@@ -343,7 +343,7 @@ namespace Show10.Child_Forms {
         private void Icon_KH_ThuTien_Click(object sender, EventArgs e) {
             if (dataGridView_KhachHang.CurrentRow?.DataBoundItem is KhachHang khachHang) {
                 if (khachHang.TienNo <= 0) {
-                    MessageBox.Show("Không thể thu tiền khách hàng do khách hàng không có nợ.",
+                    MessageBox.Show("Không thể thu tiền khách hàng\ndo khách hàng không có nợ.",
                         "Không thể thu tiền khách hàng",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

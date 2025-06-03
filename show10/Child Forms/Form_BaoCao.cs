@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReaLTaiizor.Controls;
 using Show10.Models;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Show10.Child_Forms {
