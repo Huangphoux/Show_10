@@ -4,6 +4,7 @@ using Show10;
 using Show10.Child_Forms;
 using Show10.Models;
 using Show10.Windows;
+using System.Text.RegularExpressions;
 
 namespace show10 {
     public partial class MainWindow : Form {
@@ -36,7 +37,6 @@ namespace show10 {
 
             panel_DangNhap.BringToFront();
         }
-
         private void MainWindow_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
 
@@ -47,7 +47,6 @@ namespace show10 {
 
             db.TaiKhoans.Load();
         }
-
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) {
             db?.Dispose();
             db = null;
@@ -55,9 +54,7 @@ namespace show10 {
         private void Timer_Tick(object sender, EventArgs e) {
             label_Clock.Text = "Bây giờ là " + DateTime.Now.ToString("t");
         }
-
         private bool isFullScreen = false;
-
         private void Icon_Fullscreen_Click(object sender, EventArgs e) {
             FullScreen fullScreen = new();
 
@@ -69,7 +66,6 @@ namespace show10 {
                 isFullScreen = false;
             }
         }
-
         private void ActivateButton(object senderBtn) {
             if (senderBtn != null) {
                 DisableButton();
@@ -77,18 +73,17 @@ namespace show10 {
                 //Button
                 currentBtn = (IconButton)senderBtn;
 
-                currentBtn.ForeColor = Color.White;
-                currentBtn.BackColor = Color.Black;
-                currentBtn.IconColor = Color.White;
+                currentBtn.ForeColor = Color.Black;
+                currentBtn.BackColor = Color.White;
+                currentBtn.IconColor = Color.Black;
 
                 //Left border button
-                leftBorderBtn.BackColor = Color.White;
+                leftBorderBtn.BackColor = Color.Black;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
             }
         }
-
         private void DisableButton() {
             if (currentBtn != null) {
                 currentBtn.ForeColor = Color.White;
@@ -96,7 +91,6 @@ namespace show10 {
                 currentBtn.IconColor = Color.White;
             }
         }
-
         private void OpenChildForm(Form childForm) {
             currentChildForm?.Close();
 
@@ -115,31 +109,29 @@ namespace show10 {
             childForm.BringToFront();
             childForm.Show();
         }
-
         #region icon Tab Click
         private void Icon_TaiKhoan_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_TaiKhoan());
-            label_TabName.Text = "Quản lý tài khoản !";
+            label_TabName.Text = "Quản lý tài khoản";
         }
         private void Icon_Sach_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_Sach());
-            label_TabName.Text = "Quản lý sách !";
+            label_TabName.Text = "Quản lý sách";
         }
         private void Icon_KhachHang_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_KhachHang());
-            label_TabName.Text = "Quản lý khách hàng !";
+            label_TabName.Text = "Quản lý khách hàng";
         }
         private void Icon_BaoCao_Click(object sender, EventArgs e) {
             ActivateButton(sender);
             OpenChildForm(new Form_BaoCao());
-            label_TabName.Text = "Tạo báo cáo !";
+            label_TabName.Text = "Tạo báo cáo";
         }
         #endregion
-
-        private string getGreetings() {
+        private static string GetGreetings() {
             var chaoHoi = "Xin chào";
             var hour = DateTime.Now.Hour;
 
@@ -147,12 +139,11 @@ namespace show10 {
                 chaoHoi = "Chào buổi sáng ☀️";
             } else if (hour >= 12 && hour < 18) {
                 chaoHoi = "Chào buổi chiều ☀️";
-            } else {
+            } else if (hour >= 18) {
                 chaoHoi = "Chào buổi tối 🌙";
             }
             return chaoHoi;
         }
-
         private void Icon_DangNhap_Click(object sender, EventArgs e) {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
@@ -162,42 +153,50 @@ namespace show10 {
                     "Nhập đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
                     "Chưa điền tên tài khoản hoặc mật khẩu",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (!db.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
-                _ = MessageBox.Show(
-                    "Không tìm thấy tài khoản.\nKiểm tra tên tài khoản và mật khẩu đúng như đã đăng ký.",
+
+                return;
+            }
+
+            if (!db!.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
+                MessageBox.Show(
+                    "Không tìm thấy tài khoản.\n" +
+                    "Kiểm tra tên tài khoản và mật khẩu đúng như đã đăng ký.",
                     "Không tìm thấy tài khoản",
                     MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            } else {
-                var found = db.TaiKhoans.First(tk => tk.TenTK == tenTK);
 
-                if (found.VaiTro == "admin") {
-                    icon_Tab.ForEach(tab => tab.Enabled = true);
-                    icon_CaiDat.Enabled = true;
-                } else {
-                    icon_Sach.Enabled = true;
-                    icon_KhachHang.Enabled = true;
-                    icon_BaoCao.Enabled = true;
-                }
-
-                panel_DangNhap.SendToBack();
-
-                panel_Welcome.Visible = true;
-                panel_Welcome.BringToFront();
-
-                label_Welcome.Text = $"{getGreetings()},\n{found.HoTen}";
-
-                icon_Brand.IconChar = IconChar.SignOut;
-                icon_Brand.Text = "Đăng xuất";
-
-                textBox_TenTK.Text = "";
-                textBox_MatKhau.Text = "";
+                return;
             }
-        }
 
+            var found = db.TaiKhoans.First(tk => tk.TenTK == tenTK);
+
+            if (found.VaiTro == "admin") {
+                icon_Tab.ForEach(tab => tab.Enabled = true);
+
+                icon_CaiDat.Enabled = true;
+            }
+
+            if (found.VaiTro == "user") {
+                icon_Sach.Enabled = true;
+                icon_KhachHang.Enabled = true;
+                icon_BaoCao.Enabled = true;
+            }
+
+            panel_DangNhap.SendToBack();
+
+            panel_Welcome.Visible = true;
+            panel_Welcome.BringToFront();
+
+            label_Welcome.Text = $"{GetGreetings()},\n{found.HoTen}";
+
+            icon_Brand.IconChar = IconChar.SignOut;
+            icon_Brand.Text = "Đăng xuất";
+
+            textBox_TenTK.Text = "";
+            textBox_MatKhau.Text = "";
+        }
         // Use a static field to persist index between clicks
         static int index = 1;
         static readonly string[] show10 = ["!", "?", ":)", ":D", "XD"];
-
         private void Icon_Brand_Click(object sender, EventArgs e) {
             if (icon_Brand.IconChar == IconChar.Store) {
                 icon_Brand.Text = "Show 10 " + show10[index];
@@ -230,7 +229,6 @@ namespace show10 {
                 }
             }
         }
-
         private void Icon_DangKy_Click(object sender, EventArgs e) {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
@@ -257,16 +255,13 @@ namespace show10 {
                 textBox_MatKhau.Text = "";
             }
         }
-
         private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
             icon_Tab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
         }
-
-        private void icon_CaiDat_Click(object sender, EventArgs e) {
+        private void Icon_CaiDat_Click(object sender, EventArgs e) {
             Form_Settings form_Settings = new Form_Settings();
             form_Settings.Show();
         }
-
         private void Icon_CaiDat_Parent_MouseMove(object? sender, MouseEventArgs e) {
             if (!icon_CaiDat.Enabled) {
                 var pt = icon_CaiDat.Parent.PointToClient(Cursor.Position);
@@ -281,19 +276,16 @@ namespace show10 {
             toolTipCaiDat.Hide(icon_CaiDat);
             toolTipShown = false;
         }
-
         private void Icon_CaiDat_Parent_MouseLeave(object? sender, EventArgs e) {
             toolTipCaiDat.Hide(icon_CaiDat);
             toolTipShown = false;
         }
-
         private void Label_ChaoDon_Click(object sender, EventArgs e) {
             label_ChaoDon.Text = "Xin được chào đón " + show10[index];
             // Increment the index and wrap around to 0 when reaching the end of the array.
             // This ensures we cycle through all elements in 'show10' repeatedly without going out of bounds.
             index = (index + 1) % show10.Length;
         }
-
         private void Label_DangNhap_Click(object sender, EventArgs e) {
             label_DangNhap.Text = "Đăng nhập " + show10[index];
             // Increment the index and wrap around to 0 when reaching the end of the array.
@@ -302,7 +294,7 @@ namespace show10 {
         }
 
         bool isShowPass = false;
-        private void icon_ShowPass_Click(object sender, EventArgs e) {
+        private void Icon_ShowPass_Click(object sender, EventArgs e) {
             if (isShowPass == false) {
                 textBox_MatKhau.PasswordChar = '\0';
                 isShowPass = true;
@@ -313,5 +305,6 @@ namespace show10 {
                 icon_ShowPass.IconChar = IconChar.Eye;
             }
         }
+
     }
 }

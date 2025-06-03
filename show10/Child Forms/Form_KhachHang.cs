@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
 using System.Linq.Dynamic.Core;
+using System.Media;
 
 namespace Show10.Child_Forms {
     public partial class Form_KhachHang : Form {
@@ -164,7 +165,7 @@ namespace Show10.Child_Forms {
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Thiếu thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db.KhachHangs.Any(kh => kh.MaKH == khachHang.MaKH)) {
+            } else if (db!.KhachHangs.Any(kh => kh.MaKH == khachHang.MaKH)) {
                 var result = MessageBox.Show(
                     "Tồn tại khách hàng với mã khách hàng này.\n" +
                     "Ghi đè thông tin của khách hàng?",
@@ -180,17 +181,26 @@ namespace Show10.Child_Forms {
                     existingKH.DiaChi = khachHang.DiaChi;
                     existingKH.TienNo = khachHang.TienNo;
 
-                    db.SaveChanges();
-                    dataGridView_KhachHang.Refresh();
-                }
+                } else { return; }
             } else {
-                _ = db.Add(khachHang);
-                _ = db.SaveChanges();
-                dataGridView_KhachHang.Refresh();
-
-                // Optionally clear input fields after adding
-                // Icon_KH_Clear_Click(sender, e);
+                db.Add(khachHang);
             }
+
+            db!.SaveChanges();
+            dataGridView_KhachHang.Refresh();
+
+            SystemSounds.Beep.Play();
+            foreach (DataGridViewRow row in dataGridView_KhachHang.Rows) {
+                if (row.DataBoundItem is KhachHang rowKH &&
+                    rowKH.MaKH == khachHang.MaKH) // Compare by unique key
+                {
+                    row.Selected = true;
+                    dataGridView_KhachHang.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+            Icon_KH_Clear_Click(sender, e);
         }
         private void Icon_KH_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
@@ -395,7 +405,11 @@ namespace Show10.Child_Forms {
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Thiếu thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db.PhieuThuTiens.Any(ptt => ptt.MaPT == phieuThuTien.MaPT)) {
+
+                return;
+            } 
+            
+            if (db!.PhieuThuTiens.Any(ptt => ptt.MaPT == phieuThuTien.MaPT)) {
                 var result = MessageBox.Show(
                     "Tồn tại phiếu thu tiền với mã phiếu này.\n" +
                     "Ghi đè thông tin của phiếu thu tiền?",
@@ -409,16 +423,28 @@ namespace Show10.Child_Forms {
                     existingPTT.NgayThu = phieuThuTien.NgayThu;
                     existingPTT.SoTien = phieuThuTien.SoTien;
 
-                    db.SaveChanges();
-                    dataGridView_PhieuThuTien.Refresh();
-                }
-            } else {
-                _ = db.Add(phieuThuTien);
-                _ = db.SaveChanges();
-                dataGridView_PhieuThuTien.Refresh();
+                } else { return; }
 
-                Icon_PTT_Clear_Click(sender, e);
+            } else {
+                db.Add(phieuThuTien);
             }
+
+            SystemSounds.Beep.Play();
+            foreach (DataGridViewRow row in dataGridView_PhieuThuTien.Rows) {
+                if (row.DataBoundItem is PhieuThuTien rowPTT &&
+                    rowPTT.MaPT == phieuThuTien.MaPT) // Compare by unique key
+                {
+                    row.Selected = true;
+                    dataGridView_PhieuThuTien.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+
+            _ = db.SaveChanges();
+            dataGridView_PhieuThuTien.Refresh();
+
+            Icon_PTT_Clear_Click(sender, e);
         }
         private void Icon_PTT_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(

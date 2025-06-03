@@ -74,7 +74,6 @@
             // 
             panel_Menu.AutoScroll = true;
             panel_Menu.BackColor = Color.Green;
-            panel_Menu.BorderStyle = BorderStyle.FixedSingle;
             panel_Menu.Controls.Add(icon_FullScreen);
             panel_Menu.Controls.Add(icon_CaiDat);
             panel_Menu.Controls.Add(icon_BaoCao);
@@ -100,11 +99,11 @@
             icon_FullScreen.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_FullScreen.IconSize = 30;
             icon_FullScreen.ImageAlign = ContentAlignment.MiddleLeft;
-            icon_FullScreen.Location = new Point(0, 691);
+            icon_FullScreen.Location = new Point(0, 693);
             icon_FullScreen.Margin = new Padding(0);
             icon_FullScreen.Name = "icon_FullScreen";
             icon_FullScreen.Padding = new Padding(50, 0, 0, 0);
-            icon_FullScreen.Size = new Size(278, 80);
+            icon_FullScreen.Size = new Size(280, 80);
             icon_FullScreen.TabIndex = 3;
             icon_FullScreen.Text = "Toàn màn hình";
             icon_FullScreen.TextAlign = ContentAlignment.MiddleRight;
@@ -125,17 +124,17 @@
             icon_CaiDat.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_CaiDat.IconSize = 30;
             icon_CaiDat.ImageAlign = ContentAlignment.MiddleLeft;
-            icon_CaiDat.Location = new Point(0, 771);
+            icon_CaiDat.Location = new Point(0, 773);
             icon_CaiDat.Margin = new Padding(0);
             icon_CaiDat.Name = "icon_CaiDat";
             icon_CaiDat.Padding = new Padding(50, 0, 0, 0);
-            icon_CaiDat.Size = new Size(278, 80);
+            icon_CaiDat.Size = new Size(280, 80);
             icon_CaiDat.TabIndex = 6;
             icon_CaiDat.Text = "Cài đặt";
             icon_CaiDat.TextAlign = ContentAlignment.MiddleRight;
             icon_CaiDat.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_CaiDat.UseVisualStyleBackColor = true;
-            icon_CaiDat.Click += icon_CaiDat_Click;
+            icon_CaiDat.Click += Icon_CaiDat_Click;
             // 
             // icon_BaoCao
             // 
@@ -152,7 +151,7 @@
             icon_BaoCao.Location = new Point(0, 440);
             icon_BaoCao.Name = "icon_BaoCao";
             icon_BaoCao.Padding = new Padding(50, 0, 0, 0);
-            icon_BaoCao.Size = new Size(278, 80);
+            icon_BaoCao.Size = new Size(280, 80);
             icon_BaoCao.TabIndex = 5;
             icon_BaoCao.Text = "Báo cáo";
             icon_BaoCao.TextAlign = ContentAlignment.MiddleRight;
@@ -175,7 +174,7 @@
             icon_KhachHang.Location = new Point(0, 360);
             icon_KhachHang.Name = "icon_KhachHang";
             icon_KhachHang.Padding = new Padding(50, 0, 0, 0);
-            icon_KhachHang.Size = new Size(278, 80);
+            icon_KhachHang.Size = new Size(280, 80);
             icon_KhachHang.TabIndex = 4;
             icon_KhachHang.Text = "Khách hàng";
             icon_KhachHang.TextAlign = ContentAlignment.MiddleRight;
@@ -198,7 +197,7 @@
             icon_Sach.Location = new Point(0, 280);
             icon_Sach.Name = "icon_Sach";
             icon_Sach.Padding = new Padding(50, 0, 0, 0);
-            icon_Sach.Size = new Size(278, 80);
+            icon_Sach.Size = new Size(280, 80);
             icon_Sach.TabIndex = 2;
             icon_Sach.Text = "Sách";
             icon_Sach.TextAlign = ContentAlignment.MiddleRight;
@@ -221,7 +220,7 @@
             icon_TaiKhoan.Location = new Point(0, 200);
             icon_TaiKhoan.Name = "icon_TaiKhoan";
             icon_TaiKhoan.Padding = new Padding(50, 0, 0, 0);
-            icon_TaiKhoan.Size = new Size(278, 80);
+            icon_TaiKhoan.Size = new Size(280, 80);
             icon_TaiKhoan.TabIndex = 1;
             icon_TaiKhoan.Text = "Tài khoản";
             icon_TaiKhoan.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -235,7 +234,7 @@
             panel_Brand.ForeColor = Color.White;
             panel_Brand.Location = new Point(0, 0);
             panel_Brand.Name = "panel_Brand";
-            panel_Brand.Size = new Size(278, 200);
+            panel_Brand.Size = new Size(280, 200);
             panel_Brand.TabIndex = 0;
             // 
             // icon_Brand
@@ -250,7 +249,7 @@
             icon_Brand.IconSize = 120;
             icon_Brand.Location = new Point(0, 0);
             icon_Brand.Name = "icon_Brand";
-            icon_Brand.Size = new Size(278, 200);
+            icon_Brand.Size = new Size(280, 200);
             icon_Brand.TabIndex = 9;
             icon_Brand.Text = "Show 10 !";
             icon_Brand.TextAlign = ContentAlignment.BottomCenter;
@@ -298,7 +297,7 @@
             // 
             // label_TenTK
             // 
-            label_TenTK.Location = new Point(70, 241);
+            label_TenTK.Location = new Point(65, 241);
             label_TenTK.Margin = new Padding(3, 0, 20, 0);
             label_TenTK.Name = "label_TenTK";
             label_TenTK.Size = new Size(132, 40);
@@ -328,7 +327,7 @@
             textBox_TenTK.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_TenTK.BorderStyle = BorderStyle.FixedSingle;
             textBox_TenTK.Font = new Font("Segoe UI", 12F);
-            textBox_TenTK.Location = new Point(205, 247);
+            textBox_TenTK.Location = new Point(200, 247);
             textBox_TenTK.MaxLength = 500;
             textBox_TenTK.Name = "textBox_TenTK";
             textBox_TenTK.Size = new Size(259, 34);
@@ -347,7 +346,7 @@
             icon_DangNhap.IconColor = Color.White;
             icon_DangNhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangNhap.IconSize = 30;
-            icon_DangNhap.Location = new Point(107, 396);
+            icon_DangNhap.Location = new Point(83, 396);
             icon_DangNhap.Name = "icon_DangNhap";
             icon_DangNhap.Size = new Size(200, 80);
             icon_DangNhap.TabIndex = 6;
@@ -362,7 +361,7 @@
             textBox_MatKhau.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_MatKhau.BorderStyle = BorderStyle.FixedSingle;
             textBox_MatKhau.Font = new Font("Segoe UI", 12F);
-            textBox_MatKhau.Location = new Point(205, 312);
+            textBox_MatKhau.Location = new Point(200, 312);
             textBox_MatKhau.MaxLength = 500;
             textBox_MatKhau.Name = "textBox_MatKhau";
             textBox_MatKhau.PasswordChar = '•';
@@ -380,7 +379,7 @@
             icon_DangKy.IconColor = Color.Green;
             icon_DangKy.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangKy.IconSize = 30;
-            icon_DangKy.Location = new Point(331, 396);
+            icon_DangKy.Location = new Point(307, 396);
             icon_DangKy.Name = "icon_DangKy";
             icon_DangKy.Size = new Size(200, 80);
             icon_DangKy.TabIndex = 7;
@@ -392,7 +391,7 @@
             // 
             // label_MatKhau
             // 
-            label_MatKhau.Location = new Point(70, 309);
+            label_MatKhau.Location = new Point(65, 309);
             label_MatKhau.Margin = new Padding(3, 0, 20, 0);
             label_MatKhau.Name = "label_MatKhau";
             label_MatKhau.Size = new Size(132, 40);
@@ -473,12 +472,12 @@
             icon_ShowPass.IconColor = Color.Green;
             icon_ShowPass.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_ShowPass.IconSize = 40;
-            icon_ShowPass.Location = new Point(491, 309);
+            icon_ShowPass.Location = new Point(486, 309);
             icon_ShowPass.Name = "icon_ShowPass";
             icon_ShowPass.Size = new Size(40, 40);
             icon_ShowPass.TabIndex = 13;
             icon_ShowPass.TabStop = false;
-            icon_ShowPass.Click += icon_ShowPass_Click;
+            icon_ShowPass.Click += Icon_ShowPass_Click;
             // 
             // label_DangNhap
             // 
@@ -498,9 +497,9 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1582, 853);
+            Controls.Add(panel_ChildForm);
             Controls.Add(panel_DangNhap);
             Controls.Add(panel_Welcome);
-            Controls.Add(panel_ChildForm);
             Controls.Add(panel_Menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);

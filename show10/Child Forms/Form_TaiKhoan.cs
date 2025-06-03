@@ -1,6 +1,8 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
+using System.Media;
+using System.Windows.Forms;
 
 namespace Show10.Child_Forms {
     public partial class Form_TaiKhoan : Form {
@@ -125,10 +127,14 @@ namespace Show10.Child_Forms {
                     existingAccount.HoTen = taiKhoan.HoTen;
                     existingAccount.VaiTro = taiKhoan.VaiTro;
 
+                } else {
+                    return;
                 }
             } else {
                 db.Add(taiKhoan);
             }
+
+            SystemSounds.Beep.Play();
 
             db.SaveChanges();
             dataGridView_TaiKhoan.Refresh();

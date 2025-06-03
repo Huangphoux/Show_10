@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
 using System.Linq.Dynamic.Core;
+using System.Media;
+using System.Text.RegularExpressions;
 
 namespace Show10.Child_Forms {
     public partial class Form_Sach : Form {
@@ -193,11 +195,15 @@ namespace Show10.Child_Forms {
                     existingSach.TenSach = sach.TenSach;
                     existingSach.TacGia = sach.TacGia;
                     existingSach.TheLoai = sach.TheLoai;
+                } else {
+                    return;
                 }
             } else {
                 db.Add(sach);
                 Icon_Sach_Clear_Click(sender, e);
             }
+
+            SystemSounds.Beep.Play();
 
             db.SaveChanges();
             dataGridView_Sach.Refresh();
@@ -461,15 +467,13 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_PNS_MaPhieu.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_MaSach.Text) ||
+            if (string.IsNullOrWhiteSpace(textBox_PNS_MaSach.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text) ||
-                string.IsNullOrWhiteSpace(date_PNS_NgayNhap.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PNS_NhaCungCap.Text)
                 ) {
                 MessageBox.Show(
-                    "Nhập đủ mã phiếu, mã sách, số lượng, giá nhập, ngày nhập, và nhà cung cấp\n" +
+                    "Nhập đủ mã sách, số lượng, giá nhập, và nhà cung cấp\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -487,17 +491,30 @@ namespace Show10.Child_Forms {
                     existingPhieu.SoLuong = phieu.SoLuong;
                     existingPhieu.GiaNhap = phieu.GiaNhap;
                     existingPhieu.NgayNhap = phieu.NgayNhap;
-
-                    db.SaveChanges();
-                    dataGridView_PhieuNhapSach.Refresh();
+                } else {
+                    return;
                 }
             } else {
-                _ = db.Add(phieu);
-                _ = db.SaveChanges();
-                dataGridView_PhieuNhapSach.Refresh();
-
-                Icon_PNS_Clear_Click(sender, e);
+                db.Add(phieu);
             }
+
+            SystemSounds.Beep.Play();
+
+            db.SaveChanges();
+            dataGridView_PhieuNhapSach.Refresh();
+
+            foreach (DataGridViewRow row in dataGridView_PhieuNhapSach.Rows) {
+                if (row.DataBoundItem is PhieuNhapSach rowPNS &&
+                    rowPNS.MaPN == phieu.MaPN) // Compare by unique key
+                {
+                    row.Selected = true;
+                    dataGridView_PhieuNhapSach.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+            Icon_PNS_Clear_Click(sender, e);
+
         }
         private void Icon_PNS_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
@@ -758,16 +775,17 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_HD_MaHD.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_MaKH.Text) ||
+            if (string.IsNullOrWhiteSpace(textBox_HD_MaKH.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
                 MessageBox.Show(
-                    "Nhập đủ mã hoá đơn, mã khách hàng, mã sách, số lượng và số tiền trả\n" +
+                    "Nhập đủ mã khách hàng, mã sách, số lượng và số tiền trả\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
             } else if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
                 var result = MessageBox.Show(
                     "Tồn tại hoá đơn với mã hoá đơn này.\n" +
@@ -779,6 +797,7 @@ namespace Show10.Child_Forms {
                     var existingHD = db.HoaDonBanSachs.First(hd => hd.MaHD == hoaDon.MaHD);
 
                     // Cộng lại số lượng sách cũ trước khi trừ số mới
+                    // chưa hiểu lắm phần này...
                     var sachCu = db.Sachs.First(s => s.MaSach == existingHD.MaSach);
                     sachCu.SoLuong += existingHD.SoLuong;
 
@@ -787,30 +806,37 @@ namespace Show10.Child_Forms {
                     existingHD.SoLuong = hoaDon.SoLuong;
                     existingHD.GiaBan = hoaDon.GiaBan;
                     existingHD.NgayHD = hoaDon.NgayHD;
-
-                    // Trừ số lượng sách mới
-                    sach.SoLuong -= hoaDon.SoLuong;
-
-                    db.SaveChanges();
-                    dataGridView_HoaDonBanSach.Refresh();
-                }
+                } else { return; }
             } else {
-                sach.SoLuong -= hoaDon.SoLuong;
+                db.Add(hoaDon);
 
                 var khacHang = db!.KhachHangs.First(s => s.MaKH == hoaDon.MaKH);
                 khachHang.TienNo += hoaDon.ConLai;
-
-                db.Add(hoaDon);
-                db.SaveChanges();
-                dataGridView_HoaDonBanSach.Refresh();
-
-                textBox_HD_MaHD.Text = "";
-                textBox_HD_MaKH.Text = "";
-                textBox_HD_MaSach.Text = "";
-                textBox_HD_SoLuong.Text = "";
-                textBox_HD_GiaBan.Text = "";
-                date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
             }
+
+            sach.SoLuong -= hoaDon.SoLuong;
+
+            SystemSounds.Beep.Play();
+
+            db.SaveChanges();
+            dataGridView_HoaDonBanSach.Refresh();
+
+            foreach (DataGridViewRow row in dataGridView_HoaDonBanSach.Rows) {
+                if (row.DataBoundItem is HoaDonBanSach rowHD &&
+                    rowHD.MaHD == hoaDon.MaHD) // Compare by unique key
+                {
+                    row.Selected = true;
+                    dataGridView_HoaDonBanSach.CurrentCell = row.Cells[0];
+                    break;
+                }
+            }
+
+            textBox_HD_MaHD.Text = "";
+            textBox_HD_MaKH.Text = "";
+            textBox_HD_MaSach.Text = "";
+            textBox_HD_SoLuong.Text = "";
+            textBox_HD_GiaBan.Text = "";
+            date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
         }
         private void Icon_HD_Xoa_Click(object sender, EventArgs e) {
             var result = MessageBox.Show(
@@ -1052,7 +1078,8 @@ namespace Show10.Child_Forms {
         private void Icon_HD_Tinh_Click(object sender, EventArgs e) {
             int soLuong = int.Parse(textBox_HD_SoLuong.Text);
             double giaBan = double.Parse(textBox_HD_GiaBan.Text);
-            double soTienTra = double.Parse(textBox_HD_SoTienTra.Text);
+
+            double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsed) ? parsed : 0;
 
             textBox_HD_TongTien.Text = (soLuong * giaBan).ToString();
 
@@ -1067,6 +1094,9 @@ namespace Show10.Child_Forms {
 
             textBox_HD_ConLai.Text = conLai.ToString();
 
+        }
+        private void Icon_DemLenTren_Click(object sender, EventArgs e) {
+            textBox_HD_SoTienTra.Text = textBox_HD_ConLai.Text;
         }
         #endregion
 
