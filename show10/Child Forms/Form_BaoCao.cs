@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
 using System.Data;
-using System.Text;
 
 namespace Show10.Child_Forms {
     public partial class Form_BaoCao : Form {
@@ -21,6 +20,9 @@ namespace Show10.Child_Forms {
             //db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
+            db!.BaoCaoTons.RemoveRange(db.BaoCaoTons);
+            db!.BaoCaoNos.RemoveRange(db.BaoCaoNos);
+
             db.BaoCaoTons.Load();
             baoCaoTonBindingSource.DataSource = db.BaoCaoTons.Local.ToBindingList();
             dataGridView_BCTon.Refresh();
@@ -36,11 +38,12 @@ namespace Show10.Child_Forms {
             LoadYearsToComboBox_BaoCaoNo();
         }
         private void Form_BaoCao_FormClosing(object sender, FormClosingEventArgs e) {
+
             db?.Dispose();
             db = null;
         }
         private static void InBaoCao(DataGridView dataGridView) {
-            if(dataGridView == null) {
+            if (dataGridView == null) {
                 MessageBox.Show(
                     "Vui lòng tạo dữ liệu trước khi in báo cáo!",
                     "Chưa tạo dữ liệu để in báo cáo",
@@ -62,28 +65,23 @@ namespace Show10.Child_Forms {
                 }
             }
 
-            string folderPath = """C:\Users\Admin\Desktop\""";
-            if (Directory.Exists(folderPath)) {
-                using (XLWorkbook wb = new()) {
-                    wb.Worksheets.Add(dt, "Báo cáo");
+            SaveFileDialog saveFileDialog1 = new() {
+                Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*",
+                FileName = $"baocao_{DateTime.Now:yyyyMMddTHHmmss}.xlsx"
+            };
 
-                    wb.Worksheet(1).Columns().AdjustToContents();
-                    wb.SaveAs(folderPath + "Báo cáo.xlsx");
-                    MessageBox.Show("Thành công!");
+            DialogResult dr = saveFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK) {
+                string filename = saveFileDialog1.FileName;
 
-                }
+                using XLWorkbook wb = new();
+                wb.Worksheets.Add(dt, "Báo cáo");
+
+                wb.Worksheet(1).Columns().AdjustToContents();
+                wb.SaveAs(filename);
+                MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
-            //using var sfd = new SaveFileDialog();
-            //sfd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            //sfd.Title = "Lưu báo cáo";
-            //sfd.FileName = "BaoCao.csv";
-
-            //if (sfd.ShowDialog() == DialogResult.OK) {
-            //    System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.Unicode);
-            //    MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
         }
         #region Báo cáo tồn
         private void LoadMonthsToComboBox_BaoCaoTon() {

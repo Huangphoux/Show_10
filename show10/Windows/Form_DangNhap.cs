@@ -2,12 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Show10.Models;
 
-
 namespace Show10.Windows {
     public partial class Form_DangNhap : Form {
         private NhaSachContext? db;
         private readonly List<IconButton> iconTab;
-
         public Form_DangNhap(List<IconButton> iconTab) {
             InitializeComponent();
             this.iconTab = iconTab;
@@ -69,9 +67,7 @@ namespace Show10.Windows {
 
             if (found.VaiTro == "admin") {
                 iconTab.ForEach(tab => tab.Enabled = true);
-            }
-
-            if (found.VaiTro == "staff") {
+            } else {
                 iconTab.ForEach(tab => tab.Enabled = true);
                 iconTab[1].Enabled = false;
                 iconTab[5].Enabled = false;
@@ -117,7 +113,6 @@ namespace Show10.Windows {
             }
         }
         bool isShowPass = false;
-
         private void Icon_ShowPass_Click(object sender, EventArgs e) {
             if (isShowPass == false) {
                 textBox_MatKhau.PasswordChar = '\0';
@@ -129,7 +124,6 @@ namespace Show10.Windows {
                 icon_ShowPass.IconChar = IconChar.Eye;
             }
         }
-
         private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
             iconTab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
         }

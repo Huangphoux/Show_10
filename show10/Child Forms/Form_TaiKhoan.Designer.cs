@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox_TaiKhoan = new GroupBox();
@@ -44,11 +43,11 @@
             label_TK_TenTK = new Label();
             textBox_TK_TenTK = new TextBox();
             dataGridView_TaiKhoan = new DataGridView();
+            taiKhoanBindingSource = new BindingSource(components);
             dataGridViewTextBoxColumn_TenTK = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_MatKhau = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_HoTen = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_VaiTro = new DataGridViewCheckBoxColumn();
-            taiKhoanBindingSource = new BindingSource(components);
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -298,6 +297,10 @@
             dataGridView_TaiKhoan.CellValueChanged += DataGridView_TaiKhoan_CellValueChanged;
             dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;
             // 
+            // taiKhoanBindingSource
+            // 
+            taiKhoanBindingSource.DataSource = typeof(Models.TaiKhoan);
+            // 
             // dataGridViewTextBoxColumn_TenTK
             // 
             dataGridViewTextBoxColumn_TenTK.DataPropertyName = "TenTK";
@@ -323,17 +326,13 @@
             // dataGridViewTextBoxColumn_VaiTro
             // 
             dataGridViewTextBoxColumn_VaiTro.DataPropertyName = "VaiTro";
-            dataGridViewTextBoxColumn_VaiTro.FalseValue = "staff";
+            dataGridViewTextBoxColumn_VaiTro.FalseValue = "user";
             dataGridViewTextBoxColumn_VaiTro.HeaderText = "Vai trò";
             dataGridViewTextBoxColumn_VaiTro.MinimumWidth = 6;
             dataGridViewTextBoxColumn_VaiTro.Name = "dataGridViewTextBoxColumn_VaiTro";
             dataGridViewTextBoxColumn_VaiTro.Resizable = DataGridViewTriState.True;
             dataGridViewTextBoxColumn_VaiTro.SortMode = DataGridViewColumnSortMode.Automatic;
             dataGridViewTextBoxColumn_VaiTro.TrueValue = "admin";
-            // 
-            // taiKhoanBindingSource
-            // 
-            taiKhoanBindingSource.DataSource = typeof(Models.TaiKhoan);
             // 
             // Form_TaiKhoan
             // 

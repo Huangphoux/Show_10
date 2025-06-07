@@ -241,7 +241,7 @@
             // 
             // label_TabName
             // 
-            label_TabName.BackColor = Color.Green;
+            label_TabName.BackColor = Color.DarkGreen;
             label_TabName.Dock = DockStyle.Top;
             label_TabName.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_TabName.ForeColor = Color.White;
