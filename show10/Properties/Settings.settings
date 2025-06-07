@@ -2,19 +2,19 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Show10.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="minNhap" Type="System.Int32" Scope="User">
+    <Setting Name="minNhap" Type="System.Int32" Scope="staff">
       <Value Profile="(Default)">150</Value>
     </Setting>
-    <Setting Name="maxSLSach" Type="System.Int32" Scope="User">
+    <Setting Name="maxSLSach" Type="System.Int32" Scope="staff">
       <Value Profile="(Default)">300</Value>
     </Setting>
-    <Setting Name="maxNo" Type="System.Double" Scope="User">
+    <Setting Name="maxNo" Type="System.Double" Scope="staff">
       <Value Profile="(Default)">1000000</Value>
     </Setting>
-    <Setting Name="minSLSach" Type="System.Int32" Scope="User">
+    <Setting Name="minSLSach" Type="System.Int32" Scope="staff">
       <Value Profile="(Default)">20</Value>
     </Setting>
-    <Setting Name="thuTienVuotNo" Type="System.Boolean" Scope="User">
+    <Setting Name="thuTienVuotNo" Type="System.Boolean" Scope="staff">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

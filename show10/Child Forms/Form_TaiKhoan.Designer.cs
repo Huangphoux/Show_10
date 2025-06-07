@@ -323,7 +323,7 @@
             // dataGridViewTextBoxColumn_VaiTro
             // 
             dataGridViewTextBoxColumn_VaiTro.DataPropertyName = "VaiTro";
-            dataGridViewTextBoxColumn_VaiTro.FalseValue = "user";
+            dataGridViewTextBoxColumn_VaiTro.FalseValue = "staff";
             dataGridViewTextBoxColumn_VaiTro.HeaderText = "Vai trò";
             dataGridViewTextBoxColumn_VaiTro.MinimumWidth = 6;
             dataGridViewTextBoxColumn_VaiTro.Name = "dataGridViewTextBoxColumn_VaiTro";

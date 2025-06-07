@@ -40,7 +40,6 @@
             label_Clock = new Label();
             label_Welcome = new Label();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            panel_DangNhap.SuspendLayout();
             panel_DangNhap_Phai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPass).BeginInit();
             panel_Welcome.SuspendLayout();
@@ -49,15 +48,15 @@
             // panel_DangNhap
             // 
             panel_DangNhap.BackColor = Color.DarkGreen;
-            panel_DangNhap.Controls.Add(panel_DangNhap_Phai);
             panel_DangNhap.Dock = DockStyle.Fill;
             panel_DangNhap.Location = new Point(0, 0);
             panel_DangNhap.Name = "panel_DangNhap";
-            panel_DangNhap.Size = new Size(1262, 673);
+            panel_DangNhap.Size = new Size(1262, 853);
             panel_DangNhap.TabIndex = 11;
             // 
             // panel_DangNhap_Phai
             // 
+            panel_DangNhap_Phai.Anchor = AnchorStyles.None;
             panel_DangNhap_Phai.BackColor = Color.White;
             panel_DangNhap_Phai.Controls.Add(icon_ShowPass);
             panel_DangNhap_Phai.Controls.Add(label_DangNhap);
@@ -69,8 +68,7 @@
             panel_DangNhap_Phai.Controls.Add(textBox_MatKhau);
             panel_DangNhap_Phai.Controls.Add(textBox_TenTK);
             panel_DangNhap_Phai.Controls.Add(icon_DangNhap);
-            panel_DangNhap_Phai.Dock = DockStyle.Right;
-            panel_DangNhap_Phai.Location = new Point(671, 0);
+            panel_DangNhap_Phai.Location = new Point(336, 90);
             panel_DangNhap_Phai.Name = "panel_DangNhap_Phai";
             panel_DangNhap_Phai.Size = new Size(591, 673);
             panel_DangNhap_Phai.TabIndex = 0;
@@ -93,13 +91,13 @@
             // label_DangNhap
             // 
             label_DangNhap.Dock = DockStyle.Top;
-            label_DangNhap.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_DangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_DangNhap.ForeColor = Color.Green;
             label_DangNhap.Location = new Point(0, 128);
             label_DangNhap.Name = "label_DangNhap";
             label_DangNhap.Size = new Size(591, 116);
             label_DangNhap.TabIndex = 1;
-            label_DangNhap.Text = "Đăng nhập !";
+            label_DangNhap.Text = "Vui lòng đăng nhập trước khi truy cập hệ thống.";
             label_DangNhap.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_TenTK
@@ -228,30 +226,31 @@
             panel_Welcome.Dock = DockStyle.Fill;
             panel_Welcome.Location = new Point(0, 0);
             panel_Welcome.Name = "panel_Welcome";
-            panel_Welcome.Size = new Size(1262, 673);
+            panel_Welcome.Size = new Size(1262, 853);
             panel_Welcome.TabIndex = 10;
             // 
             // label_Clock
             // 
-            label_Clock.BackColor = Color.White;
-            label_Clock.BorderStyle = BorderStyle.FixedSingle;
-            label_Clock.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label_Clock.Location = new Point(736, 115);
+            label_Clock.Anchor = AnchorStyles.None;
+            label_Clock.BackColor = Color.Green;
+            label_Clock.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label_Clock.ForeColor = Color.White;
+            label_Clock.Location = new Point(397, 211);
             label_Clock.Name = "label_Clock";
-            label_Clock.Size = new Size(468, 143);
+            label_Clock.Size = new Size(468, 104);
             label_Clock.TabIndex = 1;
             label_Clock.Text = "Bây giờ là mấy giờ?";
             label_Clock.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_Welcome
             // 
+            label_Welcome.Anchor = AnchorStyles.None;
             label_Welcome.BackColor = Color.Green;
-            label_Welcome.Dock = DockStyle.Left;
             label_Welcome.Font = new Font("Segoe UI Black", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label_Welcome.ForeColor = Color.White;
-            label_Welcome.Location = new Point(0, 0);
+            label_Welcome.Location = new Point(397, 385);
             label_Welcome.Name = "label_Welcome";
-            label_Welcome.Size = new Size(665, 673);
+            label_Welcome.Size = new Size(468, 257);
             label_Welcome.TabIndex = 0;
             label_Welcome.Text = "Xin chào!";
             label_Welcome.TextAlign = ContentAlignment.MiddleCenter;
@@ -267,16 +266,16 @@
             AcceptButton = icon_DangNhap;
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 673);
-            Controls.Add(panel_DangNhap);
+            ClientSize = new Size(1262, 853);
             Controls.Add(panel_Welcome);
+            Controls.Add(panel_DangNhap_Phai);
+            Controls.Add(panel_DangNhap);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "Form_DangNhap";
             Text = "Form_DangNhap";
             FormClosing += Form_DangNhap_FormClosing;
             Load += Form_DangNhap_Load;
-            panel_DangNhap.ResumeLayout(false);
             panel_DangNhap_Phai.ResumeLayout(false);
             panel_DangNhap_Phai.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPass).EndInit();

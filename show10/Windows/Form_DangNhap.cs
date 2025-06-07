@@ -14,6 +14,7 @@ namespace Show10.Windows {
         }
         private void Form_DangNhap_Load(object sender, EventArgs e) {
             panel_DangNhap.BringToFront();
+            panel_DangNhap_Phai.BringToFront();
 
             db = new NhaSachContext();
 
@@ -70,7 +71,7 @@ namespace Show10.Windows {
                 iconTab.ForEach(tab => tab.Enabled = true);
             }
 
-            if (found.VaiTro == "user") {
+            if (found.VaiTro == "staff") {
                 iconTab.ForEach(tab => tab.Enabled = true);
                 iconTab[1].Enabled = false;
                 iconTab[5].Enabled = false;
@@ -106,7 +107,7 @@ namespace Show10.Windows {
 
             } else {
                 // trường HoTen giải quyết sao ?!
-                db.Add(new TaiKhoan { TenTK = tenTK, MatKhau = matKhau, VaiTro = "user", HoTen = "" });
+                db.Add(new TaiKhoan { TenTK = tenTK, MatKhau = matKhau, VaiTro = "staff", HoTen = "" });
                 db.SaveChanges();
 
                 MessageBox.Show("Đăng ký hoàn tất.\nVui lòng đăng nhập lại.", "Đăng ký hoàn tất",

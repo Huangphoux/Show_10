@@ -60,7 +60,6 @@ namespace Show10.Child_Forms {
                 MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         #region Báo cáo tồn
         private void LoadMonthsToComboBox_BaoCaoTon() {
             var months = db!.PhieuNhapSachs
@@ -251,6 +250,5 @@ namespace Show10.Child_Forms {
             InBaoCao(dataGridView_BCNo);
         }
         #endregion
-
     }
 }

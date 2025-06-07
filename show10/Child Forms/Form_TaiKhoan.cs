@@ -47,7 +47,7 @@ namespace Show10.Child_Forms {
             string tenTK = textBox_TK_TenTK.Text;
             string matKhau = textBox_TK_MatKhau.Text;
             string hoTen = textBox_TK_HoTen.Text;
-            string vaiTro = checkBox_TK_QTV.Checked ? "admin" : "user";
+            string vaiTro = checkBox_TK_QTV.Checked ? "admin" : "staff";
 
             return new TaiKhoan { TenTK = tenTK, HoTen = hoTen, MatKhau = matKhau, VaiTro = vaiTro };
         }
@@ -90,7 +90,7 @@ namespace Show10.Child_Forms {
             }
 
             if (checkBox_TK_QTV.CheckState != CheckState.Indeterminate) {
-                string checkState = checkBox_TK_QTV.CheckState == CheckState.Checked ? "admin" : "user";
+                string checkState = checkBox_TK_QTV.CheckState == CheckState.Checked ? "admin" : "staff";
                 filteredData = filteredData.Where(tk => tk.VaiTro.Equals(checkState));
             }
 
@@ -216,7 +216,7 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_TK_Clear_Click(object sender, EventArgs e) {
-            SetTaiKhoan(new TaiKhoan { TenTK = "", MatKhau = "", HoTen = "", VaiTro = "user" });
+            SetTaiKhoan(new TaiKhoan { TenTK = "", MatKhau = "", HoTen = "", VaiTro = "staff" });
         }
         private void DataGridView_TaiKhoan_SelectionChanged(object sender, EventArgs e) {
             if (db == null || this.IsDisposed || this.Disposing || dataGridView_TaiKhoan.IsDisposed) {
@@ -227,7 +227,7 @@ namespace Show10.Child_Forms {
                 var tenTK = dataGridView_TaiKhoan.CurrentRow.Cells[0].Value?.ToString() ?? "";
                 var matKhau = dataGridView_TaiKhoan.CurrentRow.Cells[1].Value?.ToString() ?? "";
                 var hoTen = dataGridView_TaiKhoan.CurrentRow.Cells[2].Value?.ToString() ?? "";
-                var vaiTro = dataGridView_TaiKhoan.CurrentRow.Cells[3].Value?.ToString() ?? "user";
+                var vaiTro = dataGridView_TaiKhoan.CurrentRow.Cells[3].Value?.ToString() ?? "staff";
 
                 SetTaiKhoan(new TaiKhoan {
                     TenTK = tenTK,
