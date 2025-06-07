@@ -199,7 +199,7 @@ namespace Show10.Child_Forms {
         private double getPhatSinhNo(int maKH, int thang, int nam) {
             double tongBan = db!.HoaDonBanSachs
                 .Where(p => p.MaKH == maKH && p.NgayHD.Month == thang && p.NgayHD.Year == nam)
-                .Sum(p => (double?)p.GiaBan * p.SoLuong) ?? 0;
+                .Sum(p => (double?)p.ConLai) ?? 0;
 
             double tongThu = db!.PhieuThuTiens
                 .Where(p => p.MaKH == maKH && p.NgayThu.Month == thang && p.NgayThu.Year == nam)
