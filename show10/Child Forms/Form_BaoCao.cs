@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ClosedXML.Excel;
+using Microsoft.EntityFrameworkCore;
 using Show10.Models;
+using System.Data;
 using System.Text;
 
 namespace Show10.Child_Forms {
@@ -38,27 +40,50 @@ namespace Show10.Child_Forms {
             db = null;
         }
         private static void InBaoCao(DataGridView dataGridView) {
-            var sb = new StringBuilder();
+            if(dataGridView == null) {
+                MessageBox.Show(
+                    "Vui lòng tạo dữ liệu trước khi in báo cáo!",
+                    "Chưa tạo dữ liệu để in báo cáo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
 
-            var headers = dataGridView.Columns.Cast<DataGridViewColumn>();
-            sb.AppendLine(string.Join("\t", headers.Select(column => "\"" + column.HeaderText + "\"").ToArray()));
+            DataTable dt = new();
+
+            foreach (DataGridViewColumn column in dataGridView.Columns) {
+                dt.Columns.Add(column.HeaderText, column.ValueType);
+            }
 
             foreach (DataGridViewRow row in dataGridView.Rows) {
-                if (!row.IsNewRow) {
-                    var cells = row.Cells.Cast<DataGridViewCell>();
-                    sb.AppendLine(string.Join("\t", cells.Select(cell => "\"" + cell.Value + "\"").ToArray()));
+                dt.Rows.Add();
+                foreach (DataGridViewCell cell in row.Cells) {
+                    dt.Rows[dt.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
                 }
             }
 
-            using var sfd = new SaveFileDialog();
-            sfd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            sfd.Title = "Lưu báo cáo";
-            sfd.FileName = "BaoCao.csv";
+            string folderPath = """C:\Users\Admin\Desktop\""";
+            if (Directory.Exists(folderPath)) {
+                using (XLWorkbook wb = new()) {
+                    wb.Worksheets.Add(dt, "Báo cáo");
 
-            if (sfd.ShowDialog() == DialogResult.OK) {
-                System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.Unicode);
-                MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    wb.Worksheet(1).Columns().AdjustToContents();
+                    wb.SaveAs(folderPath + "Báo cáo.xlsx");
+                    MessageBox.Show("Thành công!");
+
+                }
             }
+
+
+            //using var sfd = new SaveFileDialog();
+            //sfd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            //sfd.Title = "Lưu báo cáo";
+            //sfd.FileName = "BaoCao.csv";
+
+            //if (sfd.ShowDialog() == DialogResult.OK) {
+            //    System.IO.File.WriteAllText(sfd.FileName, sb.ToString(), Encoding.Unicode);
+            //    MessageBox.Show("Lưu báo cáo thành công.", "Lưu báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
         #region Báo cáo tồn
         private void LoadMonthsToComboBox_BaoCaoTon() {
