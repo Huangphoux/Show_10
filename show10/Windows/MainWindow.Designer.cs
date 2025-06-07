@@ -247,11 +247,10 @@
             label_TabName.ForeColor = Color.White;
             label_TabName.Location = new Point(0, 0);
             label_TabName.Name = "label_TabName";
-            label_TabName.Padding = new Padding(50, 0, 0, 0);
             label_TabName.Size = new Size(1302, 50);
             label_TabName.TabIndex = 0;
             label_TabName.Text = "(Chưa chọn tab)";
-            label_TabName.TextAlign = ContentAlignment.MiddleLeft;
+            label_TabName.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 

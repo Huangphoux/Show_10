@@ -127,6 +127,7 @@
             checkBox_enableTab.Text = "Bật các tab";
             checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_enableTab.UseVisualStyleBackColor = true;
+            checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
             // 
             // label_ChaoDon
             // 
@@ -267,8 +268,8 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 673);
-            Controls.Add(panel_Welcome);
             Controls.Add(panel_DangNhap);
+            Controls.Add(panel_Welcome);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "Form_DangNhap";

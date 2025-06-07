@@ -115,9 +115,6 @@ namespace Show10.Windows {
                 textBox_MatKhau.Text = "";
             }
         }
-        private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
-            //icon_Tab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
-        }
         bool isShowPass = false;
 
         private void Icon_ShowPass_Click(object sender, EventArgs e) {
@@ -130,6 +127,10 @@ namespace Show10.Windows {
                 isShowPass = false;
                 icon_ShowPass.IconChar = IconChar.Eye;
             }
+        }
+
+        private void CheckBox_enableTab_CheckedChanged(object sender, EventArgs e) {
+            iconTab.ForEach(tab => tab.Enabled = checkBox_enableTab.Checked);
         }
     }
 }

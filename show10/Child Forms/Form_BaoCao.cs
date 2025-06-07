@@ -37,7 +37,7 @@ namespace Show10.Child_Forms {
             db?.Dispose();
             db = null;
         }
-        private void InBaoCao(DataGridView dataGridView) {
+        private static void InBaoCao(DataGridView dataGridView) {
             var sb = new StringBuilder();
 
             var headers = dataGridView.Columns.Cast<DataGridViewColumn>();
@@ -94,14 +94,14 @@ namespace Show10.Child_Forms {
             if (comboBox_BCTon_Nam.Items.Count > 0)
                 comboBox_BCTon_Nam.SelectedIndex = 0;
         }
-        private int getTonCuoi(int tonDau, int phatSinh) {
+        private static int GetTonCuoi(int tonDau, int phatSinh) {
             if (tonDau + phatSinh < 0) {
                 return tonDau - phatSinh;
             } else {
                 return tonDau + phatSinh;
             }
         }
-        private int getPhatSinh(int ma, int thang, int nam) {
+        private int GetPhatSinh(int ma, int thang, int nam) {
             int tongNhap = db!.PhieuNhapSachs
                 .Where(p => p.MaSach == ma && p.NgayNhap.Month == thang && p.NgayNhap.Year == nam)
                 .Sum(p => (int?)p.SoLuong) ?? 0;
@@ -133,12 +133,12 @@ namespace Show10.Child_Forms {
                     .ToList();
 
                 foreach (var month in thangNhapSach) {
-                    var phatSinhMonthly = getPhatSinh(ma, month, nam);
-                    tonDau = getTonCuoi(tonDau, phatSinhMonthly);
+                    var phatSinhMonthly = GetPhatSinh(ma, month, nam);
+                    tonDau = GetTonCuoi(tonDau, phatSinhMonthly);
                 }
 
-                int phatSinh = getPhatSinh(ma, thang, nam);
-                int tonCuoi = getTonCuoi(tonDau, phatSinh);
+                int phatSinh = GetPhatSinh(ma, thang, nam);
+                int tonCuoi = GetTonCuoi(tonDau, phatSinh);
 
                 db.BaoCaoTons.Add(new BaoCaoTon {
                     MaSach = ma,
@@ -199,7 +199,7 @@ namespace Show10.Child_Forms {
         private double getPhatSinhNo(int maKH, int thang, int nam) {
             double tongBan = db!.HoaDonBanSachs
                 .Where(p => p.MaKH == maKH && p.NgayHD.Month == thang && p.NgayHD.Year == nam)
-                .Sum(p => (double?)p.ConLai) ?? 0;
+                .Sum(p => (double?)p.ConLai) ?? 1;
 
             double tongThu = db!.PhieuThuTiens
                 .Where(p => p.MaKH == maKH && p.NgayThu.Month == thang && p.NgayThu.Year == nam)
@@ -207,7 +207,6 @@ namespace Show10.Child_Forms {
 
             return tongBan - tongThu;
         }
-
         private void Icon_BCNo_TaoMoi_Click(object sender, EventArgs e) {
             db!.BaoCaoNos.RemoveRange(db.BaoCaoNos);
 
@@ -251,7 +250,6 @@ namespace Show10.Child_Forms {
         private void IconButton_BCNo_In_Click(object sender, EventArgs e) {
             InBaoCao(dataGridView_BCNo);
         }
-
         #endregion
 
     }

@@ -263,10 +263,10 @@
             tabPage_BCNo.BorderStyle = BorderStyle.FixedSingle;
             tabPage_BCNo.Controls.Add(dataGridView_BCNo);
             tabPage_BCNo.Controls.Add(groupBox_BCNo);
-            tabPage_BCNo.Location = new Point(4, 29);
+            tabPage_BCNo.Location = new Point(4, 37);
             tabPage_BCNo.Name = "tabPage_BCNo";
             tabPage_BCNo.Padding = new Padding(3);
-            tabPage_BCNo.Size = new Size(774, 520);
+            tabPage_BCNo.Size = new Size(774, 512);
             tabPage_BCNo.TabIndex = 1;
             tabPage_BCNo.Text = "Báo cáo công nợ";
             tabPage_BCNo.UseVisualStyleBackColor = true;
@@ -299,7 +299,7 @@
             dataGridView_BCNo.ReadOnly = true;
             dataGridView_BCNo.RowHeadersVisible = false;
             dataGridView_BCNo.RowHeadersWidth = 51;
-            dataGridView_BCNo.Size = new Size(766, 284);
+            dataGridView_BCNo.Size = new Size(766, 276);
             dataGridView_BCNo.TabIndex = 3;
             // 
             // maKHDataGridViewTextBoxColumn
