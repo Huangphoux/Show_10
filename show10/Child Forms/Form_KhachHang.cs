@@ -333,8 +333,22 @@ namespace Show10.Child_Forms {
         private void DataGridView_KhachHang_SelectionChanged(object sender, EventArgs e) {
             if (db == null || this.IsDisposed || this.Disposing)
                 return;
-            if (!isLoc_KH && dataGridView_KhachHang.CurrentRow?.DataBoundItem is KhachHang khachHang) {
-                SetKhachHang(khachHang);
+            if (!isLoc_KH && dataGridView_KhachHang.CurrentRow != null) {
+                string maKH = dataGridView_KhachHang.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                string tenKH = dataGridView_KhachHang.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                string gioiTinh = dataGridView_KhachHang.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                string email = dataGridView_KhachHang.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                string diaChi = dataGridView_KhachHang.CurrentRow.Cells[4].Value?.ToString() ?? "";
+                string tienNo = dataGridView_KhachHang.CurrentRow.Cells[5].Value?.ToString() ?? "";
+
+                SetKhachHang(new KhachHang {
+                    MaKH = int.TryParse(maKH, out var _maKH) ? _maKH : 0,
+                    TenKH = tenKH,
+                    GioiTinh = gioiTinh,
+                    Email = email,
+                    DiaChi = diaChi,
+                    TienNo = double.TryParse(tienNo, out var _tienNo) ? _tienNo : 0
+                });
             }
         }
         private void DataGridView_KhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
@@ -382,8 +396,15 @@ namespace Show10.Child_Forms {
         }
         private void SetPhieuThuTien(PhieuThuTien phieuThuTien) {
             textBox_PTT_MaPhieu.Text = phieuThuTien.MaPT.ToString();
-            comboBox_PTT_MaKH.SelectedValue= phieuThuTien.MaKH;
-            date_PTT_NgayThu.Text = phieuThuTien.NgayThu.ToShortDateString();
+            comboBox_PTT_MaKH.SelectedValue = phieuThuTien.MaKH;
+
+            // Only set date if valid, otherwise set to today
+            if (phieuThuTien.NgayThu >= date_PTT_NgayThu.MinDate && phieuThuTien.NgayThu <= date_PTT_NgayThu.MaxDate) {
+                date_PTT_NgayThu.Value = phieuThuTien.NgayThu;
+            } else {
+                date_PTT_NgayThu.Value = DateTime.Today;
+            }
+
             textBox_PTT_SoTien.Text = phieuThuTien.SoTien.ToString();
         }
         private void Icon_PTT_Them_Click(object sender, EventArgs e) {
@@ -564,8 +585,18 @@ namespace Show10.Child_Forms {
         private void DataGridView_PhieuThuTien_SelectionChanged(object sender, EventArgs e) {
             if (db == null || this.IsDisposed || this.Disposing)
                 return;
-            if (!isLoc_PTT && dataGridView_PhieuThuTien.CurrentRow?.DataBoundItem is PhieuThuTien phieuThuTien) {
-                SetPhieuThuTien(phieuThuTien);
+            if (!isLoc_PTT && dataGridView_PhieuThuTien.CurrentRow != null) {
+                string maPT = dataGridView_PhieuThuTien.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                string maKH = dataGridView_PhieuThuTien.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                string ngayThu = dataGridView_PhieuThuTien.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                string soTien = dataGridView_PhieuThuTien.CurrentRow.Cells[3].Value?.ToString() ?? "";
+
+                SetPhieuThuTien(new PhieuThuTien {
+                    MaPT = int.TryParse(maPT, out var _maPT) ? _maPT : 0,
+                    MaKH = int.TryParse(maKH, out var _maKH) ? _maKH : 0,
+                    NgayThu = DateTime.TryParse(ngayThu, out var _ngayThu) ? _ngayThu : DateTime.MinValue,
+                    SoTien = double.TryParse(soTien, out var _soTien) ? _soTien : 0
+                });
             }
         }
         private void DataGridView_PhieuThuTien_CellValueChanged(object sender, DataGridViewCellEventArgs e) {

@@ -33,10 +33,10 @@ namespace show10 {
             FullScreen fullScreen = new();
 
             if (!isFullScreen) {
-                fullScreen.EnterFullScreenMode(this);
+                FullScreen.EnterFullScreenMode(this);
                 isFullScreen = true;
             } else {
-                fullScreen.LeaveFullScreenMode(this);
+                FullScreen.LeaveFullScreenMode(this);
                 isFullScreen = false;
             }
         }

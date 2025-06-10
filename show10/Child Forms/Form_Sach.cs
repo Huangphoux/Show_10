@@ -84,6 +84,9 @@ namespace Show10.Child_Forms {
             db.HoaDonBanSachs.Load();
             hoaDonBanSachBindingSource.DataSource = db.HoaDonBanSachs.Local.ToBindingList();
             dataGridView_HoaDonBanSach.Refresh();
+
+            db.KhachHangs.Load();
+            khachHangBindingSource.DataSource = db.KhachHangs.Local.ToBindingList();
         }
         private void Form_Sach_FormClosing(object sender, FormClosingEventArgs e) {
             db?.Dispose();
@@ -363,8 +366,20 @@ namespace Show10.Child_Forms {
         private void DataGridView_Sach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
-            if (!isLoc_Sach && dataGridView_Sach.CurrentRow?.DataBoundItem is Sach sach) {
-                SetSach(sach);
+            if (!isLoc_Sach && dataGridView_Sach.CurrentRow != null) {
+                string maSach = dataGridView_Sach.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                string tenSach = dataGridView_Sach.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                string tacGia = dataGridView_Sach.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                string soLuong = dataGridView_Sach.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                string theLoai = dataGridView_Sach.CurrentRow.Cells[4].Value?.ToString() ?? "";
+
+                SetSach(new Sach {
+                    MaSach = int.TryParse(maSach, out var _maSach) ? _maSach : 0,
+                    TenSach = tenSach,
+                    TacGia = tacGia,
+                    SoLuong = int.TryParse(soLuong, out var _soLuong) ? _soLuong : 0,
+                    TheLoai = theLoai
+                });
             }
         }
         private void DataGridView_Sach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
@@ -669,8 +684,22 @@ namespace Show10.Child_Forms {
         private void DataGridView_PhieuNhapSach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
                 return;
-            if (!isLoc_PNS && dataGridView_PhieuNhapSach.CurrentRow?.DataBoundItem is PhieuNhapSach phieuNhapSachh) {
-                SetPhieuNhapSach(phieuNhapSachh);
+            if (!isLoc_PNS && dataGridView_PhieuNhapSach.CurrentRow != null) {
+                string maPN = dataGridView_PhieuNhapSach.CurrentRow.Cells[0].Value?.ToString() ?? "";
+                string maSach = dataGridView_PhieuNhapSach.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                string soLuong = dataGridView_PhieuNhapSach.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                string giaNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                string ngayNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[4].Value?.ToString() ?? "";
+                string nhaCungCap = dataGridView_PhieuNhapSach.CurrentRow.Cells[5].Value?.ToString() ?? "";
+
+                SetPhieuNhapSach(new PhieuNhapSach {
+                    MaPN = int.TryParse(maPN, out var _maPN) ? _maPN : 0,
+                    MaSach = int.TryParse(maSach, out var _maSach) ? _maSach : 0,
+                    SoLuong = int.TryParse(soLuong, out var _soLuong) ? _soLuong : 0,
+                    GiaNhap = double.TryParse(giaNhap, out var _giaNhap) ? _giaNhap : 0,
+                    NgayNhap = DateTime.TryParse(ngayNhap, out var _ngayNhap) ? _ngayNhap : DateTime.Now,
+                    NhaCungCap = nhaCungCap
+                });
             }
         }
         private void DataGridView_PhieuNhapSach_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
