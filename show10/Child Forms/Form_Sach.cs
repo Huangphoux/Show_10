@@ -19,6 +19,7 @@ namespace Show10.Child_Forms {
             dataGridView_PhieuNhapSach.RowTemplate.Height = 50;
             dataGridView_HoaDonBanSach.RowTemplate.Height = 50;
 
+            #region Set Tooltip
             string themTooltip_Text =
                 "Thêm vào cơ sở dữ liệu.\n" +
                 "Nếu chưa điền mã, sẽ tự động thêm mã để chống trùng lặp mã phân biệt.\n" +
@@ -61,6 +62,7 @@ namespace Show10.Child_Forms {
             toolTip.SetToolTip(textBox_HD_TongTien, soLuongToolTip);
             toolTip.SetToolTip(textBox_HD_ConLai, soLuongToolTip);
             toolTip.SetToolTip(textBox_HD_GiaBan, soLuongToolTip);
+            #endregion
         }
         private void Form_Sach_Load(object sender, EventArgs e) {
             db = new NhaSachContext();
@@ -381,12 +383,13 @@ namespace Show10.Child_Forms {
                 tabControl_Sach.SelectedTab = tabPage_PhieuNhapSach;
                 Icon_PNS_Clear_Click(sender, e);
 
-                int lastMaPhieu = db.PhieuNhapSachs
+                int lastMaPhieu = db!.PhieuNhapSachs
                     .OrderByDescending(p => p.MaPN)
                     .FirstOrDefault()?.MaPN ?? 0;
                 textBox_PNS_MaPhieu.Text = (lastMaPhieu + 1).ToString();
 
-                textBox_PNS_MaSach.Text = sach.MaSach.ToString();
+                // Set combobox to select MaSach
+                comboBox_PNS_MaSach.SelectedValue = sach.MaSach;
             }
         }
         private void Icon_Sach_Ban_Click(object sender, EventArgs e) {
@@ -409,7 +412,7 @@ namespace Show10.Child_Forms {
                     .FirstOrDefault()?.MaHD ?? 0;
 
                 textBox_HD_MaHD.Text = (lastMaHD + 1).ToString();
-                textBox_HD_MaSach.Text = sach.MaSach.ToString();
+                comboBox_PNS_MaSach.SelectedValue = sach.MaSach;
                 textBox_HD_GiaBan.Text = GetGiaBan(sach.MaSach).ToString();
             }
         }
@@ -422,7 +425,7 @@ namespace Show10.Child_Forms {
                 .FirstOrDefault()?.MaPN ?? 0;
 
             string maPN = textBox_PNS_MaPhieu.Text;
-            string maSach = textBox_PNS_MaSach.Text;
+            string maSach = comboBox_PNS_MaSach.SelectedValue.ToString();
             string soLuong = textBox_PNS_SoLuong.Text;
             string giaNhap = textBox_PNS_GiaNhap.Text;
             string ngayNhap = date_PNS_NgayNhap.Text;
@@ -439,7 +442,7 @@ namespace Show10.Child_Forms {
         }
         private void SetPhieuNhapSach(PhieuNhapSach phieu) {
             textBox_PNS_MaPhieu.Text = phieu.MaPN.ToString();
-            textBox_PNS_MaSach.Text = phieu.MaSach.ToString();
+            comboBox_PNS_MaSach.SelectedValue = phieu.MaSach;
             textBox_PNS_SoLuong.Text = phieu.SoLuong.ToString();
             textBox_PNS_GiaNhap.Text = phieu.GiaNhap.ToString();
             textBox_PNS_NhaCungCap.Text = phieu.NhaCungCap.ToString();
@@ -474,8 +477,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_PNS_MaSach.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
+            if (string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PNS_NhaCungCap.Text)
                 ) {
@@ -550,7 +552,7 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PNS_Clear_Click(object sender, EventArgs e) {
             textBox_PNS_MaPhieu.Text = "";
-            textBox_PNS_MaSach.Text = "";
+            comboBox_PNS_MaSach.SelectedIndex = 0;
             textBox_PNS_SoLuong.Text = "";
             textBox_PNS_GiaNhap.Text = "";
             textBox_PNS_NhaCungCap.Text = "";
@@ -589,8 +591,8 @@ namespace Show10.Child_Forms {
                     filteredData = filteredData.Where(p => p.MaPN == maPN);
                 }
             }
-            if (!string.IsNullOrEmpty(textBox_PNS_MaSach.Text)) {
-                if (int.TryParse(textBox_PNS_MaSach.Text, out int maSach)) {
+            if (!string.IsNullOrEmpty(comboBox_PNS_MaSach.Text)) {
+                if (int.TryParse(comboBox_PNS_MaSach.SelectedValue.ToString(), out int maSach)) {
                     filteredData = filteredData.Where(p => p.MaSach == maSach);
                 }
             }
@@ -705,8 +707,8 @@ namespace Show10.Child_Forms {
                 .FirstOrDefault()?.MaHD ?? 0;
 
             string maHD = textBox_HD_MaHD.Text;
-            string maKH = textBox_HD_MaKH.Text;
-            string maSach = textBox_HD_MaSach.Text;
+            string maKH = comboBox_HD_MaKH.SelectedValue.ToString();
+            string maSach = comboBox_HD_MaSach.SelectedValue.ToString();
             string soLuong = textBox_HD_SoLuong.Text;
             string soTienTra = textBox_HD_SoTienTra.Text;
             string ngayBan = date_HD_NgayBan.Text;
@@ -731,8 +733,8 @@ namespace Show10.Child_Forms {
         }
         private void SetHoaDonBanSach(HoaDonBanSach hoaDon) {
             textBox_HD_MaHD.Text = hoaDon.MaHD.ToString();
-            textBox_HD_MaKH.Text = hoaDon.MaKH.ToString();
-            textBox_HD_MaSach.Text = hoaDon.MaSach.ToString();
+            comboBox_HD_MaKH.SelectedValue = hoaDon.MaKH;
+            comboBox_HD_MaSach.SelectedValue = hoaDon.MaSach;
             textBox_HD_SoLuong.Text = hoaDon.SoLuong.ToString();
             textBox_HD_GiaBan.Text = hoaDon.GiaBan.ToString();
             textBox_HD_TongTien.Text = hoaDon.TongTien.ToString();
@@ -795,9 +797,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_HD_MaKH.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
                 string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
                 MessageBox.Show(
                     "Nhập đủ mã khách hàng, mã sách, số lượng và số tiền trả\n" +
@@ -852,8 +852,8 @@ namespace Show10.Child_Forms {
             }
 
             textBox_HD_MaHD.Text = "";
-            textBox_HD_MaKH.Text = "";
-            textBox_HD_MaSach.Text = "";
+            comboBox_HD_MaSach.SelectedIndex = 0;
+            comboBox_HD_MaKH.SelectedIndex = 0;
             textBox_HD_SoLuong.Text = "";
             textBox_HD_GiaBan.Text = "";
             date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
@@ -885,8 +885,8 @@ namespace Show10.Child_Forms {
         }
         private void Icon_HD_Clear_Click(object sender, EventArgs e) {
             textBox_HD_MaHD.Text = "";
-            textBox_HD_MaKH.Text = "";
-            textBox_HD_MaSach.Text = "";
+            comboBox_HD_MaSach.SelectedValue = 0;
+            comboBox_HD_MaKH.SelectedValue = 0;
             textBox_HD_SoLuong.Text = "";
             textBox_HD_GiaBan.Text = "";
             date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
@@ -930,13 +930,13 @@ namespace Show10.Child_Forms {
                     filteredData = filteredData.Where(hd => hd.MaHD == soHD);
                 }
             }
-            if (!string.IsNullOrEmpty(textBox_HD_MaKH.Text)) {
-                if (int.TryParse(textBox_HD_MaKH.Text, out int maKH)) {
+            if (!string.IsNullOrEmpty(comboBox_HD_MaKH.Text)) {
+                if (int.TryParse(comboBox_HD_MaKH.SelectedValue.ToString(), out int maKH)) {
                     filteredData = filteredData.Where(hd => hd.MaKH == maKH);
                 }
             }
-            if (!string.IsNullOrEmpty(textBox_HD_MaSach.Text)) {
-                if (int.TryParse(textBox_HD_MaSach.Text, out int maSach)) {
+            if (!string.IsNullOrEmpty(comboBox_HD_MaSach.Text)) {
+                if (int.TryParse(comboBox_HD_MaSach.SelectedValue.ToString(), out int maSach)) {
                     filteredData = filteredData.Where(hd => hd.MaSach == maSach);
                 }
             }
@@ -1097,16 +1097,7 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_HD_Tinh_Click(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text)) {
-                MessageBox.Show(
-                    "Nhập mã sách trước khi tính các số liệu.",
-                    "Chưa điền đầy đủ các thông tin cần thiết",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            int maSach = int.Parse(textBox_HD_MaSach.Text);
+            int maSach = int.Parse(comboBox_HD_MaSach.ToString());
 
             if (db!.Sachs.First(s => s.MaSach == maSach).SoLuong == 0) {
                 MessageBox.Show(
@@ -1118,8 +1109,8 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_MaSach.Text)) {
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text)
+                ) {
                 MessageBox.Show(
                     "Nhập đủ mã sách và số lượng trước khi tính các số liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
@@ -1129,7 +1120,7 @@ namespace Show10.Child_Forms {
             }
 
             int soLuong = int.Parse(textBox_HD_SoLuong.Text);
-            double giaBan = GetGiaBan(int.Parse(textBox_HD_MaSach.Text));
+            double giaBan = GetGiaBan(int.Parse(comboBox_HD_MaSach.ToString()));
             double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsed) ? parsed : 0;
             double conLai = double.Parse(textBox_HD_TongTien.Text) - soTienTra;
 

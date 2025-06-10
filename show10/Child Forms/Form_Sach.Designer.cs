@@ -64,6 +64,7 @@
             NhaCungCap = new DataGridViewTextBoxColumn();
             phieuNhapSachBindingSource = new BindingSource(components);
             groupBox_PhieuNhapSach = new GroupBox();
+            comboBox_PNS_MaSach = new ComboBox();
             label_PNS_Filter = new Label();
             date_PNS_Filter = new DateTimePicker();
             textBox_PNS_NhaCungCap = new TextBox();
@@ -76,7 +77,6 @@
             icon_PNS_Loc = new FontAwesome.Sharp.IconButton();
             icon_PNS_Tim = new FontAwesome.Sharp.IconButton();
             textBox_PNS_SoLuong = new TextBox();
-            textBox_PNS_MaSach = new TextBox();
             label_PNS_SoLuong = new Label();
             label_PNS_MaSach = new Label();
             label_PNS_MaPhieu = new Label();
@@ -96,6 +96,9 @@
             NgayHD = new DataGridViewTextBoxColumn();
             hoaDonBanSachBindingSource = new BindingSource(components);
             groupBox_HoaDonBanSach = new GroupBox();
+            comboBox_HD_MaSach = new ComboBox();
+            comboBox_HD_MaKH = new ComboBox();
+            khachHangBindingSource = new BindingSource(components);
             icon_DemLenTren = new FontAwesome.Sharp.IconButton();
             label_GiaiThich = new Label();
             icon_HD_Tinh = new FontAwesome.Sharp.IconButton();
@@ -116,8 +119,6 @@
             label_HD_SoLuong = new Label();
             icon_HD_Loc = new FontAwesome.Sharp.IconButton();
             icon_HD_Tim = new FontAwesome.Sharp.IconButton();
-            textBox_HD_MaSach = new TextBox();
-            textBox_HD_MaKH = new TextBox();
             label_HD_MaSach = new Label();
             label_HD_MaKH = new Label();
             label_HD_MaHD = new Label();
@@ -137,6 +138,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView_HoaDonBanSach).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hoaDonBanSachBindingSource).BeginInit();
             groupBox_HoaDonBanSach.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)khachHangBindingSource).BeginInit();
             SuspendLayout();
             // 
             // groupBox_Sach
@@ -194,7 +196,7 @@
             // 
             icon_Sach_Ban.Anchor = AnchorStyles.Right;
             icon_Sach_Ban.BackColor = Color.White;
-            icon_Sach_Ban.FlatAppearance.BorderColor = Color.Green;
+            icon_Sach_Ban.FlatAppearance.BorderColor = Color.Black;
             icon_Sach_Ban.FlatAppearance.BorderSize = 2;
             icon_Sach_Ban.FlatStyle = FlatStyle.Flat;
             icon_Sach_Ban.Font = new Font("Segoe UI", 12F);
@@ -390,6 +392,7 @@
             // 
             textBox_Sach_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_Sach_MaSach.BorderStyle = BorderStyle.FixedSingle;
+            textBox_Sach_MaSach.Enabled = false;
             textBox_Sach_MaSach.Font = new Font("Segoe UI", 12F);
             textBox_Sach_MaSach.Location = new Point(166, 47);
             textBox_Sach_MaSach.Margin = new Padding(4);
@@ -641,6 +644,7 @@
             // 
             // groupBox_PhieuNhapSach
             // 
+            groupBox_PhieuNhapSach.Controls.Add(comboBox_PNS_MaSach);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_Filter);
             groupBox_PhieuNhapSach.Controls.Add(date_PNS_Filter);
             groupBox_PhieuNhapSach.Controls.Add(textBox_PNS_NhaCungCap);
@@ -653,7 +657,6 @@
             groupBox_PhieuNhapSach.Controls.Add(icon_PNS_Loc);
             groupBox_PhieuNhapSach.Controls.Add(icon_PNS_Tim);
             groupBox_PhieuNhapSach.Controls.Add(textBox_PNS_SoLuong);
-            groupBox_PhieuNhapSach.Controls.Add(textBox_PNS_MaSach);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_SoLuong);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_MaSach);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_MaPhieu);
@@ -669,6 +672,19 @@
             groupBox_PhieuNhapSach.TabIndex = 4;
             groupBox_PhieuNhapSach.TabStop = false;
             groupBox_PhieuNhapSach.Text = "Nhập liệu";
+            // 
+            // comboBox_PNS_MaSach
+            // 
+            comboBox_PNS_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_PNS_MaSach.DataSource = sachBindingSource;
+            comboBox_PNS_MaSach.DisplayMember = "TenSach";
+            comboBox_PNS_MaSach.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_PNS_MaSach.FormattingEnabled = true;
+            comboBox_PNS_MaSach.Location = new Point(524, 53);
+            comboBox_PNS_MaSach.Name = "comboBox_PNS_MaSach";
+            comboBox_PNS_MaSach.Size = new Size(165, 36);
+            comboBox_PNS_MaSach.TabIndex = 43;
+            comboBox_PNS_MaSach.ValueMember = "MaSach";
             // 
             // label_PNS_Filter
             // 
@@ -838,18 +854,6 @@
             textBox_PNS_SoLuong.TabIndex = 28;
             textBox_PNS_SoLuong.TextChanged += TextBox_PNS_SoLuong_TextChanged;
             // 
-            // textBox_PNS_MaSach
-            // 
-            textBox_PNS_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_PNS_MaSach.BorderStyle = BorderStyle.FixedSingle;
-            textBox_PNS_MaSach.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_MaSach.Location = new Point(524, 53);
-            textBox_PNS_MaSach.Margin = new Padding(4);
-            textBox_PNS_MaSach.Name = "textBox_PNS_MaSach";
-            textBox_PNS_MaSach.Size = new Size(165, 34);
-            textBox_PNS_MaSach.TabIndex = 27;
-            textBox_PNS_MaSach.TextChanged += TextBox_PNS_MaSach_TextChanged;
-            // 
             // label_PNS_SoLuong
             // 
             label_PNS_SoLuong.Font = new Font("Segoe UI", 12F);
@@ -887,6 +891,7 @@
             // 
             textBox_PNS_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PNS_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
+            textBox_PNS_MaPhieu.Enabled = false;
             textBox_PNS_MaPhieu.Font = new Font("Segoe UI", 12F);
             textBox_PNS_MaPhieu.Location = new Point(177, 53);
             textBox_PNS_MaPhieu.Margin = new Padding(4);
@@ -1056,6 +1061,8 @@
             // 
             // groupBox_HoaDonBanSach
             // 
+            groupBox_HoaDonBanSach.Controls.Add(comboBox_HD_MaSach);
+            groupBox_HoaDonBanSach.Controls.Add(comboBox_HD_MaKH);
             groupBox_HoaDonBanSach.Controls.Add(icon_DemLenTren);
             groupBox_HoaDonBanSach.Controls.Add(label_GiaiThich);
             groupBox_HoaDonBanSach.Controls.Add(icon_HD_Tinh);
@@ -1076,8 +1083,6 @@
             groupBox_HoaDonBanSach.Controls.Add(label_HD_SoLuong);
             groupBox_HoaDonBanSach.Controls.Add(icon_HD_Loc);
             groupBox_HoaDonBanSach.Controls.Add(icon_HD_Tim);
-            groupBox_HoaDonBanSach.Controls.Add(textBox_HD_MaSach);
-            groupBox_HoaDonBanSach.Controls.Add(textBox_HD_MaKH);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_MaSach);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_MaKH);
             groupBox_HoaDonBanSach.Controls.Add(label_HD_MaHD);
@@ -1093,6 +1098,35 @@
             groupBox_HoaDonBanSach.TabIndex = 5;
             groupBox_HoaDonBanSach.TabStop = false;
             groupBox_HoaDonBanSach.Text = "Nhập liệu";
+            // 
+            // comboBox_HD_MaSach
+            // 
+            comboBox_HD_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_HD_MaSach.DataSource = sachBindingSource;
+            comboBox_HD_MaSach.DisplayMember = "TenSach";
+            comboBox_HD_MaSach.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_HD_MaSach.FormattingEnabled = true;
+            comboBox_HD_MaSach.Location = new Point(614, 54);
+            comboBox_HD_MaSach.Name = "comboBox_HD_MaSach";
+            comboBox_HD_MaSach.Size = new Size(118, 36);
+            comboBox_HD_MaSach.TabIndex = 53;
+            comboBox_HD_MaSach.ValueMember = "MaSach";
+            // 
+            // comboBox_HD_MaKH
+            // 
+            comboBox_HD_MaKH.DataSource = khachHangBindingSource;
+            comboBox_HD_MaKH.DisplayMember = "TenKH";
+            comboBox_HD_MaKH.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_HD_MaKH.FormattingEnabled = true;
+            comboBox_HD_MaKH.Location = new Point(379, 55);
+            comboBox_HD_MaKH.Name = "comboBox_HD_MaKH";
+            comboBox_HD_MaKH.Size = new Size(120, 36);
+            comboBox_HD_MaKH.TabIndex = 52;
+            comboBox_HD_MaKH.ValueMember = "MaKH";
+            // 
+            // khachHangBindingSource
+            // 
+            khachHangBindingSource.DataSource = typeof(Models.KhachHang);
             // 
             // icon_DemLenTren
             // 
@@ -1375,30 +1409,6 @@
             icon_HD_Tim.UseVisualStyleBackColor = false;
             icon_HD_Tim.Click += Icon_HD_Tim_Click;
             // 
-            // textBox_HD_MaSach
-            // 
-            textBox_HD_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_HD_MaSach.BorderStyle = BorderStyle.FixedSingle;
-            textBox_HD_MaSach.Font = new Font("Segoe UI", 12F);
-            textBox_HD_MaSach.Location = new Point(624, 55);
-            textBox_HD_MaSach.Margin = new Padding(4);
-            textBox_HD_MaSach.Name = "textBox_HD_MaSach";
-            textBox_HD_MaSach.Size = new Size(108, 34);
-            textBox_HD_MaSach.TabIndex = 28;
-            textBox_HD_MaSach.TextChanged += TextBox_HD_MaSach_TextChanged;
-            // 
-            // textBox_HD_MaKH
-            // 
-            textBox_HD_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            textBox_HD_MaKH.BorderStyle = BorderStyle.FixedSingle;
-            textBox_HD_MaKH.Font = new Font("Segoe UI", 12F);
-            textBox_HD_MaKH.Location = new Point(376, 55);
-            textBox_HD_MaKH.Margin = new Padding(4);
-            textBox_HD_MaKH.Name = "textBox_HD_MaKH";
-            textBox_HD_MaKH.Size = new Size(120, 34);
-            textBox_HD_MaKH.TabIndex = 27;
-            textBox_HD_MaKH.TextChanged += TextBox_HD_MaKH_TextChanged;
-            // 
             // label_HD_MaSach
             // 
             label_HD_MaSach.Font = new Font("Segoe UI", 12F);
@@ -1436,6 +1446,7 @@
             // 
             textBox_HD_MaHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_MaHD.BorderStyle = BorderStyle.FixedSingle;
+            textBox_HD_MaHD.Enabled = false;
             textBox_HD_MaHD.Font = new Font("Segoe UI", 12F);
             textBox_HD_MaHD.Location = new Point(140, 55);
             textBox_HD_MaHD.Margin = new Padding(4);
@@ -1515,6 +1526,7 @@
             ((System.ComponentModel.ISupportInitialize)hoaDonBanSachBindingSource).EndInit();
             groupBox_HoaDonBanSach.ResumeLayout(false);
             groupBox_HoaDonBanSach.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)khachHangBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -1557,7 +1569,6 @@
         private FontAwesome.Sharp.IconButton icon_PNS_Loc;
         private FontAwesome.Sharp.IconButton icon_PNS_Tim;
         private TextBox textBox_PNS_SoLuong;
-        private TextBox textBox_PNS_MaSach;
         private Label label_PNS_SoLuong;
         private Label label_PNS_MaSach;
         private Label label_PNS_MaPhieu;
@@ -1575,8 +1586,6 @@
         private Label label_HD_SoLuong;
         private FontAwesome.Sharp.IconButton icon_HD_Loc;
         private FontAwesome.Sharp.IconButton icon_HD_Tim;
-        private TextBox textBox_HD_MaSach;
-        private TextBox textBox_HD_MaKH;
         private Label label_HD_MaSach;
         private Label label_HD_MaKH;
         private Label label_HD_MaHD;
@@ -1622,5 +1631,9 @@
         private DataGridViewTextBoxColumn NhaCungCap;
         private Label label_GiaiThich;
         private FontAwesome.Sharp.IconButton icon_DemLenTren;
+        private ComboBox comboBox_PNS_MaSach;
+        private ComboBox comboBox_HD_MaSach;
+        private ComboBox comboBox_HD_MaKH;
+        private BindingSource khachHangBindingSource;
     }
 }

@@ -357,7 +357,7 @@ namespace Show10.Child_Forms {
                     .FirstOrDefault()?.MaPT ?? 0;
                 textBox_PTT_MaPhieu.Text = (lastMaPhieu + 1).ToString();
 
-                textBox_PTT_MaKH.Text = khachHang.MaKH.ToString();
+                comboBox_PTT_MaKH.SelectedValue = khachHang.MaKH;
                 textBox_PTT_SoTien.Text = khachHang.TienNo.ToString();
             }
         }
@@ -369,7 +369,7 @@ namespace Show10.Child_Forms {
                 .FirstOrDefault()?.MaPT ?? 0;
 
             string maPT = textBox_PTT_MaPhieu.Text;
-            string maKH = textBox_PTT_MaKH.Text;
+            string maKH = comboBox_PTT_MaKH.SelectedValue.ToString();
             string ngayThu = date_PTT_NgayThu.Text;
             string soTien = textBox_PTT_SoTien.Text;
 
@@ -382,7 +382,7 @@ namespace Show10.Child_Forms {
         }
         private void SetPhieuThuTien(PhieuThuTien phieuThuTien) {
             textBox_PTT_MaPhieu.Text = phieuThuTien.MaPT.ToString();
-            textBox_PTT_MaKH.Text = phieuThuTien.MaKH.ToString();
+            comboBox_PTT_MaKH.SelectedValue= phieuThuTien.MaKH;
             date_PTT_NgayThu.Text = phieuThuTien.NgayThu.ToShortDateString();
             textBox_PTT_SoTien.Text = phieuThuTien.SoTien.ToString();
         }
@@ -398,7 +398,6 @@ namespace Show10.Child_Forms {
             }
 
             if (string.IsNullOrWhiteSpace(textBox_PTT_MaPhieu.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PTT_MaKH.Text) ||
                 string.IsNullOrWhiteSpace(date_PTT_NgayThu.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PTT_SoTien.Text)
                 ) {
@@ -517,8 +516,8 @@ namespace Show10.Child_Forms {
                     filteredData = filteredData.Where(ptt => ptt.MaPT.ToString().Contains(maPT.ToString()));
                 }
             }
-            if (!string.IsNullOrEmpty(textBox_PTT_MaKH.Text)) {
-                if (int.TryParse(textBox_PTT_MaKH.Text, out int maKH)) {
+            if (!string.IsNullOrEmpty(comboBox_PTT_MaKH.Text)) {
+                if (int.TryParse(comboBox_PTT_MaKH.SelectedValue.ToString(), out int maKH)) {
                     filteredData = filteredData.Where(ptt => ptt.MaKH.ToString().Contains(maKH.ToString()));
                 }
             }
@@ -558,7 +557,7 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PTT_Clear_Click(object sender, EventArgs e) {
             textBox_PTT_MaPhieu.Text = "";
-            textBox_PTT_MaKH.Text = "";
+            comboBox_PTT_MaKH.SelectedIndex = 0;
             date_PTT_NgayThu.Text = "";
             textBox_PTT_SoTien.Text = "";
         }

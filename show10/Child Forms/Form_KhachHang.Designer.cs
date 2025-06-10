@@ -65,6 +65,7 @@
             soTienDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phieuThuTienBindingSource = new BindingSource(components);
             groupBox_PhieuThuTien = new GroupBox();
+            comboBox_PTT_MaKH = new ComboBox();
             label_PTT_Filter = new Label();
             date_PTT_Filter = new DateTimePicker();
             date_PTT_NgayThu = new DateTimePicker();
@@ -75,7 +76,6 @@
             icon_PTT_Tim = new FontAwesome.Sharp.IconButton();
             icon_PTT_Xoa = new FontAwesome.Sharp.IconButton();
             icon_PTT_Them = new FontAwesome.Sharp.IconButton();
-            textBox_PTT_MaKH = new TextBox();
             label_PTT_NgayThu = new Label();
             label_PTT_MaKH = new Label();
             label_PTT_MaPhieu = new Label();
@@ -114,7 +114,7 @@
             groupBox_KhachHang.Dock = DockStyle.Top;
             groupBox_KhachHang.Location = new Point(3, 3);
             groupBox_KhachHang.Name = "groupBox_KhachHang";
-            groupBox_KhachHang.Size = new Size(768, 385);
+            groupBox_KhachHang.Size = new Size(1248, 385);
             groupBox_KhachHang.TabIndex = 0;
             groupBox_KhachHang.TabStop = false;
             groupBox_KhachHang.Text = "Nhập liệu";
@@ -131,7 +131,7 @@
             icon_KH_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_KH_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Clear.IconSize = 30;
-            icon_KH_Clear.Location = new Point(536, 292);
+            icon_KH_Clear.Location = new Point(776, 292);
             icon_KH_Clear.Margin = new Padding(10);
             icon_KH_Clear.Name = "icon_KH_Clear";
             icon_KH_Clear.Size = new Size(80, 80);
@@ -149,7 +149,7 @@
             comboBox_KH_GioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox_KH_GioiTinh.Location = new Point(136, 141);
             comboBox_KH_GioiTinh.Name = "comboBox_KH_GioiTinh";
-            comboBox_KH_GioiTinh.Size = new Size(371, 36);
+            comboBox_KH_GioiTinh.Size = new Size(851, 36);
             comboBox_KH_GioiTinh.TabIndex = 54;
             comboBox_KH_GioiTinh.SelectedIndexChanged += ComboBox_KH_GioiTinh_SelectedIndexChanged;
             // 
@@ -161,7 +161,7 @@
             textBox_KH_TienNo.Font = new Font("Segoe UI", 12F);
             textBox_KH_TienNo.Location = new Point(375, 42);
             textBox_KH_TienNo.Name = "textBox_KH_TienNo";
-            textBox_KH_TienNo.Size = new Size(132, 34);
+            textBox_KH_TienNo.Size = new Size(612, 34);
             textBox_KH_TienNo.TabIndex = 51;
             textBox_KH_TienNo.TextChanged += TextBox_KH_TienNo_TextChanged;
             // 
@@ -190,7 +190,7 @@
             icon_KH_ThuTien.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_ThuTien.IconSize = 30;
             icon_KH_ThuTien.ImageAlign = ContentAlignment.BottomCenter;
-            icon_KH_ThuTien.Location = new Point(556, 39);
+            icon_KH_ThuTien.Location = new Point(1036, 39);
             icon_KH_ThuTien.Margin = new Padding(10);
             icon_KH_ThuTien.Name = "icon_KH_ThuTien";
             icon_KH_ThuTien.Size = new Size(174, 233);
@@ -212,7 +212,7 @@
             icon_KH_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_KH_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Loc.IconSize = 30;
-            icon_KH_Loc.Location = new Point(436, 292);
+            icon_KH_Loc.Location = new Point(676, 292);
             icon_KH_Loc.Margin = new Padding(10);
             icon_KH_Loc.Name = "icon_KH_Loc";
             icon_KH_Loc.Size = new Size(80, 80);
@@ -234,7 +234,7 @@
             icon_KH_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_KH_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Tim.IconSize = 30;
-            icon_KH_Tim.Location = new Point(336, 292);
+            icon_KH_Tim.Location = new Point(576, 292);
             icon_KH_Tim.Margin = new Padding(10);
             icon_KH_Tim.Name = "icon_KH_Tim";
             icon_KH_Tim.Size = new Size(80, 80);
@@ -255,7 +255,7 @@
             icon_KH_Xoa.IconColor = Color.White;
             icon_KH_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Xoa.IconSize = 30;
-            icon_KH_Xoa.Location = new Point(236, 292);
+            icon_KH_Xoa.Location = new Point(476, 292);
             icon_KH_Xoa.Margin = new Padding(10);
             icon_KH_Xoa.Name = "icon_KH_Xoa";
             icon_KH_Xoa.Size = new Size(80, 80);
@@ -276,7 +276,7 @@
             icon_KH_Them.IconColor = Color.White;
             icon_KH_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_KH_Them.IconSize = 30;
-            icon_KH_Them.Location = new Point(136, 292);
+            icon_KH_Them.Location = new Point(376, 292);
             icon_KH_Them.Margin = new Padding(10);
             icon_KH_Them.Name = "icon_KH_Them";
             icon_KH_Them.Size = new Size(80, 80);
@@ -293,7 +293,7 @@
             textBox_KH_DiaChi.Font = new Font("Segoe UI", 12F);
             textBox_KH_DiaChi.Location = new Point(136, 237);
             textBox_KH_DiaChi.Name = "textBox_KH_DiaChi";
-            textBox_KH_DiaChi.Size = new Size(371, 34);
+            textBox_KH_DiaChi.Size = new Size(851, 34);
             textBox_KH_DiaChi.TabIndex = 44;
             textBox_KH_DiaChi.TextChanged += TextBox_KH_DiaChi_TextChanged;
             // 
@@ -315,7 +315,7 @@
             textBox_KH_Email.Font = new Font("Segoe UI", 12F);
             textBox_KH_Email.Location = new Point(136, 188);
             textBox_KH_Email.Name = "textBox_KH_Email";
-            textBox_KH_Email.Size = new Size(371, 34);
+            textBox_KH_Email.Size = new Size(851, 34);
             textBox_KH_Email.TabIndex = 42;
             textBox_KH_Email.TextChanged += TextBox_KH_Email_TextChanged;
             // 
@@ -337,7 +337,7 @@
             textBox_KH_TenKH.Font = new Font("Segoe UI", 12F);
             textBox_KH_TenKH.Location = new Point(136, 90);
             textBox_KH_TenKH.Name = "textBox_KH_TenKH";
-            textBox_KH_TenKH.Size = new Size(371, 34);
+            textBox_KH_TenKH.Size = new Size(851, 34);
             textBox_KH_TenKH.TabIndex = 39;
             textBox_KH_TenKH.TextChanged += TextBox_KH_TenKH_TextChanged;
             // 
@@ -378,6 +378,7 @@
             // 
             textBox_KH_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_KH_MaKH.BorderStyle = BorderStyle.FixedSingle;
+            textBox_KH_MaKH.Enabled = false;
             textBox_KH_MaKH.Font = new Font("Segoe UI", 12F);
             textBox_KH_MaKH.Location = new Point(136, 42);
             textBox_KH_MaKH.Name = "textBox_KH_MaKH";
@@ -422,7 +423,7 @@
             dataGridView_KhachHang.RowHeadersVisible = false;
             dataGridView_KhachHang.RowHeadersWidth = 51;
             dataGridView_KhachHang.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_KhachHang.Size = new Size(768, 121);
+            dataGridView_KhachHang.Size = new Size(1248, 121);
             dataGridView_KhachHang.TabIndex = 3;
             dataGridView_KhachHang.CellValueChanged += DataGridView_KhachHang_CellValueChanged;
             dataGridView_KhachHang.SelectionChanged += DataGridView_KhachHang_SelectionChanged;
@@ -482,7 +483,7 @@
             tabControl_KhachHang.Location = new Point(0, 0);
             tabControl_KhachHang.Name = "tabControl_KhachHang";
             tabControl_KhachHang.SelectedIndex = 0;
-            tabControl_KhachHang.Size = new Size(782, 553);
+            tabControl_KhachHang.Size = new Size(1262, 553);
             tabControl_KhachHang.TabIndex = 54;
             tabControl_KhachHang.SelectedIndexChanged += TabControl_KhachHang_SelectedIndexChanged;
             // 
@@ -493,7 +494,7 @@
             tabPage_KhachHang.Location = new Point(4, 37);
             tabPage_KhachHang.Name = "tabPage_KhachHang";
             tabPage_KhachHang.Padding = new Padding(3);
-            tabPage_KhachHang.Size = new Size(774, 512);
+            tabPage_KhachHang.Size = new Size(1254, 512);
             tabPage_KhachHang.TabIndex = 0;
             tabPage_KhachHang.Text = "Quản lý khách hàng";
             tabPage_KhachHang.UseVisualStyleBackColor = true;
@@ -505,7 +506,7 @@
             tabPage_PhieuThuTien.Location = new Point(4, 37);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(774, 512);
+            tabPage_PhieuThuTien.Size = new Size(1254, 512);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -547,7 +548,7 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(768, 243);
+            dataGridView_PhieuThuTien.Size = new Size(1248, 243);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
@@ -587,6 +588,7 @@
             // 
             // groupBox_PhieuThuTien
             // 
+            groupBox_PhieuThuTien.Controls.Add(comboBox_PTT_MaKH);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_Filter);
             groupBox_PhieuThuTien.Controls.Add(date_PTT_Filter);
             groupBox_PhieuThuTien.Controls.Add(date_PTT_NgayThu);
@@ -597,7 +599,6 @@
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Tim);
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Xoa);
             groupBox_PhieuThuTien.Controls.Add(icon_PTT_Them);
-            groupBox_PhieuThuTien.Controls.Add(textBox_PTT_MaKH);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_NgayThu);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_MaKH);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_MaPhieu);
@@ -605,10 +606,22 @@
             groupBox_PhieuThuTien.Dock = DockStyle.Top;
             groupBox_PhieuThuTien.Location = new Point(3, 3);
             groupBox_PhieuThuTien.Name = "groupBox_PhieuThuTien";
-            groupBox_PhieuThuTien.Size = new Size(768, 263);
+            groupBox_PhieuThuTien.Size = new Size(1248, 263);
             groupBox_PhieuThuTien.TabIndex = 5;
             groupBox_PhieuThuTien.TabStop = false;
             groupBox_PhieuThuTien.Text = "Nhập liệu";
+            // 
+            // comboBox_PTT_MaKH
+            // 
+            comboBox_PTT_MaKH.DataSource = khachHangBindingSource;
+            comboBox_PTT_MaKH.DisplayMember = "TenKH";
+            comboBox_PTT_MaKH.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_PTT_MaKH.FormattingEnabled = true;
+            comboBox_PTT_MaKH.Location = new Point(375, 46);
+            comboBox_PTT_MaKH.Name = "comboBox_PTT_MaKH";
+            comboBox_PTT_MaKH.Size = new Size(305, 36);
+            comboBox_PTT_MaKH.TabIndex = 60;
+            comboBox_PTT_MaKH.ValueMember = "MaKH";
             // 
             // label_PTT_Filter
             // 
@@ -629,7 +642,7 @@
             date_PTT_Filter.Format = DateTimePickerFormat.Short;
             date_PTT_Filter.Location = new Point(495, 107);
             date_PTT_Filter.Name = "date_PTT_Filter";
-            date_PTT_Filter.Size = new Size(137, 34);
+            date_PTT_Filter.Size = new Size(617, 34);
             date_PTT_Filter.TabIndex = 58;
             // 
             // date_PTT_NgayThu
@@ -652,7 +665,7 @@
             icon_PTT_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_PTT_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Clear.IconSize = 30;
-            icon_PTT_Clear.Location = new Point(544, 170);
+            icon_PTT_Clear.Location = new Point(784, 170);
             icon_PTT_Clear.Margin = new Padding(10);
             icon_PTT_Clear.Name = "icon_PTT_Clear";
             icon_PTT_Clear.Size = new Size(80, 80);
@@ -667,16 +680,16 @@
             textBox_PTT_SoTien.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_PTT_SoTien.BorderStyle = BorderStyle.FixedSingle;
             textBox_PTT_SoTien.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_SoTien.Location = new Point(624, 45);
+            textBox_PTT_SoTien.Location = new Point(810, 45);
             textBox_PTT_SoTien.Name = "textBox_PTT_SoTien";
-            textBox_PTT_SoTien.Size = new Size(106, 34);
+            textBox_PTT_SoTien.Size = new Size(400, 34);
             textBox_PTT_SoTien.TabIndex = 50;
             textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
             // 
             // label_PTT_SoTien
             // 
             label_PTT_SoTien.Font = new Font("Segoe UI", 12F);
-            label_PTT_SoTien.Location = new Point(503, 42);
+            label_PTT_SoTien.Location = new Point(698, 43);
             label_PTT_SoTien.Margin = new Padding(3, 0, 20, 0);
             label_PTT_SoTien.Name = "label_PTT_SoTien";
             label_PTT_SoTien.Size = new Size(94, 40);
@@ -696,7 +709,7 @@
             icon_PTT_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_PTT_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Loc.IconSize = 30;
-            icon_PTT_Loc.Location = new Point(444, 170);
+            icon_PTT_Loc.Location = new Point(684, 170);
             icon_PTT_Loc.Margin = new Padding(10);
             icon_PTT_Loc.Name = "icon_PTT_Loc";
             icon_PTT_Loc.Size = new Size(80, 80);
@@ -718,7 +731,7 @@
             icon_PTT_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_PTT_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Tim.IconSize = 30;
-            icon_PTT_Tim.Location = new Point(344, 170);
+            icon_PTT_Tim.Location = new Point(584, 170);
             icon_PTT_Tim.Margin = new Padding(10);
             icon_PTT_Tim.Name = "icon_PTT_Tim";
             icon_PTT_Tim.Size = new Size(80, 80);
@@ -739,7 +752,7 @@
             icon_PTT_Xoa.IconColor = Color.White;
             icon_PTT_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Xoa.IconSize = 30;
-            icon_PTT_Xoa.Location = new Point(244, 170);
+            icon_PTT_Xoa.Location = new Point(484, 170);
             icon_PTT_Xoa.Margin = new Padding(10);
             icon_PTT_Xoa.Name = "icon_PTT_Xoa";
             icon_PTT_Xoa.Size = new Size(80, 80);
@@ -760,7 +773,7 @@
             icon_PTT_Them.IconColor = Color.White;
             icon_PTT_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_PTT_Them.IconSize = 30;
-            icon_PTT_Them.Location = new Point(144, 170);
+            icon_PTT_Them.Location = new Point(384, 170);
             icon_PTT_Them.Margin = new Padding(10);
             icon_PTT_Them.Name = "icon_PTT_Them";
             icon_PTT_Them.Size = new Size(80, 80);
@@ -769,16 +782,6 @@
             icon_PTT_Them.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_PTT_Them.UseVisualStyleBackColor = false;
             icon_PTT_Them.Click += Icon_PTT_Them_Click;
-            // 
-            // textBox_PTT_MaKH
-            // 
-            textBox_PTT_MaKH.BorderStyle = BorderStyle.FixedSingle;
-            textBox_PTT_MaKH.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_MaKH.Location = new Point(386, 45);
-            textBox_PTT_MaKH.Name = "textBox_PTT_MaKH";
-            textBox_PTT_MaKH.Size = new Size(106, 34);
-            textBox_PTT_MaKH.TabIndex = 39;
-            textBox_PTT_MaKH.TextChanged += TextBox_PTT_MaKH_TextChanged;
             // 
             // label_PTT_NgayThu
             // 
@@ -794,7 +797,7 @@
             // label_PTT_MaKH
             // 
             label_PTT_MaKH.Font = new Font("Segoe UI", 12F);
-            label_PTT_MaKH.Location = new Point(265, 42);
+            label_PTT_MaKH.Location = new Point(263, 42);
             label_PTT_MaKH.Margin = new Padding(3, 0, 20, 0);
             label_PTT_MaKH.Name = "label_PTT_MaKH";
             label_PTT_MaKH.Size = new Size(94, 40);
@@ -816,8 +819,9 @@
             // textBox_PTT_MaPhieu
             // 
             textBox_PTT_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
+            textBox_PTT_MaPhieu.Enabled = false;
             textBox_PTT_MaPhieu.Font = new Font("Segoe UI", 12F);
-            textBox_PTT_MaPhieu.Location = new Point(148, 45);
+            textBox_PTT_MaPhieu.Location = new Point(139, 45);
             textBox_PTT_MaPhieu.Name = "textBox_PTT_MaPhieu";
             textBox_PTT_MaPhieu.Size = new Size(106, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
@@ -827,7 +831,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(782, 553);
+            ClientSize = new Size(1262, 553);
             Controls.Add(tabControl_KhachHang);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
@@ -890,7 +894,6 @@
         private FontAwesome.Sharp.IconButton icon_PTT_Tim;
         private FontAwesome.Sharp.IconButton icon_PTT_Xoa;
         private FontAwesome.Sharp.IconButton icon_PTT_Them;
-        private TextBox textBox_PTT_MaKH;
         private Label label_PTT_NgayThu;
         private Label label_PTT_MaKH;
         private Label label_PTT_MaPhieu;
@@ -908,5 +911,6 @@
         private DateTimePicker date_PTT_NgayThu;
         private Label label_PTT_Filter;
         private DateTimePicker date_PTT_Filter;
+        private ComboBox comboBox_PTT_MaKH;
     }
 }
