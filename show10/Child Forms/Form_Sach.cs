@@ -464,6 +464,19 @@ namespace Show10.Child_Forms {
             date_PNS_NgayNhap.Text = phieu.NgayNhap.ToShortDateString();
         }
         private void Icon_PNS_Them_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
+                string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text) ||
+                string.IsNullOrWhiteSpace(textBox_PNS_NhaCungCap.Text)
+                ) {
+                MessageBox.Show(
+                    "Nhập đủ số lượng, giá nhập, và nhà cung cấp\n" +
+                    "trước khi thêm vào cơ sở dữ liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             PhieuNhapSach phieu = GetPhieuNhapSach();
 
             if (!db!.Sachs.Any(sach => sach.MaSach == phieu.MaSach)) {
@@ -491,17 +504,8 @@ namespace Show10.Child_Forms {
                 );
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_NhaCungCap.Text)
-                ) {
-                MessageBox.Show(
-                    "Nhập đủ mã sách, số lượng, giá nhập, và nhà cung cấp\n" +
-                    "trước khi thêm vào cơ sở dữ liệu.",
-                    "Chưa điền đầy đủ các thông tin cần thiết",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db!.PhieuNhapSachs.Any(p => p.MaPN == phieu.MaPN)) {
+            
+            if (db!.PhieuNhapSachs.Any(p => p.MaPN == phieu.MaPN)) {
                 var result = MessageBox.Show(
                     "Tồn tại phiếu nhập với mã phiếu này.\n" +
                     "Ghi đè thông tin của phiếu nhập?",
@@ -772,6 +776,17 @@ namespace Show10.Child_Forms {
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
         private void Icon_HD_Them_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
+                string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
+                MessageBox.Show(
+                    "Nhập đủ số lượng và số tiền trả\n" +
+                    "trước khi thêm vào cơ sở dữ liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             HoaDonBanSach hoaDon = GetHoaDonBanSach();
 
             // Không tìm thấy mã sách
@@ -826,16 +841,8 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
-                MessageBox.Show(
-                    "Nhập đủ mã khách hàng, mã sách, số lượng và số tiền trả\n" +
-                    "trước khi thêm vào cơ sở dữ liệu.",
-                    "Chưa điền đầy đủ các thông tin cần thiết",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                return;
-            } else if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
+            
+            if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
                 var result = MessageBox.Show(
                     "Tồn tại hoá đơn với mã hoá đơn này.\n" +
                     "Ghi đè thông tin của hoá đơn?",
@@ -1141,7 +1148,7 @@ namespace Show10.Child_Forms {
             if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text)
                 ) {
                 MessageBox.Show(
-                    "Nhập đủ mã sách và số lượng trước khi tính các số liệu.",
+                    "Nhập số lượng trước khi tính các số liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -1149,9 +1156,12 @@ namespace Show10.Child_Forms {
             }
 
             int soLuong = int.Parse(textBox_HD_SoLuong.Text);
+
             double giaBan = GetGiaBan(maSach);
-            double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsed) ? parsed : 0;
-            double conLai = double.Parse(textBox_HD_TongTien.Text) - soTienTra;
+
+            double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsedTienTra) ? parsedTienTra : 0;
+            double tongTien = double.TryParse(textBox_HD_TongTien.Text, out var parsedTongTien) ? parsedTongTien : 0;
+            double conLai = tongTien - soTienTra;
 
             if (conLai < 0) {
                 textBox_HD_SoTienTra.Text = textBox_HD_TongTien.Text;
@@ -1163,6 +1173,7 @@ namespace Show10.Child_Forms {
             textBox_HD_GiaBan.Text = giaBan.ToString();
             textBox_HD_TongTien.Text = (soLuong * giaBan).ToString();
             textBox_HD_ConLai.Text = conLai.ToString();
+            textBox_HD_SoTienTra.Text = soTienTra.ToString();
         }
         private void Icon_DemLenTren_Click(object sender, EventArgs e) {
             textBox_HD_SoTienTra.Text = textBox_HD_ConLai.Text;

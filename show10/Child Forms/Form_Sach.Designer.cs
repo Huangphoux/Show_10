@@ -889,7 +889,6 @@
             // 
             textBox_PNS_MaPhieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_PNS_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
-            textBox_PNS_MaPhieu.Enabled = false;
             textBox_PNS_MaPhieu.Font = new Font("Segoe UI", 12F);
             textBox_PNS_MaPhieu.Location = new Point(177, 53);
             textBox_PNS_MaPhieu.Margin = new Padding(4);
@@ -1170,7 +1169,7 @@
             icon_HD_Tinh.IconColor = Color.White;
             icon_HD_Tinh.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_HD_Tinh.IconSize = 30;
-            icon_HD_Tinh.Location = new Point(1130, 359);
+            icon_HD_Tinh.Location = new Point(1132, 359);
             icon_HD_Tinh.Margin = new Padding(14);
             icon_HD_Tinh.Name = "icon_HD_Tinh";
             icon_HD_Tinh.Size = new Size(80, 80);
