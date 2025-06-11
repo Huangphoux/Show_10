@@ -701,6 +701,7 @@
             // date_PNS_Filter
             // 
             date_PNS_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_PNS_Filter.Enabled = false;
             date_PNS_Filter.Format = DateTimePickerFormat.Short;
             date_PNS_Filter.Location = new Point(524, 164);
             date_PNS_Filter.Name = "date_PNS_Filter";
@@ -1269,6 +1270,7 @@
             // date_HD_Filter
             // 
             date_HD_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            date_HD_Filter.Enabled = false;
             date_HD_Filter.Format = DateTimePickerFormat.Short;
             date_HD_Filter.Location = new Point(535, 296);
             date_HD_Filter.Name = "date_HD_Filter";

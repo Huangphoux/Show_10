@@ -152,8 +152,6 @@ namespace Show10.Child_Forms {
             //    e.Handled = true;
             //}
         }
-
-
         private void textBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.')) {
@@ -165,7 +163,6 @@ namespace Show10.Child_Forms {
                 e.Handled = true;
             }
         }
-
         #region Quản lý sách
         private void TabControl_Sach_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_Sach.SelectedTab == tabPage_Sach) {
@@ -872,7 +869,6 @@ namespace Show10.Child_Forms {
                 );
                 return;
             }
-
             
             if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
                 var result = MessageBox.Show(
@@ -894,6 +890,11 @@ namespace Show10.Child_Forms {
                     existingHD.SoLuong = hoaDon.SoLuong;
                     existingHD.GiaBan = hoaDon.GiaBan;
                     existingHD.NgayHD = hoaDon.NgayHD;
+
+                    existingHD.SoTienTra = hoaDon.SoTienTra;
+                    existingHD.TongTien = hoaDon.TongTien;
+                    existingHD.ConLai= hoaDon.ConLai;
+
                 } else { return; }
             } else {
                 db.Add(hoaDon);

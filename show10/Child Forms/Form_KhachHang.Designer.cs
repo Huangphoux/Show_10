@@ -638,6 +638,7 @@
             // date_PTT_Filter
             // 
             date_PTT_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            date_PTT_Filter.Enabled = false;
             date_PTT_Filter.Format = DateTimePickerFormat.Short;
             date_PTT_Filter.Location = new Point(495, 107);
             date_PTT_Filter.Name = "date_PTT_Filter";
