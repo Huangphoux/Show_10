@@ -163,7 +163,7 @@
             textBox_KH_TienNo.Size = new Size(612, 34);
             textBox_KH_TienNo.TabIndex = 51;
             textBox_KH_TienNo.TextChanged += TextBox_KH_TienNo_TextChanged;
-            textBox_KH_TienNo.KeyPress += textBox_OnlyNumber_KeyPress;
+            textBox_KH_TienNo.KeyPress += textBox_Money_KeyPress;
             // 
             // label_KH_TienNo
             // 
@@ -384,7 +384,7 @@
             textBox_KH_MaKH.Size = new Size(127, 34);
             textBox_KH_MaKH.TabIndex = 35;
             textBox_KH_MaKH.TextChanged += TextBox_KH_MaKH_TextChanged;
-            textBox_KH_MaKH.KeyPress += textBox_OnlyNumber_KeyPress;
+            textBox_KH_MaKH.KeyPress += textBox_Integer_KeyPress;
             // 
             // dataGridView_KhachHang
             // 
@@ -684,7 +684,7 @@
             textBox_PTT_SoTien.Size = new Size(400, 34);
             textBox_PTT_SoTien.TabIndex = 50;
             textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
-            textBox_PTT_SoTien.KeyPress += textBox_OnlyNumber_KeyPress;
+            textBox_PTT_SoTien.KeyPress += textBox_Money_KeyPress;
             // 
             // label_PTT_SoTien
             // 
@@ -825,7 +825,7 @@
             textBox_PTT_MaPhieu.Size = new Size(106, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
             textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
-            textBox_PTT_MaPhieu.KeyPress += textBox_OnlyNumber_KeyPress;
+            textBox_PTT_MaPhieu.KeyPress += textBox_Integer_KeyPress;
             // 
             // Form_KhachHang
             // 

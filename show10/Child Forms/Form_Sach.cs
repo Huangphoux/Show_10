@@ -142,7 +142,7 @@ namespace Show10.Child_Forms {
 
             return expr;
         }
-        private void textBox_OnlyNumber_KeyPress(object sender, KeyPressEventArgs e) {
+        private void textBox_Integer_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
@@ -151,6 +151,19 @@ namespace Show10.Child_Forms {
             //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) {
             //    e.Handled = true;
             //}
+        }
+
+
+        private void textBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.')) {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) {
+                e.Handled = true;
+            }
         }
 
         #region Quản lý sách
