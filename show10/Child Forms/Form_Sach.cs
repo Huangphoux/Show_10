@@ -1199,11 +1199,9 @@ namespace Show10.Child_Forms {
             }
 
             int soLuong = int.Parse(textBox_HD_SoLuong.Text);
-
-            double giaBan = GetGiaBan(maSach);
-
             double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsedTienTra) ? parsedTienTra : 0;
-            double tongTien = double.TryParse(textBox_HD_TongTien.Text, out var parsedTongTien) ? parsedTongTien : 0;
+            double giaBan = GetGiaBan(maSach);
+            double tongTien = soLuong * giaBan;
             double conLai = tongTien - soTienTra;
 
             if (conLai < 0) {
@@ -1213,10 +1211,10 @@ namespace Show10.Child_Forms {
                 conLai = 0;
             }
 
-            textBox_HD_GiaBan.Text = giaBan.ToString();
-            textBox_HD_TongTien.Text = (soLuong * giaBan).ToString();
-            textBox_HD_ConLai.Text = conLai.ToString();
             textBox_HD_SoTienTra.Text = soTienTra.ToString();
+            textBox_HD_GiaBan.Text = giaBan.ToString();
+            textBox_HD_TongTien.Text = tongTien.ToString();
+            textBox_HD_ConLai.Text = conLai.ToString();
         }
         private void Icon_DemLenTren_Click(object sender, EventArgs e) {
             textBox_HD_SoTienTra.Text = textBox_HD_ConLai.Text;
