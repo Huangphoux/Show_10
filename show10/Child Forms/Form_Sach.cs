@@ -914,8 +914,8 @@ namespace Show10.Child_Forms {
         }
         private void Icon_HD_Clear_Click(object sender, EventArgs e) {
             textBox_HD_MaHD.Text = "";
-            comboBox_HD_MaSach.SelectedValue = 0;
-            comboBox_HD_MaKH.SelectedValue = 0;
+            comboBox_HD_MaSach.SelectedIndex = 0;
+            comboBox_HD_MaKH.SelectedIndex = 0;
             textBox_HD_SoLuong.Text = "";
             textBox_HD_GiaBan.Text = "";
             date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
@@ -1126,7 +1126,7 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_HD_Tinh_Click(object sender, EventArgs e) {
-            int maSach = int.Parse(comboBox_HD_MaSach.ToString());
+            int maSach = int.Parse(comboBox_HD_MaSach.SelectedValue.ToString());
 
             if (db!.Sachs.First(s => s.MaSach == maSach).SoLuong == 0) {
                 MessageBox.Show(
@@ -1149,7 +1149,7 @@ namespace Show10.Child_Forms {
             }
 
             int soLuong = int.Parse(textBox_HD_SoLuong.Text);
-            double giaBan = GetGiaBan(int.Parse(comboBox_HD_MaSach.ToString()));
+            double giaBan = GetGiaBan(maSach);
             double soTienTra = double.TryParse(textBox_HD_SoTienTra.Text, out var parsed) ? parsed : 0;
             double conLai = double.Parse(textBox_HD_TongTien.Text) - soTienTra;
 
@@ -1166,8 +1166,8 @@ namespace Show10.Child_Forms {
         }
         private void Icon_DemLenTren_Click(object sender, EventArgs e) {
             textBox_HD_SoTienTra.Text = textBox_HD_ConLai.Text;
+            textBox_HD_ConLai.Text = "0";
         }
         #endregion
-
     }
 }

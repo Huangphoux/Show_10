@@ -182,7 +182,7 @@
             icon_Sach_Clear.IconColor = Color.FromArgb(255, 128, 255);
             icon_Sach_Clear.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Clear.IconSize = 30;
-            icon_Sach_Clear.Location = new Point(708, 263);
+            icon_Sach_Clear.Location = new Point(799, 263);
             icon_Sach_Clear.Margin = new Padding(14);
             icon_Sach_Clear.Name = "icon_Sach_Clear";
             icon_Sach_Clear.Size = new Size(80, 80);
@@ -266,7 +266,6 @@
             // 
             textBox_Sach_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_Sach_SoLuong.BorderStyle = BorderStyle.FixedSingle;
-            textBox_Sach_SoLuong.Enabled = false;
             textBox_Sach_SoLuong.Font = new Font("Segoe UI", 12F);
             textBox_Sach_SoLuong.Location = new Point(424, 47);
             textBox_Sach_SoLuong.Margin = new Padding(4);
@@ -299,7 +298,7 @@
             icon_Sach_Loc.IconColor = Color.FromArgb(255, 192, 128);
             icon_Sach_Loc.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Loc.IconSize = 30;
-            icon_Sach_Loc.Location = new Point(600, 263);
+            icon_Sach_Loc.Location = new Point(691, 263);
             icon_Sach_Loc.Margin = new Padding(14);
             icon_Sach_Loc.Name = "icon_Sach_Loc";
             icon_Sach_Loc.Size = new Size(80, 80);
@@ -321,7 +320,7 @@
             icon_Sach_Tim.IconColor = Color.FromArgb(128, 128, 255);
             icon_Sach_Tim.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Tim.IconSize = 30;
-            icon_Sach_Tim.Location = new Point(492, 263);
+            icon_Sach_Tim.Location = new Point(583, 263);
             icon_Sach_Tim.Margin = new Padding(14);
             icon_Sach_Tim.Name = "icon_Sach_Tim";
             icon_Sach_Tim.Size = new Size(80, 80);
@@ -392,7 +391,6 @@
             // 
             textBox_Sach_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_Sach_MaSach.BorderStyle = BorderStyle.FixedSingle;
-            textBox_Sach_MaSach.Enabled = false;
             textBox_Sach_MaSach.Font = new Font("Segoe UI", 12F);
             textBox_Sach_MaSach.Location = new Point(166, 47);
             textBox_Sach_MaSach.Margin = new Padding(4);
@@ -412,7 +410,7 @@
             icon_Sach_Xoa.IconColor = Color.White;
             icon_Sach_Xoa.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Xoa.IconSize = 30;
-            icon_Sach_Xoa.Location = new Point(384, 263);
+            icon_Sach_Xoa.Location = new Point(475, 263);
             icon_Sach_Xoa.Margin = new Padding(14);
             icon_Sach_Xoa.Name = "icon_Sach_Xoa";
             icon_Sach_Xoa.Size = new Size(80, 80);
@@ -433,7 +431,7 @@
             icon_Sach_Them.IconColor = Color.White;
             icon_Sach_Them.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Sach_Them.IconSize = 30;
-            icon_Sach_Them.Location = new Point(276, 263);
+            icon_Sach_Them.Location = new Point(367, 263);
             icon_Sach_Them.Margin = new Padding(14);
             icon_Sach_Them.Name = "icon_Sach_Them";
             icon_Sach_Them.Size = new Size(80, 80);
@@ -551,11 +549,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 37);
+            tabPage_PhieuNhapSach.Location = new Point(4, 29);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(1254, 712);
+            tabPage_PhieuNhapSach.Size = new Size(1254, 720);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -590,7 +588,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(1246, 322);
+            dataGridView_PhieuNhapSach.Size = new Size(1246, 330);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
@@ -946,11 +944,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 29);
+            tabPage_HoaDonBanSach.Location = new Point(4, 37);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(1254, 720);
+            tabPage_HoaDonBanSach.Size = new Size(1254, 712);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -985,7 +983,7 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(1246, 255);
+            dataGridView_HoaDonBanSach.Size = new Size(1246, 247);
             dataGridView_HoaDonBanSach.TabIndex = 4;
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
             dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;
@@ -1134,18 +1132,18 @@
             icon_DemLenTren.BackColor = Color.Black;
             icon_DemLenTren.FlatAppearance.BorderSize = 0;
             icon_DemLenTren.FlatStyle = FlatStyle.Flat;
-            icon_DemLenTren.Font = new Font("Segoe UI", 12F);
+            icon_DemLenTren.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             icon_DemLenTren.ForeColor = Color.White;
             icon_DemLenTren.IconChar = FontAwesome.Sharp.IconChar.None;
             icon_DemLenTren.IconColor = Color.White;
             icon_DemLenTren.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DemLenTren.IconSize = 30;
-            icon_DemLenTren.Location = new Point(535, 167);
+            icon_DemLenTren.Location = new Point(624, 167);
             icon_DemLenTren.Margin = new Padding(14);
             icon_DemLenTren.Name = "icon_DemLenTren";
-            icon_DemLenTren.Size = new Size(675, 43);
+            icon_DemLenTren.Size = new Size(586, 43);
             icon_DemLenTren.TabIndex = 51;
-            icon_DemLenTren.Text = "↑↑↑ Đem lên trên ↑↑↑";
+            icon_DemLenTren.Text = "↑↑↑ ĐEM CÒN LẠI LÊN TRÊN ↑↑↑";
             icon_DemLenTren.UseVisualStyleBackColor = false;
             icon_DemLenTren.Click += Icon_DemLenTren_Click;
             // 
@@ -1235,23 +1233,23 @@
             textBox_HD_SoTienTra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_HD_SoTienTra.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
-            textBox_HD_SoTienTra.Location = new Point(535, 110);
+            textBox_HD_SoTienTra.Location = new Point(625, 110);
             textBox_HD_SoTienTra.Margin = new Padding(4);
             textBox_HD_SoTienTra.Name = "textBox_HD_SoTienTra";
-            textBox_HD_SoTienTra.Size = new Size(676, 34);
+            textBox_HD_SoTienTra.Size = new Size(587, 34);
             textBox_HD_SoTienTra.TabIndex = 44;
             textBox_HD_SoTienTra.TextChanged += TextBox_HD_SoTienTra_TextChanged;
             // 
             // label_HD_SoTienTra
             // 
             label_HD_SoTienTra.Font = new Font("Segoe UI", 12F);
-            label_HD_SoTienTra.Location = new Point(376, 112);
+            label_HD_SoTienTra.Location = new Point(510, 111);
             label_HD_SoTienTra.Margin = new Padding(4, 0, 28, 0);
             label_HD_SoTienTra.Name = "label_HD_SoTienTra";
             label_HD_SoTienTra.Size = new Size(115, 30);
             label_HD_SoTienTra.TabIndex = 43;
-            label_HD_SoTienTra.Text = "Số tiền trả";
-            label_HD_SoTienTra.TextAlign = ContentAlignment.MiddleLeft;
+            label_HD_SoTienTra.Text = "Tiền trả";
+            label_HD_SoTienTra.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_HD_NgayBan_Filter
             // 
@@ -1347,10 +1345,10 @@
             textBox_HD_SoLuong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_SoLuong.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_SoLuong.Font = new Font("Segoe UI", 12F);
-            textBox_HD_SoLuong.Location = new Point(140, 110);
+            textBox_HD_SoLuong.Location = new Point(151, 110);
             textBox_HD_SoLuong.Margin = new Padding(4);
             textBox_HD_SoLuong.Name = "textBox_HD_SoLuong";
-            textBox_HD_SoLuong.Size = new Size(194, 34);
+            textBox_HD_SoLuong.Size = new Size(359, 34);
             textBox_HD_SoLuong.TabIndex = 32;
             textBox_HD_SoLuong.TextChanged += TextBox_HD_SoLuong_TextChanged;
             // 

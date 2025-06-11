@@ -157,7 +157,6 @@
             // 
             textBox_KH_TienNo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox_KH_TienNo.BorderStyle = BorderStyle.FixedSingle;
-            textBox_KH_TienNo.Enabled = false;
             textBox_KH_TienNo.Font = new Font("Segoe UI", 12F);
             textBox_KH_TienNo.Location = new Point(375, 42);
             textBox_KH_TienNo.Name = "textBox_KH_TienNo";
@@ -378,7 +377,6 @@
             // 
             textBox_KH_MaKH.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_KH_MaKH.BorderStyle = BorderStyle.FixedSingle;
-            textBox_KH_MaKH.Enabled = false;
             textBox_KH_MaKH.Font = new Font("Segoe UI", 12F);
             textBox_KH_MaKH.Location = new Point(136, 42);
             textBox_KH_MaKH.Name = "textBox_KH_MaKH";
@@ -503,10 +501,10 @@
             // 
             tabPage_PhieuThuTien.Controls.Add(dataGridView_PhieuThuTien);
             tabPage_PhieuThuTien.Controls.Add(groupBox_PhieuThuTien);
-            tabPage_PhieuThuTien.Location = new Point(4, 37);
+            tabPage_PhieuThuTien.Location = new Point(4, 29);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(1254, 512);
+            tabPage_PhieuThuTien.Size = new Size(1254, 520);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -548,7 +546,7 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(1248, 243);
+            dataGridView_PhieuThuTien.Size = new Size(1248, 251);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
