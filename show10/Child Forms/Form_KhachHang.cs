@@ -443,18 +443,16 @@ namespace Show10.Child_Forms {
 
             if (!Properties.Settings.Default.thuTienVuotNo
                 &&
-                phieuThuTien.SoTien > db.KhachHangs.First(p => p.MaKH == phieuThuTien.MaKH).TienNo) {
+                phieuThuTien.SoTien > db!.KhachHangs.First(p => p.MaKH == phieuThuTien.MaKH).TienNo) {
                 MessageBox.Show("Số tiền thu không thể vượt quá số tiền khách đang nợ!",
                     "Tiền thu vượt tiền nợ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_PTT_MaPhieu.Text) ||
-                string.IsNullOrWhiteSpace(date_PTT_NgayThu.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PTT_SoTien.Text)
+            if (string.IsNullOrWhiteSpace(textBox_PTT_SoTien.Text)
                 ) {
                 MessageBox.Show(
-                    "Vui lòng nhập đầy đủ mã phiếu, mã khách hàng, ngày thu và số tiền\n" +
+                    "Vui lòng nhập số tiền\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Thiếu thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
