@@ -678,8 +678,17 @@ namespace Show10.Child_Forms {
         private void TextBox_PNS_SoLuong_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
         }
+        
+        private void MoneySeparator(TextBox textBox) {
+            if (textBox.Text == "" || textBox.Text == "0") return;
+            decimal price = decimal.Parse(textBox.Text, System.Globalization.NumberStyles.Currency);
+            textBox.Text = price.ToString("#,#");
+            textBox.SelectionStart = textBox.Text.Length;
+        }
+        
         private void TextBox_PNS_GiaNhap_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
+            MoneySeparator(textBox_PNS_GiaNhap);
         }
         private void Date_PNS_NgayNhap_ValueChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
@@ -1062,18 +1071,28 @@ namespace Show10.Child_Forms {
         }
         private void TextBox_HD_GiaBan_TextChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();
+
+            MoneySeparator(textBox_HD_GiaBan);
+
         }
         private void Date_HD_NgayBan_ValueChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();
         }
         private void TextBox_HD_SoTienTra_TextChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();
+
+            MoneySeparator(textBox_HD_SoTienTra);
         }
         private void TextBox_HD_TongTien_TextChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();
+
+            MoneySeparator(textBox_HD_TongTien);
         }
         private void TextBox_HD_ConLai_TextChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();
+
+            MoneySeparator(textBox_HD_ConLai);
+
         }
         private void Date_HD_Filter_ValueChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();

@@ -141,6 +141,14 @@ namespace Show10.Child_Forms {
                 e.Handled = true;
             }
         }
+
+        private void MoneySeparator(TextBox textBox) {
+            if (textBox.Text == "" || textBox.Text == "0") return;
+            decimal price = decimal.Parse(textBox.Text, System.Globalization.NumberStyles.Currency);
+            textBox.Text = price.ToString("#,#");
+            textBox.SelectionStart = textBox.Text.Length;
+        }
+
         #region Quản lý khách hàng
         private void TabControl_KhachHang_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_KhachHang.SelectedTab == tabPage_KhachHang) {
@@ -292,7 +300,7 @@ namespace Show10.Child_Forms {
         }
         private void TextBox_KH_TienNo_TextChanged(object sender, EventArgs e) {
             ApplyFilter_KhachHang();
-
+            MoneySeparator(textBox_KH_TienNo);
         }
         #endregion
         private IQueryable<KhachHang> GetFilteredData_KH() {
@@ -549,7 +557,7 @@ namespace Show10.Child_Forms {
 
         private void TextBox_PTT_SoTien_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuThuTien();
-
+            MoneySeparator(textBox_PTT_SoTien);
         }
         #endregion
         private IQueryable<PhieuThuTien> GetFilteredData_PTT() {
