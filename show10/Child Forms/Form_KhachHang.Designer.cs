@@ -163,6 +163,7 @@
             textBox_KH_TienNo.Size = new Size(612, 34);
             textBox_KH_TienNo.TabIndex = 51;
             textBox_KH_TienNo.TextChanged += TextBox_KH_TienNo_TextChanged;
+            textBox_KH_TienNo.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_KH_TienNo
             // 
@@ -383,6 +384,7 @@
             textBox_KH_MaKH.Size = new Size(127, 34);
             textBox_KH_MaKH.TabIndex = 35;
             textBox_KH_MaKH.TextChanged += TextBox_KH_MaKH_TextChanged;
+            textBox_KH_MaKH.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // dataGridView_KhachHang
             // 
@@ -501,10 +503,10 @@
             // 
             tabPage_PhieuThuTien.Controls.Add(dataGridView_PhieuThuTien);
             tabPage_PhieuThuTien.Controls.Add(groupBox_PhieuThuTien);
-            tabPage_PhieuThuTien.Location = new Point(4, 29);
+            tabPage_PhieuThuTien.Location = new Point(4, 37);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(1254, 520);
+            tabPage_PhieuThuTien.Size = new Size(1254, 512);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -546,7 +548,7 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(1248, 251);
+            dataGridView_PhieuThuTien.Size = new Size(1248, 243);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
@@ -636,7 +638,6 @@
             // date_PTT_Filter
             // 
             date_PTT_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            date_PTT_Filter.Enabled = false;
             date_PTT_Filter.Format = DateTimePickerFormat.Short;
             date_PTT_Filter.Location = new Point(495, 107);
             date_PTT_Filter.Name = "date_PTT_Filter";
@@ -683,6 +684,7 @@
             textBox_PTT_SoTien.Size = new Size(400, 34);
             textBox_PTT_SoTien.TabIndex = 50;
             textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
+            textBox_PTT_SoTien.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_PTT_SoTien
             // 
@@ -817,13 +819,13 @@
             // textBox_PTT_MaPhieu
             // 
             textBox_PTT_MaPhieu.BorderStyle = BorderStyle.FixedSingle;
-            textBox_PTT_MaPhieu.Enabled = false;
             textBox_PTT_MaPhieu.Font = new Font("Segoe UI", 12F);
             textBox_PTT_MaPhieu.Location = new Point(139, 45);
             textBox_PTT_MaPhieu.Name = "textBox_PTT_MaPhieu";
             textBox_PTT_MaPhieu.Size = new Size(106, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
             textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
+            textBox_PTT_MaPhieu.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // Form_KhachHang
             // 

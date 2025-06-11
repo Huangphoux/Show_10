@@ -274,6 +274,7 @@
             textBox_Sach_SoLuong.TabIndex = 32;
             textBox_Sach_SoLuong.Text = "0";
             textBox_Sach_SoLuong.TextChanged += TextBox_Sach_SoLuong_TextChanged;
+            textBox_Sach_SoLuong.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_Sach_SoLuong
             // 
@@ -398,6 +399,7 @@
             textBox_Sach_MaSach.Size = new Size(124, 34);
             textBox_Sach_MaSach.TabIndex = 21;
             textBox_Sach_MaSach.TextChanged += TextBox_Sach_MaSach_TextChanged;
+            textBox_Sach_MaSach.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // icon_Sach_Xoa
             // 
@@ -699,7 +701,6 @@
             // date_PNS_Filter
             // 
             date_PNS_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            date_PNS_Filter.Enabled = false;
             date_PNS_Filter.Format = DateTimePickerFormat.Short;
             date_PNS_Filter.Location = new Point(524, 164);
             date_PNS_Filter.Name = "date_PNS_Filter";
@@ -784,6 +785,7 @@
             textBox_PNS_GiaNhap.Size = new Size(645, 34);
             textBox_PNS_GiaNhap.TabIndex = 32;
             textBox_PNS_GiaNhap.TextChanged += TextBox_PNS_GiaNhap_TextChanged;
+            textBox_PNS_GiaNhap.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_PNS_GiaNhap
             // 
@@ -851,6 +853,7 @@
             textBox_PNS_SoLuong.Size = new Size(165, 34);
             textBox_PNS_SoLuong.TabIndex = 28;
             textBox_PNS_SoLuong.TextChanged += TextBox_PNS_SoLuong_TextChanged;
+            textBox_PNS_SoLuong.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_PNS_SoLuong
             // 
@@ -896,6 +899,7 @@
             textBox_PNS_MaPhieu.Size = new Size(165, 34);
             textBox_PNS_MaPhieu.TabIndex = 21;
             textBox_PNS_MaPhieu.TextChanged += TextBox_PNS_MaPhieu_TextChanged;
+            textBox_PNS_MaPhieu.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // icon_PNS_Xoa
             // 
@@ -1238,6 +1242,7 @@
             textBox_HD_SoTienTra.Size = new Size(587, 34);
             textBox_HD_SoTienTra.TabIndex = 44;
             textBox_HD_SoTienTra.TextChanged += TextBox_HD_SoTienTra_TextChanged;
+            textBox_HD_SoTienTra.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_HD_SoTienTra
             // 
@@ -1264,7 +1269,6 @@
             // date_HD_Filter
             // 
             date_HD_Filter.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            date_HD_Filter.Enabled = false;
             date_HD_Filter.Format = DateTimePickerFormat.Short;
             date_HD_Filter.Location = new Point(535, 296);
             date_HD_Filter.Name = "date_HD_Filter";
@@ -1350,6 +1354,7 @@
             textBox_HD_SoLuong.Size = new Size(359, 34);
             textBox_HD_SoLuong.TabIndex = 32;
             textBox_HD_SoLuong.TextChanged += TextBox_HD_SoLuong_TextChanged;
+            textBox_HD_SoLuong.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // label_HD_SoLuong
             // 
@@ -1443,7 +1448,6 @@
             // 
             textBox_HD_MaHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_MaHD.BorderStyle = BorderStyle.FixedSingle;
-            textBox_HD_MaHD.Enabled = false;
             textBox_HD_MaHD.Font = new Font("Segoe UI", 12F);
             textBox_HD_MaHD.Location = new Point(147, 55);
             textBox_HD_MaHD.Margin = new Padding(4);
@@ -1451,6 +1455,7 @@
             textBox_HD_MaHD.Size = new Size(120, 34);
             textBox_HD_MaHD.TabIndex = 21;
             textBox_HD_MaHD.TextChanged += TextBox_HD_MaHD_TextChanged;
+            textBox_HD_MaHD.KeyPress += textBox_OnlyNumber_KeyPress;
             // 
             // icon_HD_Xoa
             // 

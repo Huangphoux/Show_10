@@ -118,6 +118,17 @@ namespace Show10.Child_Forms {
 
             return expr;
         }
+
+        private void textBox_OnlyNumber_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
+                e.Handled = true;
+            }
+
+            //// only allow one decimal point
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) {
+            //    e.Handled = true;
+            //}
+        }
         #region Quản lý khách hàng
         private void TabControl_KhachHang_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_KhachHang.SelectedTab == tabPage_KhachHang) {
