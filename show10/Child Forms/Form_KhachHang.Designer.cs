@@ -80,6 +80,8 @@
             label_PTT_MaKH = new Label();
             label_PTT_MaPhieu = new Label();
             textBox_PTT_MaPhieu = new TextBox();
+            icon_KH_ResetGioiTinh = new FontAwesome.Sharp.IconButton();
+            icon_PTT_ResetMaKH = new FontAwesome.Sharp.IconButton();
             groupBox_KhachHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_KhachHang).BeginInit();
             ((System.ComponentModel.ISupportInitialize)khachHangBindingSource).BeginInit();
@@ -93,6 +95,7 @@
             // 
             // groupBox_KhachHang
             // 
+            groupBox_KhachHang.Controls.Add(icon_KH_ResetGioiTinh);
             groupBox_KhachHang.Controls.Add(icon_KH_Clear);
             groupBox_KhachHang.Controls.Add(comboBox_KH_GioiTinh);
             groupBox_KhachHang.Controls.Add(textBox_KH_TienNo);
@@ -149,7 +152,7 @@
             comboBox_KH_GioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox_KH_GioiTinh.Location = new Point(136, 141);
             comboBox_KH_GioiTinh.Name = "comboBox_KH_GioiTinh";
-            comboBox_KH_GioiTinh.Size = new Size(851, 36);
+            comboBox_KH_GioiTinh.Size = new Size(749, 36);
             comboBox_KH_GioiTinh.TabIndex = 54;
             comboBox_KH_GioiTinh.SelectedIndexChanged += ComboBox_KH_GioiTinh_SelectedIndexChanged;
             // 
@@ -163,7 +166,6 @@
             textBox_KH_TienNo.Size = new Size(612, 34);
             textBox_KH_TienNo.TabIndex = 51;
             textBox_KH_TienNo.TextChanged += TextBox_KH_TienNo_TextChanged;
-            textBox_KH_TienNo.KeyPress += textBox_Money_KeyPress;
             // 
             // label_KH_TienNo
             // 
@@ -588,6 +590,7 @@
             // 
             // groupBox_PhieuThuTien
             // 
+            groupBox_PhieuThuTien.Controls.Add(icon_PTT_ResetMaKH);
             groupBox_PhieuThuTien.Controls.Add(comboBox_PTT_MaKH);
             groupBox_PhieuThuTien.Controls.Add(label_PTT_Filter);
             groupBox_PhieuThuTien.Controls.Add(date_PTT_Filter);
@@ -619,7 +622,7 @@
             comboBox_PTT_MaKH.FormattingEnabled = true;
             comboBox_PTT_MaKH.Location = new Point(375, 46);
             comboBox_PTT_MaKH.Name = "comboBox_PTT_MaKH";
-            comboBox_PTT_MaKH.Size = new Size(305, 36);
+            comboBox_PTT_MaKH.Size = new Size(215, 36);
             comboBox_PTT_MaKH.TabIndex = 60;
             comboBox_PTT_MaKH.ValueMember = "MaKH";
             // 
@@ -828,6 +831,32 @@
             textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
             textBox_PTT_MaPhieu.KeyPress += textBox_Integer_KeyPress;
             // 
+            // icon_KH_ResetGioiTinh
+            // 
+            icon_KH_ResetGioiTinh.Enabled = false;
+            icon_KH_ResetGioiTinh.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_KH_ResetGioiTinh.IconColor = Color.Black;
+            icon_KH_ResetGioiTinh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_KH_ResetGioiTinh.IconSize = 30;
+            icon_KH_ResetGioiTinh.Location = new Point(891, 141);
+            icon_KH_ResetGioiTinh.Name = "icon_KH_ResetGioiTinh";
+            icon_KH_ResetGioiTinh.Size = new Size(96, 36);
+            icon_KH_ResetGioiTinh.TabIndex = 56;
+            icon_KH_ResetGioiTinh.UseVisualStyleBackColor = true;
+            // 
+            // icon_PTT_ResetMaKH
+            // 
+            icon_PTT_ResetMaKH.Enabled = false;
+            icon_PTT_ResetMaKH.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_PTT_ResetMaKH.IconColor = Color.Black;
+            icon_PTT_ResetMaKH.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_PTT_ResetMaKH.IconSize = 30;
+            icon_PTT_ResetMaKH.Location = new Point(596, 47);
+            icon_PTT_ResetMaKH.Name = "icon_PTT_ResetMaKH";
+            icon_PTT_ResetMaKH.Size = new Size(96, 36);
+            icon_PTT_ResetMaKH.TabIndex = 61;
+            icon_PTT_ResetMaKH.UseVisualStyleBackColor = true;
+            // 
             // Form_KhachHang
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -913,5 +942,7 @@
         private Label label_PTT_Filter;
         private DateTimePicker date_PTT_Filter;
         private ComboBox comboBox_PTT_MaKH;
+        private FontAwesome.Sharp.IconButton icon_KH_ResetGioiTinh;
+        private FontAwesome.Sharp.IconButton icon_PTT_ResetMaKH;
     }
 }
