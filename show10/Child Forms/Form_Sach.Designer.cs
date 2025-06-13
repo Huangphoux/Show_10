@@ -64,6 +64,7 @@
             NhaCungCap = new DataGridViewTextBoxColumn();
             phieuNhapSachBindingSource = new BindingSource(components);
             groupBox_PhieuNhapSach = new GroupBox();
+            icon_PNS_ResetMaSach = new FontAwesome.Sharp.IconButton();
             comboBox_PNS_MaSach = new ComboBox();
             label_PNS_Filter = new Label();
             date_PNS_Filter = new DateTimePicker();
@@ -96,6 +97,8 @@
             NgayHD = new DataGridViewTextBoxColumn();
             hoaDonBanSachBindingSource = new BindingSource(components);
             groupBox_HoaDonBanSach = new GroupBox();
+            icon_HD_ResetMaSach = new FontAwesome.Sharp.IconButton();
+            icon_HD_ResetMaKH = new FontAwesome.Sharp.IconButton();
             comboBox_HD_MaSach = new ComboBox();
             comboBox_HD_MaKH = new ComboBox();
             khachHangBindingSource = new BindingSource(components);
@@ -274,7 +277,6 @@
             textBox_Sach_SoLuong.TabIndex = 32;
             textBox_Sach_SoLuong.Text = "0";
             textBox_Sach_SoLuong.TextChanged += TextBox_Sach_SoLuong_TextChanged;
-            textBox_Sach_SoLuong.KeyPress += textBox_Integer_KeyPress;
             // 
             // label_Sach_SoLuong
             // 
@@ -399,7 +401,7 @@
             textBox_Sach_MaSach.Size = new Size(124, 34);
             textBox_Sach_MaSach.TabIndex = 21;
             textBox_Sach_MaSach.TextChanged += TextBox_Sach_MaSach_TextChanged;
-            textBox_Sach_MaSach.KeyPress += textBox_Integer_KeyPress;
+            textBox_Sach_MaSach.KeyPress += TextBox_Integer_KeyPress;
             // 
             // icon_Sach_Xoa
             // 
@@ -459,7 +461,7 @@
             dataGridView_Sach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.Green;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -571,7 +573,7 @@
             dataGridView_PhieuNhapSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.Green;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -644,6 +646,7 @@
             // 
             // groupBox_PhieuNhapSach
             // 
+            groupBox_PhieuNhapSach.Controls.Add(icon_PNS_ResetMaSach);
             groupBox_PhieuNhapSach.Controls.Add(comboBox_PNS_MaSach);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_Filter);
             groupBox_PhieuNhapSach.Controls.Add(date_PNS_Filter);
@@ -673,6 +676,21 @@
             groupBox_PhieuNhapSach.TabStop = false;
             groupBox_PhieuNhapSach.Text = "Nhập liệu";
             // 
+            // icon_PNS_ResetMaSach
+            // 
+            icon_PNS_ResetMaSach.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            icon_PNS_ResetMaSach.Enabled = false;
+            icon_PNS_ResetMaSach.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_PNS_ResetMaSach.IconColor = Color.Black;
+            icon_PNS_ResetMaSach.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_PNS_ResetMaSach.IconSize = 30;
+            icon_PNS_ResetMaSach.Location = new Point(1073, 55);
+            icon_PNS_ResetMaSach.Name = "icon_PNS_ResetMaSach";
+            icon_PNS_ResetMaSach.Size = new Size(96, 36);
+            icon_PNS_ResetMaSach.TabIndex = 44;
+            icon_PNS_ResetMaSach.UseVisualStyleBackColor = true;
+            icon_PNS_ResetMaSach.Click += Icon_PNS_ResetMaSach_Click;
+            // 
             // comboBox_PNS_MaSach
             // 
             comboBox_PNS_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -682,9 +700,10 @@
             comboBox_PNS_MaSach.FormattingEnabled = true;
             comboBox_PNS_MaSach.Location = new Point(524, 53);
             comboBox_PNS_MaSach.Name = "comboBox_PNS_MaSach";
-            comboBox_PNS_MaSach.Size = new Size(645, 36);
+            comboBox_PNS_MaSach.Size = new Size(543, 36);
             comboBox_PNS_MaSach.TabIndex = 43;
             comboBox_PNS_MaSach.ValueMember = "MaSach";
+            comboBox_PNS_MaSach.SelectedIndexChanged += ComboBox_PNS_MaSach_SelectedIndexChanged;
             // 
             // label_PNS_Filter
             // 
@@ -786,7 +805,7 @@
             textBox_PNS_GiaNhap.Size = new Size(645, 34);
             textBox_PNS_GiaNhap.TabIndex = 32;
             textBox_PNS_GiaNhap.TextChanged += TextBox_PNS_GiaNhap_TextChanged;
-            textBox_PNS_GiaNhap.KeyPress += textBox_Money_KeyPress;
+            textBox_PNS_GiaNhap.KeyPress += TextBox_Money_KeyPress;
             // 
             // label_PNS_GiaNhap
             // 
@@ -854,7 +873,7 @@
             textBox_PNS_SoLuong.Size = new Size(165, 34);
             textBox_PNS_SoLuong.TabIndex = 28;
             textBox_PNS_SoLuong.TextChanged += TextBox_PNS_SoLuong_TextChanged;
-            textBox_PNS_SoLuong.KeyPress += textBox_Integer_KeyPress;
+            textBox_PNS_SoLuong.KeyPress += TextBox_Integer_KeyPress;
             // 
             // label_PNS_SoLuong
             // 
@@ -900,7 +919,7 @@
             textBox_PNS_MaPhieu.Size = new Size(165, 34);
             textBox_PNS_MaPhieu.TabIndex = 21;
             textBox_PNS_MaPhieu.TextChanged += TextBox_PNS_MaPhieu_TextChanged;
-            textBox_PNS_MaPhieu.KeyPress += textBox_Integer_KeyPress;
+            textBox_PNS_MaPhieu.KeyPress += TextBox_Integer_KeyPress;
             // 
             // icon_PNS_Xoa
             // 
@@ -968,7 +987,7 @@
             dataGridView_HoaDonBanSach.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = Color.Green;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.White;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
@@ -1063,6 +1082,8 @@
             // 
             // groupBox_HoaDonBanSach
             // 
+            groupBox_HoaDonBanSach.Controls.Add(icon_HD_ResetMaSach);
+            groupBox_HoaDonBanSach.Controls.Add(icon_HD_ResetMaKH);
             groupBox_HoaDonBanSach.Controls.Add(comboBox_HD_MaSach);
             groupBox_HoaDonBanSach.Controls.Add(comboBox_HD_MaKH);
             groupBox_HoaDonBanSach.Controls.Add(icon_DemLenTren);
@@ -1101,6 +1122,35 @@
             groupBox_HoaDonBanSach.TabStop = false;
             groupBox_HoaDonBanSach.Text = "Nhập liệu";
             // 
+            // icon_HD_ResetMaSach
+            // 
+            icon_HD_ResetMaSach.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            icon_HD_ResetMaSach.Enabled = false;
+            icon_HD_ResetMaSach.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_HD_ResetMaSach.IconColor = Color.Black;
+            icon_HD_ResetMaSach.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_HD_ResetMaSach.IconSize = 30;
+            icon_HD_ResetMaSach.Location = new Point(1114, 57);
+            icon_HD_ResetMaSach.Name = "icon_HD_ResetMaSach";
+            icon_HD_ResetMaSach.Size = new Size(96, 36);
+            icon_HD_ResetMaSach.TabIndex = 55;
+            icon_HD_ResetMaSach.UseVisualStyleBackColor = true;
+            icon_HD_ResetMaSach.Click += Icon_HD_ResetMaSach_Click;
+            // 
+            // icon_HD_ResetMaKH
+            // 
+            icon_HD_ResetMaKH.Enabled = false;
+            icon_HD_ResetMaKH.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_HD_ResetMaKH.IconColor = Color.Black;
+            icon_HD_ResetMaKH.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_HD_ResetMaKH.IconSize = 30;
+            icon_HD_ResetMaKH.Location = new Point(638, 57);
+            icon_HD_ResetMaKH.Name = "icon_HD_ResetMaKH";
+            icon_HD_ResetMaKH.Size = new Size(96, 36);
+            icon_HD_ResetMaKH.TabIndex = 54;
+            icon_HD_ResetMaKH.UseVisualStyleBackColor = true;
+            icon_HD_ResetMaKH.Click += Icon_HD_ResetMaKH_Click;
+            // 
             // comboBox_HD_MaSach
             // 
             comboBox_HD_MaSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -1108,11 +1158,12 @@
             comboBox_HD_MaSach.DisplayMember = "TenSach";
             comboBox_HD_MaSach.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HD_MaSach.FormattingEnabled = true;
-            comboBox_HD_MaSach.Location = new Point(864, 54);
+            comboBox_HD_MaSach.Location = new Point(862, 54);
             comboBox_HD_MaSach.Name = "comboBox_HD_MaSach";
-            comboBox_HD_MaSach.Size = new Size(346, 36);
+            comboBox_HD_MaSach.Size = new Size(233, 36);
             comboBox_HD_MaSach.TabIndex = 53;
             comboBox_HD_MaSach.ValueMember = "MaSach";
+            comboBox_HD_MaSach.SelectedIndexChanged += ComboBox_HD_MaSach_SelectedIndexChanged;
             // 
             // comboBox_HD_MaKH
             // 
@@ -1120,11 +1171,12 @@
             comboBox_HD_MaKH.DisplayMember = "TenKH";
             comboBox_HD_MaKH.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_HD_MaKH.FormattingEnabled = true;
-            comboBox_HD_MaKH.Location = new Point(399, 54);
+            comboBox_HD_MaKH.Location = new Point(393, 54);
             comboBox_HD_MaKH.Name = "comboBox_HD_MaKH";
-            comboBox_HD_MaKH.Size = new Size(333, 36);
+            comboBox_HD_MaKH.Size = new Size(226, 36);
             comboBox_HD_MaKH.TabIndex = 52;
             comboBox_HD_MaKH.ValueMember = "MaKH";
+            comboBox_HD_MaKH.SelectedIndexChanged += ComboBox_HD_MaKH_SelectedIndexChanged;
             // 
             // khachHangBindingSource
             // 
@@ -1243,7 +1295,6 @@
             textBox_HD_SoTienTra.Size = new Size(587, 34);
             textBox_HD_SoTienTra.TabIndex = 44;
             textBox_HD_SoTienTra.TextChanged += TextBox_HD_SoTienTra_TextChanged;
-            textBox_HD_SoTienTra.KeyPress += textBox_Money_KeyPress;
             // 
             // label_HD_SoTienTra
             // 
@@ -1356,7 +1407,6 @@
             textBox_HD_SoLuong.Size = new Size(359, 34);
             textBox_HD_SoLuong.TabIndex = 32;
             textBox_HD_SoLuong.TextChanged += TextBox_HD_SoLuong_TextChanged;
-            textBox_HD_SoLuong.KeyPress += textBox_Integer_KeyPress;
             // 
             // label_HD_SoLuong
             // 
@@ -1427,7 +1477,7 @@
             // label_HD_MaKH
             // 
             label_HD_MaKH.Font = new Font("Segoe UI", 12F);
-            label_HD_MaKH.Location = new Point(288, 57);
+            label_HD_MaKH.Location = new Point(284, 57);
             label_HD_MaKH.Margin = new Padding(4, 0, 28, 0);
             label_HD_MaKH.Name = "label_HD_MaKH";
             label_HD_MaKH.Size = new Size(90, 30);
@@ -1451,13 +1501,13 @@
             textBox_HD_MaHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_MaHD.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_MaHD.Font = new Font("Segoe UI", 12F);
-            textBox_HD_MaHD.Location = new Point(147, 55);
+            textBox_HD_MaHD.Location = new Point(145, 55);
             textBox_HD_MaHD.Margin = new Padding(4);
             textBox_HD_MaHD.Name = "textBox_HD_MaHD";
             textBox_HD_MaHD.Size = new Size(120, 34);
             textBox_HD_MaHD.TabIndex = 21;
             textBox_HD_MaHD.TextChanged += TextBox_HD_MaHD_TextChanged;
-            textBox_HD_MaHD.KeyPress += textBox_Integer_KeyPress;
+            textBox_HD_MaHD.KeyPress += TextBox_Integer_KeyPress;
             // 
             // icon_HD_Xoa
             // 
@@ -1639,5 +1689,8 @@
         private ComboBox comboBox_HD_MaSach;
         private ComboBox comboBox_HD_MaKH;
         private BindingSource khachHangBindingSource;
+        private FontAwesome.Sharp.IconButton icon_PNS_ResetMaSach;
+        private FontAwesome.Sharp.IconButton icon_HD_ResetMaSach;
+        private FontAwesome.Sharp.IconButton icon_HD_ResetMaKH;
     }
 }

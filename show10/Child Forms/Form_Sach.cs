@@ -142,7 +142,7 @@ namespace Show10.Child_Forms {
 
             return expr;
         }
-        private void textBox_Integer_KeyPress(object sender, KeyPressEventArgs e) {
+        private void TextBox_Integer_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
@@ -152,7 +152,7 @@ namespace Show10.Child_Forms {
             //    e.Handled = true;
             //}
         }
-        private void textBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
+        private void TextBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.')) {
                 e.Handled = true;
@@ -299,7 +299,7 @@ namespace Show10.Child_Forms {
 
             icon_Sach.ForEach(icon => icon.Enabled = !isLoc_Sach);
 
-            textBox_Sach_SoLuong.Enabled = isLoc_Sach;
+            textBox_Sach_MaSach.Enabled = !isLoc_Sach;
 
             if (!isLoc_Sach) {
                 dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -330,9 +330,11 @@ namespace Show10.Child_Forms {
         private IQueryable<Sach> GetFilteredData_Sach() {
             var filteredData = db!.Sachs.Local.AsQueryable();
 
-            if (!string.IsNullOrEmpty(textBox_Sach_MaSach.Text)) {
-                if (int.TryParse(textBox_Sach_MaSach.Text, out int maSach)) {
-                    filteredData = filteredData.Where(s => s.MaSach == maSach);
+            if (!isLoc_Sach) {
+                if (!string.IsNullOrEmpty(textBox_Sach_MaSach.Text)) {
+                    if (int.TryParse(textBox_Sach_MaSach.Text, out int maSach)) {
+                        filteredData = filteredData.Where(s => s.MaSach == maSach);
+                    }
                 }
             }
             if (!string.IsNullOrEmpty(textBox_Sach_TenSach.Text)) {
@@ -447,7 +449,7 @@ namespace Show10.Child_Forms {
                     .FirstOrDefault()?.MaHD ?? 0;
 
                 textBox_HD_MaHD.Text = (lastMaHD + 1).ToString();
-                comboBox_PNS_MaSach.SelectedValue = sach.MaSach;
+                comboBox_HD_MaSach.SelectedValue = sach.MaSach;
                 textBox_HD_GiaBan.Text = GetGiaBan(sach.MaSach).ToString();
             }
         }
@@ -460,7 +462,7 @@ namespace Show10.Child_Forms {
                 .FirstOrDefault()?.MaPN ?? 0;
 
             string maPN = textBox_PNS_MaPhieu.Text;
-            string maSach = comboBox_PNS_MaSach.SelectedValue.ToString();
+            string maSach = comboBox_PNS_MaSach.SelectedValue.ToString(); // Fix for CS8602  
             string soLuong = textBox_PNS_SoLuong.Text;
             string giaNhap = textBox_PNS_GiaNhap.Text;
             string ngayNhap = date_PNS_NgayNhap.Text;
@@ -524,7 +526,7 @@ namespace Show10.Child_Forms {
                 );
                 return;
             }
-            
+
             if (db!.PhieuNhapSachs.Any(p => p.MaPN == phieu.MaPN)) {
                 var result = MessageBox.Show(
                     "Tồn tại phiếu nhập với mã phiếu này.\n" +
@@ -591,7 +593,9 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PNS_Clear_Click(object sender, EventArgs e) {
             textBox_PNS_MaPhieu.Text = "";
-            comboBox_PNS_MaSach.SelectedIndex = 0;
+            if (!isLoc_PNS) {
+                comboBox_PNS_MaSach.SelectedIndex = 0;
+            }
             textBox_PNS_SoLuong.Text = "";
             textBox_PNS_GiaNhap.Text = "";
             textBox_PNS_NhaCungCap.Text = "";
@@ -605,7 +609,10 @@ namespace Show10.Child_Forms {
 
             icon_PNS.ForEach(icon => icon.Enabled = !isLoc_PNS);
 
+            icon_PNS_ResetMaSach.Enabled = isLoc_PNS;
+
             date_PNS_Filter.Enabled = isLoc_PNS;
+            textBox_PNS_MaPhieu.Enabled = !isLoc_PNS;
 
             if (!isLoc_PNS) {
                 dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -620,21 +627,27 @@ namespace Show10.Child_Forms {
                 date_PNS_Filter.Text = db!.PhieuNhapSachs
                                                 .OrderByDescending(s => s.NgayNhap)
                                                 .FirstOrDefault()?.NgayNhap.ToShortDateString();
+
+                comboBox_PNS_MaSach.SelectedIndex = -1;
             }
         }
         private IQueryable<PhieuNhapSach> GetFilteredData_PNS() {
             var filteredData = db!.PhieuNhapSachs.Local.AsQueryable();
 
-            if (!string.IsNullOrEmpty(textBox_PNS_MaPhieu.Text)) {
-                if (int.TryParse(textBox_PNS_MaPhieu.Text, out int maPN)) {
-                    filteredData = filteredData.Where(p => p.MaPN == maPN);
+            if (!isLoc_PNS) {
+                if (!string.IsNullOrEmpty(textBox_PNS_MaPhieu.Text)) {
+                    if (int.TryParse(textBox_PNS_MaPhieu.Text, out int maPN)) {
+                        filteredData = filteredData.Where(p => p.MaPN == maPN);
+                    }
                 }
             }
+
             if (!string.IsNullOrEmpty(comboBox_PNS_MaSach.Text)) {
                 if (int.TryParse(comboBox_PNS_MaSach.SelectedValue.ToString(), out int maSach)) {
                     filteredData = filteredData.Where(p => p.MaSach == maSach);
                 }
             }
+
 
             if (!string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text)) {
                 try {
@@ -669,20 +682,19 @@ namespace Show10.Child_Forms {
         private void TextBox_PNS_MaPhieu_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
         }
-        private void TextBox_PNS_MaSach_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_PhieuNhapSach();
-        }
         private void TextBox_PNS_SoLuong_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
         }
-        
+        private void ComboBox_PNS_MaSach_SelectedIndexChanged(object sender, EventArgs e) {
+            ApplyFilter_PhieuNhapSach();
+        }
         private void MoneySeparator(TextBox textBox) {
             if (textBox.Text == "" || textBox.Text == "0") return;
             decimal price = decimal.Parse(textBox.Text, System.Globalization.NumberStyles.Currency);
             textBox.Text = price.ToString("#,#");
             textBox.SelectionStart = textBox.Text.Length;
         }
-        
+
         private void TextBox_PNS_GiaNhap_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
             MoneySeparator(textBox_PNS_GiaNhap);
@@ -753,6 +765,9 @@ namespace Show10.Child_Forms {
             }
 
             db?.SaveChanges();
+        }
+        private void Icon_PNS_ResetMaSach_Click(object sender, EventArgs e) {
+            comboBox_PNS_MaSach.SelectedIndex = -1;
         }
         #endregion
         #region Quản lý hoá đơn bán sách
@@ -869,7 +884,7 @@ namespace Show10.Child_Forms {
                 );
                 return;
             }
-            
+
             if (db!.HoaDonBanSachs.Any(hd => hd.MaHD == hoaDon.MaHD)) {
                 var result = MessageBox.Show(
                     "Tồn tại hoá đơn với mã hoá đơn này.\n" +
@@ -893,7 +908,7 @@ namespace Show10.Child_Forms {
 
                     existingHD.SoTienTra = hoaDon.SoTienTra;
                     existingHD.TongTien = hoaDon.TongTien;
-                    existingHD.ConLai= hoaDon.ConLai;
+                    existingHD.ConLai = hoaDon.ConLai;
 
                 } else { return; }
             } else {
@@ -954,8 +969,10 @@ namespace Show10.Child_Forms {
         }
         private void Icon_HD_Clear_Click(object sender, EventArgs e) {
             textBox_HD_MaHD.Text = "";
+            if(!isLoc_HD){
             comboBox_HD_MaSach.SelectedIndex = 0;
-            comboBox_HD_MaKH.SelectedIndex = 0;
+                comboBox_HD_MaKH.SelectedIndex = 0;
+            }
             textBox_HD_SoLuong.Text = "";
             textBox_HD_GiaBan.Text = "";
             date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
@@ -976,6 +993,10 @@ namespace Show10.Child_Forms {
             textBox_HD_TongTien.Enabled = isLoc_HD;
             textBox_HD_ConLai.Enabled = isLoc_HD;
 
+            textBox_HD_MaHD.Enabled = !isLoc_HD;
+            icon_HD_ResetMaKH.Enabled = isLoc_HD;
+            icon_HD_ResetMaSach.Enabled = isLoc_HD;
+
             if (!isLoc_HD) {
                 dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
@@ -989,14 +1010,19 @@ namespace Show10.Child_Forms {
                 date_HD_Filter.Text = db!.HoaDonBanSachs
                                                 .OrderByDescending(s => s.NgayHD)
                                                 .FirstOrDefault()?.NgayHD.ToShortDateString();
+
+                comboBox_HD_MaKH.SelectedIndex = -1;
+                comboBox_HD_MaSach.SelectedIndex = -1;
             }
         }
         private IQueryable<HoaDonBanSach> GetFilteredData_HD() {
             var filteredData = db!.HoaDonBanSachs.Local.AsQueryable();
 
-            if (!string.IsNullOrEmpty(textBox_HD_MaHD.Text)) {
-                if (int.TryParse(textBox_HD_MaHD.Text, out int soHD)) {
-                    filteredData = filteredData.Where(hd => hd.MaHD == soHD);
+            if (!isLoc_HD) {
+                if (!string.IsNullOrEmpty(textBox_HD_MaHD.Text)) {
+                    if (int.TryParse(textBox_HD_MaHD.Text, out int soHD)) {
+                        filteredData = filteredData.Where(hd => hd.MaHD == soHD);
+                    }
                 }
             }
             if (!string.IsNullOrEmpty(comboBox_HD_MaKH.Text)) {
@@ -1096,6 +1122,12 @@ namespace Show10.Child_Forms {
 
         }
         private void Date_HD_Filter_ValueChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void ComboBox_HD_MaKH_SelectedIndexChanged(object sender, EventArgs e) {
+            ApplyFilter_HoaDonBanSach();
+        }
+        private void ComboBox_HD_MaSach_SelectedIndexChanged(object sender, EventArgs e) {
             ApplyFilter_HoaDonBanSach();
         }
         #endregion
@@ -1220,6 +1252,14 @@ namespace Show10.Child_Forms {
             textBox_HD_SoTienTra.Text = textBox_HD_ConLai.Text;
             textBox_HD_ConLai.Text = "0";
         }
+        private void Icon_HD_ResetMaKH_Click(object sender, EventArgs e) {
+            comboBox_HD_MaKH.SelectedIndex = -1;
+        }
+        private void Icon_HD_ResetMaSach_Click(object sender, EventArgs e) {
+            comboBox_HD_MaSach.SelectedIndex = -1;
+        }
         #endregion
+
+
     }
 }
