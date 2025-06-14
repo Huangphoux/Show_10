@@ -669,7 +669,7 @@ namespace Show10.Child_Forms {
                 filteredData = filteredData.Where(s => s.NhaCungCap.Contains(textBox_PNS_NhaCungCap.Text));
             }
 
-            if (!isLoc_PNS) {
+            if (isLoc_PNS) {
                 DateTime from = DateTime.Parse(date_PNS_NgayNhap.Text);
                 DateTime to = DateTime.Parse(date_PNS_Filter.Text);
                 filteredData = filteredData.Where(s => s.NgayNhap >= from && s.NgayNhap <= to);
@@ -1077,7 +1077,7 @@ namespace Show10.Child_Forms {
                 }
             }
 
-            if (!isLoc_HD) {
+            if (isLoc_HD) {
                 DateTime from = DateTime.Parse(date_HD_NgayBan.Text);
                 DateTime to = DateTime.Parse(date_HD_Filter.Text);
                 filteredData = filteredData.Where(s => s.NgayHD >= from && s.NgayHD <= to);

@@ -118,19 +118,21 @@ namespace Show10.Child_Forms {
 
             return expr;
         }
+        private void TextBox_Integer_KeyPress(object sender, KeyPressEventArgs e) {
+            if (isLoc_KH || isLoc_PTT) {
+                return;
+            }
 
-        private void textBox_Integer_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
 
-            //// only allow one decimal point
-            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) {
-            //    e.Handled = true;
-            //}
         }
+        private void TextBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
+            if (isLoc_KH || isLoc_PTT) {
+                return;
+            }
 
-        private void textBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.')) {
                 e.Handled = true;
@@ -141,14 +143,12 @@ namespace Show10.Child_Forms {
                 e.Handled = true;
             }
         }
-
         private void MoneySeparator(TextBox textBox) {
             if (textBox.Text == "" || textBox.Text == "0") return;
             decimal price = decimal.Parse(textBox.Text, System.Globalization.NumberStyles.Currency);
             textBox.Text = price.ToString("#,#");
             textBox.SelectionStart = textBox.Text.Length;
         }
-
         #region Quản lý khách hàng
         private void TabControl_KhachHang_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_KhachHang.SelectedTab == tabPage_KhachHang) {
@@ -266,16 +266,18 @@ namespace Show10.Child_Forms {
 
             icon_KH.ForEach(icon => icon.Enabled = !isLoc_KH);
 
-            textBox_KH_TienNo.Enabled = isLoc_KH;
+            textBox_KH_MaKH.Enabled = !isLoc_KH;
+
+            icon_KH_ResetGioiTinh.Enabled = isLoc_KH;
 
             if (!isLoc_KH) {
                 dataGridView_KhachHang.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_KhachHang.DataSource = khachHangBindingSource;
             } else {
-                comboBox_KH_GioiTinh.Text = "";
-
                 ApplyFilter_KhachHang();
                 Icon_KH_Clear_Click(sender, e);
+
+                comboBox_KH_GioiTinh.SelectedIndex = -1;
             }
         }
         #region Detect changes in quản lý khách hàng
@@ -306,11 +308,14 @@ namespace Show10.Child_Forms {
         private IQueryable<KhachHang> GetFilteredData_KH() {
             var filteredData = db!.KhachHangs.Local.AsQueryable();
 
-            if (!string.IsNullOrEmpty(textBox_KH_MaKH.Text)) {
-                if (int.TryParse(textBox_KH_MaKH.Text, out int maKH)) {
-                    filteredData = filteredData.Where(kh => kh.MaKH == maKH);
+            if (!isLoc_KH) {
+                if (!string.IsNullOrEmpty(textBox_KH_MaKH.Text)) {
+                    if (int.TryParse(textBox_KH_MaKH.Text, out int maKH)) {
+                        filteredData = filteredData.Where(kh => kh.MaKH == maKH);
+                    }
                 }
             }
+
             if (!string.IsNullOrEmpty(textBox_KH_TenKH.Text)) {
                 filteredData = filteredData.Where(kh => kh.TenKH.Contains(textBox_KH_TenKH.Text));
             }
@@ -407,6 +412,9 @@ namespace Show10.Child_Forms {
                 comboBox_PTT_MaKH.SelectedValue = khachHang.MaKH;
                 textBox_PTT_SoTien.Text = khachHang.TienNo.ToString();
             }
+        }
+        private void Icon_KH_ResetGioiTinh_Click(object sender, EventArgs e) {
+            comboBox_KH_GioiTinh.SelectedIndex = -1;
         }
         #endregion
         #region Quản lý phiếu thu tiền
@@ -532,6 +540,9 @@ namespace Show10.Child_Forms {
 
             icon_PTT.ForEach(icon => icon.Enabled = !isLoc_PTT);
 
+            icon_PTT_ResetMaKH.Enabled = isLoc_PTT;
+            date_PTT_Filter.Enabled = isLoc_PTT;
+
             if (!isLoc_PTT) {
                 dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_PhieuThuTien.DataSource = phieuThuTienBindingSource;
@@ -579,10 +590,11 @@ namespace Show10.Child_Forms {
                 }
             }
 
-            DateTime from = DateTime.Parse(date_PTT_NgayThu.Text);
-            DateTime to = DateTime.Parse(date_PTT_Filter.Text);
-            filteredData = filteredData.Where(s => s.NgayThu >= from && s.NgayThu <= to);
-
+            if (isLoc_PTT) {
+                DateTime from = DateTime.Parse(date_PTT_NgayThu.Text);
+                DateTime to = DateTime.Parse(date_PTT_Filter.Text);
+                filteredData = filteredData.Where(s => s.NgayThu >= from && s.NgayThu <= to);
+            }
             return filteredData;
         }
         private void ApplyFilter_PhieuThuTien() {
@@ -650,6 +662,9 @@ namespace Show10.Child_Forms {
             }
 
             db?.SaveChanges();
+        }
+        private void Icon_PTT_ResetMaKH_Click(object sender, EventArgs e) {
+            comboBox_PTT_MaKH.SelectedIndex = -1;
         }
         #endregion
     }

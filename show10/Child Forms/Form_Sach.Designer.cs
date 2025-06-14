@@ -554,11 +554,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 37);
+            tabPage_PhieuNhapSach.Location = new Point(4, 29);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(1254, 712);
+            tabPage_PhieuNhapSach.Size = new Size(1254, 720);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -593,7 +593,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(1246, 322);
+            dataGridView_PhieuNhapSach.Size = new Size(1246, 330);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
@@ -1327,7 +1327,7 @@
             date_HD_Filter.Format = DateTimePickerFormat.Short;
             date_HD_Filter.Location = new Point(535, 296);
             date_HD_Filter.Name = "date_HD_Filter";
-            date_HD_Filter.Size = new Size(676, 34);
+            date_HD_Filter.Size = new Size(236, 34);
             date_HD_Filter.TabIndex = 41;
             date_HD_Filter.ValueChanged += Date_HD_Filter_ValueChanged;
             // 
