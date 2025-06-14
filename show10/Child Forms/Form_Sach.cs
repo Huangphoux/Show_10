@@ -143,16 +143,20 @@ namespace Show10.Child_Forms {
             return expr;
         }
         private void TextBox_Integer_KeyPress(object sender, KeyPressEventArgs e) {
+            if (isLoc_Sach || isLoc_PNS || isLoc_HD) {
+                return;
+            }
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
                 e.Handled = true;
             }
 
-            //// only allow one decimal point
-            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) {
-            //    e.Handled = true;
-            //}
         }
         private void TextBox_Money_KeyPress(object sender, KeyPressEventArgs e) {
+            if (isLoc_Sach || isLoc_PNS || isLoc_HD) {
+                return;
+            }
+
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.')) {
                 e.Handled = true;
@@ -610,7 +614,6 @@ namespace Show10.Child_Forms {
             icon_PNS.ForEach(icon => icon.Enabled = !isLoc_PNS);
 
             icon_PNS_ResetMaSach.Enabled = isLoc_PNS;
-
             date_PNS_Filter.Enabled = isLoc_PNS;
             textBox_PNS_MaPhieu.Enabled = !isLoc_PNS;
 
@@ -648,7 +651,6 @@ namespace Show10.Child_Forms {
                 }
             }
 
-
             if (!string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text)) {
                 try {
                     filteredData = filteredData.Where(FilterSoLuong(textBox_PNS_SoLuong.Text, "SoLuong"));
@@ -667,9 +669,11 @@ namespace Show10.Child_Forms {
                 filteredData = filteredData.Where(s => s.NhaCungCap.Contains(textBox_PNS_NhaCungCap.Text));
             }
 
-            DateTime from = DateTime.Parse(date_PNS_NgayNhap.Text);
-            DateTime to = DateTime.Parse(date_PNS_Filter.Text);
-            filteredData = filteredData.Where(s => s.NgayNhap >= from && s.NgayNhap <= to);
+            if (!isLoc_PNS) {
+                DateTime from = DateTime.Parse(date_PNS_NgayNhap.Text);
+                DateTime to = DateTime.Parse(date_PNS_Filter.Text);
+                filteredData = filteredData.Where(s => s.NgayNhap >= from && s.NgayNhap <= to);
+            }
 
             return filteredData;
         }
@@ -969,8 +973,8 @@ namespace Show10.Child_Forms {
         }
         private void Icon_HD_Clear_Click(object sender, EventArgs e) {
             textBox_HD_MaHD.Text = "";
-            if(!isLoc_HD){
-            comboBox_HD_MaSach.SelectedIndex = 0;
+            if (!isLoc_HD) {
+                comboBox_HD_MaSach.SelectedIndex = 0;
                 comboBox_HD_MaKH.SelectedIndex = 0;
             }
             textBox_HD_SoLuong.Text = "";
@@ -994,6 +998,7 @@ namespace Show10.Child_Forms {
             textBox_HD_ConLai.Enabled = isLoc_HD;
 
             textBox_HD_MaHD.Enabled = !isLoc_HD;
+
             icon_HD_ResetMaKH.Enabled = isLoc_HD;
             icon_HD_ResetMaSach.Enabled = isLoc_HD;
 
@@ -1072,9 +1077,11 @@ namespace Show10.Child_Forms {
                 }
             }
 
-            DateTime from = DateTime.Parse(date_HD_NgayBan.Text);
-            DateTime to = DateTime.Parse(date_HD_Filter.Text);
-            filteredData = filteredData.Where(s => s.NgayHD >= from && s.NgayHD <= to);
+            if (!isLoc_HD) {
+                DateTime from = DateTime.Parse(date_HD_NgayBan.Text);
+                DateTime to = DateTime.Parse(date_HD_Filter.Text);
+                filteredData = filteredData.Where(s => s.NgayHD >= from && s.NgayHD <= to);
+            }
 
             return filteredData;
         }
@@ -1259,7 +1266,5 @@ namespace Show10.Child_Forms {
             comboBox_HD_MaSach.SelectedIndex = -1;
         }
         #endregion
-
-
     }
 }
