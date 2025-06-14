@@ -64,9 +64,12 @@
                 db.SaveChanges();
 
                 MessageBox.Show(
-                    "Xoá hết toàn bộ (trừ thông tin tài khoản) cơ sở dữ liệu thành công !!!",
-                    "Xoá cơ sở dữ liệu thành công !!!",
+                    "Đã xoá toàn bộ cơ sở dữ liệu thành công (trừ thông tin tài khoản).\n" +
+                    "Tiến hành khởi động lại chương trình.",
+                    "Xoá cơ sở dữ liệu thành công",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Application.Restart();
             }
         }
     }

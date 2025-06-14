@@ -114,12 +114,12 @@
             dataGridView_BCTon.Dock = DockStyle.Fill;
             dataGridView_BCTon.EnableHeadersVisualStyles = false;
             dataGridView_BCTon.GridColor = Color.Black;
-            dataGridView_BCTon.Location = new Point(3, 231);
+            dataGridView_BCTon.Location = new Point(3, 159);
             dataGridView_BCTon.Name = "dataGridView_BCTon";
             dataGridView_BCTon.ReadOnly = true;
             dataGridView_BCTon.RowHeadersVisible = false;
             dataGridView_BCTon.RowHeadersWidth = 51;
-            dataGridView_BCTon.Size = new Size(766, 276);
+            dataGridView_BCTon.Size = new Size(766, 348);
             dataGridView_BCTon.TabIndex = 2;
             // 
             // maSachDataGridViewTextBoxColumn
@@ -169,7 +169,7 @@
             groupBox_BCTon.Dock = DockStyle.Top;
             groupBox_BCTon.Location = new Point(3, 3);
             groupBox_BCTon.Name = "groupBox_BCTon";
-            groupBox_BCTon.Size = new Size(766, 228);
+            groupBox_BCTon.Size = new Size(766, 156);
             groupBox_BCTon.TabIndex = 1;
             groupBox_BCTon.TabStop = false;
             groupBox_BCTon.Text = "Nhập liệu";
@@ -187,7 +187,7 @@
             icon_BCTon_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCTon_TaoMoi.IconSize = 30;
             icon_BCTon_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
-            icon_BCTon_TaoMoi.Location = new Point(370, 40);
+            icon_BCTon_TaoMoi.Location = new Point(349, 40);
             icon_BCTon_TaoMoi.Margin = new Padding(10);
             icon_BCTon_TaoMoi.Name = "icon_BCTon_TaoMoi";
             icon_BCTon_TaoMoi.Size = new Size(174, 91);
@@ -248,7 +248,7 @@
             icon_BCTon_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCTon_In.IconSize = 30;
             icon_BCTon_In.ImageAlign = ContentAlignment.BottomCenter;
-            icon_BCTon_In.Location = new Point(558, 40);
+            icon_BCTon_In.Location = new Point(547, 40);
             icon_BCTon_In.Margin = new Padding(10);
             icon_BCTon_In.Name = "icon_BCTon_In";
             icon_BCTon_In.Size = new Size(174, 91);
@@ -263,10 +263,10 @@
             tabPage_BCNo.BorderStyle = BorderStyle.FixedSingle;
             tabPage_BCNo.Controls.Add(dataGridView_BCNo);
             tabPage_BCNo.Controls.Add(groupBox_BCNo);
-            tabPage_BCNo.Location = new Point(4, 37);
+            tabPage_BCNo.Location = new Point(4, 29);
             tabPage_BCNo.Name = "tabPage_BCNo";
             tabPage_BCNo.Padding = new Padding(3);
-            tabPage_BCNo.Size = new Size(774, 512);
+            tabPage_BCNo.Size = new Size(774, 520);
             tabPage_BCNo.TabIndex = 1;
             tabPage_BCNo.Text = "Báo cáo công nợ";
             tabPage_BCNo.UseVisualStyleBackColor = true;
@@ -299,7 +299,7 @@
             dataGridView_BCNo.ReadOnly = true;
             dataGridView_BCNo.RowHeadersVisible = false;
             dataGridView_BCNo.RowHeadersWidth = 51;
-            dataGridView_BCNo.Size = new Size(766, 276);
+            dataGridView_BCNo.Size = new Size(766, 284);
             dataGridView_BCNo.TabIndex = 3;
             // 
             // maKHDataGridViewTextBoxColumn

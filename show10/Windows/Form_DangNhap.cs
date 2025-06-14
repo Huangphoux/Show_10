@@ -17,7 +17,7 @@ namespace Show10.Windows {
             db = new NhaSachContext();
 
             //Comment dòng dưới để không tạo lại DB mỗi khi chạy chương trình
-            //db.Database.EnsureDeleted();
+            db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
             db.TaiKhoans.Load();

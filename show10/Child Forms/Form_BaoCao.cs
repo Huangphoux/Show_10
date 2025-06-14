@@ -43,7 +43,7 @@ namespace Show10.Child_Forms {
             db = null;
         }
         private static void InBaoCao(DataGridView dataGridView) {
-            if (dataGridView == null) {
+            if (dataGridView.Rows.Count == 0) {
                 MessageBox.Show(
                     "Vui lòng tạo dữ liệu trước khi in báo cáo!",
                     "Chưa tạo dữ liệu để in báo cáo",
@@ -97,8 +97,9 @@ namespace Show10.Child_Forms {
                 comboBox_BCTon_Thang.Items.Add(m.ToString());
             }
 
-            if (comboBox_BCTon_Thang.Items.Count > 0)
+            if (comboBox_BCTon_Thang.Items.Count > 0) {
                 comboBox_BCTon_Thang.SelectedIndex = 0;
+            }
         }
         private void LoadYearsToComboBox_BaoCaoTon() {
             var years = db!.PhieuNhapSachs
@@ -113,8 +114,9 @@ namespace Show10.Child_Forms {
                 comboBox_BCTon_Nam.Items.Add(y.ToString());
             }
 
-            if (comboBox_BCTon_Nam.Items.Count > 0)
+            if (comboBox_BCTon_Nam.Items.Count > 0) {
                 comboBox_BCTon_Nam.SelectedIndex = 0;
+            }
         }
         private static int GetTonCuoi(int tonDau, int phatSinh) {
             if (tonDau + phatSinh < 0) {
@@ -135,6 +137,12 @@ namespace Show10.Child_Forms {
             return tongNhap - tongBan;
         }
         private void Icon_BCTon_TaoMoi_Click(object sender, EventArgs e) {
+            if (comboBox_BCTon_Nam.Items.Count == 0 || comboBox_BCTon_Thang.Items.Count == 0) {
+                MessageBox.Show("Vui lòng thêm dữ liệu vào cơ sở dữ liệu trước khi tạo báo cáo.",
+                    "Không có dữ liệu để tạo báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             db!.BaoCaoTons.RemoveRange(db.BaoCaoTons);
 
             var maSachs = db.Sachs
@@ -230,6 +238,12 @@ namespace Show10.Child_Forms {
             return tongBan - tongThu;
         }
         private void Icon_BCNo_TaoMoi_Click(object sender, EventArgs e) {
+            if (comboBox_BCNo_Thang.Items.Count == 0 || comboBox_BCNo_Nam.Items.Count == 0) {
+                MessageBox.Show("Vui lòng thêm dữ liệu vào cơ sở dữ liệu trước khi tạo báo cáo.",
+                    "Không có dữ liệu để tạo báo cáo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             db!.BaoCaoNos.RemoveRange(db.BaoCaoNos);
 
             var maKHs = db.KhachHangs
