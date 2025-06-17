@@ -23,5 +23,24 @@ namespace NhaSachTest {
             // Assert
             Assert.AreEqual(false, isValid, "Có miền trống");
         }
+
+        [TestMethod]
+        public void PhieuNhapSach_BlankField() {
+            // Arrange
+            PhieuNhapSach phieu = new() {
+                MaPN = 1,
+                MaSach = 1,
+                SoLuong = 1,
+                GiaNhap = 0,
+                NgayNhap = default,
+                NhaCungCap = ""
+            };
+
+            // Act
+            bool isValid = service.IsPNSValid(phieu);
+
+            // Assert
+            Assert.AreEqual(false, isValid, "Có miền trống");
+        }
     }
 }
