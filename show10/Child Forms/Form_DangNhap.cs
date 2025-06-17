@@ -1,6 +1,5 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
-using Show10.Models;
 
 namespace Show10.Windows {
     public partial class Form_DangNhap : Form {
