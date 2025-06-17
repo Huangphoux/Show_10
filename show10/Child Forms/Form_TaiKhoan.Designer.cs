@@ -43,11 +43,11 @@
             label_TK_TenTK = new Label();
             textBox_TK_TenTK = new TextBox();
             dataGridView_TaiKhoan = new DataGridView();
-            taiKhoanBindingSource = new BindingSource(components);
             dataGridViewTextBoxColumn_TenTK = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_MatKhau = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_HoTen = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn_VaiTro = new DataGridViewCheckBoxColumn();
+            taiKhoanBindingSource = new BindingSource(components);
             groupBox_TaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_TaiKhoan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)taiKhoanBindingSource).BeginInit();
@@ -197,6 +197,7 @@
             textBox_TK_HoTen.Size = new Size(480, 34);
             textBox_TK_HoTen.TabIndex = 5;
             textBox_TK_HoTen.TextChanged += TextBox_TK_HoTen_TextChanged;
+            textBox_TK_HoTen.KeyPress += TextBox_TK_HoTen_KeyPress;
             // 
             // textBox_TK_MatKhau
             // 
@@ -204,6 +205,7 @@
             textBox_TK_MatKhau.BorderStyle = BorderStyle.FixedSingle;
             textBox_TK_MatKhau.Font = new Font("Segoe UI", 12F);
             textBox_TK_MatKhau.Location = new Point(200, 99);
+            textBox_TK_MatKhau.MaxLength = 30;
             textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
             textBox_TK_MatKhau.Size = new Size(480, 34);
             textBox_TK_MatKhau.TabIndex = 4;
@@ -257,6 +259,7 @@
             textBox_TK_TenTK.BorderStyle = BorderStyle.FixedSingle;
             textBox_TK_TenTK.Font = new Font("Segoe UI", 12F);
             textBox_TK_TenTK.Location = new Point(200, 45);
+            textBox_TK_TenTK.MaxLength = 30;
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
             textBox_TK_TenTK.Size = new Size(480, 34);
             textBox_TK_TenTK.TabIndex = 3;
@@ -297,10 +300,6 @@
             dataGridView_TaiKhoan.CellValueChanged += DataGridView_TaiKhoan_CellValueChanged;
             dataGridView_TaiKhoan.SelectionChanged += DataGridView_TaiKhoan_SelectionChanged;
             // 
-            // taiKhoanBindingSource
-            // 
-            taiKhoanBindingSource.DataSource = typeof(TaiKhoan);
-            // 
             // dataGridViewTextBoxColumn_TenTK
             // 
             dataGridViewTextBoxColumn_TenTK.DataPropertyName = "TenTK";
@@ -333,6 +332,10 @@
             dataGridViewTextBoxColumn_VaiTro.Resizable = DataGridViewTriState.True;
             dataGridViewTextBoxColumn_VaiTro.SortMode = DataGridViewColumnSortMode.Automatic;
             dataGridViewTextBoxColumn_VaiTro.TrueValue = "admin";
+            // 
+            // taiKhoanBindingSource
+            // 
+            taiKhoanBindingSource.DataSource = typeof(TaiKhoan);
             // 
             // Form_TaiKhoan
             // 

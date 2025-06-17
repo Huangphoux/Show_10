@@ -177,11 +177,11 @@
             textBox_MatKhau.BorderStyle = BorderStyle.FixedSingle;
             textBox_MatKhau.Font = new Font("Segoe UI", 12F);
             textBox_MatKhau.Location = new Point(200, 312);
-            textBox_MatKhau.MaxLength = 500;
+            textBox_MatKhau.MaxLength = 30;
             textBox_MatKhau.Name = "textBox_MatKhau";
-            textBox_MatKhau.PasswordChar = '•';
             textBox_MatKhau.Size = new Size(280, 34);
             textBox_MatKhau.TabIndex = 5;
+            textBox_MatKhau.UseSystemPasswordChar = true;
             textBox_MatKhau.WordWrap = false;
             // 
             // textBox_TenTK
@@ -190,7 +190,7 @@
             textBox_TenTK.BorderStyle = BorderStyle.FixedSingle;
             textBox_TenTK.Font = new Font("Segoe UI", 12F);
             textBox_TenTK.Location = new Point(200, 247);
-            textBox_TenTK.MaxLength = 500;
+            textBox_TenTK.MaxLength = 30;
             textBox_TenTK.Name = "textBox_TenTK";
             textBox_TenTK.Size = new Size(280, 34);
             textBox_TenTK.TabIndex = 3;
@@ -267,8 +267,8 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 853);
-            Controls.Add(panel_Welcome);
             Controls.Add(panel_DangNhap_Phai);
+            Controls.Add(panel_Welcome);
             Controls.Add(panel_DangNhap);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);

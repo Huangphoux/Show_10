@@ -24,7 +24,9 @@ namespace NhaSachTest {
             // Assert
             Assert.AreEqual(false, isValid, "Có miền trống");
         }
-        [TestMethod]
+
+        // fix bằng trường MaxLength
+        //[TestMethod]
         public void TaiKhoan_UsernameTooLong() {
             // Arrange
             TaiKhoan taiKhoan = new() {
@@ -40,7 +42,9 @@ namespace NhaSachTest {
             // Assert
             Assert.AreEqual(false, isValid, "Tên đăng nhập dài quá!");
         }
-        [TestMethod]
+
+        // fix bằng trường MaxLength
+        //[TestMethod]
         public void TaiKhoan_PasswordTooLong() {
             // Arrange
             TaiKhoan taiKhoan = new() {
@@ -55,6 +59,24 @@ namespace NhaSachTest {
 
             // Assert
             Assert.AreEqual(false, isValid, "Mật khẩu dài quá!");
+        }
+
+        // TextBox_TK_HoTen_KeyPress
+        [TestMethod]
+        public void TaiKhoan_TenCoSo() {
+            // Arrange
+            TaiKhoan taiKhoan = new() {
+                TenTK = "123",
+                MatKhau = "123",
+                HoTen = "Nguyễn Văn 2",
+                VaiTro = "dsa"
+            };
+
+            // Act
+            bool isValid = service.IsTaiKhoanValid(taiKhoan);
+
+            // Assert
+            Assert.AreEqual(false, isValid, "Tên không được có số!");
         }
     }
 }

@@ -125,11 +125,11 @@ namespace Show10.Windows {
         bool isShowPass = false;
         private void Icon_ShowPass_Click(object sender, EventArgs e) {
             if (isShowPass == false) {
-                textBox_MatKhau.PasswordChar = '\0';
+                textBox_MatKhau.UseSystemPasswordChar = false;
                 isShowPass = true;
                 icon_ShowPass.IconChar = IconChar.EyeSlash;
             } else {
-                textBox_MatKhau.PasswordChar = '•';
+                textBox_MatKhau.UseSystemPasswordChar = true;
                 isShowPass = false;
                 icon_ShowPass.IconChar = IconChar.Eye;
             }

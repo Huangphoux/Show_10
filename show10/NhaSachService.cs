@@ -10,7 +10,10 @@
         public bool IsTaiKhoanValid(TaiKhoan taiKhoan) {
             if (string.IsNullOrWhiteSpace(taiKhoan.TenTK)) return false;
             if (string.IsNullOrWhiteSpace(taiKhoan.MatKhau)) return false;
+
             if (string.IsNullOrWhiteSpace(taiKhoan.HoTen)) return false;
+
+            if (taiKhoan.HoTen.Any(char.IsDigit)) return false;
 
             return true;
         }

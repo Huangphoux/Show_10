@@ -248,5 +248,11 @@ namespace Show10.Child_Forms {
         private void DataGridView_TaiKhoan_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             db?.SaveChanges();
         }
+
+        private void TextBox_TK_HoTen_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
     }
 }
