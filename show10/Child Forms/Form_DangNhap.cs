@@ -46,13 +46,15 @@ namespace Show10.Windows {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
 
-            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
+            NhaSachService service = new();
+            if (!service.IsDangNhapDangKyValid(tenTK, matKhau)) {
                 MessageBox.Show(
                     "Nhập đủ tên tài khoản và mật khẩu trước khi đăng nhập.",
                     "Cần nhập đầy đủ tên tài khoản hoặc mật khẩu",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             if (!db!.TaiKhoans.Any(tk => tk.TenTK == tenTK && tk.MatKhau == matKhau)) {
                 MessageBox.Show(
                     "Không tìm thấy tài khoản.\n" +
@@ -90,27 +92,36 @@ namespace Show10.Windows {
             string tenTK = textBox_TenTK.Text;
             string matKhau = textBox_MatKhau.Text;
 
-            if (string.IsNullOrEmpty(tenTK) || string.IsNullOrEmpty(matKhau)) {
-                MessageBox.Show("Vui lòng nhập đầy đủ tên tài khoản và mật khẩu trước khi đăng ký.",
-                    "Chưa điền tên tài khoản hoặc mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db.TaiKhoans.Any(tk => tk.TenTK == tenTK)) {
-                _ = MessageBox.Show("Tên tài khoản này đã được sử dụng.\n" +
+            NhaSachService service = new();
+            if (!service.IsDangNhapDangKyValid(tenTK, matKhau)) {
+                MessageBox.Show(
+                    "Nhập đủ tên tài khoản và mật khẩu trước khi đăng ký.",
+                    "Chưa điền tên tài khoản hoặc mật khẩu",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (db!.TaiKhoans.Any(tk => tk.TenTK == tenTK)) {
+                MessageBox.Show("Tên tài khoản này đã được sử dụng.\n" +
                     "Vui lòng sử dụng tên tài khoản khác.",
                     "Trùng lặp tên tài khoản",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 textBox_TenTK.Text = "";
 
-
-            } else {
-                // trường HoTen giải quyết sao ?!
-                db.Add(new TaiKhoan { TenTK = tenTK, MatKhau = matKhau, VaiTro = "staff", HoTen = "" });
-                db.SaveChanges();
-
-                MessageBox.Show("Đăng ký hoàn tất.\nVui lòng đăng nhập lại.", "Đăng ký hoàn tất",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                textBox_TenTK.Text = "";
-                textBox_MatKhau.Text = "";
+                return;
             }
+
+            // trường HoTen giải quyết sao ?!
+            db.Add(new TaiKhoan {
+                TenTK = tenTK, MatKhau = matKhau, VaiTro = "staff", HoTen = "Nguyễn Đa Vích"
+            });
+            db.SaveChanges();
+
+            MessageBox.Show("Đăng ký hoàn tất.\nVui lòng đăng nhập lại.", "Đăng ký hoàn tất",
+                MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+            textBox_TenTK.Text = "";
+            textBox_MatKhau.Text = "";
         }
         bool isShowPass = false;
         private void Icon_ShowPass_Click(object sender, EventArgs e) {

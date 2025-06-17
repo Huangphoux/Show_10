@@ -1,6 +1,5 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
-using Show10.Models;
 using System.Linq.Dynamic.Core;
 using System.Media;
 
@@ -9,6 +8,7 @@ namespace Show10.Child_Forms {
         private NhaSachContext? db;
         bool isLoc_KH = false;
         bool isLoc_PTT = false;
+        NhaSachService service = new();
 
         public Form_KhachHang() {
             InitializeComponent();
@@ -186,17 +186,15 @@ namespace Show10.Child_Forms {
         }
         private void Icon_KH_Them_Click(object sender, EventArgs e) {
             KhachHang khachHang = GetKhachHang();
-
-            if (string.IsNullOrWhiteSpace(khachHang.TenKH) ||
-                string.IsNullOrWhiteSpace(khachHang.Email) ||
-                string.IsNullOrWhiteSpace(khachHang.DiaChi)
-                ) {
+            if (!service.IsKhachHangValid(khachHang)) {
                 MessageBox.Show(
                     "Vui lòng nhập đầy đủ tên khách hàng, giới tính, email, địa chỉ, số điện thoại và tiền nợ\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Thiếu thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (db!.KhachHangs.Any(kh => kh.MaKH == khachHang.MaKH)) {
+            }
+
+            if (db!.KhachHangs.Any(kh => kh.MaKH == khachHang.MaKH)) {
                 var result = MessageBox.Show(
                     "Tồn tại khách hàng với mã khách hàng này.\n" +
                     "Ghi đè thông tin của khách hàng?",
@@ -449,18 +447,17 @@ namespace Show10.Child_Forms {
             textBox_PTT_SoTien.Text = phieuThuTien.SoTien.ToString();
         }
         private void Icon_PTT_Them_Click(object sender, EventArgs e) {
-            PhieuThuTien phieuThuTien = GetPhieuThuTien();
+            PhieuThuTien phieu = GetPhieuThuTien();
 
             if (!Properties.Settings.Default.thuTienVuotNo
                 &&
-                phieuThuTien.SoTien > db!.KhachHangs.First(p => p.MaKH == phieuThuTien.MaKH).TienNo) {
+                phieu.SoTien > db!.KhachHangs.First(p => p.MaKH == phieu.MaKH).TienNo) {
                 MessageBox.Show("Số tiền thu không thể vượt quá số tiền khách đang nợ!",
                     "Tiền thu vượt tiền nợ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox_PTT_SoTien.Text)
-                ) {
+            if (!service.IsPTTValid(phieu)) {
                 MessageBox.Show(
                     "Vui lòng nhập số tiền\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
@@ -470,7 +467,7 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            if (db!.PhieuThuTiens.Any(ptt => ptt.MaPT == phieuThuTien.MaPT)) {
+            if (db!.PhieuThuTiens.Any(ptt => ptt.MaPT == phieu.MaPT)) {
                 var result = MessageBox.Show(
                     "Tồn tại phiếu thu tiền với mã phiếu này.\n" +
                     "Ghi đè thông tin của phiếu thu tiền?",
@@ -478,22 +475,22 @@ namespace Show10.Child_Forms {
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes) {
-                    var existingPTT = db.PhieuThuTiens.First(ptt => ptt.MaPT == phieuThuTien.MaPT);
+                    var existingPTT = db.PhieuThuTiens.First(ptt => ptt.MaPT == phieu.MaPT);
 
-                    existingPTT.MaKH = phieuThuTien.MaKH;
-                    existingPTT.NgayThu = phieuThuTien.NgayThu;
-                    existingPTT.SoTien = phieuThuTien.SoTien;
+                    existingPTT.MaKH = phieu.MaKH;
+                    existingPTT.NgayThu = phieu.NgayThu;
+                    existingPTT.SoTien = phieu.SoTien;
 
                 } else { return; }
 
             } else {
-                db.Add(phieuThuTien);
+                db.Add(phieu);
             }
 
             SystemSounds.Beep.Play();
             foreach (DataGridViewRow row in dataGridView_PhieuThuTien.Rows) {
                 if (row.DataBoundItem is PhieuThuTien rowPTT &&
-                    rowPTT.MaPT == phieuThuTien.MaPT) // Compare by unique key
+                    rowPTT.MaPT == phieu.MaPT) // Compare by unique key
                 {
                     row.Selected = true;
                     dataGridView_PhieuThuTien.CurrentCell = row.Cells[0];
@@ -501,8 +498,7 @@ namespace Show10.Child_Forms {
                 }
             }
 
-
-            _ = db.SaveChanges();
+            db.SaveChanges();
             dataGridView_PhieuThuTien.Refresh();
 
             Icon_PTT_Clear_Click(sender, e);

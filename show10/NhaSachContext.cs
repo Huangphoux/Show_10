@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Show10.Models;
 
 namespace Show10 {
     internal class NhaSachContext : DbContext {

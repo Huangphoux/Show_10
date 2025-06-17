@@ -299,7 +299,7 @@
             // 
             // taiKhoanBindingSource
             // 
-            taiKhoanBindingSource.DataSource = typeof(Models.TaiKhoan);
+            taiKhoanBindingSource.DataSource = typeof(TaiKhoan);
             // 
             // dataGridViewTextBoxColumn_TenTK
             // 

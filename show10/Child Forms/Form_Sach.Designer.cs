@@ -448,7 +448,7 @@
             // 
             // sachBindingSource
             // 
-            sachBindingSource.DataSource = typeof(Models.Sach);
+            sachBindingSource.DataSource = typeof(Sach);
             // 
             // dataGridView_Sach
             // 
@@ -643,7 +643,7 @@
             // 
             // phieuNhapSachBindingSource
             // 
-            phieuNhapSachBindingSource.DataSource = typeof(Models.PhieuNhapSach);
+            phieuNhapSachBindingSource.DataSource = typeof(PhieuNhapSach);
             // 
             // groupBox_PhieuNhapSach
             // 
@@ -1079,7 +1079,7 @@
             // 
             // hoaDonBanSachBindingSource
             // 
-            hoaDonBanSachBindingSource.DataSource = typeof(Models.HoaDonBanSach);
+            hoaDonBanSachBindingSource.DataSource = typeof(HoaDonBanSach);
             // 
             // groupBox_HoaDonBanSach
             // 
@@ -1181,7 +1181,7 @@
             // 
             // khachHangBindingSource
             // 
-            khachHangBindingSource.DataSource = typeof(Models.KhachHang);
+            khachHangBindingSource.DataSource = typeof(KhachHang);
             // 
             // icon_DemLenTren
             // 

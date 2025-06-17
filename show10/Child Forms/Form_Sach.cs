@@ -1,6 +1,5 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
-using Show10.Models;
 using System.Linq.Dynamic.Core;
 using System.Media;
 
@@ -10,6 +9,7 @@ namespace Show10.Child_Forms {
         bool isLoc_Sach = false;
         bool isLoc_PNS = false;
         bool isLoc_HD = false;
+        NhaSachService service = new();
 
         public Form_Sach() {
             InitializeComponent();
@@ -202,9 +202,7 @@ namespace Show10.Child_Forms {
         private void Icon_Sach_Them_Click(object sender, EventArgs e) {
             Sach sach = GetSach();
 
-
-
-            if (string.IsNullOrEmpty(sach.TenSach) || string.IsNullOrEmpty(sach.TacGia) || string.IsNullOrEmpty(sach.TheLoai)) {
+            if (!service.IsSachValid(sach)) {
                 MessageBox.Show(
                     "Nhập đủ tên sách, tác giả và thể loại\ntrước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
@@ -490,10 +488,8 @@ namespace Show10.Child_Forms {
             date_PNS_NgayNhap.Text = phieu.NgayNhap.ToShortDateString();
         }
         private void Icon_PNS_Them_Click(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_NhaCungCap.Text)
-                ) {
+            PhieuNhapSach phieu = GetPhieuNhapSach();
+            if (!service.IsPNSValid(phieu)) {
                 MessageBox.Show(
                     "Nhập đủ số lượng, giá nhập, và nhà cung cấp\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
@@ -502,8 +498,6 @@ namespace Show10.Child_Forms {
 
                 return;
             }
-
-            PhieuNhapSach phieu = GetPhieuNhapSach();
 
             if (!db!.Sachs.Any(sach => sach.MaSach == phieu.MaSach)) {
                 MessageBox.Show(
@@ -824,8 +818,8 @@ namespace Show10.Child_Forms {
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
         private void Icon_HD_Them_Click(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
+            HoaDonBanSach hoaDon = GetHoaDonBanSach();
+            if (!service.IsHoaDonValid(hoaDon)) {
                 MessageBox.Show(
                     "Nhập đủ số lượng và số tiền trả\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
@@ -835,7 +829,6 @@ namespace Show10.Child_Forms {
                 return;
             }
 
-            HoaDonBanSach hoaDon = GetHoaDonBanSach();
 
             // Không tìm thấy mã sách
             if (!db!.Sachs.Any(sach => sach.MaSach == hoaDon.MaSach)) {

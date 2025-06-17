@@ -1,6 +1,5 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
-using Show10.Models;
 using System.Media;
 
 namespace Show10.Child_Forms {
@@ -43,13 +42,22 @@ namespace Show10.Child_Forms {
             db?.Dispose();
             db = null;
         }
-        private TaiKhoan GetTaiKhoan() {
+        private TaiKhoan? GetTaiKhoan() {
             string tenTK = textBox_TK_TenTK.Text;
             string matKhau = textBox_TK_MatKhau.Text;
             string hoTen = textBox_TK_HoTen.Text;
             string vaiTro = checkBox_TK_QTV.Checked ? "admin" : "staff";
 
-            return new TaiKhoan { TenTK = tenTK, HoTen = hoTen, MatKhau = matKhau, VaiTro = vaiTro };
+            TaiKhoan taiKhoan = new() {
+                TenTK = tenTK, HoTen = hoTen, MatKhau = matKhau, VaiTro = vaiTro
+            };
+
+            NhaSachService service = new();
+            if (!service.IsTaiKhoanValid(taiKhoan)) {
+                return null;
+            }
+
+            return taiKhoan;
         }
         private void SetTaiKhoan(TaiKhoan taiKhoan) {
             textBox_TK_TenTK.Text = taiKhoan.TenTK;
@@ -102,9 +110,9 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_TK_Them_Click(object sender, EventArgs e) {
-            TaiKhoan taiKhoan = GetTaiKhoan();
+            TaiKhoan? taiKhoan = GetTaiKhoan();
 
-            if (string.IsNullOrEmpty(taiKhoan.TenTK) || string.IsNullOrEmpty(taiKhoan.MatKhau) || string.IsNullOrEmpty(taiKhoan.HoTen)) {
+            if (taiKhoan is null) {
                 MessageBox.Show(
                     "Nhập đủ tên tài khoản, mật khẩu và họ tên\ntrước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",

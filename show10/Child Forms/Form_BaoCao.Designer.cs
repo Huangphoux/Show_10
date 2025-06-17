@@ -156,7 +156,7 @@
             // 
             // baoCaoTonBindingSource
             // 
-            baoCaoTonBindingSource.DataSource = typeof(Models.BaoCaoTon);
+            baoCaoTonBindingSource.DataSource = typeof(BaoCaoTon);
             // 
             // groupBox_BCTon
             // 
@@ -336,7 +336,7 @@
             // 
             // baoCaoNoBindingSource
             // 
-            baoCaoNoBindingSource.DataSource = typeof(Models.BaoCaoNo);
+            baoCaoNoBindingSource.DataSource = typeof(BaoCaoNo);
             // 
             // groupBox_BCNo
             // 

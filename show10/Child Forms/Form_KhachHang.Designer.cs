@@ -491,7 +491,7 @@
             // 
             // khachHangBindingSource
             // 
-            khachHangBindingSource.DataSource = typeof(Models.KhachHang);
+            khachHangBindingSource.DataSource = typeof(KhachHang);
             // 
             // tabControl_KhachHang
             // 
@@ -602,7 +602,7 @@
             // 
             // phieuThuTienBindingSource
             // 
-            phieuThuTienBindingSource.DataSource = typeof(Models.PhieuThuTien);
+            phieuThuTienBindingSource.DataSource = typeof(PhieuThuTien);
             // 
             // groupBox_PhieuThuTien
             // 
