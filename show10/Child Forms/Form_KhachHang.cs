@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Dynamic.Core;
 using System.Media;
+using System.Text.RegularExpressions;
 
 namespace Show10.Child_Forms {
     public partial class Form_KhachHang : Form {
@@ -149,6 +150,8 @@ namespace Show10.Child_Forms {
             textBox.Text = price.ToString("#,#");
             textBox.SelectionStart = textBox.Text.Length;
         }
+
+
         #region Quản lý khách hàng
         private void TabControl_KhachHang_SelectedIndexChanged(object sender, EventArgs e) {
             if (tabControl_KhachHang.SelectedTab == tabPage_KhachHang) {
@@ -414,6 +417,26 @@ namespace Show10.Child_Forms {
         private void Icon_KH_ResetGioiTinh_Click(object sender, EventArgs e) {
             comboBox_KH_GioiTinh.SelectedIndex = -1;
         }
+
+        private void TextBox_KH_Email_Leave(object sender, EventArgs e) {
+            Regex mRegxExpression;
+            if (textBox_KH_Email.Text.Trim() != string.Empty) {
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                if (!mRegxExpression.IsMatch(textBox_KH_Email.Text.Trim())) {
+                    MessageBox.Show("Vui lòng sửa lại E-mail cho đúng định dạng.\n" +
+                        "Ví dụ: show10@guguru.adu",
+                        "Định dạng E-mail không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBox_KH_Email.Focus();
+                }
+            }
+        }
+        private void TextBox_KH_TenKH_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)
+                && !char.IsWhiteSpace(e.KeyChar)) {
+                e.Handled = true;
+            }
+        }
         #endregion
         #region Quản lý phiếu thu tiền
         private PhieuThuTien GetPhieuThuTien() {
@@ -663,5 +686,6 @@ namespace Show10.Child_Forms {
             comboBox_PTT_MaKH.SelectedIndex = -1;
         }
         #endregion
+
     }
 }

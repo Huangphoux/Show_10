@@ -336,6 +336,7 @@
             textBox_KH_Email.Size = new Size(851, 34);
             textBox_KH_Email.TabIndex = 42;
             textBox_KH_Email.TextChanged += TextBox_KH_Email_TextChanged;
+            textBox_KH_Email.Leave += TextBox_KH_Email_Leave;
             // 
             // label_KH_Email
             // 
@@ -354,10 +355,12 @@
             textBox_KH_TenKH.BorderStyle = BorderStyle.FixedSingle;
             textBox_KH_TenKH.Font = new Font("Segoe UI", 12F);
             textBox_KH_TenKH.Location = new Point(136, 90);
+            textBox_KH_TenKH.MaxLength = 30;
             textBox_KH_TenKH.Name = "textBox_KH_TenKH";
             textBox_KH_TenKH.Size = new Size(851, 34);
             textBox_KH_TenKH.TabIndex = 39;
             textBox_KH_TenKH.TextChanged += TextBox_KH_TenKH_TextChanged;
+            textBox_KH_TenKH.KeyPress += TextBox_KH_TenKH_KeyPress;
             // 
             // label_KH_GioiTinh
             // 
@@ -521,10 +524,10 @@
             // 
             tabPage_PhieuThuTien.Controls.Add(dataGridView_PhieuThuTien);
             tabPage_PhieuThuTien.Controls.Add(groupBox_PhieuThuTien);
-            tabPage_PhieuThuTien.Location = new Point(4, 37);
+            tabPage_PhieuThuTien.Location = new Point(4, 29);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(1254, 512);
+            tabPage_PhieuThuTien.Size = new Size(1254, 520);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -566,7 +569,7 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(1248, 243);
+            dataGridView_PhieuThuTien.Size = new Size(1248, 251);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;

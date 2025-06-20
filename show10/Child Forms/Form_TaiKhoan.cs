@@ -250,7 +250,7 @@ namespace Show10.Child_Forms {
         }
 
         private void TextBox_TK_HoTen_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)) {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar)) {
                 e.Handled = true;
             }
         }
