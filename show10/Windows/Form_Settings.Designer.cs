@@ -203,6 +203,7 @@
             // 
             icon_DeleteDB.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             icon_DeleteDB.BackColor = Color.White;
+            icon_DeleteDB.Enabled = false;
             icon_DeleteDB.FlatAppearance.BorderColor = Color.Red;
             icon_DeleteDB.FlatAppearance.BorderSize = 2;
             icon_DeleteDB.FlatStyle = FlatStyle.Flat;
@@ -218,6 +219,7 @@
             icon_DeleteDB.Size = new Size(70, 70);
             icon_DeleteDB.TabIndex = 15;
             icon_DeleteDB.UseVisualStyleBackColor = false;
+            icon_DeleteDB.Visible = false;
             icon_DeleteDB.Click += Icon_DeleteDB_Click;
             // 
             // Form_Settings
