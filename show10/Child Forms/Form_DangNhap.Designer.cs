@@ -114,6 +114,7 @@
             // 
             checkBox_enableTab.Appearance = Appearance.Button;
             checkBox_enableTab.Dock = DockStyle.Bottom;
+            checkBox_enableTab.Enabled = false;
             checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
             checkBox_enableTab.FlatAppearance.BorderSize = 0;
             checkBox_enableTab.FlatStyle = FlatStyle.Flat;
@@ -125,6 +126,7 @@
             checkBox_enableTab.Text = "Bật các tab";
             checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_enableTab.UseVisualStyleBackColor = true;
+            checkBox_enableTab.Visible = false;
             checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
             // 
             // label_ChaoDon
