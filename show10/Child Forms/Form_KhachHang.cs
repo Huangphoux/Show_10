@@ -168,7 +168,6 @@ namespace Show10.Child_Forms {
             string gioiTinh = comboBox_KH_GioiTinh.Text;
             string email = textBox_KH_Email.Text;
             string diaChi = textBox_KH_DiaChi.Text;
-            string tienNo = textBox_KH_TienNo.Text;
 
             return new KhachHang {
                 MaKH = int.TryParse(maKH, out var parsedMaHD) ? parsedMaHD : lastMaKH + 1,
@@ -191,10 +190,12 @@ namespace Show10.Child_Forms {
             KhachHang khachHang = GetKhachHang();
             if (!service.IsKhachHangValid(khachHang)) {
                 MessageBox.Show(
-                    "Vui lòng nhập đầy đủ tên khách hàng, giới tính, email, địa chỉ, số điện thoại và tiền nợ\n" +
+                    "Nhập đủ tên khách hàng, giới tính, email, địa chỉ, số điện thoại\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Thiếu thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
             }
 
             if (db!.KhachHangs.Any(kh => kh.MaKH == khachHang.MaKH)) {
@@ -419,6 +420,8 @@ namespace Show10.Child_Forms {
         }
 
         private void TextBox_KH_Email_Leave(object sender, EventArgs e) {
+            return;
+
             Regex mRegxExpression;
             if (textBox_KH_Email.Text.Trim() != string.Empty) {
                 mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
@@ -470,6 +473,16 @@ namespace Show10.Child_Forms {
             textBox_PTT_SoTien.Text = phieuThuTien.SoTien.ToString();
         }
         private void Icon_PTT_Them_Click(object sender, EventArgs e) {
+            if (string.IsNullOrWhiteSpace(textBox_PTT_SoTien.Text)) {
+                MessageBox.Show(
+                    "Nhập số tiền\n" +
+                    "trước khi thêm vào cơ sở dữ liệu.",
+                    "Thiếu thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             PhieuThuTien phieu = GetPhieuThuTien();
 
             if (!Properties.Settings.Default.thuTienVuotNo
@@ -482,7 +495,7 @@ namespace Show10.Child_Forms {
 
             if (!service.IsPTTValid(phieu)) {
                 MessageBox.Show(
-                    "Vui lòng nhập số tiền\n" +
+                    "Nhập số tiền\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Thiếu thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);

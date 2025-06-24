@@ -34,6 +34,8 @@
             if (string.IsNullOrWhiteSpace(phieu.NhaCungCap)) return false;
             if (phieu.NgayNhap == default) return false;
 
+
+
             return true;
         }
 

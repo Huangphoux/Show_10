@@ -488,8 +488,9 @@ namespace Show10.Child_Forms {
             date_PNS_NgayNhap.Text = phieu.NgayNhap.ToShortDateString();
         }
         private void Icon_PNS_Them_Click(object sender, EventArgs e) {
-            PhieuNhapSach phieu = GetPhieuNhapSach();
-            if (!service.IsPNSValid(phieu)) {
+            if(string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
+                string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text)
+                ) {
                 MessageBox.Show(
                     "Nhập đủ số lượng, giá nhập, và nhà cung cấp\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
@@ -498,6 +499,8 @@ namespace Show10.Child_Forms {
 
                 return;
             }
+
+            PhieuNhapSach phieu = GetPhieuNhapSach();
 
             if (!db!.Sachs.Any(sach => sach.MaSach == phieu.MaSach)) {
                 MessageBox.Show(
@@ -522,6 +525,16 @@ namespace Show10.Child_Forms {
                     $"Không được nhập sách nếu sách có số lượng tồn kho trên {maxSLSach} quyển.",
                     null, MessageBoxButtons.OK, MessageBoxIcon.Warning
                 );
+                return;
+            }
+            
+            if (!service.IsPNSValid(phieu)) {
+                MessageBox.Show(
+                    "Nhập đủ số lượng, giá nhập, và nhà cung cấp\n" +
+                    "trước khi thêm vào cơ sở dữ liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -818,10 +831,9 @@ namespace Show10.Child_Forms {
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
         private void Icon_HD_Them_Click(object sender, EventArgs e) {
-            HoaDonBanSach hoaDon = GetHoaDonBanSach();
-            if (!service.IsHoaDonValid(hoaDon)) {
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text)) {
                 MessageBox.Show(
-                    "Nhập đủ số lượng và số tiền trả\n" +
+                    "Nhập số lượng để tính tổng tiền cần trả\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -829,6 +841,15 @@ namespace Show10.Child_Forms {
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoTienTra.Text)) {
+                Icon_HD_Tinh_Click(sender, e);
+                SystemSounds.Beep.Play();
+
+                return;
+            }
+
+
+            HoaDonBanSach hoaDon = GetHoaDonBanSach();
 
             // Không tìm thấy mã sách
             if (!db!.Sachs.Any(sach => sach.MaSach == hoaDon.MaSach)) {
@@ -879,6 +900,16 @@ namespace Show10.Child_Forms {
                     $"dưới mức quy định của cửa hàng là {minSLSach}.",
                     null, MessageBoxButtons.OK, MessageBoxIcon.Warning
                 );
+                return;
+            }
+
+            if (!service.IsHoaDonValid(hoaDon)) {
+                MessageBox.Show(
+                    "Nhập đủ số lượng và số tiền trả\n" +
+                    "trước khi thêm vào cơ sở dữ liệu.",
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 return;
             }
 
@@ -936,6 +967,7 @@ namespace Show10.Child_Forms {
             comboBox_HD_MaSach.SelectedIndex = 0;
             comboBox_HD_MaKH.SelectedIndex = 0;
             textBox_HD_SoLuong.Text = "";
+            textBox_HD_SoTienTra.Text = "";
             textBox_HD_GiaBan.Text = "";
             date_HD_NgayBan.Text = DateTime.Now.ToShortDateString();
         }
