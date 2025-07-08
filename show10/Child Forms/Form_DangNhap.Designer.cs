@@ -31,7 +31,6 @@
             label_TenTK = new Label();
             checkBox_enableTab = new CheckBox();
             label_ChaoDon = new Label();
-            icon_DangKy = new FontAwesome.Sharp.IconButton();
             label_MatKhau = new Label();
             textBox_MatKhau = new TextBox();
             textBox_TenTK = new TextBox();
@@ -40,6 +39,7 @@
             label_Clock = new Label();
             label_Welcome = new Label();
             timer_Clock = new System.Windows.Forms.Timer(components);
+            label_DangKy = new Label();
             panel_DangNhap_Phai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPass).BeginInit();
             panel_Welcome.SuspendLayout();
@@ -58,12 +58,12 @@
             // 
             panel_DangNhap_Phai.Anchor = AnchorStyles.None;
             panel_DangNhap_Phai.BackColor = Color.White;
+            panel_DangNhap_Phai.Controls.Add(label_DangKy);
             panel_DangNhap_Phai.Controls.Add(icon_ShowPass);
             panel_DangNhap_Phai.Controls.Add(label_DangNhap);
             panel_DangNhap_Phai.Controls.Add(label_TenTK);
             panel_DangNhap_Phai.Controls.Add(checkBox_enableTab);
             panel_DangNhap_Phai.Controls.Add(label_ChaoDon);
-            panel_DangNhap_Phai.Controls.Add(icon_DangKy);
             panel_DangNhap_Phai.Controls.Add(label_MatKhau);
             panel_DangNhap_Phai.Controls.Add(textBox_MatKhau);
             panel_DangNhap_Phai.Controls.Add(textBox_TenTK);
@@ -143,26 +143,6 @@
             label_ChaoDon.Text = "Xin được chào đón !";
             label_ChaoDon.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // icon_DangKy
-            // 
-            icon_DangKy.Anchor = AnchorStyles.Top;
-            icon_DangKy.BackColor = Color.Transparent;
-            icon_DangKy.FlatStyle = FlatStyle.Flat;
-            icon_DangKy.ForeColor = Color.Green;
-            icon_DangKy.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            icon_DangKy.IconColor = Color.Green;
-            icon_DangKy.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            icon_DangKy.IconSize = 30;
-            icon_DangKy.Location = new Point(307, 381);
-            icon_DangKy.Name = "icon_DangKy";
-            icon_DangKy.Size = new Size(200, 80);
-            icon_DangKy.TabIndex = 7;
-            icon_DangKy.Text = "Đăng ký";
-            icon_DangKy.TextAlign = ContentAlignment.MiddleRight;
-            icon_DangKy.TextImageRelation = TextImageRelation.ImageBeforeText;
-            icon_DangKy.UseVisualStyleBackColor = false;
-            icon_DangKy.Click += Icon_DangKy_Click;
-            // 
             // label_MatKhau
             // 
             label_MatKhau.Location = new Point(65, 309);
@@ -210,9 +190,9 @@
             icon_DangNhap.IconColor = Color.White;
             icon_DangNhap.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DangNhap.IconSize = 30;
-            icon_DangNhap.Location = new Point(83, 381);
+            icon_DangNhap.Location = new Point(177, 381);
             icon_DangNhap.Name = "icon_DangNhap";
-            icon_DangNhap.Size = new Size(200, 80);
+            icon_DangNhap.Size = new Size(237, 80);
             icon_DangNhap.TabIndex = 6;
             icon_DangNhap.Text = "Đăng nhập";
             icon_DangNhap.TextAlign = ContentAlignment.MiddleRight;
@@ -263,6 +243,15 @@
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += Timer_Clock_Tick;
             // 
+            // label_DangKy
+            // 
+            label_DangKy.Location = new Point(69, 495);
+            label_DangKy.Name = "label_DangKy";
+            label_DangKy.Size = new Size(453, 113);
+            label_DangKy.TabIndex = 14;
+            label_DangKy.Text = "Về việc đăng kí:\r\nvui lòng liên hệ với quản lí để được cấp tài khoản truy cập vào hệ thống của nhà sách.";
+            label_DangKy.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Form_DangNhap
             // 
             AcceptButton = icon_DangNhap;
@@ -294,7 +283,6 @@
         private Label label_TenTK;
         private CheckBox checkBox_enableTab;
         private Label label_ChaoDon;
-        private FontAwesome.Sharp.IconButton icon_DangKy;
         private Label label_MatKhau;
         private TextBox textBox_MatKhau;
         private TextBox textBox_TenTK;
@@ -303,5 +291,6 @@
         private Label label_Clock;
         private Label label_Welcome;
         private System.Windows.Forms.Timer timer_Clock;
+        private Label label_DangKy;
     }
 }

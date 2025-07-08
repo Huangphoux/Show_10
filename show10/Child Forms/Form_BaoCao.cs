@@ -170,7 +170,7 @@ namespace Show10.Child_Forms {
                 int tonCuoi = GetTonCuoi(tonDau, phatSinh);
 
                 db.BaoCaoTons.Add(new BaoCaoTon {
-                    MaSach = ma,
+                    TenSach = db.Sachs.First(s => s.MaSach == ma).TenSach,
                     TonDau = tonDau,
                     PhatSinh = phatSinh,
                     TonCuoi = tonCuoi
@@ -271,7 +271,7 @@ namespace Show10.Child_Forms {
                 double noCuoi = getNoCuoi(noDau, phatSinh);
 
                 db.BaoCaoNos.Add(new BaoCaoNo {
-                    MaKH = maKH,
+                    TenKH = db.KhachHangs.First(kh => kh.MaKH == maKH).TenKH,
                     NoDau = noDau,
                     PhatSinh = phatSinh,
                     NoCuoi = noCuoi

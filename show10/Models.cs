@@ -63,14 +63,14 @@ namespace Show10 {
     }
     public class BaoCaoTon {
         [Key]
-        public required int MaSach { get; set; }
+        public required string TenSach { get; set; }
         public required int TonDau { get; set; }
         public required int PhatSinh { get; set; }
         public required int TonCuoi { get; set; }
     }
     public class BaoCaoNo {
         [Key]
-        public required int MaKH { get; set; }
+        public required string TenKH { get; set; }
         [Column(TypeName = "money")]
         public required double NoDau { get; set; }
         [Column(TypeName = "money")]
