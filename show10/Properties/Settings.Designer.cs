@@ -82,5 +82,17 @@ namespace Show10.Properties {
                 this["thuTienVuotNo"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SGK,Web Development,AI Engineer")]
+        public string theLoai {
+            get {
+                return ((string)(this["theLoai"]));
+            }
+            set {
+                this["theLoai"] = value;
+            }
+        }
     }
 }

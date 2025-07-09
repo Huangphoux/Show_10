@@ -138,5 +138,14 @@ namespace show10 {
             Form_Settings form_Settings = new();
             form_Settings.Show();
         }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e) {
+            var result = MessageBox.Show("Bạn muốn thoát khỏi chương trình?",
+                "Chuẩn bị thoát chương tình", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.No) {
+                e.Cancel = true;
+            }
+        }
     }
 }

@@ -264,6 +264,7 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Show 10 !";
+            FormClosing += MainWindow_FormClosing;
             panel_Menu.ResumeLayout(false);
             panel_Brand.ResumeLayout(false);
             panel_ChildForm.ResumeLayout(false);

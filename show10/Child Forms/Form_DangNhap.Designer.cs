@@ -30,12 +30,12 @@
             icon_ShowPass = new FontAwesome.Sharp.IconPictureBox();
             label_DangNhap = new Label();
             label_TenTK = new Label();
-            checkBox_enableTab = new CheckBox();
             label_ChaoDon = new Label();
             label_MatKhau = new Label();
             textBox_MatKhau = new TextBox();
             textBox_TenTK = new TextBox();
             icon_DangNhap = new FontAwesome.Sharp.IconButton();
+            checkBox_enableTab = new CheckBox();
             panel_Welcome = new Panel();
             label_Clock = new Label();
             label_Welcome = new Label();
@@ -119,24 +119,6 @@
             label_TenTK.Text = "Tên tài khoản";
             label_TenTK.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // checkBox_enableTab
-            // 
-            checkBox_enableTab.Appearance = Appearance.Button;
-            checkBox_enableTab.Enabled = false;
-            checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
-            checkBox_enableTab.FlatAppearance.BorderSize = 0;
-            checkBox_enableTab.FlatStyle = FlatStyle.Flat;
-            checkBox_enableTab.ForeColor = Color.DarkGreen;
-            checkBox_enableTab.Location = new Point(933, 312);
-            checkBox_enableTab.Name = "checkBox_enableTab";
-            checkBox_enableTab.Size = new Size(298, 271);
-            checkBox_enableTab.TabIndex = 10;
-            checkBox_enableTab.Text = "Bật các tab";
-            checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
-            checkBox_enableTab.UseVisualStyleBackColor = true;
-            checkBox_enableTab.Visible = false;
-            checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
-            // 
             // label_ChaoDon
             // 
             label_ChaoDon.AccessibleRole = AccessibleRole.None;
@@ -208,12 +190,28 @@
             icon_DangNhap.UseVisualStyleBackColor = false;
             icon_DangNhap.Click += Icon_DangNhap_Click;
             // 
+            // checkBox_enableTab
+            // 
+            checkBox_enableTab.Appearance = Appearance.Button;
+            checkBox_enableTab.BackColor = Color.DarkGreen;
+            checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
+            checkBox_enableTab.FlatAppearance.BorderSize = 0;
+            checkBox_enableTab.FlatStyle = FlatStyle.Flat;
+            checkBox_enableTab.ForeColor = Color.DarkGreen;
+            checkBox_enableTab.Location = new Point(933, 262);
+            checkBox_enableTab.Name = "checkBox_enableTab";
+            checkBox_enableTab.Size = new Size(298, 271);
+            checkBox_enableTab.TabIndex = 10;
+            checkBox_enableTab.Text = "Bật các tab\r\n(TÍNH NĂNG DEBUG)\r\n";
+            checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox_enableTab.UseVisualStyleBackColor = false;
+            checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
+            // 
             // panel_Welcome
             // 
             panel_Welcome.BackColor = Color.DarkGreen;
             panel_Welcome.Controls.Add(label_Clock);
             panel_Welcome.Controls.Add(label_Welcome);
-            panel_Welcome.Controls.Add(checkBox_enableTab);
             panel_Welcome.Dock = DockStyle.Fill;
             panel_Welcome.Location = new Point(0, 0);
             panel_Welcome.Name = "panel_Welcome";
@@ -258,6 +256,7 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 853);
+            Controls.Add(checkBox_enableTab);
             Controls.Add(panel_DangNhap_Phai);
             Controls.Add(panel_Welcome);
             Controls.Add(panel_DangNhap);

@@ -41,6 +41,8 @@
             icon_Luu = new FontAwesome.Sharp.IconButton();
             icon_Reset = new FontAwesome.Sharp.IconButton();
             icon_DeleteDB = new FontAwesome.Sharp.IconButton();
+            listBox_theLoai = new ListBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // label_Settings
@@ -52,19 +54,18 @@
             label_Settings.Location = new Point(0, 0);
             label_Settings.Margin = new Padding(4, 0, 4, 0);
             label_Settings.Name = "label_Settings";
-            label_Settings.Size = new Size(782, 62);
+            label_Settings.Size = new Size(1235, 62);
             label_Settings.TabIndex = 0;
             label_Settings.Text = "Cài đặt !";
             label_Settings.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // textBox_minNhap
             // 
-            textBox_minNhap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_minNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_minNhap.Location = new Point(442, 86);
             textBox_minNhap.Margin = new Padding(4);
             textBox_minNhap.Name = "textBox_minNhap";
-            textBox_minNhap.Size = new Size(312, 34);
+            textBox_minNhap.Size = new Size(128, 34);
             textBox_minNhap.TabIndex = 1;
             // 
             // label_minNhap
@@ -89,12 +90,11 @@
             // 
             // textBox_maxNo
             // 
-            textBox_maxNo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_maxNo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_maxNo.Location = new Point(442, 142);
             textBox_maxNo.Margin = new Padding(4);
             textBox_maxNo.Name = "textBox_maxNo";
-            textBox_maxNo.Size = new Size(312, 34);
+            textBox_maxNo.Size = new Size(128, 34);
             textBox_maxNo.TabIndex = 3;
             // 
             // label_maxSLSach
@@ -109,12 +109,11 @@
             // 
             // textBox_maxSLSach
             // 
-            textBox_maxSLSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_maxSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_maxSLSach.Location = new Point(442, 198);
             textBox_maxSLSach.Margin = new Padding(4);
             textBox_maxSLSach.Name = "textBox_maxSLSach";
-            textBox_maxSLSach.Size = new Size(312, 34);
+            textBox_maxSLSach.Size = new Size(128, 34);
             textBox_maxSLSach.TabIndex = 5;
             // 
             // label_minSLSach
@@ -129,12 +128,11 @@
             // 
             // textBox_minSLSach
             // 
-            textBox_minSLSach.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBox_minSLSach.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox_minSLSach.Location = new Point(442, 254);
             textBox_minSLSach.Margin = new Padding(4);
             textBox_minSLSach.Name = "textBox_minSLSach";
-            textBox_minSLSach.Size = new Size(312, 34);
+            textBox_minSLSach.Size = new Size(128, 34);
             textBox_minSLSach.TabIndex = 7;
             // 
             // label_thuTienVuotNo
@@ -149,17 +147,16 @@
             // 
             // checkBox_thuTienVuotNo
             // 
-            checkBox_thuTienVuotNo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             checkBox_thuTienVuotNo.Location = new Point(442, 313);
             checkBox_thuTienVuotNo.Margin = new Padding(4);
             checkBox_thuTienVuotNo.Name = "checkBox_thuTienVuotNo";
-            checkBox_thuTienVuotNo.Size = new Size(312, 37);
+            checkBox_thuTienVuotNo.Size = new Size(128, 37);
             checkBox_thuTienVuotNo.TabIndex = 12;
             checkBox_thuTienVuotNo.UseVisualStyleBackColor = true;
             // 
             // icon_Luu
             // 
-            icon_Luu.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            icon_Luu.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             icon_Luu.BackColor = Color.Green;
             icon_Luu.FlatAppearance.BorderSize = 0;
             icon_Luu.FlatStyle = FlatStyle.Flat;
@@ -169,7 +166,7 @@
             icon_Luu.IconColor = Color.White;
             icon_Luu.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Luu.IconSize = 30;
-            icon_Luu.Location = new Point(684, 388);
+            icon_Luu.Location = new Point(684, 637);
             icon_Luu.Name = "icon_Luu";
             icon_Luu.Padding = new Padding(10);
             icon_Luu.Size = new Size(70, 70);
@@ -180,7 +177,7 @@
             // 
             // icon_Reset
             // 
-            icon_Reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            icon_Reset.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             icon_Reset.BackColor = Color.White;
             icon_Reset.FlatAppearance.BorderColor = Color.Blue;
             icon_Reset.FlatAppearance.BorderSize = 2;
@@ -190,7 +187,7 @@
             icon_Reset.IconColor = Color.Blue;
             icon_Reset.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_Reset.IconSize = 30;
-            icon_Reset.Location = new Point(596, 388);
+            icon_Reset.Location = new Point(596, 637);
             icon_Reset.Name = "icon_Reset";
             icon_Reset.Padding = new Padding(10);
             icon_Reset.Size = new Size(70, 70);
@@ -203,7 +200,6 @@
             // 
             icon_DeleteDB.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             icon_DeleteDB.BackColor = Color.White;
-            icon_DeleteDB.Enabled = true;
             icon_DeleteDB.FlatAppearance.BorderColor = Color.Red;
             icon_DeleteDB.FlatAppearance.BorderSize = 2;
             icon_DeleteDB.FlatStyle = FlatStyle.Flat;
@@ -213,21 +209,39 @@
             icon_DeleteDB.IconColor = Color.Red;
             icon_DeleteDB.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_DeleteDB.IconSize = 30;
-            icon_DeleteDB.Location = new Point(21, 388);
+            icon_DeleteDB.Location = new Point(21, 637);
             icon_DeleteDB.Name = "icon_DeleteDB";
             icon_DeleteDB.Padding = new Padding(10);
             icon_DeleteDB.Size = new Size(70, 70);
             icon_DeleteDB.TabIndex = 15;
             icon_DeleteDB.UseVisualStyleBackColor = false;
-            icon_DeleteDB.Visible = true;
             icon_DeleteDB.Click += Icon_DeleteDB_Click;
+            // 
+            // listBox_theLoai
+            // 
+            listBox_theLoai.FormattingEnabled = true;
+            listBox_theLoai.Location = new Point(670, 89);
+            listBox_theLoai.Name = "listBox_theLoai";
+            listBox_theLoai.Size = new Size(366, 228);
+            listBox_theLoai.TabIndex = 16;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Gray;
+            label1.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(616, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(2, 513);
+            label1.TabIndex = 17;
             // 
             // Form_Settings
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(782, 470);
+            ClientSize = new Size(1235, 719);
+            Controls.Add(label1);
+            Controls.Add(listBox_theLoai);
             Controls.Add(icon_DeleteDB);
             Controls.Add(icon_Reset);
             Controls.Add(icon_Luu);
@@ -246,6 +260,7 @@
             Margin = new Padding(4);
             Name = "Form_Settings";
             Text = "Settings";
+            FormClosing += Form_Settings_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -266,5 +281,7 @@
         private FontAwesome.Sharp.IconButton icon_Luu;
         private FontAwesome.Sharp.IconButton icon_Reset;
         private FontAwesome.Sharp.IconButton icon_DeleteDB;
+        private ListBox listBox_theLoai;
+        private Label label1;
     }
 }

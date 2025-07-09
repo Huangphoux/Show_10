@@ -8,6 +8,8 @@
             tool.SetToolTip(icon_DeleteDB, "Xoá HẾT TOÀN BỘ cơ sở dữ liệu");
             tool.SetToolTip(icon_Reset, "Đặt lại các thông số về giá trị mặc định");
             tool.SetToolTip(icon_Luu, "Lưu thay đổi các thông số");
+
+            listBox_theLoai.DataSource = Properties.Settings.Default.theLoai.Split(',').ToList();
         }
         private void Icon_Luu_Click(object sender, EventArgs e) {
             Properties.Settings.Default.minNhap = int.Parse(textBox_minNhap.Text);
@@ -16,12 +18,11 @@
             Properties.Settings.Default.minSLSach = int.Parse(textBox_minSLSach.Text);
             Properties.Settings.Default.thuTienVuotNo = checkBox_thuTienVuotNo.Checked;
             Properties.Settings.Default.Save();
-            MessageBox.Show("Lưu thay đổi các thông số thành công !!!",
-                "Lưu thay đổi các thông số thành công !!!",
+
+            MessageBox.Show("Các thông số đã được lưu vào cài đặt một cách mĩ mãn.",
+                "Lưu thay đổi các thông số thành công",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
-
-            Close();
         }
         private void Icon_Reset_Click(object sender, EventArgs e) {
             Properties.Settings.Default.minNhap = 150;
@@ -30,6 +31,7 @@
             Properties.Settings.Default.minSLSach = 20;
             Properties.Settings.Default.thuTienVuotNo = false;
             Properties.Settings.Default.Save();
+
             SetTextbox();
         }
         private void SetTextbox() {
@@ -70,6 +72,17 @@
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Application.Restart();
+            }
+        }
+
+        private void Form_Settings_FormClosing(object sender, FormClosingEventArgs e) {
+            var result = MessageBox.Show("Các thông số sẽ không được lưu nếu bạn tắt cửa sổ này.\n" +
+                "Lưu các thông số?", "Chưa lưu các thông số", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            
+            if(result == DialogResult.Yes) {
+                Icon_Luu_Click(sender, e);
+            } else if (result == DialogResult.Cancel) {
+                e.Cancel = true;
             }
         }
     }
