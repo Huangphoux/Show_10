@@ -94,5 +94,17 @@ namespace Show10.Properties {
                 this["theLoai"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NCC1,NCC2,NCC3")]
+        public string nhaCungCap {
+            get {
+                return ((string)(this["nhaCungCap"]));
+            }
+            set {
+                this["nhaCungCap"] = value;
+            }
+        }
     }
 }

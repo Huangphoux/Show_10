@@ -20,5 +20,8 @@
     <Setting Name="theLoai" Type="System.String" Scope="User">
       <Value Profile="(Default)">SGK,Web Development,AI Engineer</Value>
     </Setting>
+    <Setting Name="nhaCungCap" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NCC1,NCC2,NCC3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

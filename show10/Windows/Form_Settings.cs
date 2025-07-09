@@ -1,5 +1,10 @@
-﻿namespace Show10.Windows {
+﻿using System.ComponentModel;
+
+namespace Show10.Windows {
     public partial class Form_Settings : Form {
+        BindingList<string> theLoai = new(Properties.Settings.Default.theLoai.Split(',').ToList());
+        BindingList<string> nhaCungCap = new(Properties.Settings.Default.nhaCungCap.Split(',').ToList());
+
         public Form_Settings() {
             InitializeComponent();
             SetTextbox();
@@ -9,7 +14,8 @@
             tool.SetToolTip(icon_Reset, "Đặt lại các thông số về giá trị mặc định");
             tool.SetToolTip(icon_Luu, "Lưu thay đổi các thông số");
 
-            listBox_theLoai.DataSource = Properties.Settings.Default.theLoai.Split(',').ToList();
+            listBox_theLoai.DataSource = theLoai;
+            listBox_nhaCungCap.DataSource = nhaCungCap;
         }
         private void Icon_Luu_Click(object sender, EventArgs e) {
             Properties.Settings.Default.minNhap = int.Parse(textBox_minNhap.Text);
@@ -78,11 +84,27 @@
         private void Form_Settings_FormClosing(object sender, FormClosingEventArgs e) {
             var result = MessageBox.Show("Các thông số sẽ không được lưu nếu bạn tắt cửa sổ này.\n" +
                 "Lưu các thông số?", "Chưa lưu các thông số", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-            
-            if(result == DialogResult.Yes) {
+
+            if (result == DialogResult.Yes) {
                 Icon_Luu_Click(sender, e);
             } else if (result == DialogResult.Cancel) {
                 e.Cancel = true;
+            }
+        }
+
+        private void Button_TheLoai_Them_Click(object sender, EventArgs e) {
+            theLoai.Add(textBox_TheLoai_Them.Text.Trim());
+
+            textBox_TheLoai_Them.Text = "";
+            listBox_theLoai.Refresh();
+        }
+
+        private void Button_TheLoai_Xoa_Click(object sender, EventArgs e) {
+            var result = MessageBox.Show("Bạn muốn xoá thể loại sách này?",
+                "Trước khi xoá thể loại sách", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if( result == DialogResult.Yes) {
+                theLoai.RemoveAt(listBox_theLoai.SelectedIndex);
             }
         }
     }
