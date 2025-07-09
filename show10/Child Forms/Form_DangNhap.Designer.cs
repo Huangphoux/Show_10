@@ -26,6 +26,7 @@
             components = new System.ComponentModel.Container();
             panel_DangNhap = new Panel();
             panel_DangNhap_Phai = new Panel();
+            label_DangKy = new Label();
             icon_ShowPass = new FontAwesome.Sharp.IconPictureBox();
             label_DangNhap = new Label();
             label_TenTK = new Label();
@@ -39,7 +40,6 @@
             label_Clock = new Label();
             label_Welcome = new Label();
             timer_Clock = new System.Windows.Forms.Timer(components);
-            label_DangKy = new Label();
             panel_DangNhap_Phai.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)icon_ShowPass).BeginInit();
             panel_Welcome.SuspendLayout();
@@ -62,7 +62,6 @@
             panel_DangNhap_Phai.Controls.Add(icon_ShowPass);
             panel_DangNhap_Phai.Controls.Add(label_DangNhap);
             panel_DangNhap_Phai.Controls.Add(label_TenTK);
-            panel_DangNhap_Phai.Controls.Add(checkBox_enableTab);
             panel_DangNhap_Phai.Controls.Add(label_ChaoDon);
             panel_DangNhap_Phai.Controls.Add(label_MatKhau);
             panel_DangNhap_Phai.Controls.Add(textBox_MatKhau);
@@ -72,6 +71,16 @@
             panel_DangNhap_Phai.Name = "panel_DangNhap_Phai";
             panel_DangNhap_Phai.Size = new Size(591, 673);
             panel_DangNhap_Phai.TabIndex = 0;
+            // 
+            // label_DangKy
+            // 
+            label_DangKy.Dock = DockStyle.Bottom;
+            label_DangKy.Location = new Point(0, 464);
+            label_DangKy.Name = "label_DangKy";
+            label_DangKy.Size = new Size(591, 209);
+            label_DangKy.TabIndex = 14;
+            label_DangKy.Text = "Về việc đăng kí:\r\nvui lòng liên hệ với quản lí để được cấp\r\ntài khoản truy cập vào hệ thống của nhà sách.";
+            label_DangKy.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // icon_ShowPass
             // 
@@ -113,15 +122,14 @@
             // checkBox_enableTab
             // 
             checkBox_enableTab.Appearance = Appearance.Button;
-            checkBox_enableTab.Dock = DockStyle.Bottom;
             checkBox_enableTab.Enabled = false;
             checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
             checkBox_enableTab.FlatAppearance.BorderSize = 0;
             checkBox_enableTab.FlatStyle = FlatStyle.Flat;
-            checkBox_enableTab.ForeColor = Color.White;
-            checkBox_enableTab.Location = new Point(0, 582);
+            checkBox_enableTab.ForeColor = Color.DarkGreen;
+            checkBox_enableTab.Location = new Point(933, 312);
             checkBox_enableTab.Name = "checkBox_enableTab";
-            checkBox_enableTab.Size = new Size(591, 91);
+            checkBox_enableTab.Size = new Size(298, 271);
             checkBox_enableTab.TabIndex = 10;
             checkBox_enableTab.Text = "Bật các tab";
             checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
@@ -205,6 +213,7 @@
             panel_Welcome.BackColor = Color.DarkGreen;
             panel_Welcome.Controls.Add(label_Clock);
             panel_Welcome.Controls.Add(label_Welcome);
+            panel_Welcome.Controls.Add(checkBox_enableTab);
             panel_Welcome.Dock = DockStyle.Fill;
             panel_Welcome.Location = new Point(0, 0);
             panel_Welcome.Name = "panel_Welcome";
@@ -242,15 +251,6 @@
             timer_Clock.Enabled = true;
             timer_Clock.Interval = 1000;
             timer_Clock.Tick += Timer_Clock_Tick;
-            // 
-            // label_DangKy
-            // 
-            label_DangKy.Location = new Point(69, 495);
-            label_DangKy.Name = "label_DangKy";
-            label_DangKy.Size = new Size(453, 113);
-            label_DangKy.TabIndex = 14;
-            label_DangKy.Text = "Về việc đăng kí:\r\nvui lòng liên hệ với quản lí để được cấp tài khoản truy cập vào hệ thống của nhà sách.";
-            label_DangKy.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form_DangNhap
             // 
