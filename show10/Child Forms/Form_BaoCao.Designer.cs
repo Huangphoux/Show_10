@@ -29,10 +29,6 @@
             tabControl_BaoCao = new TabControl();
             tabPage_BCTon = new TabPage();
             dataGridView_BCTon = new DataGridView();
-            tenSachDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            tonDauDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            phatSinhDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            tonCuoiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             baoCaoTonBindingSource = new BindingSource(components);
             groupBox_BCTon = new GroupBox();
             icon_BCTon_TaoMoi = new FontAwesome.Sharp.IconButton();
@@ -52,10 +48,14 @@
             comboBox_BCNo_Thang = new ComboBox();
             iconButton_BCNo_In = new FontAwesome.Sharp.IconButton();
             textBox_BCTon_Thang = new TextBox();
+            tenSachDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tonDauDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phatSinhDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            tonCuoiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             TenKH = new DataGridViewTextBoxColumn();
             NoDau = new DataGridViewTextBoxColumn();
-            NoCuoi = new DataGridViewTextBoxColumn();
             phatSinhDataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            NoCuoi = new DataGridViewTextBoxColumn();
             tabControl_BaoCao.SuspendLayout();
             tabPage_BCTon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_BCTon).BeginInit();
@@ -121,38 +121,6 @@
             dataGridView_BCTon.RowHeadersWidth = 51;
             dataGridView_BCTon.Size = new Size(766, 348);
             dataGridView_BCTon.TabIndex = 2;
-            // 
-            // tenSachDataGridViewTextBoxColumn
-            // 
-            tenSachDataGridViewTextBoxColumn.DataPropertyName = "TenSach";
-            tenSachDataGridViewTextBoxColumn.HeaderText = "TenSach";
-            tenSachDataGridViewTextBoxColumn.MinimumWidth = 6;
-            tenSachDataGridViewTextBoxColumn.Name = "tenSachDataGridViewTextBoxColumn";
-            tenSachDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tonDauDataGridViewTextBoxColumn
-            // 
-            tonDauDataGridViewTextBoxColumn.DataPropertyName = "TonDau";
-            tonDauDataGridViewTextBoxColumn.HeaderText = "TonDau";
-            tonDauDataGridViewTextBoxColumn.MinimumWidth = 6;
-            tonDauDataGridViewTextBoxColumn.Name = "tonDauDataGridViewTextBoxColumn";
-            tonDauDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phatSinhDataGridViewTextBoxColumn
-            // 
-            phatSinhDataGridViewTextBoxColumn.DataPropertyName = "PhatSinh";
-            phatSinhDataGridViewTextBoxColumn.HeaderText = "PhatSinh";
-            phatSinhDataGridViewTextBoxColumn.MinimumWidth = 6;
-            phatSinhDataGridViewTextBoxColumn.Name = "phatSinhDataGridViewTextBoxColumn";
-            phatSinhDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tonCuoiDataGridViewTextBoxColumn
-            // 
-            tonCuoiDataGridViewTextBoxColumn.DataPropertyName = "TonCuoi";
-            tonCuoiDataGridViewTextBoxColumn.HeaderText = "TonCuoi";
-            tonCuoiDataGridViewTextBoxColumn.MinimumWidth = 6;
-            tonCuoiDataGridViewTextBoxColumn.Name = "tonCuoiDataGridViewTextBoxColumn";
-            tonCuoiDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // baoCaoTonBindingSource
             // 
@@ -289,17 +257,17 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView_BCNo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_BCNo.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_BCNo.Columns.AddRange(new DataGridViewColumn[] { TenKH, NoDau, NoCuoi, phatSinhDataGridViewTextBoxColumn2 });
+            dataGridView_BCNo.Columns.AddRange(new DataGridViewColumn[] { TenKH, NoDau, phatSinhDataGridViewTextBoxColumn2, NoCuoi });
             dataGridView_BCNo.DataSource = baoCaoNoBindingSource;
             dataGridView_BCNo.Dock = DockStyle.Fill;
             dataGridView_BCNo.EnableHeadersVisualStyles = false;
             dataGridView_BCNo.GridColor = Color.Black;
-            dataGridView_BCNo.Location = new Point(3, 231);
+            dataGridView_BCNo.Location = new Point(3, 159);
             dataGridView_BCNo.Name = "dataGridView_BCNo";
             dataGridView_BCNo.ReadOnly = true;
             dataGridView_BCNo.RowHeadersVisible = false;
             dataGridView_BCNo.RowHeadersWidth = 51;
-            dataGridView_BCNo.Size = new Size(766, 276);
+            dataGridView_BCNo.Size = new Size(766, 348);
             dataGridView_BCNo.TabIndex = 3;
             // 
             // baoCaoNoBindingSource
@@ -317,7 +285,7 @@
             groupBox_BCNo.Dock = DockStyle.Top;
             groupBox_BCNo.Location = new Point(3, 3);
             groupBox_BCNo.Name = "groupBox_BCNo";
-            groupBox_BCNo.Size = new Size(766, 228);
+            groupBox_BCNo.Size = new Size(766, 156);
             groupBox_BCNo.TabIndex = 4;
             groupBox_BCNo.TabStop = false;
             groupBox_BCNo.Text = "Nhập liệu";
@@ -335,7 +303,7 @@
             icon_BCNo_TaoMoi.IconFont = FontAwesome.Sharp.IconFont.Solid;
             icon_BCNo_TaoMoi.IconSize = 30;
             icon_BCNo_TaoMoi.ImageAlign = ContentAlignment.BottomCenter;
-            icon_BCNo_TaoMoi.Location = new Point(370, 40);
+            icon_BCNo_TaoMoi.Location = new Point(349, 40);
             icon_BCNo_TaoMoi.Margin = new Padding(10);
             icon_BCNo_TaoMoi.Name = "icon_BCNo_TaoMoi";
             icon_BCNo_TaoMoi.Size = new Size(174, 91);
@@ -396,7 +364,7 @@
             iconButton_BCNo_In.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconButton_BCNo_In.IconSize = 30;
             iconButton_BCNo_In.ImageAlign = ContentAlignment.BottomCenter;
-            iconButton_BCNo_In.Location = new Point(558, 40);
+            iconButton_BCNo_In.Location = new Point(547, 40);
             iconButton_BCNo_In.Margin = new Padding(10);
             iconButton_BCNo_In.Name = "iconButton_BCNo_In";
             iconButton_BCNo_In.Size = new Size(174, 91);
@@ -415,10 +383,42 @@
             textBox_BCTon_Thang.Size = new Size(271, 34);
             textBox_BCTon_Thang.TabIndex = 37;
             // 
+            // tenSachDataGridViewTextBoxColumn
+            // 
+            tenSachDataGridViewTextBoxColumn.DataPropertyName = "TenSach";
+            tenSachDataGridViewTextBoxColumn.HeaderText = "Tên sách";
+            tenSachDataGridViewTextBoxColumn.MinimumWidth = 6;
+            tenSachDataGridViewTextBoxColumn.Name = "tenSachDataGridViewTextBoxColumn";
+            tenSachDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tonDauDataGridViewTextBoxColumn
+            // 
+            tonDauDataGridViewTextBoxColumn.DataPropertyName = "TonDau";
+            tonDauDataGridViewTextBoxColumn.HeaderText = "Tồn đầu";
+            tonDauDataGridViewTextBoxColumn.MinimumWidth = 6;
+            tonDauDataGridViewTextBoxColumn.Name = "tonDauDataGridViewTextBoxColumn";
+            tonDauDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phatSinhDataGridViewTextBoxColumn
+            // 
+            phatSinhDataGridViewTextBoxColumn.DataPropertyName = "PhatSinh";
+            phatSinhDataGridViewTextBoxColumn.HeaderText = "Phát sinh";
+            phatSinhDataGridViewTextBoxColumn.MinimumWidth = 6;
+            phatSinhDataGridViewTextBoxColumn.Name = "phatSinhDataGridViewTextBoxColumn";
+            phatSinhDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tonCuoiDataGridViewTextBoxColumn
+            // 
+            tonCuoiDataGridViewTextBoxColumn.DataPropertyName = "TonCuoi";
+            tonCuoiDataGridViewTextBoxColumn.HeaderText = "Tồn cuối";
+            tonCuoiDataGridViewTextBoxColumn.MinimumWidth = 6;
+            tonCuoiDataGridViewTextBoxColumn.Name = "tonCuoiDataGridViewTextBoxColumn";
+            tonCuoiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // TenKH
             // 
             TenKH.DataPropertyName = "TenKH";
-            TenKH.HeaderText = "TenKH";
+            TenKH.HeaderText = "Tên khách hàng";
             TenKH.MinimumWidth = 6;
             TenKH.Name = "TenKH";
             TenKH.ReadOnly = true;
@@ -426,26 +426,26 @@
             // NoDau
             // 
             NoDau.DataPropertyName = "NoDau";
-            NoDau.HeaderText = "NoDau";
+            NoDau.HeaderText = "Nợ đầu";
             NoDau.MinimumWidth = 6;
             NoDau.Name = "NoDau";
             NoDau.ReadOnly = true;
             // 
-            // NoCuoi
-            // 
-            NoCuoi.DataPropertyName = "NoCuoi";
-            NoCuoi.HeaderText = "NoCuoi";
-            NoCuoi.MinimumWidth = 6;
-            NoCuoi.Name = "NoCuoi";
-            NoCuoi.ReadOnly = true;
-            // 
             // phatSinhDataGridViewTextBoxColumn2
             // 
             phatSinhDataGridViewTextBoxColumn2.DataPropertyName = "PhatSinh";
-            phatSinhDataGridViewTextBoxColumn2.HeaderText = "PhatSinh";
+            phatSinhDataGridViewTextBoxColumn2.HeaderText = "Phát sinh";
             phatSinhDataGridViewTextBoxColumn2.MinimumWidth = 6;
             phatSinhDataGridViewTextBoxColumn2.Name = "phatSinhDataGridViewTextBoxColumn2";
             phatSinhDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // NoCuoi
+            // 
+            NoCuoi.DataPropertyName = "NoCuoi";
+            NoCuoi.HeaderText = "Nợ cuối";
+            NoCuoi.MinimumWidth = 6;
+            NoCuoi.Name = "NoCuoi";
+            NoCuoi.ReadOnly = true;
             // 
             // Form_BaoCao
             // 
@@ -510,21 +510,21 @@
         private DataGridViewTextBoxColumn hoTenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn vaiTroDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn maSachDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tonDauDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn phatSinhDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tonCuoiDataGridViewTextBoxColumn;
         private BindingSource baoCaoNoBindingSource;
         private DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn noDauDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phatSinhDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn noCuoiDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn tenSachDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn tenSachDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn tonDauDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn tonCuoiDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn tenSachDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tonDauDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phatSinhDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn tonCuoiDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn TenKH;
         private DataGridViewTextBoxColumn NoDau;
-        private DataGridViewTextBoxColumn NoCuoi;
         private DataGridViewTextBoxColumn phatSinhDataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn NoCuoi;
     }
 }
