@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox_TaiKhoan = new GroupBox();
@@ -270,6 +271,7 @@
             dataGridView_TaiKhoan.AllowUserToAddRows = false;
             dataGridView_TaiKhoan.AllowUserToDeleteRows = false;
             dataGridView_TaiKhoan.AllowUserToOrderColumns = true;
+            dataGridView_TaiKhoan.AllowUserToResizeRows = false;
             dataGridView_TaiKhoan.AutoGenerateColumns = false;
             dataGridView_TaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_TaiKhoan.BackgroundColor = Color.White;

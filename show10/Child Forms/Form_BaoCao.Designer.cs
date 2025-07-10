@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -95,6 +96,7 @@
             // 
             dataGridView_BCTon.AllowUserToAddRows = false;
             dataGridView_BCTon.AllowUserToDeleteRows = false;
+            dataGridView_BCTon.AllowUserToResizeRows = false;
             dataGridView_BCTon.AutoGenerateColumns = false;
             dataGridView_BCTon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCTon.BackgroundColor = Color.White;
@@ -275,6 +277,7 @@
             // 
             dataGridView_BCNo.AllowUserToAddRows = false;
             dataGridView_BCNo.AllowUserToDeleteRows = false;
+            dataGridView_BCNo.AllowUserToResizeRows = false;
             dataGridView_BCNo.AutoGenerateColumns = false;
             dataGridView_BCNo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_BCNo.BackgroundColor = Color.White;
