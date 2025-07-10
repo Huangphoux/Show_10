@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -1276,7 +1275,7 @@
             label_GiaiThich.Location = new Point(36, 173);
             label_GiaiThich.Margin = new Padding(4, 0, 28, 0);
             label_GiaiThich.Name = "label_GiaiThich";
-            label_GiaiThich.Size = new Size(492, 30);
+            label_GiaiThich.Size = new Size(463, 30);
             label_GiaiThich.TabIndex = 50;
             label_GiaiThich.Text = "Giá bán = 105% của giá nhập cuối cùng\r\n";
             label_GiaiThich.TextAlign = ContentAlignment.MiddleCenter;
@@ -1319,20 +1318,20 @@
             // label_HD_ConLai
             // 
             label_HD_ConLai.Font = new Font("Segoe UI", 12F);
-            label_HD_ConLai.Location = new Point(524, 236);
+            label_HD_ConLai.Location = new Point(510, 236);
             label_HD_ConLai.Margin = new Padding(4, 0, 28, 0);
             label_HD_ConLai.Name = "label_HD_ConLai";
-            label_HD_ConLai.Size = new Size(115, 30);
+            label_HD_ConLai.Size = new Size(109, 30);
             label_HD_ConLai.TabIndex = 47;
             label_HD_ConLai.Text = "Còn lại";
-            label_HD_ConLai.TextAlign = ContentAlignment.MiddleLeft;
+            label_HD_ConLai.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // textBox_HD_TongTien
             // 
             textBox_HD_TongTien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_TongTien.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_TongTien.Font = new Font("Segoe UI", 12F);
-            textBox_HD_TongTien.Location = new Point(379, 234);
+            textBox_HD_TongTien.Location = new Point(384, 234);
             textBox_HD_TongTien.Margin = new Padding(4);
             textBox_HD_TongTien.Name = "textBox_HD_TongTien";
             textBox_HD_TongTien.ReadOnly = true;
@@ -1343,13 +1342,13 @@
             // label_HD_TongTien
             // 
             label_HD_TongTien.Font = new Font("Segoe UI", 12F);
-            label_HD_TongTien.Location = new Point(279, 236);
+            label_HD_TongTien.Location = new Point(283, 236);
             label_HD_TongTien.Margin = new Padding(4, 0, 28, 0);
             label_HD_TongTien.Name = "label_HD_TongTien";
-            label_HD_TongTien.Size = new Size(115, 30);
+            label_HD_TongTien.Size = new Size(95, 30);
             label_HD_TongTien.TabIndex = 45;
             label_HD_TongTien.Text = "Tổng tiền";
-            label_HD_TongTien.TextAlign = ContentAlignment.MiddleLeft;
+            label_HD_TongTien.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // textBox_HD_SoTienTra
             // 
@@ -1370,7 +1369,7 @@
             label_HD_SoTienTra.Location = new Point(510, 111);
             label_HD_SoTienTra.Margin = new Padding(4, 0, 28, 0);
             label_HD_SoTienTra.Name = "label_HD_SoTienTra";
-            label_HD_SoTienTra.Size = new Size(115, 30);
+            label_HD_SoTienTra.Size = new Size(109, 30);
             label_HD_SoTienTra.TabIndex = 43;
             label_HD_SoTienTra.Text = "Tiền trả";
             label_HD_SoTienTra.TextAlign = ContentAlignment.MiddleCenter;
@@ -1402,7 +1401,7 @@
             textBox_HD_GiaBan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox_HD_GiaBan.BorderStyle = BorderStyle.FixedSingle;
             textBox_HD_GiaBan.Font = new Font("Segoe UI", 12F);
-            textBox_HD_GiaBan.Location = new Point(140, 234);
+            textBox_HD_GiaBan.Location = new Point(157, 234);
             textBox_HD_GiaBan.Margin = new Padding(4);
             textBox_HD_GiaBan.Name = "textBox_HD_GiaBan";
             textBox_HD_GiaBan.ReadOnly = true;
@@ -1472,7 +1471,7 @@
             textBox_HD_SoLuong.Location = new Point(151, 110);
             textBox_HD_SoLuong.Margin = new Padding(4);
             textBox_HD_SoLuong.Name = "textBox_HD_SoLuong";
-            textBox_HD_SoLuong.Size = new Size(359, 34);
+            textBox_HD_SoLuong.Size = new Size(348, 34);
             textBox_HD_SoLuong.TabIndex = 32;
             textBox_HD_SoLuong.TextChanged += TextBox_HD_SoLuong_TextChanged;
             textBox_HD_SoLuong.KeyPress += TextBox_Integer_KeyPress;
