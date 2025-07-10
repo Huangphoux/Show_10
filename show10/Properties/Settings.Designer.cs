@@ -85,7 +85,7 @@ namespace Show10.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SGK,Web Development,AI Engineer")]
+        [global::System.Configuration.DefaultSettingValueAttribute("SGK,Programming,Web Development,Database,Software Engineering,Algorithms,AI")]
         public string theLoai {
             get {
                 return ((string)(this["theLoai"]));
@@ -97,7 +97,7 @@ namespace Show10.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NCC1,NCC2,NCC3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("NCC01,NCC02,NCC03,NCC04,NCC05,NCC06,NCC07,NCC08,NCC09,NCC10,NCC11")]
         public string nhaCungCap {
             get {
                 return ((string)(this["nhaCungCap"]));
