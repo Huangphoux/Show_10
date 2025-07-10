@@ -264,7 +264,7 @@ namespace Show10.Child_Forms {
             icon_KH_Loc.IconChar = (icon_KH_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
             isLoc_KH = !isLoc_KH;
 
-            List<Button> icon_KH = [icon_KH_Them, icon_KH_Xoa, icon_KH_Tim, icon_KH_ThuTien];
+            List<Button> icon_KH = [icon_KH_Them, icon_KH_Xoa, icon_KH_Tim];
 
             icon_KH.ForEach(icon => icon.Enabled = !isLoc_KH);
 
@@ -584,12 +584,12 @@ namespace Show10.Child_Forms {
 
                 comboBox_PTT_MaKH.SelectedIndex = -1;
 
-                date_PTT_NgayThu.Text = db!.PhieuNhapSachs
-                                                 .OrderBy(s => s.NgayNhap)
-                                                 .FirstOrDefault()?.NgayNhap.ToShortDateString();
-                date_PTT_Filter.Text = db!.PhieuNhapSachs
-                                                .OrderByDescending(s => s.NgayNhap)
-                                                .FirstOrDefault()?.NgayNhap.ToShortDateString();
+                date_PTT_NgayThu.Text = db!.PhieuThuTiens
+                                                 .OrderBy(s => s.NgayThu)
+                                                 .FirstOrDefault()?.NgayThu.ToShortDateString();
+                date_PTT_Filter.Text = db!.PhieuThuTiens
+                                                .OrderByDescending(s => s.NgayThu)
+                                                .FirstOrDefault()?.NgayThu.ToShortDateString();
 
             }
         }
@@ -616,19 +616,23 @@ namespace Show10.Child_Forms {
         private IQueryable<PhieuThuTien> GetFilteredData_PTT() {
             var filteredData = db!.PhieuThuTiens.Local.AsQueryable();
 
-            if (!string.IsNullOrEmpty(textBox_PTT_MaPhieu.Text)) {
-                if (int.TryParse(textBox_PTT_MaPhieu.Text, out int maPT)) {
-                    filteredData = filteredData.Where(ptt => ptt.MaPT.ToString().Contains(maPT.ToString()));
+            if (!isLoc_PTT) {
+                if (!string.IsNullOrEmpty(textBox_PTT_MaPhieu.Text)) {
+                    if (int.TryParse(textBox_PTT_MaPhieu.Text, out int maPT)) {
+                        filteredData = filteredData.Where(s => s.MaPT == maPT);
+                    }
                 }
             }
             if (!string.IsNullOrEmpty(comboBox_PTT_MaKH.Text)) {
                 if (int.TryParse(comboBox_PTT_MaKH.SelectedValue.ToString(), out int maKH)) {
-                    filteredData = filteredData.Where(ptt => ptt.MaKH.ToString().Contains(maKH.ToString()));
+                    filteredData = filteredData.Where(ptt => ptt.MaKH == maKH);
                 }
             }
             if (!string.IsNullOrEmpty(textBox_PTT_SoTien.Text)) {
-                if (double.TryParse(textBox_PTT_SoTien.Text, out double soTien)) {
-                    filteredData = filteredData.Where(ptt => ptt.SoTien == soTien);
+                try {
+                    filteredData = filteredData.Where(FilterSoLuong(textBox_PTT_SoTien.Text, "SoTien"));
+                } catch {
+                    // Ignore invalid expressions
                 }
             }
 

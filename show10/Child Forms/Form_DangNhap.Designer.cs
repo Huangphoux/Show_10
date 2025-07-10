@@ -26,6 +26,7 @@
             components = new System.ComponentModel.Container();
             panel_DangNhap = new Panel();
             panel_DangNhap_Phai = new Panel();
+            checkBox_enableTab = new CheckBox();
             label_DangKy = new Label();
             icon_ShowPass = new FontAwesome.Sharp.IconPictureBox();
             label_DangNhap = new Label();
@@ -35,7 +36,6 @@
             textBox_MatKhau = new TextBox();
             textBox_TenTK = new TextBox();
             icon_DangNhap = new FontAwesome.Sharp.IconButton();
-            checkBox_enableTab = new CheckBox();
             panel_Welcome = new Panel();
             label_Clock = new Label();
             label_Welcome = new Label();
@@ -72,6 +72,24 @@
             panel_DangNhap_Phai.Name = "panel_DangNhap_Phai";
             panel_DangNhap_Phai.Size = new Size(591, 673);
             panel_DangNhap_Phai.TabIndex = 0;
+            // 
+            // checkBox_enableTab
+            // 
+            checkBox_enableTab.Appearance = Appearance.Button;
+            checkBox_enableTab.BackColor = Color.White;
+            checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
+            checkBox_enableTab.FlatAppearance.BorderSize = 0;
+            checkBox_enableTab.FlatStyle = FlatStyle.Flat;
+            checkBox_enableTab.ForeColor = Color.White;
+            checkBox_enableTab.Location = new Point(105, 614);
+            checkBox_enableTab.Name = "checkBox_enableTab";
+            checkBox_enableTab.Size = new Size(380, 44);
+            checkBox_enableTab.TabIndex = 10;
+            checkBox_enableTab.Text = "Bật các tab\r\n(TÍNH NĂNG DEBUG)\r\n";
+            checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox_enableTab.UseVisualStyleBackColor = false;
+            checkBox_enableTab.Visible = false;
+            checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
             // 
             // label_DangKy
             // 
@@ -190,23 +208,6 @@
             icon_DangNhap.TextImageRelation = TextImageRelation.ImageBeforeText;
             icon_DangNhap.UseVisualStyleBackColor = false;
             icon_DangNhap.Click += Icon_DangNhap_Click;
-            // 
-            // checkBox_enableTab
-            // 
-            checkBox_enableTab.Appearance = Appearance.Button;
-            checkBox_enableTab.BackColor = Color.White;
-            checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
-            checkBox_enableTab.FlatAppearance.BorderSize = 0;
-            checkBox_enableTab.FlatStyle = FlatStyle.Flat;
-            checkBox_enableTab.ForeColor = Color.White;
-            checkBox_enableTab.Location = new Point(105, 614);
-            checkBox_enableTab.Name = "checkBox_enableTab";
-            checkBox_enableTab.Size = new Size(380, 44);
-            checkBox_enableTab.TabIndex = 10;
-            checkBox_enableTab.Text = "Bật các tab\r\n(TÍNH NĂNG DEBUG)\r\n";
-            checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
-            checkBox_enableTab.UseVisualStyleBackColor = false;
-            checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
             // 
             // panel_Welcome
             // 

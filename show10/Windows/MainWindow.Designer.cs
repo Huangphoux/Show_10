@@ -254,8 +254,7 @@
             // 
             // MainWindow
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1582, 853);
             Controls.Add(panel_ChildForm);
             Controls.Add(panel_Menu);

@@ -772,7 +772,7 @@ namespace Show10.Child_Forms {
                 return;
             if (!isLoc_PNS && dataGridView_PhieuNhapSach.CurrentRow != null) {
                 string maPN = dataGridView_PhieuNhapSach.CurrentRow.Cells[0].Value?.ToString() ?? "";
-                string maSach = dataGridView_PhieuNhapSach.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                string maSach = dataGridView_PhieuNhapSach.CurrentRow.Cells["maSachDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
                 string soLuong = dataGridView_PhieuNhapSach.CurrentRow.Cells[2].Value?.ToString() ?? "";
                 string giaNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[3].Value?.ToString() ?? "";
                 string ngayNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[4].Value?.ToString() ?? "";
@@ -1250,8 +1250,8 @@ namespace Show10.Child_Forms {
 
             if (!isLoc_HD && dataGridView_HoaDonBanSach.CurrentRow != null) {
                 var maHD = dataGridView_HoaDonBanSach.CurrentRow.Cells[0].Value?.ToString() ?? "";
-                var maKH = dataGridView_HoaDonBanSach.CurrentRow.Cells[1].Value?.ToString() ?? "";
-                var maSach = dataGridView_HoaDonBanSach.CurrentRow.Cells[2].Value?.ToString() ?? "";
+                var maKH = dataGridView_HoaDonBanSach.CurrentRow.Cells["dataGridViewTextBoxColumn3"].Value?.ToString() ?? "";
+                var maSach = dataGridView_HoaDonBanSach.CurrentRow.Cells["MaSach"].Value?.ToString() ?? "";
                 var soLuong = dataGridView_HoaDonBanSach.CurrentRow.Cells[3].Value?.ToString() ?? "";
                 var giaBan = dataGridView_HoaDonBanSach.CurrentRow.Cells[4].Value?.ToString() ?? "";
                 var tongTien = dataGridView_HoaDonBanSach.CurrentRow.Cells[5].Value?.ToString() ?? "";
@@ -1343,9 +1343,10 @@ namespace Show10.Child_Forms {
             foreach (DataGridViewRow row in dataGridView_HoaDonBanSach.Rows) {
                 if (row.DataBoundItem is HoaDonBanSach hoadon) {
                     row.Cells["TenSach_HD"].Value = db?.Sachs.FirstOrDefault(s => s.MaSach == hoadon.MaSach)!.TenSach;
-                    row.Cells["TenKH_HD"].Value = db?.KhachHangs.FirstOrDefault(s => s.MaKH== hoadon.MaKH)!.TenKH;
+                    row.Cells["TenKH_HD"].Value = db?.KhachHangs.FirstOrDefault(s => s.MaKH == hoadon.MaKH)!.TenKH;
                 }
             }
         }
+
     }
 }
