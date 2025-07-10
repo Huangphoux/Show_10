@@ -18,10 +18,10 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="theLoai" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SGK,Web Development,AI Engineer</Value>
+      <Value Profile="(Default)">SGK,Programming,Web Development,Database,Software Engineering,Algorithms,AI</Value>
     </Setting>
     <Setting Name="nhaCungCap" Type="System.String" Scope="User">
-      <Value Profile="(Default)">NCC1,NCC2,NCC3</Value>
+      <Value Profile="(Default)">NCC01,NCC02,NCC03,NCC04,NCC05,NCC06,NCC07,NCC08,NCC09,NCC10,NCC11</Value>
     </Setting>
   </Settings>
 </SettingsFile>
