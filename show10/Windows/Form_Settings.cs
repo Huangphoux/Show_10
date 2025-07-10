@@ -105,7 +105,7 @@ namespace Show10.Windows {
         }
 
         private void Button_TheLoai_Them_Click(object sender, EventArgs e) {
-            if (String.IsNullOrWhiteSpace(textBox_TheLoai_Them.Text)) {
+            if (!String.IsNullOrWhiteSpace(textBox_TheLoai_Them.Text)) {
                 theLoai.Add(textBox_TheLoai_Them.Text.Trim());
             }
             textBox_TheLoai_Them.Text = "";
@@ -131,8 +131,7 @@ namespace Show10.Windows {
         }
 
         private void Button_NCC_Them_Click(object sender, EventArgs e) {
-            if (String.IsNullOrWhiteSpace(textBox_NCC_Them.Text)) {
-
+            if (!String.IsNullOrWhiteSpace(textBox_NCC_Them.Text)) {
                 nhaCungCap.Add(textBox_NCC_Them.Text.Trim());
             }
             textBox_NCC_Them.Text = "";
