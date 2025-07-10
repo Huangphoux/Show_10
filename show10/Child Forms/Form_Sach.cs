@@ -1324,5 +1324,28 @@ namespace Show10.Child_Forms {
             comboBox_HD_MaSach.SelectedIndex = -1;
         }
         #endregion
+
+        private void DataGridView_PhieuNhapSach_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            if (db == null || this.IsDisposed || this.Disposing)
+                return;
+
+            foreach (DataGridViewRow row in dataGridView_PhieuNhapSach.Rows) {
+                if (row.DataBoundItem is PhieuNhapSach phieu) {
+                    row.Cells["TenSach_PNS"].Value = db?.Sachs.FirstOrDefault(s => s.MaSach == phieu.MaSach)!.TenSach;
+                }
+            }
+        }
+
+        private void DataGridView_HoaDonBanSach_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            if (db == null || this.IsDisposed || this.Disposing)
+                return;
+
+            foreach (DataGridViewRow row in dataGridView_HoaDonBanSach.Rows) {
+                if (row.DataBoundItem is HoaDonBanSach hoadon) {
+                    row.Cells["TenSach_HD"].Value = db?.Sachs.FirstOrDefault(s => s.MaSach == hoadon.MaSach)!.TenSach;
+                    row.Cells["TenKH_HD"].Value = db?.KhachHangs.FirstOrDefault(s => s.MaKH== hoadon.MaKH)!.TenKH;
+                }
+            }
+        }
     }
 }

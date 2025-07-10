@@ -581,6 +581,16 @@ namespace Show10.Child_Forms {
             } else {
                 ApplyFilter_PhieuThuTien();
                 Icon_PTT_Clear_Click(sender, e);
+
+                comboBox_PTT_MaKH.SelectedIndex = -1;
+
+                date_PTT_NgayThu.Text = db!.PhieuNhapSachs
+                                                 .OrderBy(s => s.NgayNhap)
+                                                 .FirstOrDefault()?.NgayNhap.ToShortDateString();
+                date_PTT_Filter.Text = db!.PhieuNhapSachs
+                                                .OrderByDescending(s => s.NgayNhap)
+                                                .FirstOrDefault()?.NgayNhap.ToShortDateString();
+
             }
         }
         #region Detect changes in quanLyPhieuThuTien
@@ -663,8 +673,8 @@ namespace Show10.Child_Forms {
             if (!isLoc_PTT && dataGridView_PhieuThuTien.CurrentRow != null) {
                 string maPT = dataGridView_PhieuThuTien.CurrentRow.Cells[0].Value?.ToString() ?? "";
                 string maKH = dataGridView_PhieuThuTien.CurrentRow.Cells["maKHDataGridViewTextBoxColumn1"].Value?.ToString() ?? "";
-                string ngayThu = dataGridView_PhieuThuTien.CurrentRow.Cells[2].Value?.ToString() ?? "";
-                string soTien = dataGridView_PhieuThuTien.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                string ngayThu = dataGridView_PhieuThuTien.CurrentRow.Cells["ngayThuDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+                string soTien = dataGridView_PhieuThuTien.CurrentRow.Cells["soTienDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
 
                 SetPhieuThuTien(new PhieuThuTien {
                     MaPT = int.TryParse(maPT, out var _maPT) ? _maPT : 0,
@@ -698,7 +708,6 @@ namespace Show10.Child_Forms {
         private void Icon_PTT_ResetMaKH_Click(object sender, EventArgs e) {
             comboBox_PTT_MaKH.SelectedIndex = -1;
         }
-        #endregion
 
         private void DataGridView_PhieuThuTien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
             if (db == null || this.IsDisposed || this.Disposing)
@@ -710,5 +719,8 @@ namespace Show10.Child_Forms {
                 }
             }
         }
+
+        #endregion
+
     }
 }

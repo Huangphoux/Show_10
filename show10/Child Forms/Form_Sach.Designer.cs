@@ -58,11 +58,11 @@
             tabPage_PhieuNhapSach = new TabPage();
             dataGridView_PhieuNhapSach = new DataGridView();
             maPNDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            TenSach_PNS = new DataGridViewTextBoxColumn();
             maSachDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             soLuongDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             giaNhapDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ngayNhapDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            NhaCungCap = new DataGridViewTextBoxColumn();
             phieuNhapSachBindingSource = new BindingSource(components);
             groupBox_PhieuNhapSach = new GroupBox();
             icon_PNS_ResetNCC = new FontAwesome.Sharp.IconButton();
@@ -89,8 +89,10 @@
             tabPage_HoaDonBanSach = new TabPage();
             dataGridView_HoaDonBanSach = new DataGridView();
             MaHD = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            TenKH_HD = new DataGridViewTextBoxColumn();
+            TenSach_HD = new DataGridViewTextBoxColumn();
             MaSach = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             SoLuong = new DataGridViewTextBoxColumn();
             GiaBan = new DataGridViewTextBoxColumn();
             TongTien = new DataGridViewTextBoxColumn();
@@ -572,11 +574,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 37);
+            tabPage_PhieuNhapSach.Location = new Point(4, 29);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(1254, 712);
+            tabPage_PhieuNhapSach.Size = new Size(1254, 720);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -599,7 +601,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView_PhieuNhapSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView_PhieuNhapSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_PhieuNhapSach.Columns.AddRange(new DataGridViewColumn[] { maPNDataGridViewTextBoxColumn, maSachDataGridViewTextBoxColumn, soLuongDataGridViewTextBoxColumn, giaNhapDataGridViewTextBoxColumn, ngayNhapDataGridViewTextBoxColumn, NhaCungCap });
+            dataGridView_PhieuNhapSach.Columns.AddRange(new DataGridViewColumn[] { maPNDataGridViewTextBoxColumn, TenSach_PNS, maSachDataGridViewTextBoxColumn, soLuongDataGridViewTextBoxColumn, giaNhapDataGridViewTextBoxColumn, ngayNhapDataGridViewTextBoxColumn });
             dataGridView_PhieuNhapSach.DataSource = phieuNhapSachBindingSource;
             dataGridView_PhieuNhapSach.Dock = DockStyle.Fill;
             dataGridView_PhieuNhapSach.EnableHeadersVisualStyles = false;
@@ -611,8 +613,9 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(1246, 322);
+            dataGridView_PhieuNhapSach.Size = new Size(1246, 330);
             dataGridView_PhieuNhapSach.TabIndex = 3;
+            dataGridView_PhieuNhapSach.CellFormatting += DataGridView_PhieuNhapSach_CellFormatting;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
             dataGridView_PhieuNhapSach.SelectionChanged += DataGridView_PhieuNhapSach_SelectionChanged;
             // 
@@ -624,12 +627,19 @@
             maPNDataGridViewTextBoxColumn.Name = "maPNDataGridViewTextBoxColumn";
             maPNDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // TenSach_PNS
+            // 
+            TenSach_PNS.HeaderText = "Tên sách";
+            TenSach_PNS.MinimumWidth = 6;
+            TenSach_PNS.Name = "TenSach_PNS";
+            // 
             // maSachDataGridViewTextBoxColumn
             // 
             maSachDataGridViewTextBoxColumn.DataPropertyName = "MaSach";
             maSachDataGridViewTextBoxColumn.HeaderText = "Mã sách";
             maSachDataGridViewTextBoxColumn.MinimumWidth = 6;
             maSachDataGridViewTextBoxColumn.Name = "maSachDataGridViewTextBoxColumn";
+            maSachDataGridViewTextBoxColumn.Visible = false;
             // 
             // soLuongDataGridViewTextBoxColumn
             // 
@@ -651,13 +661,6 @@
             ngayNhapDataGridViewTextBoxColumn.HeaderText = "Ngày nhập";
             ngayNhapDataGridViewTextBoxColumn.MinimumWidth = 6;
             ngayNhapDataGridViewTextBoxColumn.Name = "ngayNhapDataGridViewTextBoxColumn";
-            // 
-            // NhaCungCap
-            // 
-            NhaCungCap.DataPropertyName = "NhaCungCap";
-            NhaCungCap.HeaderText = "Nhà cung cấp";
-            NhaCungCap.MinimumWidth = 6;
-            NhaCungCap.Name = "NhaCungCap";
             // 
             // phieuNhapSachBindingSource
             // 
@@ -1001,11 +1004,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 29);
+            tabPage_HoaDonBanSach.Location = new Point(4, 37);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(1254, 720);
+            tabPage_HoaDonBanSach.Size = new Size(1254, 712);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -1028,7 +1031,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView_HoaDonBanSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_HoaDonBanSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, dataGridViewTextBoxColumn3, MaSach, SoLuong, GiaBan, TongTien, SoTienTra, ConLai, NgayHD });
+            dataGridView_HoaDonBanSach.Columns.AddRange(new DataGridViewColumn[] { MaHD, TenKH_HD, TenSach_HD, MaSach, dataGridViewTextBoxColumn3, SoLuong, GiaBan, TongTien, SoTienTra, ConLai, NgayHD });
             dataGridView_HoaDonBanSach.DataSource = hoaDonBanSachBindingSource;
             dataGridView_HoaDonBanSach.Dock = DockStyle.Fill;
             dataGridView_HoaDonBanSach.EnableHeadersVisualStyles = false;
@@ -1040,8 +1043,9 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(1246, 255);
+            dataGridView_HoaDonBanSach.Size = new Size(1246, 247);
             dataGridView_HoaDonBanSach.TabIndex = 4;
+            dataGridView_HoaDonBanSach.CellFormatting += DataGridView_HoaDonBanSach_CellFormatting;
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
             dataGridView_HoaDonBanSach.SelectionChanged += DataGridView_HoaDonBanSach_SelectionChanged;
             // 
@@ -1052,12 +1056,18 @@
             MaHD.MinimumWidth = 6;
             MaHD.Name = "MaHD";
             // 
-            // dataGridViewTextBoxColumn3
+            // TenKH_HD
             // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "MaKH";
-            dataGridViewTextBoxColumn3.HeaderText = "Mã khách hàng";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            TenKH_HD.HeaderText = "Tên khách hàng";
+            TenKH_HD.MinimumWidth = 6;
+            TenKH_HD.Name = "TenKH_HD";
+            // 
+            // TenSach_HD
+            // 
+            TenSach_HD.HeaderText = "Tên sách";
+            TenSach_HD.MinimumWidth = 6;
+            TenSach_HD.Name = "TenSach_HD";
+            TenSach_HD.ReadOnly = true;
             // 
             // MaSach
             // 
@@ -1065,6 +1075,16 @@
             MaSach.HeaderText = "Mã sách";
             MaSach.MinimumWidth = 6;
             MaSach.Name = "MaSach";
+            MaSach.ReadOnly = true;
+            MaSach.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "MaKH";
+            dataGridViewTextBoxColumn3.HeaderText = "Mã khách hàng";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.Visible = false;
             // 
             // SoLuong
             // 
@@ -1693,15 +1713,6 @@
         private Label label_PNS_Filter;
         private DateTimePicker date_PNS_Filter;
         private Label label_PNS_NhaCungCap;
-        private DataGridViewTextBoxColumn MaHD;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn MaSach;
-        private DataGridViewTextBoxColumn SoLuong;
-        private DataGridViewTextBoxColumn GiaBan;
-        private DataGridViewTextBoxColumn TongTien;
-        private DataGridViewTextBoxColumn SoTienTra;
-        private DataGridViewTextBoxColumn ConLai;
-        private DataGridViewTextBoxColumn NgayHD;
         private TextBox textBox_HD_ConLai;
         private Label label_HD_ConLai;
         private TextBox textBox_HD_TongTien;
@@ -1711,12 +1722,6 @@
         private Label label_HD_NgayBan_Filter;
         private DateTimePicker date_HD_Filter;
         private FontAwesome.Sharp.IconButton icon_HD_Tinh;
-        private DataGridViewTextBoxColumn maPNDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn maSachDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn soLuongDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn giaNhapDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn ngayNhapDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn NhaCungCap;
         private Label label_GiaiThich;
         private FontAwesome.Sharp.IconButton icon_DemLenTren;
         private ComboBox comboBox_PNS_MaSach;
@@ -1730,5 +1735,22 @@
         private ComboBox comboBox_Sach_TheLoai;
         private FontAwesome.Sharp.IconButton icon_PNS_ResetNCC;
         private ComboBox comboBox_PNS_NCC;
+        private DataGridViewTextBoxColumn maPNDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn TenSach_PNS;
+        private DataGridViewTextBoxColumn maSachDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn soLuongDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn giaNhapDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ngayNhapDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn MaHD;
+        private DataGridViewTextBoxColumn TenKH_HD;
+        private DataGridViewTextBoxColumn TenSach_HD;
+        private DataGridViewTextBoxColumn MaSach;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn SoLuong;
+        private DataGridViewTextBoxColumn GiaBan;
+        private DataGridViewTextBoxColumn TongTien;
+        private DataGridViewTextBoxColumn SoTienTra;
+        private DataGridViewTextBoxColumn ConLai;
+        private DataGridViewTextBoxColumn NgayHD;
     }
 }
