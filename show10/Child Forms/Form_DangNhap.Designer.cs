@@ -58,6 +58,7 @@
             // 
             panel_DangNhap_Phai.Anchor = AnchorStyles.None;
             panel_DangNhap_Phai.BackColor = Color.White;
+            panel_DangNhap_Phai.Controls.Add(checkBox_enableTab);
             panel_DangNhap_Phai.Controls.Add(label_DangKy);
             panel_DangNhap_Phai.Controls.Add(icon_ShowPass);
             panel_DangNhap_Phai.Controls.Add(label_DangNhap);
@@ -193,14 +194,14 @@
             // checkBox_enableTab
             // 
             checkBox_enableTab.Appearance = Appearance.Button;
-            checkBox_enableTab.BackColor = Color.DarkGreen;
+            checkBox_enableTab.BackColor = Color.White;
             checkBox_enableTab.FlatAppearance.BorderColor = Color.Black;
             checkBox_enableTab.FlatAppearance.BorderSize = 0;
             checkBox_enableTab.FlatStyle = FlatStyle.Flat;
-            checkBox_enableTab.ForeColor = Color.DarkGreen;
-            checkBox_enableTab.Location = new Point(933, 262);
+            checkBox_enableTab.ForeColor = Color.White;
+            checkBox_enableTab.Location = new Point(105, 614);
             checkBox_enableTab.Name = "checkBox_enableTab";
-            checkBox_enableTab.Size = new Size(298, 271);
+            checkBox_enableTab.Size = new Size(380, 44);
             checkBox_enableTab.TabIndex = 10;
             checkBox_enableTab.Text = "Bật các tab\r\n(TÍNH NĂNG DEBUG)\r\n";
             checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
@@ -256,7 +257,6 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 853);
-            Controls.Add(checkBox_enableTab);
             Controls.Add(panel_DangNhap_Phai);
             Controls.Add(panel_Welcome);
             Controls.Add(panel_DangNhap);

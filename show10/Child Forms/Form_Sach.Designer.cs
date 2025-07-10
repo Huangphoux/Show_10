@@ -189,6 +189,7 @@
             icon_Sach_ResetTheLoai.Size = new Size(88, 36);
             icon_Sach_ResetTheLoai.TabIndex = 58;
             icon_Sach_ResetTheLoai.UseVisualStyleBackColor = true;
+            icon_Sach_ResetTheLoai.Click += Icon_Sach_ResetTheLoai_Click;
             // 
             // comboBox_Sach_TheLoai
             // 
@@ -200,6 +201,7 @@
             comboBox_Sach_TheLoai.Name = "comboBox_Sach_TheLoai";
             comboBox_Sach_TheLoai.Size = new Size(749, 36);
             comboBox_Sach_TheLoai.TabIndex = 57;
+            comboBox_Sach_TheLoai.SelectedIndexChanged += ComboBox_Sach_TheLoai_SelectedIndexChanged;
             // 
             // icon_Sach_Clear
             // 
@@ -707,6 +709,7 @@
             icon_PNS_ResetNCC.Size = new Size(96, 36);
             icon_PNS_ResetNCC.TabIndex = 60;
             icon_PNS_ResetNCC.UseVisualStyleBackColor = true;
+            icon_PNS_ResetNCC.Click += Icon_PNS_ResetNCC_Click;
             // 
             // comboBox_PNS_NCC
             // 

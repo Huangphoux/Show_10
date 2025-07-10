@@ -35,12 +35,7 @@ namespace Show10.Windows {
                 MessageBoxIcon.Information);
         }
         private void Icon_Reset_Click(object sender, EventArgs e) {
-            Properties.Settings.Default.minNhap = 150;
-            Properties.Settings.Default.maxSLSach = 300;
-            Properties.Settings.Default.maxNo = 1000000;
-            Properties.Settings.Default.minSLSach = 20;
-            Properties.Settings.Default.thuTienVuotNo = false;
-            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Reset();
 
             SetTextbox();
         }

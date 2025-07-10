@@ -189,7 +189,7 @@ namespace Show10.Child_Forms {
             string tenSach = textBox_Sach_TenSach.Text;
             string soLuong = textBox_Sach_SoLuong.Text;
             string tacGia = textBox_Sach_TacGia.Text;
-            string theLoai = textBox_Sach_TheLoai.Text;
+            string theLoai = comboBox_Sach_TheLoai.Text;
 
             return new Sach {
                 MaSach = int.TryParse(maSach, out var parsedMaHD) ? parsedMaHD : lastMaSach + 1,
@@ -204,7 +204,7 @@ namespace Show10.Child_Forms {
             textBox_Sach_TenSach.Text = sach.TenSach;
             textBox_Sach_SoLuong.Text = sach.SoLuong.ToString();
             textBox_Sach_TacGia.Text = sach.TacGia;
-            textBox_Sach_TheLoai.Text = sach.TheLoai;
+            comboBox_Sach_TheLoai.Text = sach.TheLoai;
         }
         private void Icon_Sach_Them_Click(object sender, EventArgs e) {
             Sach sach = GetSach();
@@ -310,12 +310,18 @@ namespace Show10.Child_Forms {
 
             textBox_Sach_MaSach.Enabled = !isLoc_Sach;
 
+            icon_Sach_ResetTheLoai.Enabled = isLoc_Sach;
+
+
             if (!isLoc_Sach) {
                 dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.CellSelect;
                 dataGridView_Sach.DataSource = sachBindingSource;
             } else {
                 ApplyFilter_Sach();
                 Icon_Sach_Clear_Click(sender, e);
+
+                comboBox_Sach_TheLoai.SelectedIndex = -1;
+
             }
         }
 
@@ -335,6 +341,9 @@ namespace Show10.Child_Forms {
         private void TextBox_Sach_SoLuong_TextChanged(object sender, EventArgs e) {
             ApplyFilter_Sach();
         }
+        private void ComboBox_Sach_TheLoai_SelectedIndexChanged(object sender, EventArgs e) {
+            ApplyFilter_Sach();
+        }
         #endregion
         private IQueryable<Sach> GetFilteredData_Sach() {
             var filteredData = db!.Sachs.Local.AsQueryable();
@@ -352,8 +361,8 @@ namespace Show10.Child_Forms {
             if (!string.IsNullOrEmpty(textBox_Sach_TacGia.Text)) {
                 filteredData = filteredData.Where(s => s.TacGia.Contains(textBox_Sach_TacGia.Text));
             }
-            if (!string.IsNullOrEmpty(textBox_Sach_TheLoai.Text)) {
-                filteredData = filteredData.Where(s => s.TheLoai.Contains(textBox_Sach_TheLoai.Text));
+            if (!string.IsNullOrEmpty(comboBox_Sach_TheLoai.Text)) {
+                filteredData = filteredData.Where(s => s.TheLoai.Contains(comboBox_Sach_TheLoai.Text));
             }
             if (!string.IsNullOrWhiteSpace(textBox_Sach_SoLuong.Text)) {
                 try {
@@ -393,6 +402,9 @@ namespace Show10.Child_Forms {
             SetSach(new Sach { MaSach = 0, TenSach = "", SoLuong = 0, TacGia = "", TheLoai = "" });
             textBox_Sach_MaSach.Text = "";
             textBox_Sach_SoLuong.Text = "";
+
+            comboBox_Sach_TheLoai.SelectedIndex = -1;
+
         }
         private void DataGridView_Sach_SelectionChanged(object sender, EventArgs e) {
             if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
@@ -463,6 +475,10 @@ namespace Show10.Child_Forms {
             }
         }
 
+        private void Icon_Sach_ResetTheLoai_Click(object sender, EventArgs e) {
+            comboBox_Sach_TheLoai.SelectedIndex = -1;
+        }
+
         #endregion
         #region Quản lý phiếu nhập sách
         private PhieuNhapSach GetPhieuNhapSach() {
@@ -475,7 +491,7 @@ namespace Show10.Child_Forms {
             string soLuong = textBox_PNS_SoLuong.Text;
             string giaNhap = textBox_PNS_GiaNhap.Text;
             string ngayNhap = date_PNS_NgayNhap.Text;
-            string nhaCungCap = textBox_PNS_NhaCungCap.Text;
+            string nhaCungCap = comboBox_PNS_NCC.Text;
 
             return new PhieuNhapSach {
                 MaPN = int.TryParse(maPN, out var parsedMaHD) ? parsedMaHD : lastMaPNS + 1,
@@ -491,11 +507,11 @@ namespace Show10.Child_Forms {
             comboBox_PNS_MaSach.SelectedValue = phieu.MaSach;
             textBox_PNS_SoLuong.Text = phieu.SoLuong.ToString();
             textBox_PNS_GiaNhap.Text = phieu.GiaNhap.ToString();
-            textBox_PNS_NhaCungCap.Text = phieu.NhaCungCap.ToString();
+            comboBox_PNS_NCC.Text = phieu.NhaCungCap.ToString();
             date_PNS_NgayNhap.Text = phieu.NgayNhap.ToShortDateString();
         }
         private void Icon_PNS_Them_Click(object sender, EventArgs e) {
-            if(string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
+            if (string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
                 string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text)
                 ) {
                 MessageBox.Show(
@@ -534,7 +550,7 @@ namespace Show10.Child_Forms {
                 );
                 return;
             }
-            
+
             if (!service.IsPNSValid(phieu)) {
                 MessageBox.Show(
                     "Nhập đủ số lượng, giá nhập, và nhà cung cấp\n" +
@@ -616,8 +632,10 @@ namespace Show10.Child_Forms {
             }
             textBox_PNS_SoLuong.Text = "";
             textBox_PNS_GiaNhap.Text = "";
-            textBox_PNS_NhaCungCap.Text = "";
             date_PNS_NgayNhap.Text = DateTime.Now.ToShortDateString();
+
+            comboBox_PNS_NCC.SelectedIndex = -1;
+            comboBox_PNS_MaSach.SelectedIndex = -1;
         }
         private void Icon_PNS_Loc_Click(object sender, EventArgs e) {
             icon_PNS_Loc.IconChar = (icon_PNS_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
@@ -630,6 +648,9 @@ namespace Show10.Child_Forms {
             icon_PNS_ResetMaSach.Enabled = isLoc_PNS;
             date_PNS_Filter.Enabled = isLoc_PNS;
             textBox_PNS_MaPhieu.Enabled = !isLoc_PNS;
+
+            icon_PNS_ResetNCC.Enabled = isLoc_PNS;
+
 
             if (!isLoc_PNS) {
                 dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -646,6 +667,9 @@ namespace Show10.Child_Forms {
                                                 .FirstOrDefault()?.NgayNhap.ToShortDateString();
 
                 comboBox_PNS_MaSach.SelectedIndex = -1;
+
+                comboBox_PNS_NCC.SelectedIndex = -1;
+
             }
         }
         private IQueryable<PhieuNhapSach> GetFilteredData_PNS() {
@@ -664,7 +688,6 @@ namespace Show10.Child_Forms {
                     filteredData = filteredData.Where(p => p.MaSach == maSach);
                 }
             }
-
             if (!string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text)) {
                 try {
                     filteredData = filteredData.Where(FilterSoLuong(textBox_PNS_SoLuong.Text, "SoLuong"));
@@ -679,8 +702,8 @@ namespace Show10.Child_Forms {
                     // Ignore invalid expressions
                 }
             }
-            if (!string.IsNullOrEmpty(textBox_PNS_NhaCungCap.Text)) {
-                filteredData = filteredData.Where(s => s.NhaCungCap.Contains(textBox_PNS_NhaCungCap.Text));
+            if (!string.IsNullOrEmpty(comboBox_PNS_NCC.Text)) {
+                filteredData = filteredData.Where(s => s.NhaCungCap.Contains(comboBox_PNS_NCC.Text));
             }
 
             if (isLoc_PNS) {
@@ -786,6 +809,9 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PNS_ResetMaSach_Click(object sender, EventArgs e) {
             comboBox_PNS_MaSach.SelectedIndex = -1;
+        }
+        private void Icon_PNS_ResetNCC_Click(object sender, EventArgs e) {
+            comboBox_PNS_NCC.SelectedIndex = -1;
         }
         #endregion
         #region Quản lý hoá đơn bán sách
