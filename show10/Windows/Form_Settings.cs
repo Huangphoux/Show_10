@@ -1,9 +1,12 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace Show10.Windows {
     public partial class Form_Settings : Form {
         BindingList<string> theLoai = new(Properties.Settings.Default.theLoai.Split(',').ToList());
         BindingList<string> nhaCungCap = new(Properties.Settings.Default.nhaCungCap.Split(',').ToList());
+
+        private NhaSachContext? db;
 
         public Form_Settings() {
             InitializeComponent();
@@ -16,6 +19,16 @@ namespace Show10.Windows {
 
             listBox_theLoai.DataSource = theLoai;
             listBox_nhaCungCap.DataSource = nhaCungCap;
+        }
+
+        private void Form_Settings_Load(object sender, EventArgs e) {
+            db = new NhaSachContext();
+
+            db.Database.EnsureCreated();
+
+            db.Sachs.Load();
+            db.PhieuNhapSachs.Load();
+
         }
         private void Icon_Luu_Click(object sender, EventArgs e) {
             Properties.Settings.Default.minNhap = int.Parse(textBox_minNhap.Text);
@@ -92,13 +105,23 @@ namespace Show10.Windows {
         }
 
         private void Button_TheLoai_Them_Click(object sender, EventArgs e) {
-            theLoai.Add(textBox_TheLoai_Them.Text.Trim());
-
+            if (String.IsNullOrWhiteSpace(textBox_TheLoai_Them.Text)) {
+                theLoai.Add(textBox_TheLoai_Them.Text.Trim());
+            }
             textBox_TheLoai_Them.Text = "";
             listBox_theLoai.Refresh();
         }
 
         private void Button_TheLoai_Xoa_Click(object sender, EventArgs e) {
+            var selected = listBox_theLoai.SelectedItem!.ToString();
+
+            if (db!.Sachs.Any(s => s.TheLoai == selected)) {
+                MessageBox.Show("Bạn không thể xoá thể loại sách này do có sách có thể loại này.",
+                "Không thể xoá thể loại này", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
             var result = MessageBox.Show("Bạn muốn xoá thể loại sách này?",
                 "Trước khi xoá thể loại sách", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -108,13 +131,27 @@ namespace Show10.Windows {
         }
 
         private void Button_NCC_Them_Click(object sender, EventArgs e) {
-            nhaCungCap.Add(textBox_TheLoai_Them.Text.Trim());
+            if (String.IsNullOrWhiteSpace(textBox_NCC_Them.Text)) {
 
+                nhaCungCap.Add(textBox_NCC_Them.Text.Trim());
+            }
             textBox_NCC_Them.Text = "";
             listBox_nhaCungCap.Refresh();
         }
 
         private void Button_NCC_Xoa_Click(object sender, EventArgs e) {
+
+            var selected = listBox_nhaCungCap.SelectedItem!.ToString();
+
+            if (db!.PhieuNhapSachs.Any(s => s.NhaCungCap == selected)) {
+                MessageBox.Show("Bạn không thể xoá nhà cung cấp này\n" +
+                    "do có phiếu nhập sách chứa nhà cung cấp này.",
+                "Không thể xoá nhà cung cấp này", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
             var result = MessageBox.Show("Bạn muốn xoá nhà cung cấp này?",
                 "Trước khi xoá nhà cung cấp", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -122,5 +159,6 @@ namespace Show10.Windows {
                 nhaCungCap.RemoveAt(listBox_nhaCungCap.SelectedIndex);
             }
         }
+
     }
 }

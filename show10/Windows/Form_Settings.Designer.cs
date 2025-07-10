@@ -342,10 +342,10 @@
             tabPage_NhaCungCap.Controls.Add(textBox_NCC_Them);
             tabPage_NhaCungCap.Controls.Add(button_NCC_Them);
             tabPage_NhaCungCap.Controls.Add(button_NCC_Xoa);
-            tabPage_NhaCungCap.Location = new Point(4, 37);
+            tabPage_NhaCungCap.Location = new Point(4, 29);
             tabPage_NhaCungCap.Name = "tabPage_NhaCungCap";
             tabPage_NhaCungCap.Padding = new Padding(3);
-            tabPage_NhaCungCap.Size = new Size(774, 414);
+            tabPage_NhaCungCap.Size = new Size(774, 422);
             tabPage_NhaCungCap.TabIndex = 2;
             tabPage_NhaCungCap.Text = "Nhà cung cấp";
             tabPage_NhaCungCap.UseVisualStyleBackColor = true;
@@ -412,6 +412,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Settings";
             FormClosing += Form_Settings_FormClosing;
+            Load += Form_Settings_Load;
             tabControl_CaiDat.ResumeLayout(false);
             tabPage_QuiDinh.ResumeLayout(false);
             tabPage_QuiDinh.PerformLayout();

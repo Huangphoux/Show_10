@@ -75,7 +75,7 @@ namespace Show10.Child_Forms {
             db = new NhaSachContext();
 
             // Dòng dưới sẽ luôn xoá DB mỗi khi load form
-            //db.Database.EnsureDeleted();
+            db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
 
             KiemTraSoLuong();
