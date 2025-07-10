@@ -202,7 +202,7 @@
             comboBox_Sach_TheLoai.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox_Sach_TheLoai.Location = new Point(166, 199);
             comboBox_Sach_TheLoai.Name = "comboBox_Sach_TheLoai";
-            comboBox_Sach_TheLoai.Size = new Size(749, 29);
+            comboBox_Sach_TheLoai.Size = new Size(749, 36);
             comboBox_Sach_TheLoai.TabIndex = 57;
             comboBox_Sach_TheLoai.SelectedIndexChanged += ComboBox_Sach_TheLoai_SelectedIndexChanged;
             // 
@@ -294,7 +294,7 @@
             textBox_Sach_SoLuong.Location = new Point(424, 47);
             textBox_Sach_SoLuong.Margin = new Padding(4);
             textBox_Sach_SoLuong.Name = "textBox_Sach_SoLuong";
-            textBox_Sach_SoLuong.Size = new Size(585, 29);
+            textBox_Sach_SoLuong.Size = new Size(585, 34);
             textBox_Sach_SoLuong.TabIndex = 32;
             textBox_Sach_SoLuong.Text = "0";
             textBox_Sach_SoLuong.TextChanged += TextBox_Sach_SoLuong_TextChanged;
@@ -363,7 +363,7 @@
             textBox_Sach_TacGia.Location = new Point(166, 146);
             textBox_Sach_TacGia.Margin = new Padding(4);
             textBox_Sach_TacGia.Name = "textBox_Sach_TacGia";
-            textBox_Sach_TacGia.Size = new Size(843, 29);
+            textBox_Sach_TacGia.Size = new Size(843, 34);
             textBox_Sach_TacGia.TabIndex = 28;
             textBox_Sach_TacGia.TextChanged += TextBox_Sach_TacGia_TextChanged;
             // 
@@ -375,7 +375,7 @@
             textBox_Sach_TenSach.Location = new Point(166, 95);
             textBox_Sach_TenSach.Margin = new Padding(4);
             textBox_Sach_TenSach.Name = "textBox_Sach_TenSach";
-            textBox_Sach_TenSach.Size = new Size(843, 29);
+            textBox_Sach_TenSach.Size = new Size(843, 34);
             textBox_Sach_TenSach.TabIndex = 27;
             textBox_Sach_TenSach.TextChanged += TextBox_Sach_TenSach_TextChanged;
             // 
@@ -420,7 +420,7 @@
             textBox_Sach_MaSach.Location = new Point(166, 47);
             textBox_Sach_MaSach.Margin = new Padding(4);
             textBox_Sach_MaSach.Name = "textBox_Sach_MaSach";
-            textBox_Sach_MaSach.Size = new Size(124, 29);
+            textBox_Sach_MaSach.Size = new Size(124, 34);
             textBox_Sach_MaSach.TabIndex = 21;
             textBox_Sach_MaSach.TextChanged += TextBox_Sach_MaSach_TextChanged;
             textBox_Sach_MaSach.KeyPress += TextBox_Integer_KeyPress;
@@ -502,7 +502,7 @@
             dataGridView_Sach.RowHeadersVisible = false;
             dataGridView_Sach.RowHeadersWidth = 51;
             dataGridView_Sach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_Sach.Size = new Size(1246, 337);
+            dataGridView_Sach.Size = new Size(1246, 330);
             dataGridView_Sach.TabIndex = 2;
             dataGridView_Sach.CellValueChanged += DataGridView_Sach_CellValueChanged;
             dataGridView_Sach.SelectionChanged += DataGridView_Sach_SelectionChanged;
@@ -562,11 +562,11 @@
             // 
             tabPage_Sach.Controls.Add(dataGridView_Sach);
             tabPage_Sach.Controls.Add(groupBox_Sach);
-            tabPage_Sach.Location = new Point(4, 30);
+            tabPage_Sach.Location = new Point(4, 37);
             tabPage_Sach.Margin = new Padding(4);
             tabPage_Sach.Name = "tabPage_Sach";
             tabPage_Sach.Padding = new Padding(4);
-            tabPage_Sach.Size = new Size(1254, 719);
+            tabPage_Sach.Size = new Size(1254, 712);
             tabPage_Sach.TabIndex = 0;
             tabPage_Sach.Text = "Quản lý sách";
             tabPage_Sach.UseVisualStyleBackColor = true;
@@ -575,11 +575,11 @@
             // 
             tabPage_PhieuNhapSach.Controls.Add(dataGridView_PhieuNhapSach);
             tabPage_PhieuNhapSach.Controls.Add(groupBox_PhieuNhapSach);
-            tabPage_PhieuNhapSach.Location = new Point(4, 30);
+            tabPage_PhieuNhapSach.Location = new Point(4, 37);
             tabPage_PhieuNhapSach.Margin = new Padding(4);
             tabPage_PhieuNhapSach.Name = "tabPage_PhieuNhapSach";
             tabPage_PhieuNhapSach.Padding = new Padding(4);
-            tabPage_PhieuNhapSach.Size = new Size(1254, 719);
+            tabPage_PhieuNhapSach.Size = new Size(1254, 712);
             tabPage_PhieuNhapSach.TabIndex = 1;
             tabPage_PhieuNhapSach.Text = "Quản lý phiếu nhập sách";
             tabPage_PhieuNhapSach.UseVisualStyleBackColor = true;
@@ -614,7 +614,7 @@
             dataGridView_PhieuNhapSach.RowHeadersVisible = false;
             dataGridView_PhieuNhapSach.RowHeadersWidth = 51;
             dataGridView_PhieuNhapSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuNhapSach.Size = new Size(1246, 329);
+            dataGridView_PhieuNhapSach.Size = new Size(1246, 322);
             dataGridView_PhieuNhapSach.TabIndex = 3;
             dataGridView_PhieuNhapSach.CellFormatting += DataGridView_PhieuNhapSach_CellFormatting;
             dataGridView_PhieuNhapSach.CellValueChanged += DataGridView_PhieuNhapSach_CellValueChanged;
@@ -730,7 +730,7 @@
             comboBox_PNS_NCC.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox_PNS_NCC.Location = new Point(177, 221);
             comboBox_PNS_NCC.Name = "comboBox_PNS_NCC";
-            comboBox_PNS_NCC.Size = new Size(890, 29);
+            comboBox_PNS_NCC.Size = new Size(890, 36);
             comboBox_PNS_NCC.TabIndex = 59;
             // 
             // icon_PNS_ResetMaSach
@@ -757,7 +757,7 @@
             comboBox_PNS_MaSach.FormattingEnabled = true;
             comboBox_PNS_MaSach.Location = new Point(524, 53);
             comboBox_PNS_MaSach.Name = "comboBox_PNS_MaSach";
-            comboBox_PNS_MaSach.Size = new Size(543, 29);
+            comboBox_PNS_MaSach.Size = new Size(543, 36);
             comboBox_PNS_MaSach.TabIndex = 43;
             comboBox_PNS_MaSach.ValueMember = "MaSach";
             comboBox_PNS_MaSach.SelectedIndexChanged += ComboBox_PNS_MaSach_SelectedIndexChanged;
@@ -781,7 +781,7 @@
             date_PNS_Filter.Format = DateTimePickerFormat.Short;
             date_PNS_Filter.Location = new Point(524, 164);
             date_PNS_Filter.Name = "date_PNS_Filter";
-            date_PNS_Filter.Size = new Size(645, 29);
+            date_PNS_Filter.Size = new Size(645, 34);
             date_PNS_Filter.TabIndex = 41;
             date_PNS_Filter.ValueChanged += Date_PNS_Filter_ValueChanged;
             // 
@@ -802,7 +802,7 @@
             date_PNS_NgayNhap.Format = DateTimePickerFormat.Short;
             date_PNS_NgayNhap.Location = new Point(177, 164);
             date_PNS_NgayNhap.Name = "date_PNS_NgayNhap";
-            date_PNS_NgayNhap.Size = new Size(165, 29);
+            date_PNS_NgayNhap.Size = new Size(165, 34);
             date_PNS_NgayNhap.TabIndex = 38;
             date_PNS_NgayNhap.ValueChanged += Date_PNS_NgayNhap_ValueChanged;
             // 
@@ -847,7 +847,7 @@
             textBox_PNS_GiaNhap.Location = new Point(524, 107);
             textBox_PNS_GiaNhap.Margin = new Padding(4);
             textBox_PNS_GiaNhap.Name = "textBox_PNS_GiaNhap";
-            textBox_PNS_GiaNhap.Size = new Size(645, 29);
+            textBox_PNS_GiaNhap.Size = new Size(645, 34);
             textBox_PNS_GiaNhap.TabIndex = 32;
             textBox_PNS_GiaNhap.TextChanged += TextBox_PNS_GiaNhap_TextChanged;
             textBox_PNS_GiaNhap.KeyPress += TextBox_Money_KeyPress;
@@ -915,7 +915,7 @@
             textBox_PNS_SoLuong.Location = new Point(177, 107);
             textBox_PNS_SoLuong.Margin = new Padding(4);
             textBox_PNS_SoLuong.Name = "textBox_PNS_SoLuong";
-            textBox_PNS_SoLuong.Size = new Size(165, 29);
+            textBox_PNS_SoLuong.Size = new Size(165, 34);
             textBox_PNS_SoLuong.TabIndex = 28;
             textBox_PNS_SoLuong.TextChanged += TextBox_PNS_SoLuong_TextChanged;
             textBox_PNS_SoLuong.KeyPress += TextBox_Integer_KeyPress;
@@ -961,7 +961,7 @@
             textBox_PNS_MaPhieu.Location = new Point(177, 53);
             textBox_PNS_MaPhieu.Margin = new Padding(4);
             textBox_PNS_MaPhieu.Name = "textBox_PNS_MaPhieu";
-            textBox_PNS_MaPhieu.Size = new Size(165, 29);
+            textBox_PNS_MaPhieu.Size = new Size(165, 34);
             textBox_PNS_MaPhieu.TabIndex = 21;
             textBox_PNS_MaPhieu.TextChanged += TextBox_PNS_MaPhieu_TextChanged;
             textBox_PNS_MaPhieu.KeyPress += TextBox_Integer_KeyPress;
@@ -1012,11 +1012,11 @@
             // 
             tabPage_HoaDonBanSach.Controls.Add(dataGridView_HoaDonBanSach);
             tabPage_HoaDonBanSach.Controls.Add(groupBox_HoaDonBanSach);
-            tabPage_HoaDonBanSach.Location = new Point(4, 30);
+            tabPage_HoaDonBanSach.Location = new Point(4, 29);
             tabPage_HoaDonBanSach.Margin = new Padding(4);
             tabPage_HoaDonBanSach.Name = "tabPage_HoaDonBanSach";
             tabPage_HoaDonBanSach.Padding = new Padding(4);
-            tabPage_HoaDonBanSach.Size = new Size(1254, 719);
+            tabPage_HoaDonBanSach.Size = new Size(1254, 720);
             tabPage_HoaDonBanSach.TabIndex = 2;
             tabPage_HoaDonBanSach.Text = "Quản lý hoá đơn bán sách";
             tabPage_HoaDonBanSach.UseVisualStyleBackColor = true;
@@ -1051,7 +1051,7 @@
             dataGridView_HoaDonBanSach.RowHeadersVisible = false;
             dataGridView_HoaDonBanSach.RowHeadersWidth = 51;
             dataGridView_HoaDonBanSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_HoaDonBanSach.Size = new Size(1246, 254);
+            dataGridView_HoaDonBanSach.Size = new Size(1246, 255);
             dataGridView_HoaDonBanSach.TabIndex = 4;
             dataGridView_HoaDonBanSach.CellFormatting += DataGridView_HoaDonBanSach_CellFormatting;
             dataGridView_HoaDonBanSach.CellValueChanged += DataGridView_HoaDonBanSach_CellValueChanged;
@@ -1222,7 +1222,7 @@
             comboBox_HD_MaSach.FormattingEnabled = true;
             comboBox_HD_MaSach.Location = new Point(862, 54);
             comboBox_HD_MaSach.Name = "comboBox_HD_MaSach";
-            comboBox_HD_MaSach.Size = new Size(233, 29);
+            comboBox_HD_MaSach.Size = new Size(233, 36);
             comboBox_HD_MaSach.TabIndex = 53;
             comboBox_HD_MaSach.ValueMember = "MaSach";
             comboBox_HD_MaSach.SelectedIndexChanged += ComboBox_HD_MaSach_SelectedIndexChanged;
@@ -1235,7 +1235,7 @@
             comboBox_HD_MaKH.FormattingEnabled = true;
             comboBox_HD_MaKH.Location = new Point(393, 54);
             comboBox_HD_MaKH.Name = "comboBox_HD_MaKH";
-            comboBox_HD_MaKH.Size = new Size(226, 29);
+            comboBox_HD_MaKH.Size = new Size(226, 36);
             comboBox_HD_MaKH.TabIndex = 52;
             comboBox_HD_MaKH.ValueMember = "MaKH";
             comboBox_HD_MaKH.SelectedIndexChanged += ComboBox_HD_MaKH_SelectedIndexChanged;
@@ -1307,7 +1307,7 @@
             textBox_HD_ConLai.Margin = new Padding(4);
             textBox_HD_ConLai.Name = "textBox_HD_ConLai";
             textBox_HD_ConLai.ReadOnly = true;
-            textBox_HD_ConLai.Size = new Size(588, 29);
+            textBox_HD_ConLai.Size = new Size(588, 34);
             textBox_HD_ConLai.TabIndex = 48;
             textBox_HD_ConLai.TextChanged += TextBox_HD_ConLai_TextChanged;
             // 
@@ -1331,7 +1331,7 @@
             textBox_HD_TongTien.Margin = new Padding(4);
             textBox_HD_TongTien.Name = "textBox_HD_TongTien";
             textBox_HD_TongTien.ReadOnly = true;
-            textBox_HD_TongTien.Size = new Size(120, 29);
+            textBox_HD_TongTien.Size = new Size(120, 34);
             textBox_HD_TongTien.TabIndex = 46;
             textBox_HD_TongTien.TextChanged += TextBox_HD_TongTien_TextChanged;
             // 
@@ -1354,7 +1354,7 @@
             textBox_HD_SoTienTra.Location = new Point(625, 110);
             textBox_HD_SoTienTra.Margin = new Padding(4);
             textBox_HD_SoTienTra.Name = "textBox_HD_SoTienTra";
-            textBox_HD_SoTienTra.Size = new Size(587, 29);
+            textBox_HD_SoTienTra.Size = new Size(587, 34);
             textBox_HD_SoTienTra.TabIndex = 44;
             textBox_HD_SoTienTra.TextChanged += TextBox_HD_SoTienTra_TextChanged;
             textBox_HD_SoTienTra.KeyPress += TextBox_Money_KeyPress;
@@ -1388,7 +1388,7 @@
             date_HD_Filter.Format = DateTimePickerFormat.Short;
             date_HD_Filter.Location = new Point(535, 296);
             date_HD_Filter.Name = "date_HD_Filter";
-            date_HD_Filter.Size = new Size(236, 29);
+            date_HD_Filter.Size = new Size(236, 34);
             date_HD_Filter.TabIndex = 41;
             date_HD_Filter.ValueChanged += Date_HD_Filter_ValueChanged;
             // 
@@ -1401,7 +1401,7 @@
             textBox_HD_GiaBan.Margin = new Padding(4);
             textBox_HD_GiaBan.Name = "textBox_HD_GiaBan";
             textBox_HD_GiaBan.ReadOnly = true;
-            textBox_HD_GiaBan.Size = new Size(120, 29);
+            textBox_HD_GiaBan.Size = new Size(120, 34);
             textBox_HD_GiaBan.TabIndex = 40;
             textBox_HD_GiaBan.TextChanged += TextBox_HD_GiaBan_TextChanged;
             // 
@@ -1422,7 +1422,7 @@
             date_HD_NgayBan.Format = DateTimePickerFormat.Short;
             date_HD_NgayBan.Location = new Point(140, 296);
             date_HD_NgayBan.Name = "date_HD_NgayBan";
-            date_HD_NgayBan.Size = new Size(208, 29);
+            date_HD_NgayBan.Size = new Size(208, 34);
             date_HD_NgayBan.TabIndex = 38;
             date_HD_NgayBan.ValueChanged += Date_HD_NgayBan_ValueChanged;
             // 
@@ -1467,7 +1467,7 @@
             textBox_HD_SoLuong.Location = new Point(151, 110);
             textBox_HD_SoLuong.Margin = new Padding(4);
             textBox_HD_SoLuong.Name = "textBox_HD_SoLuong";
-            textBox_HD_SoLuong.Size = new Size(359, 29);
+            textBox_HD_SoLuong.Size = new Size(359, 34);
             textBox_HD_SoLuong.TabIndex = 32;
             textBox_HD_SoLuong.TextChanged += TextBox_HD_SoLuong_TextChanged;
             textBox_HD_SoLuong.KeyPress += TextBox_Integer_KeyPress;
@@ -1568,7 +1568,7 @@
             textBox_HD_MaHD.Location = new Point(145, 55);
             textBox_HD_MaHD.Margin = new Padding(4);
             textBox_HD_MaHD.Name = "textBox_HD_MaHD";
-            textBox_HD_MaHD.Size = new Size(120, 29);
+            textBox_HD_MaHD.Size = new Size(120, 34);
             textBox_HD_MaHD.TabIndex = 21;
             textBox_HD_MaHD.TextChanged += TextBox_HD_MaHD_TextChanged;
             textBox_HD_MaHD.KeyPress += TextBox_Integer_KeyPress;
@@ -1617,7 +1617,7 @@
             // 
             // Form_Sach
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 753);
             Controls.Add(tabControl_Sach);

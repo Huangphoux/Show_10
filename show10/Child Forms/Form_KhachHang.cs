@@ -598,19 +598,23 @@ namespace Show10.Child_Forms {
             ApplyFilter_PhieuThuTien();
         }
 
-        private void TextBox_PTT_MaKH_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_PhieuThuTien();
-
-        }
-
-        private void TextBox_PTT_NgayThu_TextChanged(object sender, EventArgs e) {
-            ApplyFilter_PhieuThuTien();
-
-        }
 
         private void TextBox_PTT_SoTien_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuThuTien();
             MoneySeparator(textBox_PTT_SoTien);
+        }
+
+
+        private void ComboBox_PTT_MaKH_SelectedIndexChanged(object sender, EventArgs e) {
+            ApplyFilter_PhieuThuTien();
+        }
+
+        private void Date_PTT_NgayThu_ValueChanged(object sender, EventArgs e) {
+            ApplyFilter_PhieuThuTien();
+        }
+
+        private void Date_PTT_Filter_ValueChanged(object sender, EventArgs e) {
+            ApplyFilter_PhieuThuTien();
         }
         #endregion
         private IQueryable<PhieuThuTien> GetFilteredData_PTT() {

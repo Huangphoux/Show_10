@@ -194,7 +194,7 @@
             textBox_TK_HoTen.Font = new Font("Segoe UI", 12F);
             textBox_TK_HoTen.Location = new Point(200, 146);
             textBox_TK_HoTen.Name = "textBox_TK_HoTen";
-            textBox_TK_HoTen.Size = new Size(480, 34);
+            textBox_TK_HoTen.Size = new Size(480, 29);
             textBox_TK_HoTen.TabIndex = 5;
             textBox_TK_HoTen.TextChanged += TextBox_TK_HoTen_TextChanged;
             textBox_TK_HoTen.KeyPress += TextBox_TK_HoTen_KeyPress;
@@ -207,7 +207,7 @@
             textBox_TK_MatKhau.Location = new Point(200, 99);
             textBox_TK_MatKhau.MaxLength = 30;
             textBox_TK_MatKhau.Name = "textBox_TK_MatKhau";
-            textBox_TK_MatKhau.Size = new Size(480, 34);
+            textBox_TK_MatKhau.Size = new Size(480, 29);
             textBox_TK_MatKhau.TabIndex = 4;
             textBox_TK_MatKhau.TextChanged += TextBox_TK_MatKhau_TextChanged;
             // 
@@ -261,7 +261,7 @@
             textBox_TK_TenTK.Location = new Point(200, 45);
             textBox_TK_TenTK.MaxLength = 30;
             textBox_TK_TenTK.Name = "textBox_TK_TenTK";
-            textBox_TK_TenTK.Size = new Size(480, 34);
+            textBox_TK_TenTK.Size = new Size(480, 29);
             textBox_TK_TenTK.TabIndex = 3;
             textBox_TK_TenTK.TextChanged += TextBox_TK_TenTK_TextChanged;
             // 
@@ -339,8 +339,7 @@
             // 
             // Form_TaiKhoan
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(782, 553);
             Controls.Add(dataGridView_TaiKhoan);
             Controls.Add(groupBox_TaiKhoan);

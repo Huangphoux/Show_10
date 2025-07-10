@@ -24,10 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             groupBox_KhachHang = new GroupBox();
             icon_KH_ResetGioiTinh = new FontAwesome.Sharp.IconButton();
             icon_KH_Clear = new FontAwesome.Sharp.IconButton();
@@ -168,7 +168,7 @@
             comboBox_KH_GioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
             comboBox_KH_GioiTinh.Location = new Point(136, 141);
             comboBox_KH_GioiTinh.Name = "comboBox_KH_GioiTinh";
-            comboBox_KH_GioiTinh.Size = new Size(749, 29);
+            comboBox_KH_GioiTinh.Size = new Size(749, 36);
             comboBox_KH_GioiTinh.TabIndex = 54;
             comboBox_KH_GioiTinh.SelectedIndexChanged += ComboBox_KH_GioiTinh_SelectedIndexChanged;
             // 
@@ -179,7 +179,7 @@
             textBox_KH_TienNo.Font = new Font("Segoe UI", 12F);
             textBox_KH_TienNo.Location = new Point(375, 42);
             textBox_KH_TienNo.Name = "textBox_KH_TienNo";
-            textBox_KH_TienNo.Size = new Size(612, 29);
+            textBox_KH_TienNo.Size = new Size(612, 34);
             textBox_KH_TienNo.TabIndex = 51;
             textBox_KH_TienNo.TextChanged += TextBox_KH_TienNo_TextChanged;
             textBox_KH_TienNo.KeyPress += TextBox_Money_KeyPress;
@@ -312,7 +312,7 @@
             textBox_KH_DiaChi.Font = new Font("Segoe UI", 12F);
             textBox_KH_DiaChi.Location = new Point(136, 237);
             textBox_KH_DiaChi.Name = "textBox_KH_DiaChi";
-            textBox_KH_DiaChi.Size = new Size(851, 29);
+            textBox_KH_DiaChi.Size = new Size(851, 34);
             textBox_KH_DiaChi.TabIndex = 44;
             textBox_KH_DiaChi.TextChanged += TextBox_KH_DiaChi_TextChanged;
             // 
@@ -334,7 +334,7 @@
             textBox_KH_Email.Font = new Font("Segoe UI", 12F);
             textBox_KH_Email.Location = new Point(136, 188);
             textBox_KH_Email.Name = "textBox_KH_Email";
-            textBox_KH_Email.Size = new Size(851, 29);
+            textBox_KH_Email.Size = new Size(851, 34);
             textBox_KH_Email.TabIndex = 42;
             textBox_KH_Email.TextChanged += TextBox_KH_Email_TextChanged;
             textBox_KH_Email.Leave += TextBox_KH_Email_Leave;
@@ -358,7 +358,7 @@
             textBox_KH_TenKH.Location = new Point(136, 90);
             textBox_KH_TenKH.MaxLength = 30;
             textBox_KH_TenKH.Name = "textBox_KH_TenKH";
-            textBox_KH_TenKH.Size = new Size(851, 29);
+            textBox_KH_TenKH.Size = new Size(851, 34);
             textBox_KH_TenKH.TabIndex = 39;
             textBox_KH_TenKH.TextChanged += TextBox_KH_TenKH_TextChanged;
             textBox_KH_TenKH.KeyPress += TextBox_KH_TenKH_KeyPress;
@@ -403,7 +403,7 @@
             textBox_KH_MaKH.Font = new Font("Segoe UI", 12F);
             textBox_KH_MaKH.Location = new Point(136, 42);
             textBox_KH_MaKH.Name = "textBox_KH_MaKH";
-            textBox_KH_MaKH.Size = new Size(127, 29);
+            textBox_KH_MaKH.Size = new Size(127, 34);
             textBox_KH_MaKH.TabIndex = 35;
             textBox_KH_MaKH.TextChanged += TextBox_KH_MaKH_TextChanged;
             textBox_KH_MaKH.KeyPress += TextBox_Integer_KeyPress;
@@ -417,25 +417,25 @@
             dataGridView_KhachHang.BackgroundColor = Color.White;
             dataGridView_KhachHang.BorderStyle = BorderStyle.None;
             dataGridView_KhachHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Green;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView_KhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.Green;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridView_KhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridView_KhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_KhachHang.Columns.AddRange(new DataGridViewColumn[] { maKHDataGridViewTextBoxColumn, tenKHDataGridViewTextBoxColumn, gioiTinhDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, diaChiDataGridViewTextBoxColumn, tienNoDataGridViewTextBoxColumn });
             dataGridView_KhachHang.DataSource = khachHangBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView_KhachHang.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dataGridView_KhachHang.DefaultCellStyle = dataGridViewCellStyle10;
             dataGridView_KhachHang.Dock = DockStyle.Fill;
             dataGridView_KhachHang.EnableHeadersVisualStyles = false;
             dataGridView_KhachHang.GridColor = Color.Black;
@@ -445,7 +445,7 @@
             dataGridView_KhachHang.RowHeadersVisible = false;
             dataGridView_KhachHang.RowHeadersWidth = 51;
             dataGridView_KhachHang.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_KhachHang.Size = new Size(1248, 128);
+            dataGridView_KhachHang.Size = new Size(1248, 121);
             dataGridView_KhachHang.TabIndex = 3;
             dataGridView_KhachHang.CellValueChanged += DataGridView_KhachHang_CellValueChanged;
             dataGridView_KhachHang.SelectionChanged += DataGridView_KhachHang_SelectionChanged;
@@ -513,10 +513,10 @@
             // 
             tabPage_KhachHang.Controls.Add(dataGridView_KhachHang);
             tabPage_KhachHang.Controls.Add(groupBox_KhachHang);
-            tabPage_KhachHang.Location = new Point(4, 30);
+            tabPage_KhachHang.Location = new Point(4, 37);
             tabPage_KhachHang.Name = "tabPage_KhachHang";
             tabPage_KhachHang.Padding = new Padding(3);
-            tabPage_KhachHang.Size = new Size(1254, 519);
+            tabPage_KhachHang.Size = new Size(1254, 512);
             tabPage_KhachHang.TabIndex = 0;
             tabPage_KhachHang.Text = "Quản lý khách hàng";
             tabPage_KhachHang.UseVisualStyleBackColor = true;
@@ -525,10 +525,10 @@
             // 
             tabPage_PhieuThuTien.Controls.Add(dataGridView_PhieuThuTien);
             tabPage_PhieuThuTien.Controls.Add(groupBox_PhieuThuTien);
-            tabPage_PhieuThuTien.Location = new Point(4, 30);
+            tabPage_PhieuThuTien.Location = new Point(4, 37);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(1254, 519);
+            tabPage_PhieuThuTien.Size = new Size(1254, 512);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -542,25 +542,25 @@
             dataGridView_PhieuThuTien.BackgroundColor = Color.White;
             dataGridView_PhieuThuTien.BorderStyle = BorderStyle.None;
             dataGridView_PhieuThuTien.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = Color.Green;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView_PhieuThuTien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = Color.Green;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dataGridView_PhieuThuTien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView_PhieuThuTien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_PhieuThuTien.Columns.AddRange(new DataGridViewColumn[] { maPTDataGridViewTextBoxColumn, TenKH, maKHDataGridViewTextBoxColumn1, ngayThuDataGridViewTextBoxColumn, soTienDataGridViewTextBoxColumn });
             dataGridView_PhieuThuTien.DataSource = phieuThuTienBindingSource;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dataGridView_PhieuThuTien.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            dataGridView_PhieuThuTien.DefaultCellStyle = dataGridViewCellStyle12;
             dataGridView_PhieuThuTien.Dock = DockStyle.Fill;
             dataGridView_PhieuThuTien.EnableHeadersVisualStyles = false;
             dataGridView_PhieuThuTien.GridColor = Color.Black;
@@ -570,7 +570,7 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(1248, 250);
+            dataGridView_PhieuThuTien.Size = new Size(1248, 243);
             dataGridView_PhieuThuTien.TabIndex = 4;
             dataGridView_PhieuThuTien.CellFormatting += DataGridView_PhieuThuTien_CellFormatting;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
@@ -665,9 +665,10 @@
             comboBox_PTT_MaKH.FormattingEnabled = true;
             comboBox_PTT_MaKH.Location = new Point(363, 47);
             comboBox_PTT_MaKH.Name = "comboBox_PTT_MaKH";
-            comboBox_PTT_MaKH.Size = new Size(215, 29);
+            comboBox_PTT_MaKH.Size = new Size(215, 36);
             comboBox_PTT_MaKH.TabIndex = 60;
             comboBox_PTT_MaKH.ValueMember = "MaKH";
+            comboBox_PTT_MaKH.SelectedIndexChanged += ComboBox_PTT_MaKH_SelectedIndexChanged;
             // 
             // label_PTT_Filter
             // 
@@ -688,16 +689,18 @@
             date_PTT_Filter.Format = DateTimePickerFormat.Short;
             date_PTT_Filter.Location = new Point(566, 112);
             date_PTT_Filter.Name = "date_PTT_Filter";
-            date_PTT_Filter.Size = new Size(270, 29);
+            date_PTT_Filter.Size = new Size(270, 34);
             date_PTT_Filter.TabIndex = 58;
+            date_PTT_Filter.ValueChanged += Date_PTT_Filter_ValueChanged;
             // 
             // date_PTT_NgayThu
             // 
             date_PTT_NgayThu.Format = DateTimePickerFormat.Short;
             date_PTT_NgayThu.Location = new Point(135, 112);
             date_PTT_NgayThu.Name = "date_PTT_NgayThu";
-            date_PTT_NgayThu.Size = new Size(270, 29);
+            date_PTT_NgayThu.Size = new Size(270, 34);
             date_PTT_NgayThu.TabIndex = 57;
+            date_PTT_NgayThu.ValueChanged += Date_PTT_NgayThu_ValueChanged;
             // 
             // icon_PTT_Clear
             // 
@@ -728,7 +731,7 @@
             textBox_PTT_SoTien.Font = new Font("Segoe UI", 12F);
             textBox_PTT_SoTien.Location = new Point(810, 48);
             textBox_PTT_SoTien.Name = "textBox_PTT_SoTien";
-            textBox_PTT_SoTien.Size = new Size(400, 29);
+            textBox_PTT_SoTien.Size = new Size(400, 34);
             textBox_PTT_SoTien.TabIndex = 50;
             textBox_PTT_SoTien.TextChanged += TextBox_PTT_SoTien_TextChanged;
             textBox_PTT_SoTien.KeyPress += TextBox_Money_KeyPress;
@@ -869,14 +872,14 @@
             textBox_PTT_MaPhieu.Font = new Font("Segoe UI", 12F);
             textBox_PTT_MaPhieu.Location = new Point(135, 48);
             textBox_PTT_MaPhieu.Name = "textBox_PTT_MaPhieu";
-            textBox_PTT_MaPhieu.Size = new Size(106, 29);
+            textBox_PTT_MaPhieu.Size = new Size(106, 34);
             textBox_PTT_MaPhieu.TabIndex = 35;
             textBox_PTT_MaPhieu.TextChanged += TextBox_PTT_MaPhieu_TextChanged;
             textBox_PTT_MaPhieu.KeyPress += TextBox_Integer_KeyPress;
             // 
             // Form_KhachHang
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1262, 553);
             Controls.Add(tabControl_KhachHang);

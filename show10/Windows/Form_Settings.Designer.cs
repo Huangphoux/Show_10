@@ -81,7 +81,7 @@
             textBox_minNhap.Location = new Point(438, 21);
             textBox_minNhap.Margin = new Padding(4);
             textBox_minNhap.Name = "textBox_minNhap";
-            textBox_minNhap.Size = new Size(310, 34);
+            textBox_minNhap.Size = new Size(310, 29);
             textBox_minNhap.TabIndex = 1;
             // 
             // label_minNhap
@@ -90,7 +90,7 @@
             label_minNhap.Location = new Point(17, 24);
             label_minNhap.Margin = new Padding(4, 0, 4, 0);
             label_minNhap.Name = "label_minNhap";
-            label_minNhap.Size = new Size(267, 28);
+            label_minNhap.Size = new Size(212, 21);
             label_minNhap.TabIndex = 2;
             label_minNhap.Text = "Số lượng nhập sách tối thiểu ";
             // 
@@ -100,7 +100,7 @@
             label_maxNo.Location = new Point(17, 80);
             label_maxNo.Margin = new Padding(4, 0, 4, 0);
             label_maxNo.Name = "label_maxNo";
-            label_maxNo.Size = new Size(132, 28);
+            label_maxNo.Size = new Size(105, 21);
             label_maxNo.TabIndex = 4;
             label_maxNo.Text = "Tiền nợ tối đa";
             // 
@@ -112,7 +112,7 @@
             textBox_maxNo.Location = new Point(438, 77);
             textBox_maxNo.Margin = new Padding(4);
             textBox_maxNo.Name = "textBox_maxNo";
-            textBox_maxNo.Size = new Size(310, 34);
+            textBox_maxNo.Size = new Size(310, 29);
             textBox_maxNo.TabIndex = 3;
             // 
             // label_maxSLSach
@@ -121,7 +121,7 @@
             label_maxSLSach.Location = new Point(17, 136);
             label_maxSLSach.Margin = new Padding(4, 0, 4, 0);
             label_maxSLSach.Name = "label_maxSLSach";
-            label_maxSLSach.Size = new Size(396, 28);
+            label_maxSLSach.Size = new Size(313, 21);
             label_maxSLSach.TabIndex = 6;
             label_maxSLSach.Text = "Số lượng sách tồn kho tối đa trước khi nhập";
             // 
@@ -133,7 +133,7 @@
             textBox_maxSLSach.Location = new Point(438, 133);
             textBox_maxSLSach.Margin = new Padding(4);
             textBox_maxSLSach.Name = "textBox_maxSLSach";
-            textBox_maxSLSach.Size = new Size(310, 34);
+            textBox_maxSLSach.Size = new Size(310, 29);
             textBox_maxSLSach.TabIndex = 5;
             // 
             // label_minSLSach
@@ -142,7 +142,7 @@
             label_minSLSach.Location = new Point(17, 192);
             label_minSLSach.Margin = new Padding(4, 0, 4, 0);
             label_minSLSach.Name = "label_minSLSach";
-            label_minSLSach.Size = new Size(346, 28);
+            label_minSLSach.Size = new Size(274, 21);
             label_minSLSach.TabIndex = 8;
             label_minSLSach.Text = "Số lượng tồn kho tối thiểu sau khi bán";
             // 
@@ -154,7 +154,7 @@
             textBox_minSLSach.Location = new Point(438, 189);
             textBox_minSLSach.Margin = new Padding(4);
             textBox_minSLSach.Name = "textBox_minSLSach";
-            textBox_minSLSach.Size = new Size(310, 34);
+            textBox_minSLSach.Size = new Size(310, 29);
             textBox_minSLSach.TabIndex = 7;
             // 
             // label_thuTienVuotNo
@@ -163,7 +163,7 @@
             label_thuTienVuotNo.Location = new Point(17, 248);
             label_thuTienVuotNo.Margin = new Padding(4, 0, 4, 0);
             label_thuTienVuotNo.Name = "label_thuTienVuotNo";
-            label_thuTienVuotNo.Size = new Size(340, 28);
+            label_thuTienVuotNo.Size = new Size(269, 21);
             label_thuTienVuotNo.TabIndex = 11;
             label_thuTienVuotNo.Text = "Có thể thu vượt tiền nợ được không ?";
             // 
@@ -248,7 +248,7 @@
             listBox_theLoai.FormattingEnabled = true;
             listBox_theLoai.Location = new Point(40, 100);
             listBox_theLoai.Name = "listBox_theLoai";
-            listBox_theLoai.Size = new Size(530, 282);
+            listBox_theLoai.Size = new Size(530, 275);
             listBox_theLoai.TabIndex = 16;
             // 
             // button_TheLoai_Them
@@ -270,7 +270,7 @@
             textBox_TheLoai_Them.BorderStyle = BorderStyle.FixedSingle;
             textBox_TheLoai_Them.Location = new Point(40, 40);
             textBox_TheLoai_Them.Name = "textBox_TheLoai_Them";
-            textBox_TheLoai_Them.Size = new Size(530, 34);
+            textBox_TheLoai_Them.Size = new Size(530, 29);
             textBox_TheLoai_Them.TabIndex = 19;
             // 
             // button_TheLoai_Xoa
@@ -312,10 +312,10 @@
             tabPage_QuiDinh.Controls.Add(label_maxSLSach);
             tabPage_QuiDinh.Controls.Add(label_minSLSach);
             tabPage_QuiDinh.Controls.Add(textBox_minSLSach);
-            tabPage_QuiDinh.Location = new Point(4, 37);
+            tabPage_QuiDinh.Location = new Point(4, 30);
             tabPage_QuiDinh.Name = "tabPage_QuiDinh";
             tabPage_QuiDinh.Padding = new Padding(3);
-            tabPage_QuiDinh.Size = new Size(774, 414);
+            tabPage_QuiDinh.Size = new Size(774, 421);
             tabPage_QuiDinh.TabIndex = 0;
             tabPage_QuiDinh.Text = "Qui định";
             tabPage_QuiDinh.UseVisualStyleBackColor = true;
@@ -327,10 +327,10 @@
             tabPage_TheLoai.Controls.Add(textBox_TheLoai_Them);
             tabPage_TheLoai.Controls.Add(button_TheLoai_Them);
             tabPage_TheLoai.Controls.Add(button_TheLoai_Xoa);
-            tabPage_TheLoai.Location = new Point(4, 29);
+            tabPage_TheLoai.Location = new Point(4, 24);
             tabPage_TheLoai.Name = "tabPage_TheLoai";
             tabPage_TheLoai.Padding = new Padding(3);
-            tabPage_TheLoai.Size = new Size(774, 422);
+            tabPage_TheLoai.Size = new Size(774, 427);
             tabPage_TheLoai.TabIndex = 1;
             tabPage_TheLoai.Text = "Thể loại sách";
             tabPage_TheLoai.UseVisualStyleBackColor = true;
@@ -342,10 +342,10 @@
             tabPage_NhaCungCap.Controls.Add(textBox_NCC_Them);
             tabPage_NhaCungCap.Controls.Add(button_NCC_Them);
             tabPage_NhaCungCap.Controls.Add(button_NCC_Xoa);
-            tabPage_NhaCungCap.Location = new Point(4, 29);
+            tabPage_NhaCungCap.Location = new Point(4, 24);
             tabPage_NhaCungCap.Name = "tabPage_NhaCungCap";
             tabPage_NhaCungCap.Padding = new Padding(3);
-            tabPage_NhaCungCap.Size = new Size(774, 422);
+            tabPage_NhaCungCap.Size = new Size(774, 427);
             tabPage_NhaCungCap.TabIndex = 2;
             tabPage_NhaCungCap.Text = "Nhà cung cấp";
             tabPage_NhaCungCap.UseVisualStyleBackColor = true;
@@ -357,7 +357,7 @@
             listBox_nhaCungCap.FormattingEnabled = true;
             listBox_nhaCungCap.Location = new Point(40, 100);
             listBox_nhaCungCap.Name = "listBox_nhaCungCap";
-            listBox_nhaCungCap.Size = new Size(530, 282);
+            listBox_nhaCungCap.Size = new Size(530, 275);
             listBox_nhaCungCap.TabIndex = 21;
             // 
             // textBox_NCC_Them
@@ -366,7 +366,7 @@
             textBox_NCC_Them.BorderStyle = BorderStyle.FixedSingle;
             textBox_NCC_Them.Location = new Point(40, 40);
             textBox_NCC_Them.Name = "textBox_NCC_Them";
-            textBox_NCC_Them.Size = new Size(530, 34);
+            textBox_NCC_Them.Size = new Size(530, 29);
             textBox_NCC_Them.TabIndex = 23;
             // 
             // button_NCC_Them
@@ -397,8 +397,7 @@
             // 
             // Form_Settings
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             ClientSize = new Size(782, 653);
             Controls.Add(tabControl_CaiDat);
