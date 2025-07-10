@@ -145,7 +145,7 @@ namespace Show10.Child_Forms {
             }
         }
         private void MoneySeparator(TextBox textBox) {
-            if (textBox.Text == "" || textBox.Text == "0") return;
+            if (textBox.Text == "" || textBox.Text == "0" || isLoc_KH || isLoc_PTT) return;
             decimal price = decimal.Parse(textBox.Text, System.Globalization.NumberStyles.Currency);
             textBox.Text = price.ToString("#,#");
             textBox.SelectionStart = textBox.Text.Length;

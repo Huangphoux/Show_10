@@ -16,8 +16,9 @@ namespace Show10.Windows {
             db = new NhaSachContext();
 
             //Comment dòng dưới để không tạo lại DB mỗi khi chạy chương trình
-            db.Database.EnsureDeleted();
-            Properties.Settings.Default.Reset();
+            //db.Database.EnsureDeleted();
+            //Properties.Settings.Default.Reset();
+            //checkBox_enableTab.Visible = true;
 
             db.Database.EnsureCreated();
 

@@ -88,6 +88,7 @@
             checkBox_enableTab.Text = "Bật các tab\r\n(TÍNH NĂNG DEBUG)\r\n";
             checkBox_enableTab.TextAlign = ContentAlignment.MiddleCenter;
             checkBox_enableTab.UseVisualStyleBackColor = false;
+            checkBox_enableTab.Visible = false;
             checkBox_enableTab.CheckedChanged += CheckBox_enableTab_CheckedChanged;
             // 
             // label_DangKy

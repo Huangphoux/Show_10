@@ -730,7 +730,7 @@ namespace Show10.Child_Forms {
             ApplyFilter_PhieuNhapSach();
         }
         private void MoneySeparator(TextBox textBox) {
-            if (textBox.Text == "" || textBox.Text == "0") return;
+            if (textBox.Text == "" || textBox.Text == "0" || isLoc_Sach || isLoc_PNS || isLoc_HD) return;
             decimal price = decimal.Parse(textBox.Text, System.Globalization.NumberStyles.Currency);
             textBox.Text = price.ToString("#,#");
             textBox.SelectionStart = textBox.Text.Length;
