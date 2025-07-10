@@ -662,7 +662,7 @@ namespace Show10.Child_Forms {
                 return;
             if (!isLoc_PTT && dataGridView_PhieuThuTien.CurrentRow != null) {
                 string maPT = dataGridView_PhieuThuTien.CurrentRow.Cells[0].Value?.ToString() ?? "";
-                string maKH = dataGridView_PhieuThuTien.CurrentRow.Cells[1].Value?.ToString() ?? "";
+                string maKH = dataGridView_PhieuThuTien.CurrentRow.Cells["maKHDataGridViewTextBoxColumn1"].Value?.ToString() ?? "";
                 string ngayThu = dataGridView_PhieuThuTien.CurrentRow.Cells[2].Value?.ToString() ?? "";
                 string soTien = dataGridView_PhieuThuTien.CurrentRow.Cells[3].Value?.ToString() ?? "";
 
@@ -700,5 +700,15 @@ namespace Show10.Child_Forms {
         }
         #endregion
 
+        private void DataGridView_PhieuThuTien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            if (db == null || this.IsDisposed || this.Disposing)
+                return;
+
+            foreach (DataGridViewRow row in dataGridView_PhieuThuTien.Rows) {
+                if (row.DataBoundItem is PhieuThuTien phieu) {
+                    row.Cells["TenKH"].Value = db?.KhachHangs.FirstOrDefault(s => s.MaKH == phieu.MaKH)!.TenKH;
+                }
+            }
+        }
     }
 }

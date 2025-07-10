@@ -61,6 +61,7 @@
             tabPage_PhieuThuTien = new TabPage();
             dataGridView_PhieuThuTien = new DataGridView();
             maPTDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            TenKH = new DataGridViewTextBoxColumn();
             maKHDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ngayThuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             soTienDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -524,10 +525,10 @@
             // 
             tabPage_PhieuThuTien.Controls.Add(dataGridView_PhieuThuTien);
             tabPage_PhieuThuTien.Controls.Add(groupBox_PhieuThuTien);
-            tabPage_PhieuThuTien.Location = new Point(4, 29);
+            tabPage_PhieuThuTien.Location = new Point(4, 37);
             tabPage_PhieuThuTien.Name = "tabPage_PhieuThuTien";
             tabPage_PhieuThuTien.Padding = new Padding(3);
-            tabPage_PhieuThuTien.Size = new Size(1254, 520);
+            tabPage_PhieuThuTien.Size = new Size(1254, 512);
             tabPage_PhieuThuTien.TabIndex = 1;
             tabPage_PhieuThuTien.Text = "Quản lý phiếu thu tiền";
             tabPage_PhieuThuTien.UseVisualStyleBackColor = true;
@@ -550,7 +551,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView_PhieuThuTien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView_PhieuThuTien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView_PhieuThuTien.Columns.AddRange(new DataGridViewColumn[] { maPTDataGridViewTextBoxColumn, maKHDataGridViewTextBoxColumn1, ngayThuDataGridViewTextBoxColumn, soTienDataGridViewTextBoxColumn });
+            dataGridView_PhieuThuTien.Columns.AddRange(new DataGridViewColumn[] { maPTDataGridViewTextBoxColumn, TenKH, maKHDataGridViewTextBoxColumn1, ngayThuDataGridViewTextBoxColumn, soTienDataGridViewTextBoxColumn });
             dataGridView_PhieuThuTien.DataSource = phieuThuTienBindingSource;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
@@ -569,8 +570,9 @@
             dataGridView_PhieuThuTien.RowHeadersVisible = false;
             dataGridView_PhieuThuTien.RowHeadersWidth = 51;
             dataGridView_PhieuThuTien.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridView_PhieuThuTien.Size = new Size(1248, 251);
+            dataGridView_PhieuThuTien.Size = new Size(1248, 243);
             dataGridView_PhieuThuTien.TabIndex = 4;
+            dataGridView_PhieuThuTien.CellFormatting += DataGridView_PhieuThuTien_CellFormatting;
             dataGridView_PhieuThuTien.CellValueChanged += DataGridView_PhieuThuTien_CellValueChanged;
             dataGridView_PhieuThuTien.SelectionChanged += DataGridView_PhieuThuTien_SelectionChanged;
             // 
@@ -582,12 +584,20 @@
             maPTDataGridViewTextBoxColumn.Name = "maPTDataGridViewTextBoxColumn";
             maPTDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // TenKH
+            // 
+            TenKH.HeaderText = "Tên khách hàng";
+            TenKH.MinimumWidth = 6;
+            TenKH.Name = "TenKH";
+            TenKH.ReadOnly = true;
+            // 
             // maKHDataGridViewTextBoxColumn1
             // 
             maKHDataGridViewTextBoxColumn1.DataPropertyName = "MaKH";
             maKHDataGridViewTextBoxColumn1.HeaderText = "Mã khách hàng";
             maKHDataGridViewTextBoxColumn1.MinimumWidth = 6;
             maKHDataGridViewTextBoxColumn1.Name = "maKHDataGridViewTextBoxColumn1";
+            maKHDataGridViewTextBoxColumn1.Visible = false;
             // 
             // ngayThuDataGridViewTextBoxColumn
             // 
@@ -941,15 +951,16 @@
         private Label label_PTT_SoTien;
         private FontAwesome.Sharp.IconButton icon_PTT_Clear;
         private BindingSource phieuThuTienBindingSource;
-        private DataGridViewTextBoxColumn maPTDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn ngayThuDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn soTienDataGridViewTextBoxColumn;
         private DateTimePicker date_PTT_NgayThu;
         private Label label_PTT_Filter;
         private DateTimePicker date_PTT_Filter;
         private ComboBox comboBox_PTT_MaKH;
         private FontAwesome.Sharp.IconButton icon_KH_ResetGioiTinh;
         private FontAwesome.Sharp.IconButton icon_PTT_ResetMaKH;
+        private DataGridViewTextBoxColumn maPTDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn TenKH;
+        private DataGridViewTextBoxColumn maKHDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn ngayThuDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn soTienDataGridViewTextBoxColumn;
     }
 }
