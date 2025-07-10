@@ -520,10 +520,13 @@ namespace Show10.Child_Forms {
         }
         private void Icon_PNS_Them_Click(object sender, EventArgs e) {
             if (string.IsNullOrWhiteSpace(textBox_PNS_SoLuong.Text) ||
-                string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text)
+                string.IsNullOrWhiteSpace(textBox_PNS_GiaNhap.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_PNS_MaSach.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_PNS_NCC.Text)
                 ) {
                 MessageBox.Show(
-                    "Nhập đủ số lượng, giá nhập, và nhà cung cấp\n" +
+                    "Nhập đủ số lượng, giá nhập,\n" +
+                    "chọn sách và nhà cung cấp\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -885,9 +888,13 @@ namespace Show10.Child_Forms {
             date_HD_NgayBan.Text = hoaDon.NgayHD.ToShortDateString();
         }
         private void Icon_HD_Them_Click(object sender, EventArgs e) {
-            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text)) {
+            if (string.IsNullOrWhiteSpace(textBox_HD_SoLuong.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_HD_MaSach.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_HD_MaKH.Text)
+                ) {
                 MessageBox.Show(
-                    "Nhập số lượng để tính tổng tiền cần trả\n" +
+                    "Nhập số lượng để tính tổng tiền cần trả,\n" +
+                    "chọn khách hàng và sách\n" +
                     "trước khi thêm vào cơ sở dữ liệu.",
                     "Chưa điền đầy đủ các thông tin cần thiết",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1306,6 +1313,19 @@ namespace Show10.Child_Forms {
             }
         }
         private void Icon_HD_Tinh_Click(object sender, EventArgs e) {
+            if (
+                string.IsNullOrWhiteSpace(comboBox_HD_MaSach.Text)
+                ) {
+                MessageBox.Show(
+                                        "Chọn sách trước khi tính các số liệu.",
+
+                    "Chưa điền đầy đủ các thông tin cần thiết",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
+
             int maSach = int.Parse(comboBox_HD_MaSach.SelectedValue.ToString());
 
             if (db!.Sachs.First(s => s.MaSach == maSach).SoLuong == 0) {
