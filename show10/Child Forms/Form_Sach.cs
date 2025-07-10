@@ -773,8 +773,8 @@ namespace Show10.Child_Forms {
             if (!isLoc_PNS && dataGridView_PhieuNhapSach.CurrentRow != null) {
                 string maPN = dataGridView_PhieuNhapSach.CurrentRow.Cells[0].Value?.ToString() ?? "";
                 string maSach = dataGridView_PhieuNhapSach.CurrentRow.Cells["maSachDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
-                string soLuong = dataGridView_PhieuNhapSach.CurrentRow.Cells[2].Value?.ToString() ?? "";
-                string giaNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[3].Value?.ToString() ?? "";
+                string soLuong = dataGridView_PhieuNhapSach.CurrentRow.Cells["soLuongDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
+                string giaNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells["giaNhapDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
                 string ngayNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[4].Value?.ToString() ?? "";
                 string nhaCungCap = dataGridView_PhieuNhapSach.CurrentRow.Cells[5].Value?.ToString() ?? "";
 
