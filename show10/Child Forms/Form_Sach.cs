@@ -346,6 +346,10 @@ namespace Show10.Child_Forms {
         }
         #endregion
         private IQueryable<Sach> GetFilteredData_Sach() {
+
+            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+                return null;
+
             var filteredData = db!.Sachs.Local.AsQueryable();
 
             if (!isLoc_Sach) {
@@ -376,7 +380,11 @@ namespace Show10.Child_Forms {
         }
         private void ApplyFilter_Sach() {
             if (isLoc_Sach && dataGridView_Sach != null) {
-                dataGridView_Sach.DataSource = new BindingSource { DataSource = GetFilteredData_Sach().ToList() };
+                var filteredData = GetFilteredData_Sach();
+                if (filteredData != null) {
+                    dataGridView_Sach.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+                }
+
             }
         }
         private void Icon_Sach_Tim_Click(object sender, EventArgs e) {
@@ -673,6 +681,9 @@ namespace Show10.Child_Forms {
             }
         }
         private IQueryable<PhieuNhapSach> GetFilteredData_PNS() {
+            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+                return null;
+
             var filteredData = db!.PhieuNhapSachs.Local.AsQueryable();
 
             if (!isLoc_PNS) {
@@ -716,7 +727,12 @@ namespace Show10.Child_Forms {
         }
         private void ApplyFilter_PhieuNhapSach() {
             if (isLoc_PNS && dataGridView_PhieuNhapSach != null) {
-                dataGridView_PhieuNhapSach.DataSource = new BindingSource { DataSource = GetFilteredData_PNS().ToList() };
+
+                var filteredData = GetFilteredData_PNS();
+                if (filteredData != null) {
+                    dataGridView_PhieuNhapSach.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+                }
+
             }
         }
         #region Detect changes in phieuNhapSach
@@ -781,7 +797,7 @@ namespace Show10.Child_Forms {
                 string soLuong = dataGridView_PhieuNhapSach.CurrentRow.Cells["soLuongDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
                 string giaNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells["giaNhapDataGridViewTextBoxColumn"].Value?.ToString() ?? "";
                 string ngayNhap = dataGridView_PhieuNhapSach.CurrentRow.Cells[4].Value?.ToString() ?? "";
-                string nhaCungCap = dataGridView_PhieuNhapSach.CurrentRow.Cells[5].Value?.ToString() ?? "";
+                string nhaCungCap = dataGridView_PhieuNhapSach.CurrentRow.Cells["NhaCungCap_PNS"].Value?.ToString() ?? "";
 
                 SetPhieuNhapSach(new PhieuNhapSach {
                     MaPN = int.TryParse(maPN, out var _maPN) ? _maPN : 0,
@@ -1046,6 +1062,10 @@ namespace Show10.Child_Forms {
             textBox_HD_SoTienTra.Text = "";
             textBox_HD_TongTien.Text = "";
             textBox_HD_ConLai.Text = "";
+
+            comboBox_HD_MaKH.SelectedIndex = -1;
+            comboBox_HD_MaSach.SelectedIndex = -1;
+
         }
         private void Icon_HD_Loc_Click(object sender, EventArgs e) {
             icon_HD_Loc.IconChar = (icon_HD_Loc.IconChar == IconChar.Filter) ? IconChar.FilterCircleXmark : IconChar.Filter;
@@ -1084,6 +1104,10 @@ namespace Show10.Child_Forms {
             }
         }
         private IQueryable<HoaDonBanSach> GetFilteredData_HD() {
+
+            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+                return null;
+
             var filteredData = db!.HoaDonBanSachs.Local.AsQueryable();
 
             if (!isLoc_HD) {
@@ -1150,7 +1174,11 @@ namespace Show10.Child_Forms {
         }
         private void ApplyFilter_HoaDonBanSach() {
             if (isLoc_HD && dataGridView_HoaDonBanSach != null) {
-                dataGridView_HoaDonBanSach.DataSource = new BindingSource { DataSource = GetFilteredData_HD().ToList() };
+
+                var filteredData = GetFilteredData_HD();
+                if (filteredData != null) {
+                    dataGridView_HoaDonBanSach.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+                }
             }
         }
         #region Detect changes in hoaDonBanSach

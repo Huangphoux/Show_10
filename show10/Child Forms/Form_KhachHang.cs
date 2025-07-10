@@ -308,6 +308,10 @@ namespace Show10.Child_Forms {
         }
         #endregion
         private IQueryable<KhachHang> GetFilteredData_KH() {
+
+            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+                return null;
+
             var filteredData = db!.KhachHangs.Local.AsQueryable();
 
             if (!isLoc_KH) {
@@ -342,7 +346,10 @@ namespace Show10.Child_Forms {
         }
         private void ApplyFilter_KhachHang() {
             if (isLoc_KH && dataGridView_KhachHang != null) {
-                dataGridView_KhachHang.DataSource = new BindingSource { DataSource = GetFilteredData_KH().ToList() };
+                var filteredData = GetFilteredData_KH();
+                if (filteredData != null) {
+                    dataGridView_KhachHang.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+                }
             }
         }
         private void Icon_KH_Tim_Click(object sender, EventArgs e) {
@@ -618,6 +625,10 @@ namespace Show10.Child_Forms {
         }
         #endregion
         private IQueryable<PhieuThuTien> GetFilteredData_PTT() {
+
+            if (db == null || db is IDisposable { } && (this.IsDisposed || this.Disposing))
+                return null;
+
             var filteredData = db!.PhieuThuTiens.Local.AsQueryable();
 
             if (!isLoc_PTT) {
@@ -649,7 +660,10 @@ namespace Show10.Child_Forms {
         }
         private void ApplyFilter_PhieuThuTien() {
             if (isLoc_PTT && dataGridView_PhieuThuTien != null) {
-                dataGridView_PhieuThuTien.DataSource = new BindingSource { DataSource = GetFilteredData_PTT().ToList() };
+                var filteredData = GetFilteredData_PTT();
+                if (filteredData != null) {
+                    dataGridView_PhieuThuTien.DataSource = new BindingSource { DataSource = filteredData.ToList() };
+                }
             }
         }
         private void Icon_PTT_Tim_Click(object sender, EventArgs e) {
@@ -674,6 +688,8 @@ namespace Show10.Child_Forms {
             comboBox_PTT_MaKH.SelectedIndex = 0;
             date_PTT_NgayThu.Text = "";
             textBox_PTT_SoTien.Text = "";
+
+            comboBox_PTT_MaKH.SelectedIndex = -1;
         }
         private void DataGridView_PhieuThuTien_SelectionChanged(object sender, EventArgs e) {
             if (db == null || this.IsDisposed || this.Disposing)
