@@ -1,10 +1,14 @@
 ﻿using FontAwesome.Sharp;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.Linq.Dynamic.Core;
 using System.Media;
 
 namespace Show10.Child_Forms {
     public partial class Form_Sach : Form {
+        BindingList<string> theLoai = new(Properties.Settings.Default.theLoai.Split(',').ToList());
+        BindingList<string> nhaCungCap = new(Properties.Settings.Default.nhaCungCap.Split(',').ToList());
+
         private NhaSachContext? db;
         bool isLoc_Sach = false;
         bool isLoc_PNS = false;
@@ -18,6 +22,9 @@ namespace Show10.Child_Forms {
             dataGridView_Sach.RowTemplate.Height = 50;
             dataGridView_PhieuNhapSach.RowTemplate.Height = 50;
             dataGridView_HoaDonBanSach.RowTemplate.Height = 50;
+
+            comboBox_Sach_TheLoai.DataSource = theLoai;
+            comboBox_PNS_NCC.DataSource = nhaCungCap;
 
             #region Set Tooltip
             string themTooltip_Text =

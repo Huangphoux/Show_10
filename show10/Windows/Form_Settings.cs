@@ -23,6 +23,10 @@ namespace Show10.Windows {
             Properties.Settings.Default.maxNo = double.Parse(textBox_maxNo.Text);
             Properties.Settings.Default.minSLSach = int.Parse(textBox_minSLSach.Text);
             Properties.Settings.Default.thuTienVuotNo = checkBox_thuTienVuotNo.Checked;
+
+            Properties.Settings.Default.theLoai = String.Join(",", theLoai);
+            Properties.Settings.Default.nhaCungCap = String.Join(",", nhaCungCap);
+
             Properties.Settings.Default.Save();
 
             MessageBox.Show("Các thông số đã được lưu vào cài đặt một cách mĩ mãn.",
@@ -103,8 +107,24 @@ namespace Show10.Windows {
             var result = MessageBox.Show("Bạn muốn xoá thể loại sách này?",
                 "Trước khi xoá thể loại sách", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if( result == DialogResult.Yes) {
+            if (result == DialogResult.Yes) {
                 theLoai.RemoveAt(listBox_theLoai.SelectedIndex);
+            }
+        }
+
+        private void Button_NCC_Them_Click(object sender, EventArgs e) {
+            nhaCungCap.Add(textBox_TheLoai_Them.Text.Trim());
+
+            textBox_NCC_Them.Text = "";
+            listBox_nhaCungCap.Refresh();
+        }
+
+        private void Button_NCC_Xoa_Click(object sender, EventArgs e) {
+            var result = MessageBox.Show("Bạn muốn xoá nhà cung cấp này?",
+                "Trước khi xoá nhà cung cấp", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes) {
+                nhaCungCap.RemoveAt(listBox_nhaCungCap.SelectedIndex);
             }
         }
     }

@@ -256,7 +256,7 @@
             button_TheLoai_Them.Anchor = AnchorStyles.Right;
             button_TheLoai_Them.BackColor = Color.FromArgb(128, 255, 128);
             button_TheLoai_Them.FlatStyle = FlatStyle.Flat;
-            button_TheLoai_Them.Location = new Point(590, 28);
+            button_TheLoai_Them.Location = new Point(590, 40);
             button_TheLoai_Them.Name = "button_TheLoai_Them";
             button_TheLoai_Them.Size = new Size(158, 40);
             button_TheLoai_Them.TabIndex = 18;
@@ -278,7 +278,7 @@
             button_TheLoai_Xoa.Anchor = AnchorStyles.Right;
             button_TheLoai_Xoa.BackColor = Color.FromArgb(255, 128, 128);
             button_TheLoai_Xoa.FlatStyle = FlatStyle.Flat;
-            button_TheLoai_Xoa.Location = new Point(590, 88);
+            button_TheLoai_Xoa.Location = new Point(590, 100);
             button_TheLoai_Xoa.Name = "button_TheLoai_Xoa";
             button_TheLoai_Xoa.Size = new Size(158, 40);
             button_TheLoai_Xoa.TabIndex = 20;
@@ -327,10 +327,10 @@
             tabPage_TheLoai.Controls.Add(textBox_TheLoai_Them);
             tabPage_TheLoai.Controls.Add(button_TheLoai_Them);
             tabPage_TheLoai.Controls.Add(button_TheLoai_Xoa);
-            tabPage_TheLoai.Location = new Point(4, 37);
+            tabPage_TheLoai.Location = new Point(4, 29);
             tabPage_TheLoai.Name = "tabPage_TheLoai";
             tabPage_TheLoai.Padding = new Padding(3);
-            tabPage_TheLoai.Size = new Size(774, 414);
+            tabPage_TheLoai.Size = new Size(774, 422);
             tabPage_TheLoai.TabIndex = 1;
             tabPage_TheLoai.Text = "Thể loại sách";
             tabPage_TheLoai.UseVisualStyleBackColor = true;
@@ -342,10 +342,10 @@
             tabPage_NhaCungCap.Controls.Add(textBox_NCC_Them);
             tabPage_NhaCungCap.Controls.Add(button_NCC_Them);
             tabPage_NhaCungCap.Controls.Add(button_NCC_Xoa);
-            tabPage_NhaCungCap.Location = new Point(4, 29);
+            tabPage_NhaCungCap.Location = new Point(4, 37);
             tabPage_NhaCungCap.Name = "tabPage_NhaCungCap";
             tabPage_NhaCungCap.Padding = new Padding(3);
-            tabPage_NhaCungCap.Size = new Size(774, 422);
+            tabPage_NhaCungCap.Size = new Size(774, 414);
             tabPage_NhaCungCap.TabIndex = 2;
             tabPage_NhaCungCap.Text = "Nhà cung cấp";
             tabPage_NhaCungCap.UseVisualStyleBackColor = true;
@@ -374,24 +374,26 @@
             button_NCC_Them.Anchor = AnchorStyles.Right;
             button_NCC_Them.BackColor = Color.FromArgb(128, 255, 128);
             button_NCC_Them.FlatStyle = FlatStyle.Flat;
-            button_NCC_Them.Location = new Point(590, 32);
+            button_NCC_Them.Location = new Point(590, 36);
             button_NCC_Them.Name = "button_NCC_Them";
             button_NCC_Them.Size = new Size(158, 40);
             button_NCC_Them.TabIndex = 22;
             button_NCC_Them.Text = "Thêm";
             button_NCC_Them.UseVisualStyleBackColor = false;
+            button_NCC_Them.Click += Button_NCC_Them_Click;
             // 
             // button_NCC_Xoa
             // 
             button_NCC_Xoa.Anchor = AnchorStyles.Right;
             button_NCC_Xoa.BackColor = Color.FromArgb(255, 128, 128);
             button_NCC_Xoa.FlatStyle = FlatStyle.Flat;
-            button_NCC_Xoa.Location = new Point(590, 92);
+            button_NCC_Xoa.Location = new Point(590, 96);
             button_NCC_Xoa.Name = "button_NCC_Xoa";
             button_NCC_Xoa.Size = new Size(158, 40);
             button_NCC_Xoa.TabIndex = 24;
             button_NCC_Xoa.Text = "Xoá";
             button_NCC_Xoa.UseVisualStyleBackColor = false;
+            button_NCC_Xoa.Click += Button_NCC_Xoa_Click;
             // 
             // Form_Settings
             // 

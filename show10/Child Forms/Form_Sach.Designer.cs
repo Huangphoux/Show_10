@@ -28,10 +28,11 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             groupBox_Sach = new GroupBox();
+            icon_Sach_ResetTheLoai = new FontAwesome.Sharp.IconButton();
+            comboBox_Sach_TheLoai = new ComboBox();
             icon_Sach_Clear = new FontAwesome.Sharp.IconButton();
             icon_Sach_Ban = new FontAwesome.Sharp.IconButton();
             icon_Sach_Nhap = new FontAwesome.Sharp.IconButton();
-            textBox_Sach_TheLoai = new TextBox();
             label_Sach_TheLoai = new Label();
             textBox_Sach_SoLuong = new TextBox();
             label_Sach_SoLuong = new Label();
@@ -64,11 +65,12 @@
             NhaCungCap = new DataGridViewTextBoxColumn();
             phieuNhapSachBindingSource = new BindingSource(components);
             groupBox_PhieuNhapSach = new GroupBox();
+            icon_PNS_ResetNCC = new FontAwesome.Sharp.IconButton();
+            comboBox_PNS_NCC = new ComboBox();
             icon_PNS_ResetMaSach = new FontAwesome.Sharp.IconButton();
             comboBox_PNS_MaSach = new ComboBox();
             label_PNS_Filter = new Label();
             date_PNS_Filter = new DateTimePicker();
-            textBox_PNS_NhaCungCap = new TextBox();
             label_PNS_NhaCungCap = new Label();
             date_PNS_NgayNhap = new DateTimePicker();
             icon_PNS_Clear = new FontAwesome.Sharp.IconButton();
@@ -146,10 +148,11 @@
             // 
             // groupBox_Sach
             // 
+            groupBox_Sach.Controls.Add(icon_Sach_ResetTheLoai);
+            groupBox_Sach.Controls.Add(comboBox_Sach_TheLoai);
             groupBox_Sach.Controls.Add(icon_Sach_Clear);
             groupBox_Sach.Controls.Add(icon_Sach_Ban);
             groupBox_Sach.Controls.Add(icon_Sach_Nhap);
-            groupBox_Sach.Controls.Add(textBox_Sach_TheLoai);
             groupBox_Sach.Controls.Add(label_Sach_TheLoai);
             groupBox_Sach.Controls.Add(textBox_Sach_SoLuong);
             groupBox_Sach.Controls.Add(label_Sach_SoLuong);
@@ -172,6 +175,31 @@
             groupBox_Sach.TabIndex = 0;
             groupBox_Sach.TabStop = false;
             groupBox_Sach.Text = "Nhập liệu";
+            // 
+            // icon_Sach_ResetTheLoai
+            // 
+            icon_Sach_ResetTheLoai.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            icon_Sach_ResetTheLoai.Enabled = false;
+            icon_Sach_ResetTheLoai.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_Sach_ResetTheLoai.IconColor = Color.Black;
+            icon_Sach_ResetTheLoai.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_Sach_ResetTheLoai.IconSize = 30;
+            icon_Sach_ResetTheLoai.Location = new Point(921, 199);
+            icon_Sach_ResetTheLoai.Name = "icon_Sach_ResetTheLoai";
+            icon_Sach_ResetTheLoai.Size = new Size(88, 36);
+            icon_Sach_ResetTheLoai.TabIndex = 58;
+            icon_Sach_ResetTheLoai.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_Sach_TheLoai
+            // 
+            comboBox_Sach_TheLoai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_Sach_TheLoai.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_Sach_TheLoai.FormattingEnabled = true;
+            comboBox_Sach_TheLoai.Items.AddRange(new object[] { "Nam", "Nữ" });
+            comboBox_Sach_TheLoai.Location = new Point(166, 199);
+            comboBox_Sach_TheLoai.Name = "comboBox_Sach_TheLoai";
+            comboBox_Sach_TheLoai.Size = new Size(749, 36);
+            comboBox_Sach_TheLoai.TabIndex = 57;
             // 
             // icon_Sach_Clear
             // 
@@ -241,18 +269,6 @@
             icon_Sach_Nhap.TextImageRelation = TextImageRelation.ImageAboveText;
             icon_Sach_Nhap.UseVisualStyleBackColor = false;
             icon_Sach_Nhap.Click += Icon_Sach_Nhap_Click;
-            // 
-            // textBox_Sach_TheLoai
-            // 
-            textBox_Sach_TheLoai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_Sach_TheLoai.BorderStyle = BorderStyle.FixedSingle;
-            textBox_Sach_TheLoai.Font = new Font("Segoe UI", 12F);
-            textBox_Sach_TheLoai.Location = new Point(166, 199);
-            textBox_Sach_TheLoai.Margin = new Padding(4);
-            textBox_Sach_TheLoai.Name = "textBox_Sach_TheLoai";
-            textBox_Sach_TheLoai.Size = new Size(843, 34);
-            textBox_Sach_TheLoai.TabIndex = 34;
-            textBox_Sach_TheLoai.TextChanged += TextBox_Sach_TheLoai_TextChanged;
             // 
             // label_Sach_TheLoai
             // 
@@ -647,11 +663,12 @@
             // 
             // groupBox_PhieuNhapSach
             // 
+            groupBox_PhieuNhapSach.Controls.Add(icon_PNS_ResetNCC);
+            groupBox_PhieuNhapSach.Controls.Add(comboBox_PNS_NCC);
             groupBox_PhieuNhapSach.Controls.Add(icon_PNS_ResetMaSach);
             groupBox_PhieuNhapSach.Controls.Add(comboBox_PNS_MaSach);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_Filter);
             groupBox_PhieuNhapSach.Controls.Add(date_PNS_Filter);
-            groupBox_PhieuNhapSach.Controls.Add(textBox_PNS_NhaCungCap);
             groupBox_PhieuNhapSach.Controls.Add(label_PNS_NhaCungCap);
             groupBox_PhieuNhapSach.Controls.Add(date_PNS_NgayNhap);
             groupBox_PhieuNhapSach.Controls.Add(icon_PNS_Clear);
@@ -676,6 +693,31 @@
             groupBox_PhieuNhapSach.TabIndex = 4;
             groupBox_PhieuNhapSach.TabStop = false;
             groupBox_PhieuNhapSach.Text = "Nhập liệu";
+            // 
+            // icon_PNS_ResetNCC
+            // 
+            icon_PNS_ResetNCC.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            icon_PNS_ResetNCC.Enabled = false;
+            icon_PNS_ResetNCC.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            icon_PNS_ResetNCC.IconColor = Color.Black;
+            icon_PNS_ResetNCC.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            icon_PNS_ResetNCC.IconSize = 30;
+            icon_PNS_ResetNCC.Location = new Point(1073, 220);
+            icon_PNS_ResetNCC.Name = "icon_PNS_ResetNCC";
+            icon_PNS_ResetNCC.Size = new Size(96, 36);
+            icon_PNS_ResetNCC.TabIndex = 60;
+            icon_PNS_ResetNCC.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_PNS_NCC
+            // 
+            comboBox_PNS_NCC.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox_PNS_NCC.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_PNS_NCC.FormattingEnabled = true;
+            comboBox_PNS_NCC.Items.AddRange(new object[] { "Nam", "Nữ" });
+            comboBox_PNS_NCC.Location = new Point(177, 221);
+            comboBox_PNS_NCC.Name = "comboBox_PNS_NCC";
+            comboBox_PNS_NCC.Size = new Size(890, 36);
+            comboBox_PNS_NCC.TabIndex = 59;
             // 
             // icon_PNS_ResetMaSach
             // 
@@ -728,18 +770,6 @@
             date_PNS_Filter.Size = new Size(645, 34);
             date_PNS_Filter.TabIndex = 41;
             date_PNS_Filter.ValueChanged += Date_PNS_Filter_ValueChanged;
-            // 
-            // textBox_PNS_NhaCungCap
-            // 
-            textBox_PNS_NhaCungCap.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox_PNS_NhaCungCap.BorderStyle = BorderStyle.FixedSingle;
-            textBox_PNS_NhaCungCap.Font = new Font("Segoe UI", 12F);
-            textBox_PNS_NhaCungCap.Location = new Point(177, 223);
-            textBox_PNS_NhaCungCap.Margin = new Padding(4);
-            textBox_PNS_NhaCungCap.Name = "textBox_PNS_NhaCungCap";
-            textBox_PNS_NhaCungCap.Size = new Size(992, 34);
-            textBox_PNS_NhaCungCap.TabIndex = 40;
-            textBox_PNS_NhaCungCap.TextChanged += TextBox_PNS_NhaCungCap_TextChanged;
             // 
             // label_PNS_NhaCungCap
             // 
@@ -1606,7 +1636,6 @@
         private DataGridViewTextBoxColumn matKhauDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hoTenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn vaiTroDataGridViewTextBoxColumn;
-        private TextBox textBox_Sach_TheLoai;
         private Label label_Sach_TheLoai;
         private TextBox textBox_Sach_SoLuong;
         private Label label_Sach_SoLuong;
@@ -1660,7 +1689,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn_TheLoai;
         private Label label_PNS_Filter;
         private DateTimePicker date_PNS_Filter;
-        private TextBox textBox_PNS_NhaCungCap;
         private Label label_PNS_NhaCungCap;
         private DataGridViewTextBoxColumn MaHD;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1695,5 +1723,9 @@
         private FontAwesome.Sharp.IconButton icon_PNS_ResetMaSach;
         private FontAwesome.Sharp.IconButton icon_HD_ResetMaSach;
         private FontAwesome.Sharp.IconButton icon_HD_ResetMaKH;
+        private FontAwesome.Sharp.IconButton icon_Sach_ResetTheLoai;
+        private ComboBox comboBox_Sach_TheLoai;
+        private FontAwesome.Sharp.IconButton icon_PNS_ResetNCC;
+        private ComboBox comboBox_PNS_NCC;
     }
 }
