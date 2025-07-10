@@ -703,7 +703,7 @@ namespace Show10.Child_Forms {
                 }
             }
             if (!string.IsNullOrEmpty(comboBox_PNS_NCC.Text)) {
-                filteredData = filteredData.Where(s => s.NhaCungCap.Contains(comboBox_PNS_NCC.Text));
+                filteredData = filteredData.Where(s => s.NhaCungCap == comboBox_PNS_NCC.Text);
             }
 
             if (isLoc_PNS) {
@@ -749,6 +749,11 @@ namespace Show10.Child_Forms {
         private void TextBox_PNS_NhaCungCap_TextChanged(object sender, EventArgs e) {
             ApplyFilter_PhieuNhapSach();
         }
+        private void ComboBox_PNS_NCC_SelectedIndexChanged(object sender, EventArgs e) {
+            ApplyFilter_PhieuNhapSach();
+
+        }
+
         #endregion
         private void Icon_PNS_Tim_Click(object sender, EventArgs e) {
             var filteredList = GetFilteredData_PNS().ToList();

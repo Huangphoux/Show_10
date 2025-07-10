@@ -476,6 +476,7 @@
             dataGridView_Sach.AllowUserToAddRows = false;
             dataGridView_Sach.AllowUserToDeleteRows = false;
             dataGridView_Sach.AllowUserToOrderColumns = true;
+            dataGridView_Sach.AllowUserToResizeRows = false;
             dataGridView_Sach.AutoGenerateColumns = false;
             dataGridView_Sach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_Sach.BackgroundColor = Color.White;
@@ -732,6 +733,7 @@
             comboBox_PNS_NCC.Name = "comboBox_PNS_NCC";
             comboBox_PNS_NCC.Size = new Size(890, 36);
             comboBox_PNS_NCC.TabIndex = 59;
+            comboBox_PNS_NCC.SelectedIndexChanged += ComboBox_PNS_NCC_SelectedIndexChanged;
             // 
             // icon_PNS_ResetMaSach
             // 
