@@ -22,7 +22,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -589,6 +590,7 @@
             // 
             dataGridView_PhieuNhapSach.AllowUserToAddRows = false;
             dataGridView_PhieuNhapSach.AllowUserToDeleteRows = false;
+            dataGridView_PhieuNhapSach.AllowUserToResizeRows = false;
             dataGridView_PhieuNhapSach.AutoGenerateColumns = false;
             dataGridView_PhieuNhapSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_PhieuNhapSach.BackgroundColor = Color.White;
@@ -1027,6 +1029,7 @@
             // 
             dataGridView_HoaDonBanSach.AllowUserToAddRows = false;
             dataGridView_HoaDonBanSach.AllowUserToDeleteRows = false;
+            dataGridView_HoaDonBanSach.AllowUserToResizeRows = false;
             dataGridView_HoaDonBanSach.AutoGenerateColumns = false;
             dataGridView_HoaDonBanSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_HoaDonBanSach.BackgroundColor = Color.White;
